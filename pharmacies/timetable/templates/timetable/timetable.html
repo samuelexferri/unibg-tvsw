@@ -1,0 +1,177 @@
+{% extends "shop/base.html" %}
+{% load bootstrap4 %}
+<title>{% block title %}Timetable{% endblock %}</title>
+
+{% block content %}
+
+    <center>
+        {% bootstrap_messages %}
+        <br>
+        <div class="container">
+            <h3>Timetable</h3>
+        </div>
+    </center>
+    <br>
+    <center>
+        <div style="width: 75%;">
+            <table table class="table" width="75%">
+                <tr>
+                    <th>
+                        <center>TIMETABLE</center>
+                    </th>
+                    <th>
+                        <center>0 - 4</center>
+                    </th>
+                    <th>
+                        <center>4 - 8</center>
+                    </th>
+                    <th>
+                        <center>8 - 12</center>
+                    </th>
+                    <th>
+                        <center>12 - 16</center>
+                    </th>
+                    <th>
+                        <center>16 - 20</center>
+                    </th>
+                    <th>
+                        <center>20 - 24</center>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <center>Monday</center>
+                    </th>
+                    {% for i in array %}
+                        <td>
+                            {% for slot in slots %}
+                                {% if 'Monday' == slot.day and i == slot.slot4h %}
+                                    <center>
+                                        <a href="{% url 'shop:pharmacies_detail' slot.pharmacy.id %}"
+                                           class="btn btn-primary">{{ slot.pharmacy.name }}</a>
+                                        <br><br>
+                                    </center>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <th>
+                        <center>Tuesday</center>
+                    </th>
+                    {% for i in array %}
+                        <td>
+                            {% for slot in slots %}
+                                {% if 'Tuesday' == slot.day and i == slot.slot4h %}
+                                    <center>
+                                        <a href="{% url 'shop:pharmacies_detail' slot.pharmacy.id %}"
+                                           class="btn btn-primary">{{ slot.pharmacy.name }}</a>
+                                        <br><br>
+                                    </center>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <th>
+                        <center>Wednesday</center>
+                    </th>
+                    {% for i in array %}
+                        <td>
+                            {% for slot in slots %}
+                                {% if 'Wednesday' == slot.day and i == slot.slot4h %}
+                                    <center>
+                                        <a href="{% url 'shop:pharmacies_detail' slot.pharmacy.id %}"
+                                           class="btn btn-primary">{{ slot.pharmacy.name }}</a>
+                                        <br><br>
+                                    </center>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <th>
+                        <center>Thursday</center>
+                    </th>
+                    {% for i in array %}
+                        <td>
+                            {% for slot in slots %}
+                                {% if 'Thursday' == slot.day and i == slot.slot4h %}
+                                    <center>
+                                        <a href="{% url 'shop:pharmacies_detail' slot.pharmacy.id %}"
+                                           class="btn btn-primary">{{ slot.pharmacy.name }}</a>
+                                        <br><br>
+                                    </center>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <th>
+                        <center>Friday</center>
+                    </th>
+                    {% for i in array %}
+                        <td>
+                            {% for slot in slots %}
+                                {% if 'Friday' == slot.day and i == slot.slot4h %}
+                                    <center>
+                                        <a href="{% url 'shop:pharmacies_detail' slot.pharmacy.id %}"
+                                           class="btn btn-primary">{{ slot.pharmacy.name }}</a>
+                                        <br><br>
+                                    </center>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <th>
+                        <center>Saturday</center>
+                    </th>
+                    {% for i in array %}
+                        <td>
+                            {% for slot in slots %}
+                                {% if 'Saturday' == slot.day and i == slot.slot4h %}
+                                    <center>
+                                        <a href="{% url 'shop:pharmacies_detail' slot.pharmacy.id %}"
+                                           class="btn btn-primary">{{ slot.pharmacy.name }}</a>
+                                        <br><br>
+                                    </center>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <th>
+                        <center>Sunday</center>
+                    </th>
+                    {% for i in array %}
+                        <td>
+                            {% for slot in slots %}
+                                {% if 'Sunday' == slot.day and i == slot.slot4h %}
+                                    <center>
+                                        <a href="{% url 'shop:pharmacies_detail' slot.pharmacy.id %}"
+                                           class="btn btn-primary">{{ slot.pharmacy.name }}</a>
+                                        <br><br>
+                                    </center>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </center>
+{% endblock %}

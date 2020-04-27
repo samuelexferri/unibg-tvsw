@@ -1,0 +1,68 @@
+{% extends "shop/base.html" %}
+{% load bootstrap4 %}
+<title>{% block title %}Products{% endblock %}</title>
+
+{% block content %}
+    <center>{% bootstrap_messages %}</center>
+    <br>
+    <center>
+        <h5>All items ({{ products_all|length }})</h5>
+    </center>
+    <hr>
+    <div class="row" style="margin-left: 25px;margin-right: 25px;">
+        {% for item in products %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="{% url 'shop:products_detail' item.id %}">
+                        <br>
+                        <center>
+                            <img width="200" height="200" src="/media/{{ item.image }}" alt="">
+                        </center>
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="{% url 'shop:products_detail' item.id %}">{{ item.name|title }}</a>
+                        </h4>
+                        <h5>{{ item.price|floatformat:"2" }} €</h5>
+                    </div>
+                    <form action="{% url 'shop:add_cart' item.id %}">
+                        <center>
+                            <input type="submit" class="btn btn-success" value="Add to cart">
+                        </center>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        {% empty %}
+            <div class="card w-100">
+                <div class="card-body">
+                    <center><h5>Item not available</h5></center>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if products.number %}
+        <div class="text-center">
+            <br>
+            <span class="text-center">
+            {% if products.has_previous %}
+                <a class="btn btn-outline-info mb-2" href="?page=1">&laquo; First</a>
+                <a class="btn btn-outline-info mb-2" href="?page={{ products.previous_page_number }}">Previous</a>
+            {% endif %}
+
+                <span class="current">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}
+            </span>
+
+            <span class="text-center">
+            {% if products.has_next %}
+                <a class="btn btn-outline-info mb-2" href="?page={{ products.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-2"
+                   href="?page={{ products.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+            </span>
+            <br>
+        </div>
+    {% endif %}
+{% endblock %}

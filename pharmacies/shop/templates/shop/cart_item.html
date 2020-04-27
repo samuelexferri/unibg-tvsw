@@ -1,0 +1,48 @@
+{% extends "shop/base.html" %}
+{% load bootstrap4 %}
+<title>{% block title %}Cart items{% endblock %}</title>
+
+{% block content %}
+    <center>
+        {% bootstrap_messages %}
+        {% for item in products %}
+            <br>
+            <div class="col-lg-4 col-md-4 mb-4">
+                <div class="card h-50">
+                    <div class="card-body">
+                        <a href="{% url 'shop:products_detail' item.id %}">
+                            <img src="/media/{{ item.image }}" width="200" height="100" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="{% url 'shop:products_detail' item.id %}">{{ item.name|title }}</a>
+                            </h4>
+                            <h5>{{ item.price|floatformat:"2" }} €</h5>
+                            <h5>Shipping fee: {{ item.shipping_fee }} €</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <h5>Items ({{ request.session.data.items|length }})</h5>
+        <br>
+        {% for item in products %}
+            {{ item.name }}: {{ item.price }} €
+            <br>
+        {% endfor %}
+        <br>
+        <h5>Shipping fee:</h5>
+        {% for item in products %}
+            {{ item.name }}: {{ item.shipping_fee }} € <br>
+        {% endfor %}
+        <br>
+        <h5>Total price: <b style="color:red;">{{ request.session.data.price }} €</b></h5>
+        <br>
+        <a class="btn btn-success" href="{% url 'shop:buy_items' %}">Procede to checkout</a>
+        <br>
+        <br>
+        <a class="btn btn-success" href="{% url 'shop:reset_cart' %}">Reset cart</a>
+        <br>
+        <br>
+    </center>
+{% endblock %}

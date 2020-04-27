@@ -1,0 +1,40 @@
+{% extends "shop/base.html" %}
+{% load bootstrap4 %}
+
+<title>{% block title %}Sell a product{% endblock %}</title>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
+                <div class="card my-5">
+                    <div class="card-body">
+                        <h4>Select your payment method:</h4>
+                        <br>
+                        <input type="radio" name="payment" onclick="window.location='{% url 'shop:checkout' %}' "/>
+                        Debit Card &nbsp
+                        <input type="radio" name="payment" onclick="window.location='{% url 'shop:checkout' %}' "/>
+                        Credit Card &nbsp
+                        <input type="radio" name="payment" onclick="window.location='{% url 'shop:checkout' %}' "/>
+                        PayPal &nbsp
+                        <input type="radio" name="payment" onclick="window.location='{% url 'shop:checkout' %}' "/> Cash
+                        on delivery
+                        <a/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

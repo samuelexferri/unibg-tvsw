@@ -1,0 +1,679 @@
+{
+  "format": 2,
+  "version": "5.0.3",
+  "globals": "6f970bb3fd818c0086bb8745517713d8",
+  "files": {
+    "authentication___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication___init___py.html",
+        "relative_filename": "authentication\\__init__.py"
+      }
+    },
+    "authentication_models_py": {
+      "hash": "70ed5a69feebd21c51640217af767d99",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_models_py.html",
+        "relative_filename": "authentication\\models.py"
+      }
+    },
+    "manage_py": {
+      "hash": "16f29c8348806aae6cea7ee8441cb291",
+      "index": {
+        "nums": [
+          1,
+          12,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "manage_py.html",
+        "relative_filename": "manage.py"
+      }
+    },
+    "pharmacies___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "pharmacies___init___py.html",
+        "relative_filename": "pharmacies\\__init__.py"
+      }
+    },
+    "pharmacies_settings_py": {
+      "hash": "8787d82c6d6fa5776e73ba3bb673c41b",
+      "index": {
+        "nums": [
+          1,
+          33,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "pharmacies_settings_py.html",
+        "relative_filename": "pharmacies\\settings.py"
+      }
+    },
+    "shop___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop___init___py.html",
+        "relative_filename": "shop\\__init__.py"
+      }
+    },
+    "shop_admin_py": {
+      "hash": "b80f182cc90a96c96a94428bd7b67eb6",
+      "index": {
+        "nums": [
+          1,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_admin_py.html",
+        "relative_filename": "shop\\admin.py"
+      }
+    },
+    "shop_choices_py": {
+      "hash": "05326d5523082d557d01d9f927ca55a7",
+      "index": {
+        "nums": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_choices_py.html",
+        "relative_filename": "shop\\choices.py"
+      }
+    },
+    "shop_models_py": {
+      "hash": "60cdb9ab4051b10070b94986ae6e3577",
+      "index": {
+        "nums": [
+          1,
+          95,
+          0,
+          6,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_models_py.html",
+        "relative_filename": "shop\\models.py"
+      }
+    },
+    "timetable___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable___init___py.html",
+        "relative_filename": "timetable\\__init__.py"
+      }
+    },
+    "timetable_admin_py": {
+      "hash": "241772b7b85514e15013018d0d890670",
+      "index": {
+        "nums": [
+          1,
+          7,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_admin_py.html",
+        "relative_filename": "timetable\\admin.py"
+      }
+    },
+    "timetable_choices_py": {
+      "hash": "edbe785208c40ab87f486d6bd7c2bd8f",
+      "index": {
+        "nums": [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_choices_py.html",
+        "relative_filename": "timetable\\choices.py"
+      }
+    },
+    "timetable_models_py": {
+      "hash": "94ec4b62cc80f52912915591c8a114ec",
+      "index": {
+        "nums": [
+          1,
+          16,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_models_py.html",
+        "relative_filename": "timetable\\models.py"
+      }
+    },
+    "transfer___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "transfer___init___py.html",
+        "relative_filename": "transfer\\__init__.py"
+      }
+    },
+    "transfer_models_py": {
+      "hash": "70ed5a69feebd21c51640217af767d99",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "transfer_models_py.html",
+        "relative_filename": "transfer\\models.py"
+      }
+    },
+    "authentication_forms_py": {
+      "hash": "13ffcd11c5187f24588deaa172785e95",
+      "index": {
+        "nums": [
+          1,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_forms_py.html",
+        "relative_filename": "authentication\\forms.py"
+      }
+    },
+    "authentication_migrations___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_migrations___init___py.html",
+        "relative_filename": "authentication\\migrations\\__init__.py"
+      }
+    },
+    "authentication_serializer_py": {
+      "hash": "478b9e0367323a14c3bab72ec73b44f5",
+      "index": {
+        "nums": [
+          1,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_serializer_py.html",
+        "relative_filename": "authentication\\serializer.py"
+      }
+    },
+    "authentication_tests_py": {
+      "hash": "70ed5a69feebd21c51640217af767d99",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_tests_py.html",
+        "relative_filename": "authentication\\tests.py"
+      }
+    },
+    "authentication_tokens_py": {
+      "hash": "9887861e9a4eca358af22ae64f405ac7",
+      "index": {
+        "nums": [
+          1,
+          6,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_tokens_py.html",
+        "relative_filename": "authentication\\tokens.py"
+      }
+    },
+    "authentication_urls_py": {
+      "hash": "34d2bb477a532b2a8d70fa13389a2a7e",
+      "index": {
+        "nums": [
+          1,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_urls_py.html",
+        "relative_filename": "authentication\\urls.py"
+      }
+    },
+    "authentication_views_py": {
+      "hash": "ce9760ddf13ed0416b99ab76252975bc",
+      "index": {
+        "nums": [
+          1,
+          76,
+          0,
+          50,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "authentication_views_py.html",
+        "relative_filename": "authentication\\views.py"
+      }
+    },
+    "pharmacies_permission_py": {
+      "hash": "6dd0c4c958a6afe112155dc5253fb90b",
+      "index": {
+        "nums": [
+          1,
+          33,
+          0,
+          21,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "pharmacies_permission_py.html",
+        "relative_filename": "pharmacies\\permission.py"
+      }
+    },
+    "pharmacies_urls_py": {
+      "hash": "9f3c1c8e9543ef414d274f89a7ae9e9c",
+      "index": {
+        "nums": [
+          1,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "pharmacies_urls_py.html",
+        "relative_filename": "pharmacies\\urls.py"
+      }
+    },
+    "shop_forms_py": {
+      "hash": "654e44dbffa45dd064f17f3e182472b4",
+      "index": {
+        "nums": [
+          1,
+          18,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_forms_py.html",
+        "relative_filename": "shop\\forms.py"
+      }
+    },
+    "shop_migrations_0001_initial_py": {
+      "hash": "cdb349d2463326b5fa72c1048fd4175f",
+      "index": {
+        "nums": [
+          1,
+          9,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_migrations_0001_initial_py.html",
+        "relative_filename": "shop\\migrations\\0001_initial.py"
+      }
+    },
+    "shop_migrations___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_migrations___init___py.html",
+        "relative_filename": "shop\\migrations\\__init__.py"
+      }
+    },
+    "shop_serializer_py": {
+      "hash": "3048a24178aa0db0f698fdc88902c9ab",
+      "index": {
+        "nums": [
+          1,
+          31,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_serializer_py.html",
+        "relative_filename": "shop\\serializer.py"
+      }
+    },
+    "shop_tests_py": {
+      "hash": "0759d7b60fab1df9c3babd31d94531be",
+      "index": {
+        "nums": [
+          1,
+          186,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_tests_py.html",
+        "relative_filename": "shop\\tests.py"
+      }
+    },
+    "shop_urls_py": {
+      "hash": "7937c1d3f382a7669431f134b29c344b",
+      "index": {
+        "nums": [
+          1,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_urls_py.html",
+        "relative_filename": "shop\\urls.py"
+      }
+    },
+    "shop_views_py": {
+      "hash": "d4889225b16c47646ec2f276fede0fd8",
+      "index": {
+        "nums": [
+          1,
+          158,
+          0,
+          48,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "shop_views_py.html",
+        "relative_filename": "shop\\views.py"
+      }
+    },
+    "timetable_migrations_0001_initial_py": {
+      "hash": "4f4c156dcb7cff20a7c07ae7e7849efb",
+      "index": {
+        "nums": [
+          1,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_migrations_0001_initial_py.html",
+        "relative_filename": "timetable\\migrations\\0001_initial.py"
+      }
+    },
+    "timetable_migrations___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_migrations___init___py.html",
+        "relative_filename": "timetable\\migrations\\__init__.py"
+      }
+    },
+    "timetable_serializer_py": {
+      "hash": "1dee4aede971d77b506e862ce04ed882",
+      "index": {
+        "nums": [
+          1,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_serializer_py.html",
+        "relative_filename": "timetable\\serializer.py"
+      }
+    },
+    "timetable_tests_py": {
+      "hash": "25922b4ff33b8a165a1d53d809ab17e4",
+      "index": {
+        "nums": [
+          1,
+          57,
+          0,
+          12,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_tests_py.html",
+        "relative_filename": "timetable\\tests.py"
+      }
+    },
+    "timetable_urls_py": {
+      "hash": "02b451ae155c089dfb4fed27695ba985",
+      "index": {
+        "nums": [
+          1,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_urls_py.html",
+        "relative_filename": "timetable\\urls.py"
+      }
+    },
+    "timetable_views_py": {
+      "hash": "b7a33f8243b3be91abd21a828840f1fb",
+      "index": {
+        "nums": [
+          1,
+          218,
+          0,
+          44,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "timetable_views_py.html",
+        "relative_filename": "timetable\\views.py"
+      }
+    },
+    "transfer_forms_py": {
+      "hash": "64fdecda5a2239d8aa9b49152fe29fc7",
+      "index": {
+        "nums": [
+          1,
+          6,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "transfer_forms_py.html",
+        "relative_filename": "transfer\\forms.py"
+      }
+    },
+    "transfer_migrations___init___py": {
+      "hash": "af9d0d0de0ea3b71d198bc63f1499a7d",
+      "index": {
+        "nums": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "transfer_migrations___init___py.html",
+        "relative_filename": "transfer\\migrations\\__init__.py"
+      }
+    },
+    "transfer_tests_py": {
+      "hash": "958430a67d9fa217f3e2dd98efbb6bb6",
+      "index": {
+        "nums": [
+          1,
+          207,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "transfer_tests_py.html",
+        "relative_filename": "transfer\\tests.py"
+      }
+    },
+    "transfer_urls_py": {
+      "hash": "cb1d514d3aff65c9628440a1ec76d499",
+      "index": {
+        "nums": [
+          1,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "transfer_urls_py.html",
+        "relative_filename": "transfer\\urls.py"
+      }
+    },
+    "transfer_views_py": {
+      "hash": "ab1425b065d5d6c2b1aa42a29ed1cd5e",
+      "index": {
+        "nums": [
+          1,
+          96,
+          0,
+          34,
+          0,
+          0,
+          0
+        ],
+        "html_filename": "transfer_views_py.html",
+        "relative_filename": "transfer\\views.py"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{% extends "shop/base.html" %}
+{% load bootstrap4 %}
+<title>{% block title %}Empty cart{% endblock %}</title>
+
+{% block content %}
+    <center>
+        {% bootstrap_messages %}
+        <br><br>
+        <div class="container">
+            <h5>You have no items now. Go to <a href="{% url 'shop:products_list' %}"> Shopping!</a></h5>
+        </div>
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

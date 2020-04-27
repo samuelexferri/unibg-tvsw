@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>436</x>
+      <y>224</y>
+      <w>96</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Account
+
+--
+-id: IDaccount
+-email
+-username
+-password
+
+--
+/+Signin(email,password)/
+/+Signup(username,password))/
+/+Signout(username)/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>296</x>
+      <y>336</y>
+      <w>128</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+TrasferMedicine
+
+--
+-username
+-Pharmacies
+-CategoryProduct
+
+--
+/+CalculateRoad(username,Pharmacies,Product)/
+/+RequestMedicine(username,CategoryProduct)/
+/+ViewRoad()/
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>436</x>
+      <y>124</y>
+      <w>100</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Authentication
+
+--
+-id: IDcart
+-username
+-password
+
+--
+/+Authenticate(username,password)/
+/+RemoveUserSession(username)/
+/+AddUserSession(username)/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>124</y>
+      <w>156</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Payment
+
+--
+-username
+-ProductItem
+
+--
+/+ReceivePaymentConfirmation(username)/
+/+InsertDataCreditCard(username,data,expirationData,code)/
+/+CreateOrder(username,productItem)/
+/+CreateInvoice(username,productItem)/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>316</x>
+      <y>224</y>
+      <w>100</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Cart Data
+
+--
+-id: IDcart
+-username
+-ProductItem
+
+--
+/+SaveCartContent(username)/
+/+OpenCart(ProductItem,username)/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>220</y>
+      <w>108</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+ProductSearch
+
+--
+-username
+-ProductItem
+-Pharmacy
+
+--
+
+/+SearchByName()/
+/+SearchByCategory(category)/
+/+SearchByName(Name)/
+/+SearchByPharamacy(Pharmacy)/
+/+ProductByCode(code)/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>336</y>
+      <w>144</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Timetable
+
+--
+-username
+-Pharmacies
+
+--
+/+CalculateTImetable(username,Pharmacies)/
+/+ModifyTimetable(username,Pharmacies)/
+/+ViewTimetable()/
+/+SaveTimetable(username)/
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>316</x>
+      <y>124</y>
+      <w>100</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Cart Controller
+
+--
+-id: IDcart
+-username
+-ProductItem
+
+--
+/+Empty(username)/
+/+Add(ProductItem,username)/
+/+Remove(ProductItem,username)/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>140</x>
+      <y>104</y>
+      <w>284</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Shop</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

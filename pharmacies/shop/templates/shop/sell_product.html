@@ -1,0 +1,25 @@
+{% extends "shop/base.html" %}
+{% load bootstrap4 %}
+
+<title>{% block title %}Sell a product{% endblock %}</title>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
+                <div class="card my-5">
+                    <div class="card-header text-center">
+                        Sell your product
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'shop:sell_product' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            <input type="submit" class="btn btn-success text-center w-100 mb-3" value="Submit">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

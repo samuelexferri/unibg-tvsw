@@ -1,0 +1,60 @@
+{% extends "shop/base.html" %}
+
+<title>{% block title %}Details{% endblock %}</title>
+
+{% load bootstrap4 %}
+{% block content %}
+    <center>
+        <center>{% bootstrap_messages %}</center>
+        <div class="col-lg-6 col-md-6 mb-6">
+            <br>
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <h4 class="card-title">
+                        {{ product.name }}
+                    </h4>
+                    <center>
+                        <img src="/media/{{ product.image }}" alt="" width="200" height="200">
+                    </center>
+                    <h5>{{ product.price }} €</h5>
+                    <h5>Shipping fee: {{ product.shipping_fee }} €</h5>
+                    <h5>Pharmacy: <a
+                            href="{% url 'shop:pharmacies_detail' product.pharmacy_id %}">{{ product.pharmacy }}</a>
+                    </h5>
+                    <h5 class="card-text">Description: {{ product.description }}</h5>
+                </div>
+            </div>
+
+            <form action="{% url 'shop:add_cart' product.id %}">
+                <br>
+                <input type="submit" class="btn btn-success" value="Add to cart">
+            </form>
+            <br>
+            <form action="{% url 'shop:buy_items' %}">
+                <input type="submit" class="btn btn-success" value=" Buy Now">
+            </form>
+        </div>
+        <br>
+        <h4>Reviews ({{ product.review_set.all|length }}) </h4>
+
+        {% for p in product.review_set.all %}
+            <div class="col-lg-6 col-md-6 mb-6">
+                <div class="card h-25">
+                    <div class="card-body">
+                        <p class="card-text">{{ p.review }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <hr>
+        <div class="col-lg-6 col-md-6 mb-6">
+            <form action="{% url 'shop:add_review' product.id %}" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-success">
+            </form>
+        </div>
+        <br>
+    </center>
+{% endblock %}

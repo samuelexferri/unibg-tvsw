@@ -1,0 +1,41 @@
+{% extends "shop/base.html" %}
+{% block title %}Pharmacy details{% endblock %}
+{% load bootstrap4 %}
+{% block content %}
+    <center>
+        {% bootstrap_messages %}
+        <br>
+        <h5>Transfer request</h5>
+        <br>
+        <div class="col-lg-6 col-md-6 mb-6">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    Posizione GPS (X: {{ x }}, Y: {{ y }})
+                    <br>
+                    Total quantity: {{ tot }}
+                    <br><br>
+
+                    <table class="table" width="75%">
+                        <tr>
+                            <th>Pharmacies</th>
+                            {% for i in lid %}
+                                <td>{{ i }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <th>Quantity</th>
+                            {% for i in lq %}
+                                <td> Q: {{ i }}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+
+                    <br>
+                    <a href="#" class="btn btn-primary">Book now</a>
+                </div>
+            </div>
+        </div>
+    </center>
+    <br><br><br><br><br>
+{% endblock %}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap4 %}
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}Pharmacies{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/shop-homepage.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/"><b>Pharmacies</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <form class="form-inline my-2 my-lg-0 mr-4" action="{% url 'shop:search' %}">
+                        <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search"
+                               aria-label="Search">
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'shop:cart' %}" class="btn btn-success">🛒 {{ request.session.data.count }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shop:home' %}">Home
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="{% url 'shop:about' %}">About</a>
+                        <a class="dropdown-item" href="{% url 'shop:contact' %}">Contact</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shop:pharmacies_list' %}">Pharmacies</a>
+                </li>
+
+                {% if user.is_staff %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="{% url 'shop:products_list' %}">Products</a>
+                            <a class="dropdown-item" href="{% url 'shop:sell_product' %}">Sell a product</a>
+                            <a class="dropdown-item" href="{% url 'transfer:transfer' %}">Medicine transfers</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'shop:products_list' %}">Products</a>
+                    </li>
+                {% endif %}
+
+                {% if user.is_superuser %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Timetable</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="{% url 'timetable:view_timetable' %}">Timetable</a>
+                            <a class="dropdown-item" href="{% url 'timetable:calc_timetable' %}">Timetable
+                                (Calculate)</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'timetable:view_timetable' %}">Timetable</a>
+                    </li>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>{{ user.username }}</b></a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="{% url 'authentication:logout' %}">Logout</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Account</b></a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'authentication:register' %}">Register</a>
+                            <a class="dropdown-item" href="{% url 'authentication:login' %}?next={{ request.path }}">Login</a>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block content %}
+    <center>{% bootstrap_messages %}</center>
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+                <br>
+                <center><h4>Categories</h4></center>
+                {% for category in categories %}
+                    <div class="list-group">
+                        <a href="{% url 'shop:categories' category.slug %}"
+                           class="list-group-item"><b>{{ category.name }}
+                            ({{ category.product_set.all|length }})</b></a>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+                <div id="carouselExampleIndicators" class="carousel slide my-2" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for product in featured_products %}
+                            <li data-target="#carouselExampleIndicators"
+                                data-slide-to="{{ forloop.counter }}"
+                                {% if forloop.counter == 1 %}class="active"{% endif %}></li>
+                        {% endfor %}
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        {% for product in featured_products %}
+
+                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                                <br>
+                                <b>Featured product: &nbsp</b>
+                                <a href="{% url 'shop:products_detail' product.id %}">{{ product.name }}
+                                    &nbsp {{ product.price }} €</a>
+                                <hr>
+                                <center><img width="400" height="400" src="/media/{{ product.image }}"
+                                             alt="First slide"></center>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <hr>
+                <center><h5>All products({{ products_all|length }})</h5></center>
+                <hr>
+                <div class="row">
+                    {% for p in product %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <center><br><a href="{% url 'shop:products_detail' p.id %}"><img
+                                        src="/media/{{ p.image }}"
+                                        alt="" width="200"
+                                        height="200" alt=""></a>
+                                </center>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{% url 'shop:products_detail' p.id %}">{{ p.name }}</a>
+                                    </h4>
+                                    <h5>{{ p.price }} €</h5>
+                                </div>
+                                <center>
+                                    <form action="{% url 'shop:add_cart' p.id %}">
+                                        <input type="submit" class="btn btn-success" value="Add to cart">
+                                    </form>
+                                    <br>
+                                </center>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- /.row -->
+
+                <div class="text-center">
+                    <span class="step-links">
+                        {% if product.has_previous %}
+                            <a class="btn btn-outline-info mb-2" href="?page=1">&laquo; First</a>
+                            <a class="btn btn-outline-info mb-2" href="?page={{ product.previous_page_number }}">Previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ product.number }} of {{ product.paginator.num_pages }}
+                        </span>
+
+                        {% if product.has_next %}
+                            <a class="btn btn-outline-info mb-2" href="?page={{ product.next_page_number }}">Next</a>
+                            <a class="btn btn-outline-info mb-2" href="?page={{ product.paginator.num_pages }}">Last &raquo;</a>
+                        {% endif %}
+
+                    </span>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- /.col-lg-9 -->
+    <!-- /.container -->
+{% endblock %}
+<!-- Footer -->
+<br>
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy Pharmacies {% now 'Y' %}</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

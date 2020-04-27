@@ -1,0 +1,2327 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+% in case somebody want to have the label "Equation"
+%\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
+
+% that links to image floats jumps to the beginning
+% of the float and not to its caption
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% makes caption labels bold
+% for more info about these settings, see
+% https://ctan.org/tex-archive/macros/latex/contrib/koma-script/doc/scrguien.pdf
+\setkomafont{captionlabel}{\bfseries}
+\setcapindent{1em}
+
+% enables calculations
+\usepackage{calc}
+
+% fancy page header/footer settings
+% for more information see section 9 of
+% ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% increases the bottom float placement fraction
+\renewcommand{\bottomfraction}{0.5}
+
+% avoids that floats are placed above its sections
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+
+% increases link area for cross-references and autoname them
+% if you change the document language to e.g. French
+% you must change "extrasenglish" to "extrasfrench"
+% if you uncomment the following lines, you cannot use the reference version Ref+Text in LyX
+%\AtBeginDocument{%
+% \renewcommand{\ref}[1]{\autoref{#1}}
+%}
+%\def\refnamechanges{%
+% \renewcommand*{\equationautorefname}[1]{}
+% \renewcommand{\sectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\figureautorefname}{Fig.\negthinspace}
+% \renewcommand{\tableautorefname}{Tab.\negthinspace}
+%}
+%\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\master project.lyx
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Your title"
+\pdf_author "Your name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\branch Standalone
+\selected 1
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 1
+\math_indentation default
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptername
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Fase 2
+\end_layout
+
+\begin_layout Chapter
+Implementazione
+\end_layout
+
+\begin_layout Standard
+In questa fase viene implementata l'applicazione e le funzionalità di base.
+\end_layout
+
+\begin_layout Section
+Selezione funzioni da implementare
+\end_layout
+
+\begin_layout Standard
+Abbiamo scelto di implementare le funzioni con priorità maggiore richieste
+ dal committente e rendere mock alcune a priorità più bassa.
+ Inoltre abbiamo riorganizzato le categorie che raggruppavano le funzioni
+ nel seguente modo mantenendo i codici dei casi d'uso precedenti: 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Authentication
+\end_layout
+
+\begin_layout Itemize
+U-UC1 Registrazione cliente (Alta)
+\end_layout
+
+\begin_layout Itemize
+U-UC2 Login cliente/farmacista (Alta)
+\end_layout
+
+\begin_layout Itemize
+U-UC3 Login manager (Alta)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Shop
+\end_layout
+
+\begin_layout Itemize
+A-UC1 Gestione carrello dei farmaci (Alta)
+\end_layout
+
+\begin_layout Itemize
+A-UC2 Prenotazione dei farmaci (Media) -> 
+\emph on
+Mock
+\end_layout
+
+\begin_layout Itemize
+A-UC3 Acquisto dei farmaci (Media) -> 
+\emph on
+Mock (Soltanto il pagamento)
+\end_layout
+
+\begin_layout Itemize
+F-UC1 Registrazione del farmaco in ingresso nel magazzino (Bassa) -> 
+\emph on
+Mock
+\emph default
+ 
+\end_layout
+
+\begin_layout Itemize
+F-UC2 Modifica manuale della disponibilità dei farmaci (Media) 
+\end_layout
+
+\begin_layout Itemize
+F-UC3 Generazione report delle vendite (Bassa) -> 
+\emph on
+Mock
+\end_layout
+
+\begin_layout Itemize
+F-UC4 Visualizzazione farmacista della disponibilità dei farmaci (Alta)
+\end_layout
+
+\begin_layout Itemize
+F-UC5 Vendita nuovo prodotto (Alta)
+\end_layout
+
+\begin_layout Itemize
+C-UC1 Inserimento nuova farmacia (Alta)
+\end_layout
+
+\begin_layout Itemize
+C-UC2 Eliminazione farmacia (Alta)
+\end_layout
+
+\begin_layout Itemize
+C-UC3 Gestione farmacia ferie/indisponibilità temporanea (Bassa) -> 
+\emph on
+Mock
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Timetable
+\end_layout
+
+\begin_layout Itemize
+O-UC1 Calcolo automatico degli orari settimanali delle farmacie (Alta) ->
+ 
+\emph on
+Algoritmo implementato nelle fasi successive
+\end_layout
+
+\begin_layout Itemize
+O-UC2 Modifica manuale degli orari settimanali delle farmacie (Bassa) ->
+ 
+\emph on
+Mock
+\end_layout
+
+\begin_layout Itemize
+O-UC3 Visualizzazione orario settimanale di tutte le farmacie (Alta)
+\end_layout
+
+\begin_layout Itemize
+O-UC4 Visualizzazione orario settimanale della singola farmacia (Media)
+ -> 
+\emph on
+Mock
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Transfer
+\end_layout
+
+\begin_layout Itemize
+F-UC6 Trasferimento medicinali (Alta) -> 
+\emph on
+Algoritmo implementato nelle fasi successive (Greedy) 
+\end_layout
+
+\begin_layout Standard
+Come si può notare è stata creata una grossa componente centrale 
+\emph on
+shop
+\emph default
+, mentre 
+\emph on
+authentication
+\emph default
+ si occupa dell'autenticazione nell'applicazione.
+ Le altre componenti t
+\emph on
+imetable
+\emph default
+ e 
+\emph on
+transfer
+\emph default
+ verranno trattate nelle fasi successive in cui implementeremo due algoritmi.
+\end_layout
+
+\begin_layout Section
+Apps
+\end_layout
+
+\begin_layout Standard
+Si vuole creare quindi un'applicazione web 
+\emph on
+pharmacies
+\emph default
+ che gestisca i vari moduli e funzionalità aggiuntive: in particolare avrà
+ il ruolo di unire tutti gli urls e i vari models definiti nelle varie applicazi
+oni.
+\end_layout
+
+\begin_layout Standard
+L'applicazione sarà divisa in quattro apps:
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+authentication
+\emph default
+: modulo che si occupa di tutta la parte di autenticazione e registrazione
+ degli utenti e dei permessi relativi.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+shop
+\emph default
+: modulo principale che si occupa di gestire tutta la parte di presentazione,
+ acquisto e vendita dei farmaci e della gestione delle farmacie.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+timetable
+\emph default
+: modulo che si occupa della presentazione e del calcolo degli orari settimanali
+ delle farmacie.
+ (
+\emph on
+Fase 3
+\emph default
+)
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+transfer
+\emph default
+: modulo che si occupa del trasferimento dei farmaci tra la farmacia.
+ (
+\emph on
+Fase 4
+\emph default
+)
+\end_layout
+
+\begin_layout Standard
+Iniziamo sviluppare le prime due componenti in questa fase.
+\end_layout
+
+\begin_layout Chapter
+Authentication
+\end_layout
+
+\begin_layout Standard
+L'app authentication si occupa di tutta la parte di autenticazione e registrazio
+ne degli utenti e dei permessi relativi.
+\end_layout
+
+\begin_layout Standard
+In particolare gestisce tutti i form relativi alle funzioni quali:
+\emph on
+ register, activate, login, logout, password-reset, password-reset-confirm,
+ password-reset-complete.
+\end_layout
+
+\begin_layout Standard
+È necessario configurare il file 
+\emph on
+settings.py
+\emph default
+ per abilitare la ricezione e l'invio delle email di conferma.
+\end_layout
+
+\begin_layout Section
+Tokens
+\end_layout
+
+\begin_layout Standard
+La password è salvata non in chiaro ma grazie a 
+\emph on
+tokens.py
+\emph default
+ viene effettuato l'hash della password.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class TokenGenerate(PasswordResetTokenGenerator):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	def _make_hash_value(self, user, timestamp):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		return (                 
+\end_layout
+
+\begin_layout Plain Layout
+
+			six.text_type(user.id) + six.text_type(timestamp) + six.text_type(user.is_active)
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		)
+\end_layout
+
+\begin_layout Plain Layout
+
+activation_token = TokenGenerate()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Permission
+\end_layout
+
+\begin_layout Standard
+Nella cartella 
+\emph on
+pharmacies
+\emph default
+ vi è il file 
+\emph on
+permission.py 
+\emph default
+che si occupa di gestire alcune funzioni che permettono di attribuire permessi
+ relativi al tipo di account dell'utente.
+\end_layout
+
+\begin_layout Standard
+Ad esempio 
+\emph on
+IsStaffOrReadOnly
+\emph default
+ permette l'accesso a una determinata funzione se e solo se l'utente che
+ richiede l'azione è membro dello staff (farmacista) oppure l'azione è solo
+ di lettura.
+ In particolare per limitare l'accesso a tutte le API fornite dalla nostra
+ applicazione vengono usate questi permessi.
+ In 
+\emph on
+SAFE_METHODS
+\emph default
+ sono presenti i metodi di lettura quali 
+\emph on
+GET, HEAD, OPTION
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class IsStaffOrReadOnly(permissions.BasePermission):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	"""     The request is authenticated as a member of a staff, or is a read-only
+ request     """
+\end_layout
+
+\begin_layout Plain Layout
+
+	def has_permission(self, request, view):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if request.method in SAFE_METHODS:             
+\end_layout
+
+\begin_layout Plain Layout
+
+			return True         
+\end_layout
+
+\begin_layout Plain Layout
+
+		elif request.user.is_staff:             
+\end_layout
+
+\begin_layout Plain Layout
+
+			return True         
+\end_layout
+
+\begin_layout Plain Layout
+
+		else:             
+\end_layout
+
+\begin_layout Plain Layout
+
+			return False
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le possibili classi sono: 
+\emph on
+IsAdmin, IsStaff, IsAuthenticated, IsAdminOrReadOnly, IsStaffOrReadOnly,
+ IsAuthenticatedOrReadOnly
+\emph default
+.
+\end_layout
+
+\begin_layout Chapter
+Shop
+\end_layout
+
+\begin_layout Standard
+L'app shop è il modulo principale che si occupa di gestire tutta la parte
+ di presentazione, acquisto e vendita dei farmaci e della gestione delle
+ farmacie.
+\end_layout
+
+\begin_layout Standard
+È la parte più corposa che gestisce anche il template base per la visualizzazion
+e del sito web.
+\end_layout
+
+\begin_layout Standard
+Nella figura sono rappresentate tutte le relazioni tra i vari package presenti
+ nell'app 
+\emph on
+shop
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Packages (Shop).png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Packages di shop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Home
+\end_layout
+
+\begin_layout Standard
+In questo modulo viene definita la funzione 
+\emph on
+homepage
+\emph default
+ e il template 
+\emph on
+base.html 
+\emph default
+che si occupa di visualizzare il corpo principale del sito web.
+\end_layout
+
+\begin_layout Standard
+Grazie a 
+\emph on
+Bootstrap
+\emph default
+ e 
+\emph on
+jQuery
+\emph default
+ è possibile adottare dei modelli predefiniti di costruzione per l'applicazione
+ web.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Homepage.png
+	lyxscale 75
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Homepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella pagina principale è presente una barra superiore che contiene lo strumento
+ di ricerca dei prodotti e tutti i collegamenti alle varie funzionalità
+ del sito web.
+ In alto a destra vi è la sezione relativa all'autenticazione dell'account.
+ Nel corpo principale della pagina sono presenti uno slider dei prodotti
+ in evidenza, l'elenco di tutti i prodotti e l'elenco delle categorie dei
+ prodotti a sinistra.
+\end_layout
+
+\begin_layout Standard
+Procediamo ad analizzare le funzionalità presenti nella barra superiore
+ e quale tipo di utente potrà accedervi.
+ Per ognuna di queste sono state create specifiche funzioni e variazioni
+ del template di base per la presentazione grafica.
+\end_layout
+
+\begin_layout Section
+About e Contact
+\end_layout
+
+\begin_layout Standard
+Sono sezioni contenenti informazioni sulla catena delle farmacie e un form
+ per la richiesta di supporto.
+\end_layout
+
+\begin_layout Standard
+Tutte queste sezioni sono accessibili anche da utenti non registrati, tuttavia
+ per inviare un messaggio è necessario inserire i propri dati.
+\end_layout
+
+\begin_layout Section
+Pharmacies
+\end_layout
+
+\begin_layout Standard
+È una sezione dove vengono listate tutte le farmacie attive presenti nel
+ database.
+ È possibile anche visualizzare nel dettaglio il nome, la descrizione e
+ la posizione di ogni singola farmacia.
+\end_layout
+
+\begin_layout Standard
+Tutte queste sezioni sono accessibili anche da utenti non registrati.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Farmacie.png
+	lyxscale 75
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Farmacie
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Categories, Products e Search
+\end_layout
+
+\begin_layout Standard
+Products è una sezione dove vengono listate tutti i farmaci presenti in
+ tutte le farmacie attive presenti nel database.
+ È possibile anche visualizzare nel dettaglio il nome, la descrizione, il
+ prezzo e in quali farmacie è presente il prodotto.
+ Oltre a ciò è possibile aggiungere al carrello il prodotto, acquistarlo
+ direttamente o scrivere una recensione sul prodotto.
+\end_layout
+
+\begin_layout Standard
+Inoltre dalla homepage è possibile listare i prodotti appartenenti a una
+ sola farmacia oppure procedere alla ricerca di uno specifico farmaco usando
+ la barra di ricerca presente nella barra superiore.
+\end_layout
+
+\begin_layout Standard
+Tutte queste sezioni sono accessibili anche da utenti non registrati.
+\end_layout
+
+\begin_layout Standard
+Nel caso in cui l'utente è parte dello staff (farmacista) potrà accedere
+ alle seguenti sottosezioni:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Products: 
+\series default
+permette di vedere la lista di tutti i prodotti presenti nelle farmacie.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Sell a product
+\series default
+: permette al farmacista di inserire velocemente un farmaco nel database
+ compilando tutti i campi un apposito form e indicando la propria farmacie.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Medicine transfers
+\series default
+: permette al farmacista di poter richiedere il trasferimento di farmaci
+ da altre farmacie.
+ 
+\emph on
+(Algoritmo greedy implementato nelle fasi successive)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Sell a product.png
+	lyxscale 75
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sell a product form
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Cart e Payment
+\end_layout
+
+\begin_layout Standard
+Cart è una sezione per vedere tutti i farmaci messi nel carrello in attesa
+ di procede all'acquisto.
+ Il carrello presenta un riepilogo dei prodotti aggiunti, il prezzo totale,
+ i costi di spedizione e due bottoni: 
+\emph on
+reset cart 
+\emph default
+(svuotare il carrello) e 
+\emph on
+procede to checkout
+\emph default
+ (procedere all'acquisto).
+\end_layout
+
+\begin_layout Standard
+Procedendo all'acquisto il cliente dovrà compilare un form per indicare
+ il proprio indirizzo di spedizione e successivamente quale metodo di pagamento
+ scegliere tra quelli proposti.
+\end_layout
+
+\begin_layout Standard
+È un componente mock, il pagamento va sempre a buon fine.
+\end_layout
+
+\begin_layout Standard
+Questa sezione è accessibile a da chiunque ma il pagamento può essere concluso
+ solo da utenti registrati.
+\end_layout
+
+\begin_layout Section
+Timetable
+\end_layout
+
+\begin_layout Standard
+Timetable è una sezione visibile a chiunque dove è possibile visualizzare
+ la tabella degli orari settimanali delle farmacie divise in slot di 4 ore.
+ Solo il manager delle farmacie però potrà calcolare questi orari settimanali
+ cliccando un bottone apposito nella tendina sulla barra superiore.
+ 
+\emph on
+(Algoritmo di calcolo implementato nelle fasi successive)
+\end_layout
+
+\begin_layout Section
+Admin
+\end_layout
+
+\begin_layout Standard
+Il manager di tutte le farmacie (avrà permessi superuser) collegandosi alla
+ sezione
+\emph on
+ /admin
+\emph default
+ già presente in Django potrà gestire tutti i dati presenti nel database
+ e i permessi relativi agli utenti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Admin.png
+	lyxscale 75
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sezione admin
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+REST API
+\end_layout
+
+\begin_layout Standard
+La nostra applicazione mette a disposizione una serie di API (Application
+ Programming Interfaces) grazie a 
+\emph on
+Django REST Framework.
+\end_layout
+
+\begin_layout Standard
+Per poter implementare il framework abbiamo dovuto serializzare ogni modello
+ presente nelle varie apps e definirne i permessi per limitare l'accesso
+ a dati sensibili.
+\end_layout
+
+\begin_layout Standard
+Ad esempio il modello User è stato serializzato in modo da nascondere i
+ dati sensibili quali email e password degli utenti nelle chiamate GET.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# serializer.py
+\end_layout
+
+\begin_layout Plain Layout
+
+class UserSerializer(serializers.ModelSerializer):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	email = serializers.CharField(write_only=True)  # Hide in GET     
+\end_layout
+
+\begin_layout Plain Layout
+
+	password = serializers.CharField(write_only=True)  # Hide in GET
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	class Meta:         
+\end_layout
+
+\begin_layout Plain Layout
+
+		model = User         
+\end_layout
+
+\begin_layout Plain Layout
+
+		fields = "__all__"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Inoltre abbiamo limitato i premessi delle varie classi a utenti solo admin
+ in questo caso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# views.py
+\end_layout
+
+\begin_layout Plain Layout
+
+class UserViewSet(viewsets.ModelViewSet):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	queryset = User.objects.all()     
+\end_layout
+
+\begin_layout Plain Layout
+
+	serializer_class = UserSerializer     
+\end_layout
+
+\begin_layout Plain Layout
+
+	permission_classes = [IsAdmin]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tutte le 
+\emph on
+permission_classes
+\emph default
+ sono state definite nel file 
+\emph on
+permission.py
+\emph default
+ descritto in precedenza; le possibili classi sono: 
+\emph on
+IsAdmin, IsStaff, IsAuthenticated, IsAdminOrReadOnly, IsStaffOrReadOnly,
+ IsAuthenticatedOrReadOnly
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il tool
+\emph on
+ Swagger UI
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Swagger UI si basa sullo standard OpenAPI.
+\end_layout
+
+\end_inset
+
+
+\emph default
+permette la visualizzazione grafica delle API accedendo all'url 
+\emph on
+/swagger 
+\emph default
+o 
+\emph on
+/redoc
+\emph default
+ dove è possibile interagire e provare le varie richieste definite.
+ Inoltre è possibile vedere una descrizione dettagliata dei vari modelli
+ presenti nel database.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Swagger.png
+	lyxscale 75
+	scale 250
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Swagger"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Swagger
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Swagger (Response)"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è presente un'interazione con con il GET di un prodotto dato l'identificativo
+ univoco.
+ Quest'operazione di sola lettura sui prodotto può essere effettuata da
+ qualsiasi utente anche non registrato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Swagger (Response).png
+	lyxscale 50
+	scale 180
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Swagger (Response)"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Analisi statica
+\end_layout
+
+\begin_layout Standard
+Nell'analisi statica e strutturale del software sono stati usati diversi
+ tools ma il principale è 
+\emph on
+pylint
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Il refractoring del codice è stato effettuato con il plugin 
+\emph on
+Prettier
+\emph default
+ presente in 
+\emph on
+JetBrains PyCharm.
+\end_layout
+
+\begin_layout Section
+Pyreverse e GraphViz
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Pyreverse
+\emph default
+ e 
+\emph on
+GraphViz
+\emph default
+ sono dei tool usati per esportare diagrammi UML riguardanti le class e
+ i packages di ogni modulo.
+ Inoltre è possibile esportare pure lo schema entità relazione del database.
+\end_layout
+
+\begin_layout Standard
+Dopo aver installato 
+\emph on
+Pyreverse
+\emph default
+ e 
+\emph on
+GraphViz
+\emph default
+ (necessita anche di aggiungere bin
+\backslash
+gvedit.exe nel path delle variabili d'ambiente) si possono usare con i seguenti
+ comandi:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ pyreverse -o png -A -s 0 -a 0 -k authentication  shop timetable transfer
+ --ignore=migrations,tests,tests.py
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py graph_models -a -o myapp_models.png 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py graph_models authentication shop timetable transfer -o
+ apps.png
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Classes"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sono rappresentate le classi dell'intera applicazione:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Classes.png
+	lyxscale 30
+	scale 27.5
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Classes"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Classes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Packages"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sono rappresentate le interazioni tra i vari package dell'applicazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Packages.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Packages"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Packages
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pylint
+\end_layout
+
+\begin_layout Standard
+Tool multifunzionale per l'analisti statica che comprende:
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+Coding standards
+\emph default
+: check sulla lunghezza delle linee di codice, check sui nomi delle variabili
+ (notazioni), check sui moduli importati e usati.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+Error detection
+\emph default
+: check sulle interfacce e la loro implementazione.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+Refractoring
+\emph default
+: detection di codice duplicato.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+UML diagrams
+\emph default
+: 
+\emph on
+Pylint
+\emph default
+ integra 
+\emph on
+Pyreverse
+\emph default
+ che permette l'esportazione automatica di diagrammi UML riguardanti le
+ classi, i package e la struttura del database in formato 
+\emph on
+.dot
+\emph default
+ o 
+\emph on
+.png
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Grazie ai seguenti comandi è possibile installare pylint, successivamente
+ fare una scansione automatica dell'apps shop scegliendo se farla completa,
+ solo sugli errori evitando i warning oppure fare anche un test sulla performanc
+e del database.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ pylint --rcfile=./.pylintrc  ./shop 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pylint --rcfile=./.pylintrc --errors-only ./shop 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins
+ pylint_django.checkers.db_performance ./shop 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Grazie al file .
+\emph on
+pylintrc
+\emph default
+ è possibile personalizzare interamente i parametri della ricerca andando
+ a settare le varie impostazioni al proprio interno; la nostra configurazione
+ si può trovare nel file .
+\emph on
+pylintrc
+\emph default
+ presente nella cartella base.
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Output di pylint"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è riportato l'output di pylint dove viene valutato il codice su una scala
+ da 0 a 10.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Pylint.png
+	lyxscale 75
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Output di pylint"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Output di pylint
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Analisi dinamica
+\end_layout
+
+\begin_layout Section
+Testing
+\end_layout
+
+\begin_layout Standard
+In questa sezione ci si concentrerà sull’implementazione di un certo numero
+ di casi di test al fine di avere la massima copertura possibile del codice
+ della porzione di software implementato in questa fase.
+\end_layout
+
+\begin_layout Standard
+Per effettuare i test useremo 
+\emph on
+unittest
+\emph default
+, framework per il testing ispirato da JUnit.
+ In particolar modo abbiamo definito nel file
+\emph on
+ settings.py
+\emph default
+ della nostra applicazione la creazione automatica di un database di prova
+ 
+\emph on
+testdatabase
+\emph default
+ in modo da non avere ripercussioni sul database vero.
+ Quindi ad ogni sessione di test verrà creato da zero un database sulla
+ base dei models definiti e verrà distrutto al termine.
+\end_layout
+
+\begin_layout Subsection
+Models tests
+\end_layout
+
+\begin_layout Standard
+Abbiamo eseguito dei test sulla creazione di ogni modello presente nelle
+ varie componenti dell'applicazione.
+\end_layout
+
+\begin_layout Standard
+Un esempio di caso di test è il seguente per la creazione di una farmacia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class PharmacyModelTest(TestCase):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	def create_pharmacy(self, name="Farmacia", image="farmacia.png", x=50, y=0,
+ slot4hMinWeek=5, location="Bergamo",             description="Text"): 
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+		user = User.objects.create(username='TestUser')         
+\end_layout
+
+\begin_layout Plain Layout
+
+		return Pharmacy.objects.create(owner=user, name=name, image=image, x=x,
+ y=y, slot4hMinWeek=slot4hMinWeek,                                     
+   location=location, description=description)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	def test_pharmacy_creation(self):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		w = self.create_pharmacy()         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.assertTrue(isinstance(w, Pharmacy))         
+\end_layout
+
+\begin_layout Plain Layout
+
+		fields = w.id, w.owner, w.name         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.assertEqual(w.__unicode__(), fields)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Forms tests
+\end_layout
+
+\begin_layout Standard
+Abbiamo eseguito dei test sulla compilazione di ogni form presente nelle
+ varie componenti dell'applicazione.
+\end_layout
+
+\begin_layout Standard
+Un esempio di caso di test è il seguente per la compilazione del contact
+ form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ContactFormTest(TestCase):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	def test_valid_form(self):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		data = {'name': "Test", 'email': "test@mail.com", 'subject': "Text", 'message':
+ "Text"}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		form = ContactForm(data=data)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.assertTrue(form.is_valid())
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Views tests
+\end_layout
+
+\begin_layout Standard
+Abbiamo eseguito dei test sulle varie funzioni dell'applicazione.
+\end_layout
+
+\begin_layout Standard
+Un esempio di caso di test è il seguente che verifica se pagina di dettaglio
+ relativa a una farmacia è raggiungibile:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ViewTest(TestCase):
+\end_layout
+
+\begin_layout Plain Layout
+
+	def test_pharmacies_detail(self):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		user = User.objects.create(username='TestUser')         
+\end_layout
+
+\begin_layout Plain Layout
+
+		farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.p
+ng", x=50, y=50,                                            slot4hMinWeek=5,
+ location="Bergamo", description="Text")         
+\end_layout
+
+\begin_layout Plain Layout
+
+		url = reverse('shop:pharmacies_detail', args=(farmacia.id,))         
+\end_layout
+
+\begin_layout Plain Layout
+
+		resp = self.client.get(url)
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.assertEqual(resp.status_code, 200)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Coverage
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Coverage.py
+\emph default
+ è uno strumento per misurare la copertura del codice Python.
+ È disponibile anche visualizzare l'output in HTML con le relative percentuali
+ di copertura del codice.
+\end_layout
+
+\begin_layout Standard
+Questi sono i comandi necessari per l'utilizzo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ coverage run manage.py test -v 2
+\end_layout
+
+\begin_layout Plain Layout
+
+$ coverage html
+\end_layout
+
+\begin_layout Plain Layout
+
+$ coverage erase # Delete previous coverage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tests"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è riportato l'output di alcuni test eseguiti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Test.png
+	lyxscale 75
+	scale 250
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Tests"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tests
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Coverage"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è riportato l'output in formato HTML della copertura del codice
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Sono rappresentate sono alcune linee della tabella, il report completo è
+ disponibile nella cartella principale del progetto 
+\emph on
+/htmlcov
+\end_layout
+
+\end_inset
+
+.
+ Si può notare che i nostri casi di test coprono 84% del codice realizzato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Coverage.png
+	lyxscale 75
+	scale 250
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Coverage"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Coverage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Selenium
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Selenium
+\emph default
+ è un framework portatile per testare le applicazioni web e fornisce strumento
+ di riproduzione
+\emph on
+.
+
+\emph default
+ In particolare simula l'interazione che l'utente fa con l'applicazione
+ web attraverso, in questo caso, mouse e tastiera usando il browser 
+\emph on
+Firefox
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Un esempio che abbiamo fatto è quello di compilazione del form di contatto
+ per la richiesta di supporto:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class ContactViewSeleniumTest(LiveServerTestCase):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def setUp(self):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.driver = webdriver.Firefox()         
+\end_layout
+
+\begin_layout Plain Layout
+
+		last_height = self.driver.execute_script("return document.body.scrollHeight")
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	def test_selenium_contact(self):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.driver.get("http://localhost:8000/shop/contact")         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.driver.find_element_by_id('id_name').send_keys("Gino")         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.driver.find_element_by_id('id_email').send_keys("gino@mail.com")    
+     		self.driver.find_element_by_id('id_subject').send_keys("Text")     
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.driver.find_element_by_id('id_message').send_keys("Text")         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.driver.find_element_by_id('submit').click()  # Submit button       
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	def tearDown(self):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.driver.quit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Necessita che il server dell'applicazione sia in esecuzione su un altro
+ terminale e la presenza di 
+\emph on
+geckodriver.exe
+\emph default
+ (vedi manuale utente).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

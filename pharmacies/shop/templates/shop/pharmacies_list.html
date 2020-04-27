@@ -1,0 +1,41 @@
+{% extends "shop/base.html" %}
+{% block title %}Pharmacies{% endblock %}
+
+{% block content %}
+    <br>
+    <center><h4>{{ pharmacies|length }} Pharmacies found!</h4></center>
+    <br>
+    <div class="row" style="margin-left: 25px;margin-right: 25px;">
+        {% for p in pharmacies %}
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <center>
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="{% url 'shop:pharmacies_detail' p.id %} ">{{ p.name }}</a>
+                            </h4>
+                            <br>
+                            <img src="/media/{{ p.image }}" width="200" height="100">
+                            <br><br>
+                            <h6>Location: {{ p.location }}</h6>
+                            <h6>X: {{ p.x }}</h6>
+                            <h6>Y: {{ p.y }}</h6>
+                            <a href="{% url 'shop:pharmacies_detail' p.id %}" class="btn btn-primary">View More</a>
+                            <br>
+                        </div>
+                    </div>
+                </center>
+            </div>
+
+        {% empty %}
+            <div class="card w-100">
+                <div class="card-body">
+                    <center><h5>Pharmacies not available</h5></center>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

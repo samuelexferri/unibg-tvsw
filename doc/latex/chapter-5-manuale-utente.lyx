@@ -1,0 +1,755 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+% in case somebody want to have the label "Equation"
+%\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
+
+% that links to image floats jumps to the beginning
+% of the float and not to its caption
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% makes caption labels bold
+% for more info about these settings, see
+% https://ctan.org/tex-archive/macros/latex/contrib/koma-script/doc/scrguien.pdf
+\setkomafont{captionlabel}{\bfseries}
+\setcapindent{1em}
+
+% enables calculations
+\usepackage{calc}
+
+% fancy page header/footer settings
+% for more information see section 9 of
+% ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% increases the bottom float placement fraction
+\renewcommand{\bottomfraction}{0.5}
+
+% avoids that floats are placed above its sections
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+
+% increases link area for cross-references and autoname them
+% if you change the document language to e.g. French
+% you must change "extrasenglish" to "extrasfrench"
+% if you uncomment the following lines, you cannot use the reference version Ref+Text in LyX
+%\AtBeginDocument{%
+% \renewcommand{\ref}[1]{\autoref{#1}}
+%}
+%\def\refnamechanges{%
+% \renewcommand*{\equationautorefname}[1]{}
+% \renewcommand{\sectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\figureautorefname}{Fig.\negthinspace}
+% \renewcommand{\tableautorefname}{Tab.\negthinspace}
+%}
+%\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\master project.lyx
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Your title"
+\pdf_author "Your name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\branch Standalone
+\selected 1
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 1
+\math_indentation default
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptername
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Manuale utente
+\end_layout
+
+\begin_layout Chapter*
+Installazione
+\end_layout
+
+\begin_layout Standard
+Assicurarsi di aver installato 
+\emph on
+Python
+\emph default
+ (versione 3.8) nel proprio sistema e di aver aggiornato 
+\emph on
+pip.
+
+\emph default
+ In seguito creare l'ambiente virtuale e installare tutti i pacchetti necessari
+ contenuti nel file 
+\emph on
+requirements.txt 
+\emph default
+tramite gli appositi comandi.
+ Successivamente creare il superuser seguendo i passaggi richiesti ed effettuare
+ tutte le migrazioni di Django.
+ Usare il comando 
+\emph on
+runserver
+\emph default
+ per avviare il server in locale all'indirizzo 
+\emph on
+http://127.0.0.1:8000/.
+\end_layout
+
+\begin_layout Standard
+Le varie versioni dei pacchetti da installare sono definite sempre nel file
+ 
+\emph on
+requirements.txt
+\emph default
+.
+ La versione di Django usata è 3.0.1.
+\end_layout
+
+\begin_layout Standard
+Usare il terminale ed eseguire i seguenti comandi per le operazioni sopra
+ indicate (comandi con davanti il cancelletto non sono da eseguire):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Cambiare directory
+\end_layout
+
+\begin_layout Plain Layout
+
+$ cd /indirizzo/pharmacies
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// PIP (Upgrade)
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python -m pip install --upgrade pip
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Virtual Environment
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip3 install virtualenvwrapper-win 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ mkvirtualenv my_django_environment 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ workon my_django_environment 
+\end_layout
+
+\begin_layout Plain Layout
+
+# $ rmvirtualenv my_django_environment  // Elimina il Virtual Environment
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Requirements
+\end_layout
+
+\begin_layout Plain Layout
+
+# $ pip freeze > requirements.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install -r requirements.txt
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Account superuser
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py createsuperuser 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Migrazioni
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py migrate 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py migrate --run-syncdb 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py makemigrations 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Server
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py runserver
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se tutto va a buon fine dovreste ottenere l'output in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Server"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Server.png
+	lyxscale 75
+	scale 250
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Server"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Server online
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Configurazione
+\end_layout
+
+\begin_layout Standard
+Accedendo all'indirizzo indicato tramite un browser si otterrà la homepage
+ dell'applicazione web.
+ Bisognerà accedere alla sezione admin al seguente indirizzo 
+\emph on
+http://127.0.0.1:8000/admin
+\emph default
+ con le credenziali del superuser creato in precedenza: all'interno è possibile
+ creare nuovi utenti o modificarne esistenti in modo tale che essi risultino
+ clienti semplici oppure farmacisti (semplicemente mettendo la spunta su
+ 
+\begin_inset Quotes fld
+\end_inset
+
+
+\emph on
+is staff
+\emph default
+
+\begin_inset Quotes frd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Per popolare il database si può importare il file 
+\emph on
+db.json
+\emph default
+ che sovrascriverà l'attuale database: prima di tutto cancellare il file
+ 
+\emph on
+db.sqlite3
+\emph default
+ per evitare conflitti; a terminale eseguire migrate e creare il proprio
+ superuser admin e rieseguire migrate; successivamente importare il 
+\emph on
+db.json 
+\emph default
+con il comandi sottostanti ed avviare il server nuovamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Dump data
+\end_layout
+
+\begin_layout Plain Layout
+
+# $ python manage.py dumpdata > db.json
+\end_layout
+
+\begin_layout Plain Layout
+
+$ python manage.py loaddata db.json 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per visualizzare la documentazione delle API installare 
+\emph on
+Swagger UI
+\emph default
+ con il seguente comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Swagger
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install django-rest-swagger
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Testing
+\end_layout
+
+\begin_layout Standard
+Per usare i vari tools necessari per il testing seguire i seguenti comandi:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// Pyreverse è integrato in Pylint
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Pylint
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install pylint 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install pylint-django
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// GraphViz
+\end_layout
+
+\begin_layout Plain Layout
+
+// Install GraphViz (Visit the site) and add the the path for bin
+\backslash
+gvedit.exe in path (Environment variables)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Coverage
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install coverage
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Selenium (Firefox necessario e geckodriver.exe) 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install selenium 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install lxml 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install defusedxml
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per usare 
+\emph on
+Selenium
+\emph default
+ è necessario avere installato 
+\emph on
+Firefox
+\emph default
+ ed è necessaria la presenza dell'eseguibile 
+\emph on
+geckodriver.exe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

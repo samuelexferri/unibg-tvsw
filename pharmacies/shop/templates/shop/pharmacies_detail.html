@@ -1,0 +1,28 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Pharmacy details{% endblock %}
+{% load bootstrap4 %}
+{% block content %}
+    <center>
+        <center>{% bootstrap_messages %}</center>
+        <br>
+        <div class="col-lg-6 col-md-6 mb-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">{{ pharmacy.name }}</h4>
+                    <br>
+                    <img src="/media/{{ pharmacy.image }}" width="200" height="100">
+                    <br>
+                    <br>
+                    <h6>Location: {{ pharmacy.location }}</h6>
+                    <h6>X: {{ pharmacy.x }}</h6>
+                    <h6>Y: {{ pharmacy.y }}</h6>
+                    <h6>SlotMin/Week: {{ pharmacy.slot4hMinWeek }}</h6>
+                    <h6>Description: {{ pharmacy.description }}</h6>
+                </div>
+            </div>
+        </div>
+    </center>
+    <br>
+    <br>
+{% endblock %}

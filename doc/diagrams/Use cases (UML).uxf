@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>2</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>380</x>
+      <y>186</y>
+      <w>344</w>
+      <h>172</h>
+    </coordinates>
+    <panel_attributes>Sistema delle farmacie
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>352</x>
+      <y>246</y>
+      <w>12</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>Cliente</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>728</x>
+      <y>238</y>
+      <w>28</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>Manager Farmacie</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>544</x>
+      <y>380</y>
+      <w>28</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>Gestore Farmacia</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>400</x>
+      <y>206</y>
+      <w>36</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC1-ACCOUNT
+Registrazione
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>400</x>
+      <y>240</y>
+      <w>36</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>UC2-ACCOUNT
+Login
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>362</x>
+      <y>212</y>
+      <w>42</w>
+      <h>46</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;210.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>362</x>
+      <y>246</y>
+      <w>42</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;40.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>434</x>
+      <y>244</y>
+      <w>22</w>
+      <h>6</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>452</x>
+      <y>240</y>
+      <w>34</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>UC2-ACQUISTI
+PrenotazioniFarmaci
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>452</x>
+      <y>218</y>
+      <w>34</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>UC3-ACQUISTI
+AcquistoFarmaci
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>434</x>
+      <y>222</y>
+      <w>22</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;120.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>398</x>
+      <y>268</y>
+      <w>40</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC3-ORARI
+VediOrarioSettimanale
+TutteFarmacie
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>362</x>
+      <y>252</y>
+      <w>40</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>450</x>
+      <y>334</y>
+      <w>48</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>UC1-FARMACI
+RegistrazioneFarmaco
+IngressoMagazzino
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>342</y>
+      <w>52</w>
+      <h>6</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>350</y>
+      <w>6</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>474</x>
+      <y>310</y>
+      <w>48</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>UC2-FARMACI 
+ModificaManuale
+DisponibilitàFarmaci
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>514</x>
+      <y>322</y>
+      <w>34</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>12.0;10.0;150.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>452</x>
+      <y>262</y>
+      <w>34</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>UC1-ACQUISTI
+Carrello
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>434</x>
+      <y>244</y>
+      <w>22</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>452</x>
+      <y>170</y>
+      <w>26</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>BankSystem
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>180</y>
+      <w>6</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>616</x>
+      <y>240</y>
+      <w>42</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC1-CATENA
+InserisciFarmacia
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>616</x>
+      <y>262</y>
+      <w>42</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC2-CATENA
+CancellaFarmacia
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>616</x>
+      <y>282</y>
+      <w>42</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC3-CATENA
+FerieIndisponibilitàFarmacia
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>616</x>
+      <y>194</y>
+      <w>42</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC1-ORARI
+CalcoloAutomatico
+OrariSettimanaliFarmacie
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>242</y>
+      <w>34</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>242</y>
+      <w>34</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>242</y>
+      <w>34</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>616</x>
+      <y>218</y>
+      <w>42</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC2-ORARI
+ModificaManuale
+OrariSettimanaliFarmacie
+
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>200</y>
+      <w>34</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>150.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>224</y>
+      <w>34</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLDeployment</id>
+    <coordinates>
+      <x>454</x>
+      <y>372</y>
+      <w>36</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>LettoreQRMagazzino</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>562</x>
+      <y>294</y>
+      <w>46</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>UC4-FARMACI
+Visualizzazione
+DisponibilitàFarmaci
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>564</x>
+      <y>310</y>
+      <w>18</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>686</x>
+      <y>238</y>
+      <w>32</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC3-ACCOUNT
+Login manager
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>716</x>
+      <y>244</y>
+      <w>22</w>
+      <h>6</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>398</x>
+      <y>292</y>
+      <w>40</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC4-ORARI
+VediOrarioSettimanale
+SingolaFarmacia
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>542</x>
+      <y>334</y>
+      <w>32</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>UC2-ACCOUNT
+Login
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>362</x>
+      <y>252</y>
+      <w>40</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>556</x>
+      <y>348</y>
+      <w>6</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>514</x>
+      <y>294</y>
+      <w>46</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>UC3-FARMACI
+Generazione
+Report
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>310</y>
+      <w>20</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>12.0;10.0;80.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>596</x>
+      <y>312</y>
+      <w>46</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>UC5-FARMACI
+VenditaNuovo 
+prodotto
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>572</x>
+      <y>324</y>
+      <w>32</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>604</x>
+      <y>334</y>
+      <w>46</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>UC6-FARMACI
+Trasferimento
+medicinali
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>572</x>
+      <y>342</y>
+      <w>36</w>
+      <h>6</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

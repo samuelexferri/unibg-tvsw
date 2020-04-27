@@ -1,0 +1,3934 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+% in case somebody want to have the label "Equation"
+%\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
+
+% that links to image floats jumps to the beginning
+% of the float and not to its caption
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% makes caption labels bold
+% for more info about these settings, see
+% https://ctan.org/tex-archive/macros/latex/contrib/koma-script/doc/scrguien.pdf
+\setkomafont{captionlabel}{\bfseries}
+\setcapindent{1em}
+
+% enables calculations
+\usepackage{calc}
+
+% fancy page header/footer settings
+% for more information see section 9 of
+% ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% increases the bottom float placement fraction
+\renewcommand{\bottomfraction}{0.5}
+
+% avoids that floats are placed above its sections
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+
+% increases link area for cross-references and autoname them
+% if you change the document language to e.g. French
+% you must change "extrasenglish" to "extrasfrench"
+% if you uncomment the following lines, you cannot use the reference version Ref+Text in LyX
+%\AtBeginDocument{%
+% \renewcommand{\ref}[1]{\autoref{#1}}
+%}
+%\def\refnamechanges{%
+% \renewcommand*{\equationautorefname}[1]{}
+% \renewcommand{\sectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\figureautorefname}{Fig.\negthinspace}
+% \renewcommand{\tableautorefname}{Tab.\negthinspace}
+%}
+%\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\master project.lyx
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Your title"
+\pdf_author "Your name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\branch Standalone
+\selected 1
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 1
+\math_indentation default
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptername
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Fase 0 - Fase 1
+\end_layout
+
+\begin_layout Chapter
+Requisiti
+\end_layout
+
+\begin_layout Section
+Introduzione
+\end_layout
+
+\begin_layout Standard
+Il cliente, in possesso di una catena di farmacie private localizzate in
+ Lombardia, richiede e commissiona la creazione di un’applicazione web per
+ migliorare la gestione delle vendite, la gestione degli orari e l’interazione
+ con i propri clienti.
+ 
+\end_layout
+
+\begin_layout Standard
+Le distanze da una farmacia ad un’altra sono variabili, in genere sono distanzia
+te da un minimo di circa 1 km ad un massimo di circa 100 km coprendo una
+ regione spaziale quadrata di lato 100 km.
+\end_layout
+
+\begin_layout Standard
+Le farmacie sono strutturate tutte secondo lo stesso modello: ognuna è gestita
+ da 1 manager della farmacia e conta 5 dipendenti; ogni farmacia ha 3 casse
+ per la vendita con un lettore QR code/barcode in dotazione per ogni cassa.
+\end_layout
+
+\begin_layout Standard
+Le farmacie, attualmente, hanno orari differenti di apertura e chiusura
+ secondo decisioni locali prese dal manager di ogni singola farmacia; inoltre,
+ ogni farmacia deve essere aperta almeno X ore nell’arco della settimana.
+\end_layout
+
+\begin_layout Standard
+Dal cliente emerge la volontà di automatizzare/ottimizzare diversi ambiti,
+ sia relativi all’interazione con i propri clienti che per la gestione delle
+ proprie farmacie.
+ 
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda la gestione dell’interazione con i propri clienti vengono
+ esposti i seguenti requisiti: 
+\end_layout
+
+\begin_layout Enumerate
+Creare un applicativo dove i clienti potranno registrarsi e loggare con
+ le proprie credenziali e che metta a disposizione le seguenti funzionalità:
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Accesso e registrazione all'applicazione cliente.
+\end_layout
+
+\begin_layout Enumerate
+Visualizzazione degli orari di apertura: permettere ai clienti, anche non
+ registrati, di visionare gli orari settimanali di apertura delle singole
+ farmacie.
+\end_layout
+
+\begin_layout Enumerate
+Visualizzazione della disponibilità dei farmaci: dovrà essere possibile
+ visionare dai potenziali clienti, per ogni farmaco, la disponibilità o
+ meno, in ogni farmacia con la relativa quantità a disposizione.
+\end_layout
+
+\begin_layout Enumerate
+Acquisto farmaci: per gli utenti loggati sarà possibile acquistare online
+ i farmaci per i quali non è richiesta la ricetta del medico e scegliere
+ dove ritirarli: presso la farmacia più vicina oppure in un’altra farmacia
+ a scelta del cliente.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Per quanto riguarda la gestione delle farmacie, il cliente espone i seguenti
+ requisiti: 
+\end_layout
+
+\begin_layout Enumerate
+Gestione degli orari: volontà di gestire gli orari delle proprie farmacie
+ per poter avere sempre almeno una farmacia aperta a disposizione per i
+ clienti, sapendo che ogni farmacia deve essere aperta almeno X ore nell’arco
+ della settimana.
+\end_layout
+
+\begin_layout Enumerate
+Gestione delle vendite e del magazzino: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Registrazione in modo automatico della vendita del farmaco tramite lettore
+ QR code/barcode.
+\end_layout
+
+\begin_layout Enumerate
+Registrazione in modo automatico dei farmaci in ingresso al magazzino (acquistat
+i tramite altri applicativi già esistenti).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Modifica manuale dei dati relativi alle quantità disponibili dei farmaci
+ di ogni farmacia (ad esempio nel caso in cui una o più confezioni scada,
+ deve essere decrementata la disponibilità in magazzino).
+\end_layout
+
+\begin_layout Enumerate
+Trasferimento dei farmaci: si potrà dare la possibilità al farmacista, in
+ caso di necessità (disponibilità bassa) di fare arrivare nella sua farmacia
+ X il farmaco da farmacie limitrofe che ne hanno disponibilità (ad esempio
+ Y e Z).
+ La scelta di far arrivare il farmaco da Y o Z dovrà dipendere da due parametri:
+ dalla quantità disponibile in Y e in Z (ridistribuzione della quantità)
+ e dalla distanza Y-X e Z-X.
+\end_layout
+
+\begin_layout Enumerate
+Generazione automatica giornaliera dei report sulle vendite; questi report
+ vengono poi utilizzati per migliorare la scelta della quantità di farmaci
+ da acquistare in ogni farmacia.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Toolchain
+\end_layout
+
+\begin_layout Standard
+Per la realizzazione del presente software verranno utilizzati i seguenti
+ strumenti:
+\end_layout
+
+\begin_layout Itemize
+Modellazione:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Use case diagram, deployment diagram, component diagram
+\series default
+: 
+\emph on
+UMLet
+\emph default
+, strumento open source, molto intuitivo ed utile per la realizzazione di
+ diagrammi (principalmente UML)
+\emph on
+ (http://www.umlet.com)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Use case diagram, deployment diagram, component diagram
+\series default
+: 
+\emph on
+Draw.io
+\emph default
+, strumento online per la realizzazione di diagrammi 
+\emph on
+(https://www.draw.io/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Class diagram, sequence diagram
+\series default
+: 
+\emph on
+pyreverse
+\emph default
+, UML Diagrams for Python, analizza codice Python ed estrare UML class diagrams
+ e package dependencies 
+\emph on
+(https://pypi.org/project/pyreverse/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Database diagram
+\series default
+: 
+\emph on
+GraphViz
+\emph default
+, libreria usata da Pyreverse per creare un database diagram
+\emph on
+ (https://www.graphviz.org/)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Implementazione software:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Linguaggio di programmazione: 
+\series default
+\emph on
+Python
+\emph default
+,
+\series bold
+ 
+\series default
+linguaggio di programmazione 
+\emph on
+(https://www.python.org/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Package manager
+\series default
+: 
+\emph on
+pip,
+\emph default
+ sistema di gestione dei pacchetti standard utilizzato per installare e
+ gestire i pacchetti software scritti in Python 
+\emph on
+(https://pypi.org/project/pip/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+IDE: 
+\series default
+\emph on
+JetBrains PyCharm,
+\series bold
+\emph default
+ 
+\series default
+ambiente di sviluppo integrato per il linguaggio Python 
+\emph on
+(https://www.jetbrains.com/pycharm/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Web framework: 
+\series default
+\emph on
+Django, 
+\emph default
+web framework con licenza open source per lo sviluppo di applicazioni web,
+ scritto in linguaggio Python, seguendo il paradigma "Model-Template-View"
+\emph on
+ (https://www.djangoproject.com/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+API:
+\series default
+ 
+\emph on
+Django REST Framework, 
+\emph default
+toolkit potente e flessibile per costruire Web APIs in Django 
+\emph on
+(https://www.django-rest-framework.org/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+API Development:
+\series default
+ 
+\emph on
+Swagger UI
+\emph default
+, strumento che permette di visualizzare e interagire con 
+\emph on
+OpenAPI
+\emph default
+ (
+\emph on
+Redoc
+\emph default
+ incluso)
+\emph on
+ (https://swagger.io/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DBMS:
+\series default
+ 
+\emph on
+SQLite3
+\emph default
+, una libreria software scritta in linguaggio C che implementa un DBMS SQL
+ di tipo ACID incorporabile all'interno di applicazioni 
+\emph on
+(https://docs.python.org/3/library/sqlite3.html)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DBMS Access: 
+\series default
+\emph on
+DB-API 2.0 interface
+\emph default
+, Python ha integrato il supporto per 
+\emph on
+SQLite3
+\emph default
+ 
+\emph on
+(https://docs.python.org/3/library/sqlite3.html)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+HTML (Stili): 
+\series default
+\emph on
+Bootstrap
+\emph default
+, raccolta di strumenti liberi per la creazione di siti e applicazioni per
+ il Web
+\emph on
+ (https://getbootstrap.com/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+HTML (Stili):
+\series default
+\emph on
+ jQuery
+\emph default
+, libreria JavaScript veloce, piccola e piena di funzionalità
+\emph on
+ (https://jquery.com/)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Analisi del software:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Analisi statica
+\series default
+: 
+\emph on
+pylint, 
+\emph default
+strumento d'analisi del codice sorgente (bug finder) che fa anche controllo
+ di qualità per codice Python con configurazione altamente personalizzabile
+ (
+\emph on
+.pylintrc
+\emph default
+) 
+\emph on
+(https://www.pylint.org/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Analisi statica
+\series default
+: 
+\emph on
+Prettier
+\emph default
+, plugin per il refractoring del codice di 
+\emph on
+JetBrains PyCharm
+\emph default
+ 
+\emph on
+(https://www.jetbrains.com/help/pycharm/prettier.html)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Analisi dinamica:
+\series default
+ 
+\emph on
+unittest
+\emph default
+, framework per il testing ispirato da JUnit 
+\emph on
+(https://docs.python.org/3/library/unittest.html)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Analisi dinamica
+\series default
+: 
+\emph on
+Coverage.py
+\emph default
+, strumento per misurare la copertura del codice Python, output anche in
+ HTML
+\emph on
+ (https://coverage.readthedocs.io/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Analisi dinamica:
+\series default
+\emph on
+ Selenium
+\series bold
+\emph default
+,
+\series default
+ framework portatile per testare le applicazioni web, fornisce strumento
+ di riproduzione (
+\emph on
+Firefox
+\emph default
+ necessario)
+\emph on
+ (https://selenium.dev/)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Documentazione e versioning:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Documentazione
+\series default
+: 
+\emph on
+LaTex
+\emph default
+, con scrittura tramite l’editor 
+\emph on
+LyX
+\emph default
+ 
+\emph on
+(https://www.lyx.org/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Versioning
+\series default
+: 
+\emph on
+GitHub
+\emph default
+, servizio di hosting per progetti software 
+\emph on
+(https://github.com/)
+\end_layout
+
+\end_deeper
+\begin_layout Chapter
+Specifiche
+\end_layout
+
+\begin_layout Section
+Introduzione
+\end_layout
+
+\begin_layout Standard
+Le funzioni richieste dal committente non sono tutte importanti allo stesso
+ livello, alcune richiedono di essere implementate prima di altre.
+ Nelle successive sezioni descriveremo tutte le funzionalità richieste e
+ le classificheremo a seconda dell'importanza:
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+Funzioni con alta priorità
+\bar default
+: sono le funzioni sulle quali si basa il funzionamento "base" del programma
+ che, quindi, richiedono di essere realizzate prima delle altre.
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+Funzioni con media priorità
+\bar default
+: sono le funzioni che richiedono di essere realizzate prima di quelle con
+ bassa priorità.
+ Date le caratteristiche di queste funzioni è possibile implementarle parallelam
+ente alle altre funzioni.
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+Funzioni con bassa priorità
+\bar default
+: sono le funzioni "di contorno", dalle quali non dipende alcuna altra funzione.
+\end_layout
+
+\begin_layout Section
+Funzionalità richieste
+\end_layout
+
+\begin_layout Standard
+Le funzioni richieste sono divise in gruppi per contesto; ogni funzione
+ ha associato un codice e una priorità:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Users [USER] 
+\end_layout
+
+\begin_layout Itemize
+U-UC1 Registrazione cliente (Alta)
+\end_layout
+
+\begin_layout Itemize
+U-UC2 Login cliente/farmacista (Alta)
+\end_layout
+
+\begin_layout Itemize
+U-UC3 Login manager (Alta)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Gestione acquisiti, carrello cliente [ACQUISTI]
+\end_layout
+
+\begin_layout Itemize
+A-UC1 Gestione carrello dei farmaci (Alta)
+\end_layout
+
+\begin_layout Itemize
+A-UC2 Prenotazione dei farmaci (Media)
+\end_layout
+
+\begin_layout Itemize
+A-UC3 Acquisto dei farmaci (Media)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Gestione orari [ORARI]
+\end_layout
+
+\begin_layout Itemize
+O-UC1 Calcolo automatico degli orari settimanali delle farmacie (Alta)
+\end_layout
+
+\begin_layout Itemize
+O-UC2 Modifica manuale degli orari settimanali delle farmacie (Bassa)
+\end_layout
+
+\begin_layout Itemize
+O-UC3 Visualizzazione orario settimanale di tutte le farmacie (Alta)
+\end_layout
+
+\begin_layout Itemize
+O-UC4 Visualizzazione orario settimanale della singola farmacia (Media)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Gestione catena farmacie [CATENA]
+\end_layout
+
+\begin_layout Itemize
+C-UC1 Inserimento nuova farmacia (Alta)
+\end_layout
+
+\begin_layout Itemize
+C-UC2 Eliminazione farmacia (Alta)
+\end_layout
+
+\begin_layout Itemize
+C-UC3 Gestione farmacia ferie/indisponibilità temporanea (Bassa)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Gestione farmaci, vendite e magazzino [FARMACI]
+\end_layout
+
+\begin_layout Itemize
+F-UC1 Registrazione del farmaco in ingresso nel magazzino (Bassa)
+\end_layout
+
+\begin_layout Itemize
+F-UC2 Modifica manuale della disponibilità dei farmaci (Media) 
+\end_layout
+
+\begin_layout Itemize
+F-UC3 Generazione report delle vendite (Bassa)
+\end_layout
+
+\begin_layout Itemize
+F-UC4 Visualizzazione farmacista della disponibilità dei farmaci (Alta)
+\end_layout
+
+\begin_layout Itemize
+F-UC5 Vendita nuovo prodotto (Alta) 
+\end_layout
+
+\begin_layout Itemize
+F-UC6 Trasferimento medicinali (Alta)
+\end_layout
+
+\begin_layout Section
+Analisi casi d'uso
+\end_layout
+
+\begin_layout Standard
+Vengono effettuate delle analisi su alcuni casi d'uso.
+ Gli attori presenti sono: il cliente, il gestore della farmacia e il manager
+ delle farmacie (admin) che gestisce tutto l’applicativo e calcola i turni
+ tramite un pannello admin.
+\end_layout
+
+\begin_layout Subsection
+U-UC1: Registrazione cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il cliente, tramite l’applicativo, potrà creare un account personale con
+ il quale potrà usufruire di tutti i servizi che gli spettano.
+ Con l’atto di registrazione i dati del cliente verranno inseriti nel database.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il cliente deve connettersi all’applicativo web.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il cliente avrà un account e attraverso l’accesso ad esso potrà usufruire
+ dei servizi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il cliente accede all’applicativo web
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Dalla tendina seleziona la sezione “Sign up”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inserisce tutti i dati, tra cui username e password del proprio account
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Preme il bottone “Sign up”
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Il campo “password” e “conferma password” non coincidono.
+ In questo caso esce un messaggio d’errore e si devono ricompilare questi
+ due campi.
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Username non valido perché già utilizzato.
+ In questo caso esce un messaggio di errore e si deve ricompilare il campo.
+\end_layout
+
+\begin_layout Subsection
+U-U
+\lang english
+C2
+\series bold
+: 
+\series default
+Login cliente/farmacista
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il cliente, tramite l’applicativo, potrà loggarsi con le proprie credenziali
+ (username e password) scelte in fase di registrazione.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il cliente dev’essere in possesso di un account (registrazione).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il cliente è loggato e potrà effettuare tutte le operazioni dedicate a coloro
+ che sono loggati.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il cliente apre l’applicativo (accede all’applicativo web)
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Dalla tendina seleziona la sezione “Login”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inserisce username e password del proprio account
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Preme il bottone “Login”
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Siccome pure i farmacisti effettuano il login dalla stessa piattaforma,
+ essi verranno indirizzati nella sezione a loro dedicata in cui potranno
+ effettuare le loro operazioni.
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Errore nell’inserimento dei campi richiesti.
+ Un messaggio di errore apparirà sullo schermo richiedendo la ri-compilazione
+ dei campi.
+\end_layout
+
+\begin_layout Subsection
+U-U
+\lang english
+C
+\series bold
+3: 
+\series default
+Login manager
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il manager, tramite l’applicativo, potrà loggarsi al pannello admin con
+ le proprie credenziali (username e password).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Manager
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il manager dev’essere in possesso di un account admin.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il manager è loggato e potrà effettuare tutte le operazioni dedicate a coloro
+ che sono manager.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il manager apre l’applicativo (accede all’applicativo web)
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Accede alla sezione admin
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inserisce username e password del proprio account
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Preme il bottone “Login”
+\end_layout
+
+\begin_layout Subsection
+A-U
+\lang english
+C
+\series bold
+1: 
+\series default
+Gestione carrello dei farmaci
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il cliente tramite una sezione dell’applicativo potrà accedere alla sezione
+ “Carrello” e modificare quali prodotti aggiungere/togliere e in quale quantità.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il cliente deve possedere un account ed essersi loggato.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno aggiornati i farmaci e le relative quantità di acquisto desiderate.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il cliente apre l’applicativo ed effettua il login
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Dal menu principale seleziona la sezione “Cart”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Apparirà una sezione dalla quale al cliente sarà possibile visualizzare
+ e modificare/aggiungere/togliere i prodotti selezionati
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Possibilità di continuare:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\lang english
+Procedere alla prenotazione dei farmaci (A-UC2)
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Procedere all’acquisto dei farmaci (A-UC3)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: Il cliente al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere al proprio account.
+\end_layout
+
+\begin_layout Subsection
+A-U
+\lang english
+C
+\series bold
+2: 
+\series default
+Prenotazioni dei farmaci
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Gli utenti possono prenotare online i farmaci e scegliere dove ritirarli.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il cliente ha riempito il carrello con i farmaci che vuole prenotare.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il cliente avrà una ricevuta di prenotazione per potersi recare nella farmacia
+ scelta per il ritiro e pagare in cassa.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il cliente apre l’applicativo ed effettua il login
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca la sezione “Cart”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona il farmaco che vuole prenotare
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca sulla sezione “Book now”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Sceglie della farmacia in cui poter ritirare i farmaci
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Cliccando su “Book now” avviene l’effettiva prenotazione
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Viene emessa una ricevuta di prenotazione da presentare al farmacista per
+ il ritiro dei farmaci entro sette giorni
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: Il cliente al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere al proprio account.
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Scadenza dei 30 minuti di prelazione.
+\end_layout
+
+\begin_layout Subsection
+A-U
+\lang english
+C
+\series bold
+3: 
+\series default
+Acquisto dei farmaci
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Gli utenti possono acquistare online i farmaci e scegliere dove ritirarli.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il cliente ha riempito il carrello con i farmaci che vuole acquistare.
+ Deve avere aggiunto una carta di credito con saldo disponibile maggiore
+ alla spesa da effettuare se vorrà procedere all’acquisto.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il cliente avrà una ricevuta di acquisto per potersi recare nella farmacia
+ scelta per il ritiro.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il cliente apre l’applicativo ed effettua il login
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca la sezione “Cart”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca sulla sezione “Book now”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona il farmaco che vuole acquistare
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inserisce i dati della propria carta di credito
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Cliccando su “Buy” avviene l’effettivo pagamento
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: Il cliente al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere al proprio account.
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Scadenza dei 30 minuti di prelazione sul farmaco: viene visualizzato un
+ messaggio di errore con scritto “Tempo massimo di prelazione scaduto”.
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Carta di credito non accettata: viene visualizzato un messaggio di errore
+ con la richiesta di ricompilare i campi richiesti.
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Saldo disponibile sulla carta non sufficiente per l’acquisto (pagamento
+ rifiutato).
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+O-UC1: Calcolo automatico degli orari settimanali delle farmacie
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il manager attraverso il pannello admin effettua il calcolo automatico degli
+ orari settimanali delle farmacie.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Manager
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il manager dev’essere loggato nell’area admin.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno calcolati e inseriti nel database gli orari settimanali di tutte
+ le farmacie.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il manager apre l’applicativo ed effettua il login nell’area admin
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca il bottone “Calculate timetables”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Dopo aver visualizzato il risultato del processo, conferma attraverso “Confirm”
+ e i dati verranno inseriti nel database
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: il manager al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere alla sezione
+ dedicata.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+O-UC2: Modifica manuale degli orari settimanali delle farmacie
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il manager attraverso l’applicativo può effettuare delle modifiche manuali
+ agli orari calcolati in maniera automatica dall’applicativo (O-UC1).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Manager
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il manager dev’essere loggato nell’area admin.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno modificati e aggiornati nel database gli orari settimanali di tutte
+ le farmacie soggetti alla modifica manuale.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il manager apre l’applicativo ed effettua il login nell’area admin
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca il bottone “Modify timetables”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona la settimana in cui effettuare le modifiche
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Effettua le modifiche desiderate
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Attraverso il bottone “Save” effettua il salvataggio e l’aggiornamento relativo
+ nel database
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: il manager al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere alla sezione
+ dedicata.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+O-UC3: Visualizzazione orario settimanale di tutte le farmacie
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il cliente attraverso l’applicativo può visualizzare gli orari settimanali
+ di tutte le farmacie.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti:
+\series default
+ Cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il cliente deve accedere all’applicativo web (non è necessario il login).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno visualizzati sottoforma di tabella gli orari settimanali di tutte
+ le farmacie.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il cliente accede all’applicativo web
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca il bottone “Timetables”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Verranno visualizzati sottoforma di tabella gli orari settimanali di tutte
+ le farmacie nel periodo scelto
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+O-UC4: Visualizzazione orario settimanale della singola farmacia 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il cliente attraverso l’applicativo può visualizzare l’orario settimanale
+ di una specifica farmacia.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Cliente
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il cliente deve accedere all’applicativo web (non è necessario il login).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno visualizzati sottoforma di tabella gli orari settimanali della
+ farmacia selezionata.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il cliente accede all’applicativo web
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Attraverso la tendina “Find pharmacy”, seleziona la farmacia di cui vuole
+ visualizzare l’orario
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Verranno visualizzati sottoforma di tabella gli orari settimanali della
+ farmacia selezionata
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Invece di selezionare la farmacia dalla lista può selezionarla dalla mappa;
+ può anche essere scelta come default la farmacia aperta più vicina calcolata
+ tramite GPS.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+C-UC1: Inserimento nuova farmacia
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il manager attraverso l’applicativo può inserire una nuova farmacia nel
+ database.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Manager
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il manager dev’essere loggato nell’area admin.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno aggiunti al database i dati della nuova farmacia.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il manager apre l’applicativo ed effettua il login nell’area admin
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca il bottone “Add pharmacy”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Compila il form con tutti i dati
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Attraverso il bottone “Add”, effettua il salvataggio e l’inserimento nel
+ database
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: il manager al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere alla sezione
+ dedicata.
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+I dati nel form possono non essere accettati se non consoni ai requisiti
+ con conseguente messaggio di errore e richiesta di reinserire i campi.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+C-UC2: Eliminazione farmacia
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il manager attraverso l’applicativo può eliminare una farmacia, la quale
+ verrà tolta dal database.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Manager
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il manager dev’essere loggato nell’area admin.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno eliminati dal database i dati della farmacia.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il manager apre l’applicativo ed effettua il login nell’area admin
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona dalla tendina la farmacia che vuole eliminare
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca il bottone “Delete pharmacy”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Conferma l’effettiva eliminazione dopo l’uscita del messaggio di avvertimento
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: il manager al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere alla sezione
+ dedicata.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+C-UC3: Gestione farmacia ferie/indisponibilità temporanea
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il manager attraverso l’applicativo inserisce se una farmacia per un determinato
+ periodo è indisponibile e quindi non viene conteggiata nel calcolo dell’orario
+ settimanale.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Manager
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il manager dev’essere loggato nell’area admin.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Verranno aggiunti nel database i dati relativi ai giorni e orari di indisponibil
+ità di una determinata farmacia.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il manager apre l’applicativo ed effettua il login nell’area admin
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona dalla tendina la farmacia in questione
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Compila la tabella manualmente inserendo i giorni e il motivo della indisponibil
+ità
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Conferma cliccando “Confirm”
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Alternative:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Inserimento errato dei dati: il manager al passo 1 del processo può fallire
+ l’autenticazione con il server e quindi non poter accedere alla sezione
+ dedicata.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+F-UC1: Registrazione del farmaco in ingresso nel magazzino
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il farmacista legge con la pistola QR code/barcode dedicato al magazzino
+ il pacco dei farmaci.
+ Il sistema in modo automatico estrae le informazioni dal file JSON ed effettua
+ le query sul database (update) cosi da aggiornare le disponibilità
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Farmacista
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il manager delle farmacie ha effettuato gli acquisti.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+La disponibilità del farmaco appena acquistato verranno incrementate per
+ la farmacia in cui è stato acquistato tale farmaco.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il farmacista legge con la pistola le confezioni di un determinato farmaco
+ acquistato
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Viene creato un file JSON in cui sono visualizzate le informazioni di acquisto
+ farmaco
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+F-UC2: Modifica manuale della disponibilità dei farmaci 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il farmacista modifica manualmente la disponibilità di un farmaco (ad esempio
+ causa scadenza o danneggiamento della confezione).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Farmacista
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il farmacista deve essersi loggato.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+La disponibilità del farmaco verranno modificate (per la farmacia in cui
+ il farmacista lavora).
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il farmacista effettua il login nella sua area di competenza
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il farmacista attraverso la sezione “Products” può accedere alla lista dei
+ famaci presenti in quella farmacia
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Attraverso il pulsante “Modify quantity avaiable” può scegliere la disponibilità
+ e aggiornarla premendo il tasto “Modify”
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+F-UC3: Generazione report delle vendite
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il farmacista, potrà decidere di generare il report (di vendita) della relativa
+ farmacia.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Farmacista
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Ci sono delle vendite nel database.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il farmacista genera il report di vendita.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il farmacista accede all’applicativo web e si logga
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona dalla tendina una farmacia
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona la voce “Generate report”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Seleziona l’orizzonte temporale su cui effettuare le statistiche
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Preme il bottone “Generate”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Viene visualizzato il report di vendita relativo alla farmacia e all’orizzonte
+ temporale e le possibilità di esportazione del documento
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+F-UC4: Visualizzazione farmacista della disponibilità dei farmaci
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il farmacista, tramite l’applicativo, potrà cercare la disponibilità di
+ un determinato farmaco.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Farmacista
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il farmacista deve accedere all’applicativo web.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il farmacista visualizza le quantità di un determinato farmaco.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il farmacista accede all’applicativo web
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Cerca il farmaco con il tasto “Find product”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inserisce il nome del farmaco
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Vengono visualizzate le informazioni generali del farmaco con la disponibilità
+ nella farmacia
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+F-UC5: Vendita nuovo prodotto
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il farmacista, tramite l’applicativo, potrà inserire la vendita di un nuovo
+ farmaco nella propria farmacia.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Farmacista
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il farmacista deve accedere all’applicativo web.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il farmacista ha aggiunto un nuovo farmaco da vendere nella propria farmacia.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il farmacista accede all’applicativo web
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca sulla sezione “Sell a product”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inserisce i dati nel form i dati per specificare le caratteristiche e dettagli
+ del nuovo farmaco da aggiungere all’elenco dei farmaci in vendita
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+F-UC5: Trasferimento medicinali
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Descrizione: 
+\series default
+Il farmacista, tramite l’applicativo, potrà richiedere la quantità che è
+ interessato a ricevere di una determinata categoria di farmaco.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Attori coinvolti: 
+\series default
+Farmacista
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Precondizioni: 
+\series default
+Il farmacista deve accedere all’applicativo web.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Postcondizioni: 
+\series default
+Il farmacista ottiene il percorso da fare per andare a ritirare la quantità
+ di farmaci richiesta.
+ Nel percorso gli saranno segnalate in ordine le farmacie in cui deve spostarsi
+ e la quantità di farmaci che potrà ricevere in ognuna di esse.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\lang english
+Processo:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Il farmacista accede all’applicativo web
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Clicca sulla sezione “Medicine transfer”
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Inserisce i dati nel form i dati per specificare la categoria del prodotto
+ richiesto e la relativa quantità
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Visualizzerà il percorso da effettuare
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Use cases diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Use cases (UML).png
+	lyxscale 25
+	scale 27
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Use cases diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Architettura
+\end_layout
+
+\begin_layout Section
+Architettura hardware
+\end_layout
+
+\begin_layout Standard
+L'architettura hardware sarà formata da un singolo server che si interfaccerà
+ a un database per la gestione dei dati.
+ I vari client usati dai vari attori si interfacceranno con il server.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Topology system.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Topology system
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Architettura software
+\end_layout
+
+\begin_layout Standard
+L'architettura software scelta è basata sul Django Framework.
+ Abbiamo scelto di optare per questo web framework per vari fattori tra
+ cui:
+\end_layout
+
+\begin_layout Itemize
+Time to market: dover sviluppare ogni singola riga di codice aumenta drasticamen
+te il tuo time-to-market, ossia il tempo necessario a fare sì che il tuo
+ progetto passi dall’essere una semplice idea a un progetto funzionante
+ vero e proprio; utilizzando un framework, si ha già tutta una serie di
+ strumenti pronti all’uso che permettono di risparmiare tempo e concentrarti
+ sullo sviluppo dell'idea.
+\end_layout
+
+\begin_layout Itemize
+Sicurezza: contiene all'interno componenti riguardanti la sicurezza e l'autentic
+azione già pronti, bisogna solo tenerli aggiornati.
+\end_layout
+
+\begin_layout Itemize
+Community: lavorare con un framework, ancora meglio se open source, riduce
+ drasticamente il carico di lavoro potendo riutilizzare codice o template
+ già presenti.
+\end_layout
+
+\begin_layout Standard
+Inoltre con Django è possibile creare un sito web accessibile da qualsiasi
+ tipo di terminale (computer, tablet, smartphone...) usato dai vari attori
+ (clienti, farmacisti, manager) come si vede dall'architettura hardware
+ del nostro progetto.
+\end_layout
+
+\begin_layout Standard
+Django, pur influenzato fortemente dalla filosofia di sviluppo Model-View-Contro
+ller, adotta un pattern Model-View-Template formato da:
+\end_layout
+
+\begin_layout Itemize
+Model: è il data access layer che gestisce i dati.
+\end_layout
+
+\begin_layout Itemize
+View: è il layer che esegue la business logic e interagisce con il model
+ per gestire i dati per presentarli al template.
+\end_layout
+
+\begin_layout Itemize
+Template: è il presentation layer che gestisce l'interfaccia utente completament
+e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Django.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Django
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quindi viene a mancare un controller separato tipico di un MVC pattern:
+ infatti questa funzione viene gestita dal framework stesso.
+\end_layout
+
+\begin_layout Standard
+Rispetto al framework MVC classico in Django ciò che sarebbe chiamato "controlle
+r" è chiamato "view" mentre ciò che dovrebbe essere chiamato "view" è chiamato
+ "template".
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Django nel dettaglio"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è rappresentato il ciclo di vita di Django.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Django nel dettaglio"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Django (Detail).png
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Django nel dettaglio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Deployment diagram
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Deployment diagram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sono riportati il deployment diagram della soluzione proposta per soddisfare
+ la richiesta del committente.
+ In particolare, si è scelto di accorpare molte componenti nel web server
+ in modo da rendere scalabile l'applicazione su qualsiasi client avente
+ a disposizione un semplice web browser, in aggiunta ai dispositivi di cassa
+ nel caso del farmacista.
+ In questo modo i clienti da qualsiasi dispositivo potranno accedere al
+ sito e pure il manager per gestire il server.
+\end_layout
+
+\begin_layout Standard
+Il database è sulla stessa workstation del web server in modo da facilitarne
+ la comunicazione.
+ Si è scelto di usare 
+\emph on
+SQLite3 
+\emph default
+come database visto che ha il supporto nativo di Python e per semplicità.
+ In caso di futura mole di dati eccessiva e prestazioni ridotte si potrà
+ passare facilmente ad alternative tipo 
+\emph on
+MySQL
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Deployment diagram"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Deployment diagram (Old).png
+	lyxscale 25
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Deployment diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Successivamente abbiamo deciso ridisegnare le componenti principali della
+ nostra applicazione, passando dal deployment con raggruppamento delle funzioni
+ richieste dai casi d'uso al deployment diviso per macro funzionalità che
+ l'applicazione dovrà implementare; le nuove componenti sono: 
+\emph on
+authentication, shop, timetable, transfer
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Deployment diagram aggiornato"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è rappresentato il deployment diagram aggiornato con la nuova divisione
+ in componenti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Deployment diagram aggiornato"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Deployment diagram (New).png
+	lyxscale 25
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Deployment diagram aggiornato
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Component diagram
+\end_layout
+
+\begin_layout Standard
+La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Component diagram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ rappresenta il component diagram in cui ogni singolo componente ha lo stesso
+ pattern, ossia è formato da tre blocchi come nel paradigma di Django:
+\end_layout
+
+\begin_layout Itemize
+Model: permette l’interfaccia con il database.
+\end_layout
+
+\begin_layout Itemize
+View: ha il compito di implementare la logica di funzionamento di ogni singolo
+ componente ed elabora i dati del database.
+ 
+\end_layout
+
+\begin_layout Itemize
+Template: si occupa di svolgere il ruolo del presenter, ovvero dell’interfaccia
+ grafica.
+ 
+\end_layout
+
+\begin_layout Standard
+L'analisi nel dettaglio e le modalità di comunicazione tra i vari componenti
+ verranno spiegata nelle sezioni successive analizzando anche nel dettaglio
+ la componente 
+\emph on
+shop
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Component diagram"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Component diagram.png
+	lyxscale 25
+	scale 27.5
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Component diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analisi dei componenti
+\end_layout
+
+\begin_layout Standard
+Introduciamo il class diagram rappresentato nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Class diagram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Abbiamo individuato le seguenti interfacce che interagiscono tra di loro
+ fornendo e ricevendo servizi.
+ I servizi forniti da ogni interfaccia sono esemplificati nei metodi che
+ possiede.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Class diagram"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Class diagram.png
+	lyxscale 35
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Class diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ci sono due interfacce Cart data e Cart controller.
+ Sono due interfacce separate che interagiscono tra loro.
+ Cart controller si occupa di fornire tutte le azioni disponibili al cliente
+ con il carrello: aggiungere prodotti, togliere prodotti e svuotare il carrello.
+ Cart data si occupa di salvare per l'account il relativo carrello in modo
+ che rimanga anche ai prossimi login (in sessioni successive) quindi cart
+ data fornisce funzionalità per salvare i dati del carrello di un account
+ e recuperare i dati in sessione successive.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Database
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Database ER diagram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è rappresentato il diagramma entità relazione del database.
+ Tuttavia, invece di adottare 
+\emph on
+MySQL
+\emph default
+, considerando la mole di dati non elevata e per facilità di utilizzo si
+ è scelto di adottare 
+\emph on
+SQLLite3
+\emph default
+ come storage di dati.
+ La figura è stata ottenuta automaticamente da riga di comando grazie ai
+ tools 
+\emph on
+Pyreverse
+\emph default
+ e 
+\emph on
+GraphViz
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Database.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Database ER diagram"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Database ER diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abbiamo scelto che ogni tabella abbia un identificatore univoco come chiave
+ primaria per evitare conflitti tra nomi identici.
+ Analizziamo ora i campi principali delle varie tabelle:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella User:
+\end_layout
+
+\begin_layout Standard
+Modello già presente in Django contenente i vari campi riferiti ai vari
+ utenti presenti sulla piattaforma.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+data_joined:
+\emph default
+ data di registrazione
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+is_active, is_staff, is_superuser:
+\emph default
+ indicano i permessi che ha l'utente, in particolare ogni account di ogni
+ farmacia sarà 
+\emph on
+staff
+\emph default
+ e il gestore di tutte le farmacie sarà 
+\emph on
+superuser
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+password:
+\emph default
+ password dell'account (hash)
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+username:
+\emph default
+ nome utente dell'account
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella Pharmacy:
+\end_layout
+
+\begin_layout Standard
+Modello delle farmacie.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+owner
+\emph default
+: foreign key riferita all'
+\emph on
+id 
+\emph default
+delle tabella User
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+active
+\emph default
+: booleano indicante se la farmacia è attiva o nascosta
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+location
+\emph default
+: posizione geografica della farmacia
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+name
+\emph default
+: nome della farmacia
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+slot4hMinWeek
+\emph default
+: numero di slot minimi di 4h in cui la farmacia rimane aperta settimanalmente
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+x
+\emph default
+: coordinata della posizione
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+y
+\emph default
+: coordinata della posizione
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella Category:
+\end_layout
+
+\begin_layout Standard
+Modello delle categorie dei farmaci.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+active
+\emph default
+: booleano indicante se la categoria è attiva o nascosta
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+name
+\emph default
+: nome della categoria di farmaci
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+slug
+\emph default
+: campo automatico per identificare la categoria nella barra indirizzi
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella Product:
+\end_layout
+
+\begin_layout Standard
+Modello dei farmaci e dei prodotti venduti.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+category: foreign key riferita all'
+\emph on
+id 
+\emph default
+delle tabella Category
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+pharmacy
+\emph default
+: foreign key riferita all'
+\emph on
+id 
+\emph default
+delle tabella Pharmacy
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+active
+\emph default
+: booleano indicante se il prodotto è attivo o nascosto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+brand
+\emph default
+: marchio del prodotto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+featured
+\emph default
+: booleano indicante se il prodotto è in risalto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+image
+\emph default
+: immagine del prodotto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+name
+\emph default
+: nome del prodotto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+price
+\emph default
+: prezzo del prodotto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+quantity
+\emph default
+: quantità del prodotto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+shipping
+\emph default
+_fee: spese di spedizione del prodotto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+slug
+\emph default
+: campo automatico per identificare il prodotto nella barra indirizzi
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella Buyer:
+\end_layout
+
+\begin_layout Standard
+Modello degli acquirenti.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+address
+\emph default
+: indirizzo dell'acquirente
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+city
+\emph default
+: città dell'acquirente
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+full_name
+\emph default
+: nome completo dell'acquirente
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+phone
+\emph default
+: numero di cellulare dell'acquirente
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella Review:
+\end_layout
+
+\begin_layout Standard
+Modello delle recensioni.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+product
+\emph default
+: foreign key riferita all'
+\emph on
+id 
+\emph default
+delle tabella Product
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+user
+\emph default
+: foreign key riferita all'
+\emph on
+id 
+\emph default
+delle tabella User
+\end_layout
+
+\begin_layout Itemize
+review: contenuto della recensione del prodotto 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella Contact:
+\end_layout
+
+\begin_layout Standard
+Modello dei messaggi di contatto.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+email
+\emph default
+: mail del richiedente
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+messaggio
+\emph default
+: messaggio di richiesta
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+name
+\emph default
+: nome del richiedente
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+Tabella Timetable:
+\end_layout
+
+\begin_layout Standard
+Modello delle tabelle degli orari delle farmacie.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+id:
+\emph default
+ identificatore univoco
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+pharmacy
+\emph default
+: foreign key riferita all'
+\emph on
+id 
+\emph default
+delle tabella Pharmacy
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+day
+\emph default
+: giorno della settimana coperto
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+slot4h
+\emph default
+: intero indicante quale slot della giornata copre
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Component Shop
+\end_layout
+
+\begin_layout Standard
+Introduciamo il component diagram di 
+\emph on
+shop
+\emph default
+ rappresentato nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Component diagram di shop"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Component diagram di shop"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Component diagram (Shop).png
+	lyxscale 25
+	scale 22.5
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Component diagram di shop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella fase successiva andremo a implementare questa componente come base
+ dell'applicazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

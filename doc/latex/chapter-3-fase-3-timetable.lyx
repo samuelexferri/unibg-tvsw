@@ -1,0 +1,3602 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\begin_preamble
+% in case somebody want to have the label "Equation"
+%\renewcommand{\eqref}[1]{Equation~(\negthinspace\autoref{#1})}
+
+% that links to image floats jumps to the beginning
+% of the float and not to its caption
+\usepackage[figure]{hypcap}
+
+% the pages of the TOC is numbered roman
+% and a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \frontmatter
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC
+  \mainmatter }
+
+% makes caption labels bold
+% for more info about these settings, see
+% https://ctan.org/tex-archive/macros/latex/contrib/koma-script/doc/scrguien.pdf
+\setkomafont{captionlabel}{\bfseries}
+\setcapindent{1em}
+
+% enables calculations
+\usepackage{calc}
+
+% fancy page header/footer settings
+% for more information see section 9 of
+% ftp://www.ctan.org/pub/tex-archive/macros/latex2e/contrib/fancyhdr/fancyhdr.pdf
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+% increases the bottom float placement fraction
+\renewcommand{\bottomfraction}{0.5}
+
+% avoids that floats are placed above its sections
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+
+% increases link area for cross-references and autoname them
+% if you change the document language to e.g. French
+% you must change "extrasenglish" to "extrasfrench"
+% if you uncomment the following lines, you cannot use the reference version Ref+Text in LyX
+%\AtBeginDocument{%
+% \renewcommand{\ref}[1]{\autoref{#1}}
+%}
+%\def\refnamechanges{%
+% \renewcommand*{\equationautorefname}[1]{}
+% \renewcommand{\sectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}
+% \renewcommand{\figureautorefname}{Fig.\negthinspace}
+% \renewcommand{\tableautorefname}{Tab.\negthinspace}
+%}
+%\@ifpackageloaded{babel}{\addto\extrasenglish{\refnamechanges}}{\refnamechanges}
+\end_preamble
+\options intoc,bibliography=totoc,index=totoc,BCOR10mm,captions=tableheading,titlepage
+\use_default_options true
+\master project.lyx
+\begin_modules
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Your title"
+\pdf_author "Your name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\branch Standalone
+\selected 1
+\filename_suffix 0
+\color #ff0000
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 1
+\math_indentation default
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Left Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptername
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thechapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+rightmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Header
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Left Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Footer
+
+\end_layout
+
+\begin_layout Right Footer
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Fase 3
+\end_layout
+
+\begin_layout Chapter
+Timetable
+\end_layout
+
+\begin_layout Standard
+In questa fase abbiamo implementato l'app 
+\emph on
+timetable 
+\emph default
+che contiene un algoritmo per il calcolo degli orari settimanali delle farmacie.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Timetable.png
+	lyxscale 75
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Timetable
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Descrizione
+\end_layout
+
+\begin_layout Standard
+Abbiamo deciso di implementare la funzione che si occupa di generare automaticam
+ente l’orario settimanale di apertura delle farmacie.
+\end_layout
+
+\begin_layout Standard
+Ogni volta che l’amministratore (che è l’unico utente abilitato per eseguire
+ questa funzionalità) decide di ricalcolare il piano di apertura delle farmacie,
+ il piano precedentemente calcolato viene eliminato dal DB.
+\end_layout
+
+\begin_layout Standard
+La funzione tiene conto dei seguenti vincoli (come da specifica):
+\end_layout
+
+\begin_layout Enumerate
+Ogni farmacia deve stare aperta almeno per j slot temporali alla settimana
+ (uno slot consiste in un blocco di 4 ore contigue, suddivisibili tra i
+ seguenti orari (6 slot giornalieri)).
+\end_layout
+
+\begin_layout Enumerate
+Ogni farmacia può stare aperta al più 42 slot a settimana, che consiste
+ nel rimanere aperta h 24 per 7 giorni.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Ad ogni slot settimanale dev’esserci almeno una farmacia aperta; tale requisito
+ viene soddisfatto se e solo se la somma degli slot di tutte le farmacie
+ di un determinato piano settimanale è 
+\begin_inset Formula $\geq$
+\end_inset
+
+42.
+\end_layout
+
+\begin_layout Standard
+Sia M = 
+\begin_inset Formula $\sum_{i=1}^{K}SlotMin$
+\end_inset
+
+, possiamo avere 3 casistiche possibili:
+\end_layout
+
+\begin_layout Enumerate
+M = 42: in questo caso ogni farmacia sta aperta per un numero di slot pari
+ al suo minimo, e non si avranno sovrapposizioni.
+\end_layout
+
+\begin_layout Enumerate
+M > 42: in questo caso si ha una sovrapposizione per (M - 42) slot settimanali.
+ Tali sovrapposizioni si dovranno verificare maggiormente nelle ore diurne
+ (quindi dalle 08 alle 20).
+\end_layout
+
+\begin_layout Enumerate
+M < 42: in questo caso, essendo solo slot minimi, una farmacia può restare
+ aperta più slot rispetto al suo minimo.
+ Quindi, dovremo imporre ad alcune/tutte le farmacie (privilegiando le farmacie
+ che hanno un minimo di slot minore) di essere aperte più slot temporali,
+ per soddisfare il vincolo terzo vincolo descritto in precedenza.
+\end_layout
+
+\begin_layout Standard
+Sia 
+\emph on
+K
+\emph default
+ il numero di farmacie, 
+\begin_inset Formula $j_{i}$
+\end_inset
+
+ il numero minimo di slot dell' i-esima farmacia, 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ il numero effettivo di slot in cui l'i-esima farmacia resterà aperta nel
+ piano calcolato (al massimo sappiamo che sarà 
+\begin_inset Formula $\leq$
+\end_inset
+
+ 42).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{i=1}^{K}n_{i}\geq42
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\text{∀i}:n_{i}\geq j_{i}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\text{∀}j:j_{i}\leq42
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pseudocodice
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pseudocodice di timetable
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+CalculateTimetable (lista di farmacie F) -> void 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+delete(timetable)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+calculate (SumOfSlotMin)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+if (SumOfSlotMin == 42) 
+\color blue
+[1]
+\color green
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+K=List[0...41]
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+foreach Pharm∈F 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+for i=0 to Pharm.slot-1 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+s=random.choice(K)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+K.remove(s)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+insert(item)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+else if(SumOfSlotMin>42) 
+\color blue
+[2]
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+count=0
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+K=List[0...41]
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+foreach Pharm∈F
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+for i=0 to Pharm.slot-1 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+if(count<42)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+s=random.choice(K)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+K.remove(s)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+insert(item)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+count++
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+else
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+while (slot is already full) 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+chooseSlot() 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+while (day in slot is already full)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+insert(item)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+else 
+\color blue
+[3]
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+K=List[0...41]
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+for i=0 to 41 do L[i] <- 0
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+foreach Pharm∈F
+\color green
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+for i=0 to Pharm.slot-1
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+s=random.choice(K)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+K.remove(s)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+insert(item)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+while(K != empty) 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+s=random.choice(K)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+choosePharamcy()
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+insert(item) 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+K.remove(s)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analisi di complessità
+\end_layout
+
+\begin_layout Standard
+Ora analizziamo la complessità dell’algoritmo ponendoci nel caso peggiore.
+ Mettiamoci nel caso generale, cioè che il numero di slot settimanali da
+ riempire siano 
+\emph on
+n
+\emph default
+ (nel nostro caso sappiamo 42).
+ Prima di entrare in una delle tre casistiche viene effettuata la cancellazione
+ delle 
+\emph on
+n
+\emph default
+ tuple dal database 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) 
+\color inherit
+e vengono calcolati gli slot minimi totale scorrendo tutte le farmacie 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+).
+ 
+\color inherit
+Supponiamo che le operazioni di cancellazione e inserimento nel database
+ abbiano costo costante 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $1$
+\end_inset
+
+)
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Situazione con 
+\emph on
+SumOfSlotMin = n
+\emph default
+ 
+\color blue
+[1]
+\color green
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Vi è un doppio ciclo for: quello esterno itera sulle farmacie e quello interno
+ sugli slot minimi delle farmacie.
+ Tuttavia sapendo che ci saranno solo 
+\emph on
+n
+\emph default
+ slot minimi delle farmacie, il ciclo for interno itererà 
+\emph on
+n
+\emph default
+ volte (infatti nel caso una farmacia abbia slot minimi pari a zero il ciclo
+ interno non itera).
+ Considerando le due operazioni precedenti (
+\emph on
+delete
+\emph default
+ e 
+\emph on
+calculate
+\emph default
+) avremo una complessità pari ad 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) + 
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) + 
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) = 
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Situazione con 
+\emph on
+SumOfSlotMin = m>n
+\emph default
+ 
+\color blue
+[2]
+\color green
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Definiamo 
+\emph on
+d = m-n
+\emph default
+, ossia il numero di slot minimi aggiuntivi ai 42 settimanali.
+\end_layout
+
+\begin_layout Standard
+Come prima cosa riempiamo gli 
+\emph on
+n
+\emph default
+ slot settimanali obbligatori, con complessità pari a sopra, cioè 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+)
+\color inherit
+; per i restanti 
+\emph on
+d
+\emph default
+ avremo che il doppio ciclo while itererà al massimo 
+\emph on
+n
+\emph default
+ volte per ogni 
+\emph on
+d
+\emph default
+ e quindi avrà complessità
+\emph on
+\color green
+ 
+\begin_inset Formula $O$
+\end_inset
+
+(d*n)
+\emph default
+\color inherit
+.
+ Considerando le due operazioni precedenti (
+\emph on
+delete
+\emph default
+ e 
+\emph on
+calculate
+\emph default
+) avremo una complessità pari ad 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) + 
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) + 
+\emph on
+
+\begin_inset Formula $O$
+\end_inset
+
+(d*n)
+\emph default
+ = 
+\emph on
+
+\begin_inset Formula $O$
+\end_inset
+
+(d*n)
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Situazione con 
+\emph on
+SumOfSlotMin = m<n
+\emph default
+ 
+\color blue
+[3]
+\color green
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Definiamo 
+\emph on
+f = n-m
+\emph default
+, ossia il numero di slot minimi mancanti che dovremo riempire.
+\end_layout
+
+\begin_layout Standard
+Il doppio ciclo for effettuerà 
+\emph on
+m
+\emph default
+ iterazioni, quindi avremo una complessità pari ad 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $m$
+\end_inset
+
+)
+\color inherit
+.
+\end_layout
+
+\begin_layout Standard
+Siccome dobbiamo riempire i restanti 
+\emph on
+n-m
+\emph default
+ slot, lo facciamo con un while che itera 
+\emph on
+f
+\emph default
+ volte e avrà complessità
+\emph on
+\color green
+ 
+\begin_inset Formula $O$
+\end_inset
+
+(f)
+\emph default
+.
+
+\color inherit
+ Considerando le due operazioni precedenti (
+\emph on
+delete
+\emph default
+ e 
+\emph on
+calculate
+\emph default
+) avremo una complessità pari ad 
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) + 
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $n$
+\end_inset
+
+) + 
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $m$
+\end_inset
+
+) + 
+\begin_inset Formula $O$
+\end_inset
+
+(
+\begin_inset Formula $f$
+\end_inset
+
+) = 
+\emph on
+
+\begin_inset Formula $O$
+\end_inset
+
+(n)
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+La complessità dell'algoritmo nel caso peggiore è il secondo caso; infatti
+\emph on
+ f = n-m
+\emph default
+ del terzo caso è limitata perchè non può andare oltre a n, invece 
+\emph on
+d = m-n
+\emph default
+ può divergere se m tende all'infinito (tantissime sovrapposizioni).
+ Quindi la complessità massima è 
+\emph on
+\color green
+
+\begin_inset Formula $O$
+\end_inset
+
+(d*n).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Activity diagram
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flow chart (Timetable)"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è rappresentato il flow chart dell'algoritmo di 
+\emph on
+timetable
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename img/Flow chart (Timetable).png
+	scale 45
+	rotateAngle 90
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flow chart (Timetable)"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Flow chart dell'algoritmo di timetable
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Testing dell'algoritmo
+\end_layout
+
+\begin_layout Standard
+Ora procediamo con la fase di testing dell'algoritmo per assicurarci che
+ l'algoritmo funzioni nella maniera corretta.
+\end_layout
+
+\begin_layout Standard
+Premettiamo che è la funzione 
+\emph on
+calculate(request) 
+\emph default
+che si occupa di chiamare l'algoritmo e prima di chiamarlo svolge un controllo
+ sul numero di farmacie presenti nel DB e sul fatto che sia l'admin ad essere
+ loggato.
+\end_layout
+
+\begin_layout Standard
+In particolare avremo due casistiche:
+\end_layout
+
+\begin_layout Itemize
+se non è l'admin ad essere autenticato: stamperà a video '
+\emph on
+You have to logged as admin in first to calculate the timetable
+\emph default
+' e non chiamerà l'algoritmo.
+\end_layout
+
+\begin_layout Itemize
+se è l'admin ad essere loggato:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+se il numero di farmacie presenti nel DB è > 3, chiamerà l'algoritmo.
+\end_layout
+
+\begin_layout Itemize
+altrimenti: stamperà a video 
+\emph on
+'Three pharmacies are needed in order to calculate the timetable
+\emph default
+' e non chiamerà l'algoritmo.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Per quanto riguarda la funzione 
+\emph on
+algorithm_timetable(request)
+\emph default
+, essendo che non riceve nessun parametro in ingresso e non ne restituisce
+ (opera il tutto nel database), ci possiamo limitare a controllare che,
+ una volta eseguita, siano presenti nel database il numero giusto di tuple
+ nella tabella timetable relative alle varie farmacie.
+\end_layout
+
+\begin_layout Section
+Struttura di un caso di test
+\end_layout
+
+\begin_layout Standard
+Tutti i casi di test hanno la seguente struttura, in cui N indica l'indice
+ del test:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class TimetableTestN(TestCase):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	def test_algorithm_TimetableN(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		<<inizializzazione>>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<<algoritmo>>
+\end_layout
+
+\begin_layout Plain Layout
+
+		<<test>>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abbiamo che <<
+\emph on
+inizializzazione
+\emph default
+>> indica l'inizializzazione delle variabili di input dell'algoritmo, <<
+\emph on
+algoritmo
+\emph default
+>> indica la chiamata dell'algoritmo con i valori di input scelti precedentement
+e e infine <<
+\emph on
+test
+\emph default
+>> si controlla che i risultati di output dell'algoritmo siano corretti.
+\end_layout
+
+\begin_layout Standard
+Nel codice sorgente sono presenti 3 casi di test per coprire tutte le diverse
+ casistiche: il caso in cui gli slot minimi di tutte le farmacie siano minori
+ di 42, esattamente uguali a 42 o maggiori a 42 dove 42 è la copertura settimana
+le.
+\end_layout
+
+\begin_layout Standard
+Il codice sottostante rappresenta il caso in cui la somma degli slot minimi
+ delle farmacie sia minore di 42; in questo caso, come ampiamente spiegato
+ sopra, l'algoritmo dev'essere in grado di coprire gli tutti gli slot settimanal
+i; quindi siccome ogni slot è rappresentato da una tupla differente, nel
+ database dovremo avere 42 tuple esatte.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,basicstyle={\small},tabsize=7"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class AlgoritmoCalculateTimetable1(TestCase):
+\end_layout
+
+\begin_layout Plain Layout
+
+	def test_algorithm_calculate1(self): 
+\end_layout
+
+\begin_layout Plain Layout
+
+		user1 = User.objects.create(username='Testuser1') 
+\end_layout
+
+\begin_layout Plain Layout
+
+		user2 = User.objects.create(username='Testuser2')  
+\end_layout
+
+\begin_layout Plain Layout
+
+		user3 = User.objects.create(username='Testuser3')
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		farmacia1 = Pharmacy.objects.create(owner=user1, name="farmacia1", image="farmac
+ia.png", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
+\end_layout
+
+\begin_layout Plain Layout
+
+		farmacia2 = Pharmacy.objects.create(owner=user2, name="farmacia2", image="farmac
+ia.png", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
+\end_layout
+
+\begin_layout Plain Layout
+
+		farmacia3 = Pharmacy.objects.create(owner=user3, name="farmacia3", image="farmac
+ia.png", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		farmacia1.save()         
+\end_layout
+
+\begin_layout Plain Layout
+
+		farmacia2.save()         
+\end_layout
+
+\begin_layout Plain Layout
+
+		farmacia3.save()    
+\end_layout
+
+\begin_layout Plain Layout
+
+      	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		algorithm_timetable(self)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		count = Timetable.objects.all().count()
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.assertEqual(count, 42)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essendo che l'algoritmo non riceve input ne produce output (tranne l'inserimento
+ di tuple nel database), abbiamo agito in questo modo: abbiamo istanziato
+ i 3 farmacie, facendo si che la somma degli slot min sia minore di 42 (nel
+ nostro caso 15).
+\end_layout
+
+\begin_layout Standard
+Viene chiamato l'algoritmo e successivamente andiamo a contare il numero
+ di tuple nella tabella Timetable (ricordiamo che ogni volta che la funzione
+ viene eseguita, come prima cosa vengono eliminate tutte le tuple presenti
+ (cioè viene eliminato il vecchio piano calcolato la volta precedente).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+self.assertEqual(count, 42)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questo comando serve per effettuare il test vero e proprio sui risultati
+ ottenuti dall'algoritmo.
+ Il comando 
+\emph on
+self.assertEqual(argomento1, argomento2) 
+\emph default
+riceve due argomenti e controlla che siano uguali i valori.
+ Inserendo al posto di argomento2 il valore che ci si aspetta (nel nostro
+ caso 42 (numero di tuple)), si verifica se l'algoritmo funziona correttamente
+ o meno.
+\end_layout
+
+\begin_layout Standard
+Allo stesso modo si effettuano i test per i restanti due casi, contando
+ anche singolarmente gli slot minimi delle farmacie.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+c1 = Timetable.objects.filter(pharmacy=farmacia1).count()
+\end_layout
+
+\begin_layout Plain Layout
+
+c2 = Timetable.objects.filter(pharmacy=farmacia2).count()
+\end_layout
+
+\begin_layout Plain Layout
+
+c3 = Timetable.objects.filter(pharmacy=farmacia3).count()
+\end_layout
+
+\begin_layout Plain Layout
+
+count = Timetable.objects.all().count()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+self.assertEqual(count, 80)
+\end_layout
+
+\begin_layout Plain Layout
+
+self.assertEqual(c1, 20)
+\end_layout
+
+\begin_layout Plain Layout
+
+self.assertEqual(c2, 25)
+\end_layout
+
+\begin_layout Plain Layout
+
+self.assertEqual(c3, 35)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
