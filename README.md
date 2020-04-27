@@ -1,7 +1,7 @@
 # Software Testing and Check
 
 <p align="center">
-<img src="https://github.com/samuelexferri/info-3b/blob/master/images/croce.png" width="200">
+<img src="https://github.com/samuelexferri/tvsw/blob/master/images/croce.png" width="200">
 </p>
 
 Software Testing and Check project
