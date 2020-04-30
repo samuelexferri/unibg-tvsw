@@ -301,7 +301,7 @@ class ViewTest(TestCase):
 Views tests (Uses Selenium), two command prompt necessary
 """
 
-
+"""
 class ContactViewSeleniumTest(LiveServerTestCase):
 
     def setUp(self):
@@ -325,7 +325,7 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
     def tearDown(self):
         self.driver.quit
-
+"""
 
 if __name__ == '__main__':
     unittest.main()
