@@ -47,7 +47,8 @@ $ pylint --rcfile=./.pylintrc --errors-only ./shop
 $ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
 
 ANALISI DINAMICA
-Testing (Unit Test)
+Testing (Unit Test):
+$ python manage.py test -v 2 --exclude-tag=selenium
 
 Coverage:
 $ coverage run manage.py test -v 2
