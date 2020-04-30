@@ -5,6 +5,11 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils.text import slugify
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
 
 from shop.forms import *
 from shop.models import *
@@ -305,7 +310,7 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
     def test_selenium_contact(self):
         # Local Host
-        #self.driver.get("http://localhost:8000/shop/contact")
+        # self.driver.get("http://localhost:8000/shop/contact")
         # GitHub Actions - Selenoid Server
         self.driver.get("http://localhost:4444/shop/contact")
 
@@ -315,7 +320,7 @@ class ContactViewSeleniumTest(LiveServerTestCase):
         self.driver.find_element_by_id('id_message').send_keys("Text")
         self.driver.find_element_by_id('submit').click()  # Submit button
 
-        #self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
+        # self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
         self.assertIn("http://localhost:4444/shop/contact", self.driver.current_url)
 
     def tearDown(self):
