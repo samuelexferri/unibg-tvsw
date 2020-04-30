@@ -2,7 +2,9 @@
 
 Command Prompt
 
-Pip:
+    cd C:\GitHub\tvsw\pharmacies
+
+PIP:
 $ python -m pip install --upgrade pip
 
 Virtual Environment:
@@ -47,13 +49,17 @@ $ pylint --rcfile=./.pylintrc --errors-only ./shop
 $ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
 
 ANALISI DINAMICA
-Testing (Unit Test):
+Unittests:
 $ python manage.py test -v 2 --exclude-tag=selenium
 
 Coverage:
-$ coverage run manage.py test -v 2
+$ coverage run manage.py test -v 2 --exclude-tag=selenium
 $ coverage html
+$ coverage xml
 $ coverage erase
+
+CodeCov:
+Site
 
 Selenium: (Firefox necessario e geckodriver.exe)
 $ pip install selenium

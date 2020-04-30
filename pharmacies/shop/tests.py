@@ -312,19 +312,13 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
     @tag('selenium')
     def test_selenium_contact(self):
-        # Local Host
-        # self.driver.get("http://localhost:8000/shop/contact")
-        # GitHub Actions - Selenoid Server
-        self.driver.get("http://localhost:4444/shop/contact")
-
+        self.driver.get("http://localhost:8000/shop/contact")
         self.driver.find_element_by_id('id_name').send_keys("Gino")
         self.driver.find_element_by_id('id_email').send_keys("gino@mail.com")
         self.driver.find_element_by_id('id_subject').send_keys("Text")
         self.driver.find_element_by_id('id_message').send_keys("Text")
         self.driver.find_element_by_id('submit').click()  # Submit button
-
-        # self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
-        self.assertIn("http://localhost:4444/shop/contact", self.driver.current_url)
+        self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
 
     @tag('selenium')
     def tearDown(self):
