@@ -16,7 +16,7 @@ jobs:
         python-version: [3.8]
 
     container:
-      image: node:13.6
+      image: node:latest
       options: --network-alias testHost
 
     env:
