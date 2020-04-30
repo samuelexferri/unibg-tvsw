@@ -56,7 +56,7 @@ jobs:
     - name: Generate coverage report (pytest)
       working-directory: ${{env.working-directory}}
       run: |
-        coverage run manage.py test -v 2
+        coverage run manage.py test -v 2 --exclude-tag=selenium
         coverage xml
          
     - name: Codecov
