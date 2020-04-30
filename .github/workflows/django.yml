@@ -56,10 +56,9 @@ jobs:
     - name: Generate coverage report (pytest)
       working-directory: ${{env.working-directory}}
       run: |
-        pip install pytest
-        pip install pytest-cov
-        pytest --cov=./ --cov-report=xml
-        
+        coverage run manage.py test -v 2
+        coverage xml
+         
     - name: Codecov
       uses: codecov/codecov-action@v1.0.6
       with:
