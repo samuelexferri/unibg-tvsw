@@ -301,13 +301,15 @@ class ViewTest(TestCase):
 Views tests (Uses Selenium), two command prompt necessary
 """
 
-"""
+
 class ContactViewSeleniumTest(LiveServerTestCase):
 
+    @tag('selenium')
     def setUp(self):
         self.driver = webdriver.Firefox()
         last_height = self.driver.execute_script("return document.body.scrollHeight")
 
+    @tag('selenium')
     def test_selenium_contact(self):
         # Local Host
         # self.driver.get("http://localhost:8000/shop/contact")
@@ -323,9 +325,10 @@ class ContactViewSeleniumTest(LiveServerTestCase):
         # self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
         self.assertIn("http://localhost:4444/shop/contact", self.driver.current_url)
 
+    @tag('selenium')
     def tearDown(self):
         self.driver.quit
-"""
+
 
 if __name__ == '__main__':
     unittest.main()
