@@ -2,6 +2,7 @@ import unittest
 
 from django.test import LiveServerTestCase
 from django.test import TestCase
+from django.test import tag
 from django.urls import reverse
 from django.utils.text import slugify
 from selenium import webdriver
