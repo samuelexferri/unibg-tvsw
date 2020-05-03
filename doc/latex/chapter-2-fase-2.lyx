@@ -308,9 +308,9 @@ Selezione funzioni da implementare
 \end_layout
 
 \begin_layout Standard
-Abbiamo scelto di implementare le funzioni con priorità maggiore richieste
+È stato scelto di implementare le funzioni con priorità maggiore richieste
  dal committente e rendere mock alcune a priorità più bassa.
- Inoltre abbiamo riorganizzato le categorie che raggruppavano le funzioni
+ Inoltre sono state riorganizzate le categorie che raggruppavano le funzioni
  nel seguente modo mantenendo i codici dei casi d'uso precedenti: 
 \end_layout
 
@@ -1131,7 +1131,7 @@ Django REST Framework.
 \end_layout
 
 \begin_layout Standard
-Per poter implementare il framework abbiamo dovuto serializzare ogni modello
+Per poter implementare il framework si è dovuto serializzare ogni modello
  presente nelle varie apps e definirne i permessi per limitare l'accesso
  a dati sensibili.
 \end_layout
@@ -1192,7 +1192,7 @@ class UserSerializer(serializers.ModelSerializer):
 \end_layout
 
 \begin_layout Standard
-Inoltre abbiamo limitato i premessi delle varie classi a utenti solo admin
+Inoltre si sono limitati i premessi delle varie classi a utenti solo admin
  in questo caso.
 \end_layout
 
@@ -1448,10 +1448,13 @@ Pyreverse
 \emph on
 GraphViz
 \emph default
- (necessita anche di aggiungere bin
+ (necessita anche di aggiungere 
+\emph on
+bin
 \backslash
-gvedit.exe nel path delle variabili d'ambiente) si possono usare con i seguenti
- comandi:
+gvedit.exe
+\emph default
+ nel path delle variabili d'ambiente) si possono usare con i seguenti comandi:
 \end_layout
 
 \begin_layout Standard
@@ -1781,6 +1784,10 @@ Output di pylint
 
 \end_layout
 
+\begin_layout Standard
+TODO (Ampliare)
+\end_layout
+
 \begin_layout Chapter
 Analisi dinamica
 \end_layout
@@ -1800,13 +1807,17 @@ Per effettuare i test useremo
 \emph on
 unittest
 \emph default
-, framework per il testing ispirato da JUnit.
- In particolar modo abbiamo definito nel file
+, framework per il testing ispirato da 
+\emph on
+JUnit
+\emph default
+.
+ In particolar modo nel file
 \emph on
  settings.py
 \emph default
- della nostra applicazione la creazione automatica di un database di prova
- 
+ della nostra applicazione si è definita la creazione automatica di un database
+ di prova 
 \emph on
 testdatabase
 \emph default
@@ -1815,13 +1826,22 @@ testdatabase
  base dei models definiti e verrà distrutto al termine.
 \end_layout
 
+\begin_layout Standard
+Inoltre è stata sfruttata la Continuous Integration usando 
+\emph on
+GitHub Actions
+\emph default
+ integrato direttamente nel repository del progetto che ad ogni push esegue
+ numerosi test e verifiche.
+\end_layout
+
 \begin_layout Subsection
 Models tests
 \end_layout
 
 \begin_layout Standard
-Abbiamo eseguito dei test sulla creazione di ogni modello presente nelle
- varie componenti dell'applicazione.
+Sono stati eseguiti numerosi test sulla creazione di ogni modello presente
+ nelle varie componenti dell'applicazione.
 \end_layout
 
 \begin_layout Standard
@@ -1897,8 +1917,8 @@ Forms tests
 \end_layout
 
 \begin_layout Standard
-Abbiamo eseguito dei test sulla compilazione di ogni form presente nelle
- varie componenti dell'applicazione.
+Sono stati eseguiti numerosi test sulla compilazione di ogni form presente
+ nelle varie componenti dell'applicazione.
 \end_layout
 
 \begin_layout Standard
@@ -1947,7 +1967,7 @@ Views tests
 \end_layout
 
 \begin_layout Standard
-Abbiamo eseguito dei test sulle varie funzioni dell'applicazione.
+Sono stati eseguiti numerosi test sulle varie funzioni dell'applicazione.
 \end_layout
 
 \begin_layout Standard
@@ -2003,7 +2023,7 @@ ng", x=50, y=50,                                            slot4hMinWeek=5,
 \end_layout
 
 \begin_layout Section
-Coverage
+Coverage e CodeCov
 \end_layout
 
 \begin_layout Standard
@@ -2037,6 +2057,11 @@ $ coverage html
 
 \begin_layout Plain Layout
 
+$ coverage xml
+\end_layout
+
+\begin_layout Plain Layout
+
 $ coverage erase # Delete previous coverage
 \end_layout
 
@@ -2063,7 +2088,11 @@ noprefix "false"
 
 \end_inset
 
- è riportato l'output di alcuni test eseguiti.
+ è riportato l'output di alcuni test eseguiti con 
+\emph on
+unittest
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -2191,6 +2220,65 @@ Coverage
 
 \end_layout
 
+\begin_layout Standard
+Inoltre è stato usato 
+\emph on
+CodeCov
+\emph default
+, un sito interattivo per la gestione e la comparazione dei rapporti di
+ copertura del codice creati automaticamente a ogni push da 
+\emph on
+GitHub Actions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/CodeCov.png
+	lyxscale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "CodeCov"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CodeCov Coverage Sunbrust
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiornare immagine prima-dopo)
+\end_layout
+
 \begin_layout Section
 Selenium
 \end_layout
@@ -2215,7 +2303,7 @@ Firefox
 \end_layout
 
 \begin_layout Standard
-Un esempio che abbiamo fatto è quello di compilazione del form di contatto
+Un esempio che è stato fatto è quello della compilazione del form di contatto
  per la richiesta di supporto:
 \end_layout
 

@@ -300,7 +300,7 @@ Transfer
 \end_layout
 
 \begin_layout Standard
-In questa fase abbiamo implementato l'app 
+In questa fase si è implementata l'app 
 \emph on
 transfer 
 \emph default
@@ -964,7 +964,7 @@ I vincoli 1 e 2 sono le precondizioni definite in precedenza: in particolare
  sola farmacia da dove prendere tutta la quantità di farmaci necessaria.
  R rappresenta la lista di farmacie soluzioni in sequenza dell'algoritmo
  e viene inizializzata come vuota.
- Entrando più nello specifico delle righe di codice abbiamo che:
+ Entrando più nello specifico delle righe di codice si ha che:
 \end_layout
 
 \begin_layout Standard
@@ -2449,7 +2449,7 @@ class TransferTestN(TestCase):
 \end_layout
 
 \begin_layout Standard
-Abbiamo che <<
+Si ha che <<
 \emph on
 inizializzazione
 \emph default
@@ -2475,12 +2475,12 @@ Nel codice sorgente sono presenti 7 casi di test per coprire tutte le diverse
 \end_layout
 
 \begin_layout Standard
-In questo caso abbiamo cercato il trade-off che facesse cambiare la prima
- scelta su quale farmacia selezionare e coerentemente con il funzionamento
- dell'algoritmo abbiamo constatato che per valori di quantità di prodotti
- di farmacia1 minori o uguali a 669 si ha che la prima farmacia scelta è
- la farmacia2 e invece per valori di quantità di prodotti di farmacia1 maggiori
- o uguali a 670 si ha che la prima farmacia scelta è la farmacia1.
+In questo caso si è cercato il trade-off che facesse cambiare la prima scelta
+ su quale farmacia selezionare e coerentemente con il funzionamento dell'algorit
+mo si è constatato che per valori di quantità di prodotti di farmacia1 minori
+ o uguali a 669 si ha che la prima farmacia scelta è la farmacia2 e invece
+ per valori di quantità di prodotti di farmacia1 maggiori o uguali a 670
+ si ha che la prima farmacia scelta è la farmacia1.
 \end_layout
 
 \begin_layout Standard
@@ -2775,7 +2775,7 @@ prodotto4.save()
 \end_layout
 
 \begin_layout Standard
-Nella parte iniziale abbiamo inserito le richieste: si indica la posizione
+Nella parte iniziale sono inserite le richieste: si indica la posizione
  iniziale [
 \emph on
 xScelta
@@ -2796,11 +2796,11 @@ categoriaScelta
 \end_layout
 
 \begin_layout Standard
-In seguito abbiamo creato tutti gli input dell'algoritmo: abbiamo istanziato
- 4 farmacie e le abbiamo inserite nel database; nell'istanziare le farmacie
- è richiesto un owner che abbiamo referenziato con 4 user differenti; poi
- abbiamo istanziato i 4 prodotti, ognuno corrispondente alla rispettiva
- farmacia e li abbiamo inseriti nel database.
+In seguito sono stati creati tutti gli input dell'algoritmo: si sono istanziate
+ 4 farmacie e inserite nel database; nell'istanziare le farmacie è richiesto
+ un owner che è stato referenziato con 4 user differenti; poi si sono istanziati
+ i 4 prodotti, ognuno corrispondente alla rispettiva farmacia e inseriti
+ nel database.
 \end_layout
 
 \begin_layout Standard

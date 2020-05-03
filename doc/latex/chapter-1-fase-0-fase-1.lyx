@@ -734,6 +734,27 @@ Coverage.py
 \begin_layout Itemize
 
 \series bold
+Analisi dinamica
+\series default
+: 
+\emph on
+CodeCov,
+\emph default
+ provides highly integrated tools to group, merge, archive, and compare
+ coverage reports
+\emph on
+ 
+\emph default
+(
+\emph on
+https://codecov.io/
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Analisi dinamica:
 \series default
 \emph on
@@ -750,6 +771,23 @@ Firefox
  necessario)
 \emph on
  (https://selenium.dev/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Continuous Integration:
+\series default
+ GitHub Actions, offers workflows that can build the code in your repository
+ and run your tests (
+\emph on
+https://help.github.com/en/actions
+\emph default
+).
+\end_layout
+
+\begin_layout Itemize
+TODO (Aggiungere, Inglese, Riadattare)
 \end_layout
 
 \end_deeper
@@ -2764,7 +2802,7 @@ Architettura software
 
 \begin_layout Standard
 L'architettura software scelta è basata sul Django Framework.
- Abbiamo scelto di optare per questo web framework per vari fattori tra
+ È stato scelto di optare per questo web framework per vari fattori tra
  cui:
 \end_layout
 
@@ -3014,7 +3052,7 @@ Deployment diagram
 \end_layout
 
 \begin_layout Standard
-Successivamente abbiamo deciso ridisegnare le componenti principali della
+Successivamente è stato deciso ridisegnare le componenti principali della
  nostra applicazione, passando dal deployment con raggruppamento delle funzioni
  richieste dai casi d'uso al deployment diviso per macro funzionalità che
  l'applicazione dovrà implementare; le nuove componenti sono: 
@@ -3205,8 +3243,8 @@ noprefix "false"
 \end_inset
 
 .
- Abbiamo individuato le seguenti interfacce che interagiscono tra di loro
- fornendo e ricevendo servizi.
+ Sono state individuate le seguenti interfacce che interagiscono tra di
+ loro fornendo e ricevendo servizi.
  I servizi forniti da ogni interfaccia sono esemplificati nei metodi che
  possiede.
 \end_layout
@@ -3351,7 +3389,7 @@ Database ER diagram
 \end_layout
 
 \begin_layout Standard
-Abbiamo scelto che ogni tabella abbia un identificatore univoco come chiave
+Si è scelto che ogni tabella abbia un identificatore univoco come chiave
  primaria per evitare conflitti tra nomi identici.
  Analizziamo ora i campi principali delle varie tabelle:
 \end_layout

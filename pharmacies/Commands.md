@@ -1,67 +1,115 @@
-# COMMANDS
+# Commands
 
-Command Prompt
+Code path:
 
-    cd C:\GitHub\tvsw\pharmacies
+```bash
+$ cd C:\GitHub\tvsw\pharmacies
+```
 
-PIP:
+Upgrade pip:
+
+```bash
 $ python -m pip install --upgrade pip
+```
 
-Virtual Environment:
+Virtual environment:
+
+```bash
 $ pip3 install virtualenvwrapper-win
 $ mkvirtualenv my_django_environment
 $ workon my_django_environment
-$ rmvirtualenv  my_django_environment
+$ rmvirtualenv  my_django_environment # Delete the envrironment!
+```
 
 Requirements:
+
+```bash
 $ pip freeze > requirements.txt
 $ pip install -r requirements.txt
+```
 
-Dump data:
-Cancellare il file db.sqlite3 per evitare conflitti; a terminale eseguire migrate e creare il proprio superuser admin e rieseguire migrate; successivamente importare il db.json con il comandi sottostanti ed avviare il server nuovamente.
+Data: delete the `db.sqlite3` file to avoid conflicts; run migrate and create your own superuser admin and re-run migrate; then import the `db.json` with the commands below and start the server again.
+
+```bash
 $ python manage.py dumpdata > db.json
 $ python manage.py loaddata db.json
+```
 
-Generale:
+Commands:
+
+```bash
 $ python manage.py createsuperuser
 $ python manage.py migrate
 $ python manage.py migrate --run-syncdb
 $ python manage.py makemigrations
 $ python manage.py runserver
+```
 
-API
-Swagger:
+### REST API
+
+Swagger UI:
+
+```bash
 $ pip install django-rest-swagger
+```
 
-ANALISI STATICA
-Pyreverse:
-$ pyreverse -o png -A -s 0 -a 0 -k authentication  shop timetable transfer --ignore=migrations,tests,tests.py
-$ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
+### Analisi statica
 
-GraphViz:
-Install GraphViz (Visit the site) and add the the path for bin\\gvedit.exe in path (Environment variables)
-$ python manage.py graph_models -a -o myapp_models.png
-$ python manage.py graph_models authentication shop timetable transfer -o apps.png
+pylint:
 
-Plyint:
+```bash
 $ pylint --rcfile=./.pylintrc  ./shop
 $ pylint --rcfile=./.pylintrc --errors-only ./shop
 $ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
+```
 
-ANALISI DINAMICA
-Unittests:
+pyreverse:
+
+```bash
+$ pyreverse -o png -A -s 0 -a 0 -k authentication  shop timetable transfer --ignore=migrations,tests,tests.py
+$ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
+```
+
+GraphViz: install GraphViz (visit the site) and add the the path `bin\\gvedit.exe` in the environment variables path.
+
+```bash
+$ python manage.py graph_models -a -o myapp_models.png
+$ python manage.py graph_models authentication shop timetable transfer -o apps.png
+```
+
+### Analisi dinamica
+
+unittests:
+
+```bash
 $ python manage.py test -v 2 --exclude-tag=selenium
+```
 
 Coverage:
+
+```bash
 $ coverage run manage.py test -v 2 --exclude-tag=selenium
 $ coverage html
 $ coverage xml
 $ coverage erase
+```
 
 CodeCov:
+
+```bash
 Site
+```
 
 Selenium: (Firefox necessario e geckodriver.exe)
+
+```bash
 $ pip install selenium
 $ pip install lxml
 $ pip install defusedxml
+```
+
+GitHub Actions (Continuos Integration)
+
+```bash
+Site
+```

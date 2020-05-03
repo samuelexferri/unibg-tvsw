@@ -4,7 +4,7 @@ from shop.models import *
 from timetable.views import *
 
 
-# CASO IN CIO SIANO MENO DI 42
+# CASO IN CUI SIANO MENO DI 42
 class AlgoritmoCalculateTimetable1(TestCase):
     def test_algorithm_calculate1(self):
         user1 = User.objects.create(username='Testuser1')

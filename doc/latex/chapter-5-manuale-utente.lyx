@@ -300,6 +300,20 @@ Installazione
 \end_layout
 
 \begin_layout Standard
+Le varie versioni dei pacchetti da installare sono definite sempre nel file
+ 
+\emph on
+requirements.txt
+\emph default
+.
+ La versione di 
+\emph on
+Django
+\emph default
+ usata è 3.0.1.
+\end_layout
+
+\begin_layout Standard
 Assicurarsi di aver installato 
 \emph on
 Python
@@ -314,9 +328,9 @@ pip.
 \emph on
 requirements.txt 
 \emph default
-tramite gli appositi comandi.
- Successivamente creare il superuser seguendo i passaggi richiesti ed effettuare
- tutte le migrazioni di Django.
+tramite gli appositi comandi riportati qui di seguito.
+ Successivamente creare il superuser ed effettuare tutte le migrazioni di
+ Django.
  Usare il comando 
 \emph on
 runserver
@@ -327,18 +341,14 @@ http://127.0.0.1:8000/.
 \end_layout
 
 \begin_layout Standard
-Le varie versioni dei pacchetti da installare sono definite sempre nel file
- 
+Ulteriori comandi si possono trovare nel file 
 \emph on
-requirements.txt
-\emph default
-.
- La versione di Django usata è 3.0.1.
+Commands.md.
 \end_layout
 
 \begin_layout Standard
 Usare il terminale ed eseguire i seguenti comandi per le operazioni sopra
- indicate (comandi con davanti il cancelletto non sono da eseguire):
+ indicate:
 \end_layout
 
 \begin_layout Standard
@@ -348,7 +358,7 @@ status open
 
 \begin_layout Plain Layout
 
-// Cambiare directory
+// Code path
 \end_layout
 
 \begin_layout Plain Layout
@@ -362,7 +372,7 @@ $ cd /indirizzo/pharmacies
 
 \begin_layout Plain Layout
 
-// PIP (Upgrade)
+// Upgrade pip
 \end_layout
 
 \begin_layout Plain Layout
@@ -376,7 +386,7 @@ $ python -m pip install --upgrade pip
 
 \begin_layout Plain Layout
 
-// Virtual Environment
+// Virtual environment
 \end_layout
 
 \begin_layout Plain Layout
@@ -396,21 +406,11 @@ $ workon my_django_environment
 
 \begin_layout Plain Layout
 
-# $ rmvirtualenv my_django_environment  // Elimina il Virtual Environment
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
 
 // Requirements
-\end_layout
-
-\begin_layout Plain Layout
-
-# $ pip freeze > requirements.txt
 \end_layout
 
 \begin_layout Plain Layout
@@ -424,21 +424,12 @@ $ pip install -r requirements.txt
 
 \begin_layout Plain Layout
 
-// Account superuser
+// Commands
 \end_layout
 
 \begin_layout Plain Layout
 
 $ python manage.py createsuperuser 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-// Migrazioni
 \end_layout
 
 \begin_layout Plain Layout
@@ -454,15 +445,6 @@ $ python manage.py migrate --run-syncdb
 \begin_layout Plain Layout
 
 $ python manage.py makemigrations 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-// Server
 \end_layout
 
 \begin_layout Plain Layout
@@ -588,12 +570,7 @@ status open
 
 \begin_layout Plain Layout
 
-// Dump data
-\end_layout
-
-\begin_layout Plain Layout
-
-# $ python manage.py dumpdata > db.json
+// Data
 \end_layout
 
 \begin_layout Plain Layout
@@ -621,7 +598,7 @@ status open
 
 \begin_layout Plain Layout
 
-// Swagger
+// Swagger UI
 \end_layout
 
 \begin_layout Plain Layout
@@ -639,7 +616,11 @@ Testing
 \end_layout
 
 \begin_layout Standard
-Per usare i vari tools necessari per il testing seguire i seguenti comandi:
+Per usare i vari tools (aggiuntivi a 
+\emph on
+unittest...
+\emph default
+) necessari per il testing seguire i seguenti comandi:
 \end_layout
 
 \begin_layout Standard
@@ -649,16 +630,12 @@ status open
 
 \begin_layout Plain Layout
 
-// Pyreverse è integrato in Pylint
+// Analisi statica
 \end_layout
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-// Pylint
+// pylint
 \end_layout
 
 \begin_layout Plain Layout
@@ -677,18 +654,7 @@ $ pip install pylint-django
 
 \begin_layout Plain Layout
 
-// GraphViz
-\end_layout
-
-\begin_layout Plain Layout
-
-// Install GraphViz (Visit the site) and add the the path for bin
-\backslash
-gvedit.exe in path (Environment variables)
-\end_layout
-
-\begin_layout Plain Layout
-
+// Analisi dinamica
 \end_layout
 
 \begin_layout Plain Layout
@@ -742,6 +708,10 @@ Firefox
  ed è necessaria la presenza dell'eseguibile 
 \emph on
 geckodriver.exe.
+\end_layout
+
+\begin_layout Standard
+TODO (Manuale utente)
 \end_layout
 
 \begin_layout Standard

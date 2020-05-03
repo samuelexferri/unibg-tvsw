@@ -300,7 +300,7 @@ Timetable
 \end_layout
 
 \begin_layout Standard
-In questa fase abbiamo implementato l'app 
+In questa fase è stata implementata l'app 
 \emph on
 timetable 
 \emph default
@@ -350,8 +350,8 @@ Descrizione
 \end_layout
 
 \begin_layout Standard
-Abbiamo deciso di implementare la funzione che si occupa di generare automaticam
-ente l’orario settimanale di apertura delle farmacie.
+Si è deciso di implementare la funzione che si occupa di generare automaticament
+e l’orario settimanale di apertura delle farmacie.
 \end_layout
 
 \begin_layout Standard
@@ -3364,7 +3364,7 @@ class TimetableTestN(TestCase):
 \end_layout
 
 \begin_layout Standard
-Abbiamo che <<
+Si ha che <<
 \emph on
 inizializzazione
 \emph default
@@ -3499,9 +3499,9 @@ ia.png", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
 
 \begin_layout Standard
 Essendo che l'algoritmo non riceve input ne produce output (tranne l'inserimento
- di tuple nel database), abbiamo agito in questo modo: abbiamo istanziato
- i 3 farmacie, facendo si che la somma degli slot min sia minore di 42 (nel
- nostro caso 15).
+ di tuple nel database), si ha agito in questo modo: prima di tutto si è
+ istanziato le 3 farmacie, facendo si che la somma degli slot min sia minore
+ di 42 (nel nostro caso 15).
 \end_layout
 
 \begin_layout Standard

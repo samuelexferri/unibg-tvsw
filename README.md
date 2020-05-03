@@ -6,7 +6,7 @@
 
 Software Testing and Check project
 
-Based on Pharmacies management site in Django
+Based on Pharmacies management site in Django (The two projects will be merged in the future)
 
 ![alt text](https://img.shields.io/badge/Language-Italian-infomrmational?style=for-the-badge)
 
