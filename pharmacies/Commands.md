@@ -53,31 +53,7 @@ Swagger UI:
 $ pip install django-rest-swagger
 ```
 
-### Analisi statica
-
-pylint:
-
-```bash
-$ pylint --rcfile=./.pylintrc  ./shop
-$ pylint --rcfile=./.pylintrc --errors-only ./shop
-$ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
-```
-
-pyreverse:
-
-```bash
-$ pyreverse -o png -A -s 0 -a 0 -k authentication  shop timetable transfer --ignore=migrations,tests,tests.py
-$ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
-```
-
-GraphViz: install GraphViz (visit the site) and add the the path `bin\\gvedit.exe` in the environment variables path.
-
-```bash
-$ python manage.py graph_models -a -o myapp_models.png
-$ python manage.py graph_models authentication shop timetable transfer -o apps.png
-```
-
-### Analisi dinamica
+### Code Testing
 
 unittests:
 
@@ -85,7 +61,13 @@ unittests:
 $ python manage.py test -v 2 --exclude-tag=selenium
 ```
 
-Coverage:
+parameterized:
+
+```bash
+$ pip install parameterized
+```
+
+Coverage (Run Test):
 
 ```bash
 $ coverage run manage.py test -v 2 --exclude-tag=selenium
@@ -112,4 +94,28 @@ GitHub Actions (Continuos Integration)
 
 ```bash
 Site
+```
+
+### Code Verification
+
+pyreverse:
+
+```bash
+$ pyreverse -o png -A -s 0 -a 0 -k authentication  shop timetable transfer --ignore=migrations,tests,tests.py
+$ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
+```
+
+GraphViz: install GraphViz (visit the site) and add the the path `bin\\gvedit.exe` in the environment variables path.
+
+```bash
+$ python manage.py graph_models -a -o models.png
+$ python manage.py graph_models authentication shop timetable transfer -o apps.png
+```
+
+pylint:
+
+```bash
+$ pylint --rcfile=./.pylintrc  ./shop
+$ pylint --rcfile=./.pylintrc --errors-only ./shop
+$ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
 ```

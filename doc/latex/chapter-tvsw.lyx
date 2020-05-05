@@ -334,7 +334,11 @@ testdatabase
 \end_layout
 
 \begin_layout Standard
-TODO (Test algoritmi)
+TODO (Algoritmi)
+\end_layout
+
+\begin_layout Standard
+TODO (Numeri di test fatti)
 \end_layout
 
 \begin_layout Subsection
@@ -566,7 +570,7 @@ unittest
 \end_layout
 
 \begin_layout Standard
-TODO (Test algoritmi)
+TODO (Algoritmi)
 \end_layout
 
 \begin_layout Standard
@@ -614,6 +618,16 @@ Tests
 
 \end_layout
 
+\begin_layout Standard
+Molti di questi test hanno permesso di individuare falle si per quanto riguarda
+ la compilazione di form sia per eventuali funzioni che non facevano il
+ loro dovere.
+\end_layout
+
+\begin_layout Standard
+TODO (Immagine aggiornata)
+\end_layout
+
 \begin_layout Section
 Parametrici
 \end_layout
@@ -621,10 +635,114 @@ Parametrici
 \begin_layout Standard
 I test parametrici sono test in cui è possibile passare dei parametri come
  dati di ingresso al test.
+ Abbiamo usato il package 
+\emph on
+parameterized
+\emph default
+ per 
+\emph on
+unittest
+\emph default
+.
+ Di seguito un esempio di test parametrizzato sulla compilazione dei form
+ in cui si passano i vari campi e il risultato atteso se il form sia valido
+ o meno.
+ In quest'esempio abbiamo verificato i controlli sulla digitazione corretta
+ dell'indirizzo mail passandogli stringhe senza @ o senza il punto del dominio.
 \end_layout
 
 \begin_layout Standard
-TODO (parametrized)
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+@parameterized_class(('name', 'email', 'subject', 'message', 'expected_result'),
+ [
+\end_layout
+
+\begin_layout Plain Layout
+
+    ("Test", "test@mail.com", "Text", "Text", True),
+\end_layout
+
+\begin_layout Plain Layout
+
+    ("Test", "without.at", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+    ("Test", "without@domain", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+class ContactFormTestParametrized(TestCase):     
+\end_layout
+
+\begin_layout Plain Layout
+
+	def test_form(self):         
+\end_layout
+
+\begin_layout Plain Layout
+
+		data = {'name': self.name, 'email': self.email, 'subject': self.subject,
+ 'message': self.message}         
+\end_layout
+
+\begin_layout Plain Layout
+
+		form = ContactForm(data=data)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.assertEqual(form.is_valid(), self.expected_result)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Attraverso questi test sono stati trovati degli errori tra i quali:
+\end_layout
+
+\begin_layout Standard
+- Venivano accettate le mail senza la @.
+\end_layout
+
+\begin_layout Standard
+- Venivano accettati i numeri di telefono composti da lettere.
+\end_layout
+
+\begin_layout Standard
+- Venivano accettati stringhe vuote nei vari campi.
+\end_layout
+
+\begin_layout Standard
+Tutti questi errori sono stati corretti attraverso l'insermiento degli 
+\emph on
+assert
+\emph default
+ durante la creazione dei form (vedi sezione 
+\emph on
+assert
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiungere)
 \end_layout
 
 \begin_layout Section
@@ -691,15 +809,15 @@ noprefix "false"
 
 \end_inset
 
- è riportato l'output in formato HTML della copertura delcodice
+ è riportato l'output in formato HTML della copertura del codice
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
 Sono rappresentate sono alcune linee della tabella, il report completo è
- disponibile nella cartella principale del progetto nel path 
+ disponibile nella percorso 
 \emph on
-/htmlcov
+/pharmacies/htmlcov
 \end_layout
 
 \end_inset
@@ -709,7 +827,7 @@ Sono rappresentate sono alcune linee della tabella, il report completo è
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiornare immagini Prima-Dopo)
+TODO (Aggiornare immagini Prima-Dopo, Numero percentuale)
 \end_layout
 
 \begin_layout Standard
@@ -767,7 +885,11 @@ CodeCov
 \emph on
 GitHub Actions
 \emph default
- (vedi la sezione relativa a Continuos Integration).
+ (vedi sezione 
+\emph on
+Continuos Integration
+\emph default
+).
 \end_layout
 
 \begin_layout Standard
@@ -823,7 +945,7 @@ Criteri MCDC o logici
 \end_layout
 
 \begin_layout Standard
-Modified Condition/Decision Coverage di tipo statement
+TODO (Modified Condition/Decision Coverage di tipo statement?)
 \end_layout
 
 \begin_layout Standard
@@ -836,6 +958,10 @@ Criteri di tipo Dataflow, Loop, Random
 
 \begin_layout Standard
 TODO (Dataflow sono i flow chart degli algoritmi?)
+\end_layout
+
+\begin_layout Standard
+TODO (Loop)
 \end_layout
 
 \begin_layout Standard
@@ -852,28 +978,28 @@ Continuous Integration
 
 \begin_layout Standard
 Nello sviluppo di questo progetto è stata usata la Continuous Integration
- di
+ offerta da
 \emph on
- GitHub Actions
+ GitHub Actions 
 \emph default
- integrata nel repository del progetto e offerta da 
-\emph on
-GitHub
-\emph default
-.
+e integrata nel repository del progetto.
  Risulta molto comoda in quanto basta configurare al meglio il file 
 \emph on
 .github/workflows/django.yml
 \emph default
- (ad esempio) e a ogni push vengono eseguiti numerosi test automaticamente
- che ci permettono di avere in tempo reale un indicatore se qualcosa è andato
- storto dopo le ultime modifiche.
+ (ad esempio) per indicare i comandi da eseguire.
+ A ogni push infatti vengono eseguiti numerosi test automaticamente che
+ ci permettono di avere in tempo reale un indicatore se qualcosa è andato
+ storto o meno dopo le ultime modifiche.
 \end_layout
 
 \begin_layout Standard
 In particolare, dopo aver configurato la versione di Python e l'installazione
- dei requirements presenti nel file requirements.txt (sfruttando anche la
- cache), si procede in questo modo:
+ dei requirements presenti nel file 
+\emph on
+requirements.txt 
+\emph default
+(sfruttando anche la cache), si procede in questo modo:
 \end_layout
 
 \begin_layout Standard
@@ -886,7 +1012,7 @@ In particolare, dopo aver configurato la versione di Python e l'installazione
 \end_layout
 
 \begin_layout Standard
-TODO (Continua)
+TODO (Descrizione passaggi CI)
 \end_layout
 
 \begin_layout Standard
@@ -1019,7 +1145,7 @@ geckodriver.exe
 \end_layout
 
 \begin_layout Standard
-TODO (Farne un altro)
+TODO (Estendere)
 \end_layout
 
 \begin_layout Section
@@ -1027,7 +1153,7 @@ Mock
 \end_layout
 
 \begin_layout Standard
-TODO
+TODO (unittest.mock)
 \end_layout
 
 \begin_layout Chapter
@@ -1039,7 +1165,24 @@ Assertions
 \end_layout
 
 \begin_layout Standard
-TODO
+Attraverso i test parametrici effettuati in precedenza sono state individuate
+ delle casistiche che non dovrebbero esistere durante la compilazione dei
+ form.
+ Con l'introduzione degli 
+\emph on
+assert
+\emph default
+ durante la creazione del form si è potuto evitare tali situzioni.
+ Inoltre anche all'interno dei test abbiamo usato gli assert per verificare
+ che il risultato di un test sia identico a un valore aspettato.
+\end_layout
+
+\begin_layout Standard
+TODO (Esempio form)
+\end_layout
+
+\begin_layout Standard
+TODO (In qualche classe/funzione, non solo nei test)
 \end_layout
 
 \begin_layout Section
@@ -1047,7 +1190,7 @@ Design by Contract (JML*)
 \end_layout
 
 \begin_layout Standard
-TODO
+TODO (pact-test)
 \end_layout
 
 \begin_layout Section
@@ -1055,7 +1198,7 @@ Program Verification (KEYJML*)
 \end_layout
 
 \begin_layout Standard
-TODO (What?)
+TODO (?)
 \end_layout
 
 \begin_layout Section
@@ -1297,7 +1440,7 @@ $ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
 
 \begin_layout Plain Layout
 
-$ python manage.py graph_models -a -o myapp_models.png 
+$ python manage.py graph_models -a -o models.png 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1435,7 +1578,7 @@ Eliminazione/Giustifica Wall
 \end_layout
 
 \begin_layout Standard
-TODO (What?, Obbligatorio)
+TODO (?)
 \end_layout
 
 \begin_layout Section

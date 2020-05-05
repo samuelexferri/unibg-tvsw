@@ -612,15 +612,12 @@ $ pip install django-rest-swagger
 \end_layout
 
 \begin_layout Section*
-Testing
+Testing e verifica del software
 \end_layout
 
 \begin_layout Standard
-Per usare i vari tools (aggiuntivi a 
-\emph on
-unittest...
-\emph default
-) necessari per il testing seguire i seguenti comandi:
+Per usare i vari tools aggiuntivi necessari per il testing seguire i seguenti
+ comandi:
 \end_layout
 
 \begin_layout Standard
@@ -630,22 +627,7 @@ status open
 
 \begin_layout Plain Layout
 
-// Analisi statica
-\end_layout
-
-\begin_layout Plain Layout
-
-// pylint
-\end_layout
-
-\begin_layout Plain Layout
-
-$ pip install pylint 
-\end_layout
-
-\begin_layout Plain Layout
-
-$ pip install pylint-django
+// Code Testing //
 \end_layout
 
 \begin_layout Plain Layout
@@ -654,7 +636,16 @@ $ pip install pylint-django
 
 \begin_layout Plain Layout
 
-// Analisi dinamica
+// parameterized
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install parameterized
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -689,6 +680,34 @@ $ pip install lxml
 \begin_layout Plain Layout
 
 $ pip install defusedxml
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Code Verification //
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// pylint
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install pylint 
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install pylint-django
 \end_layout
 
 \end_inset

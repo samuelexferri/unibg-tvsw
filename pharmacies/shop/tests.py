@@ -5,6 +5,7 @@ from django.test import TestCase
 from django.test import tag
 from django.urls import reverse
 from django.utils.text import slugify
+from parameterized import parameterized_class
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
@@ -111,6 +112,18 @@ Forms tests
 """
 
 
+@parameterized_class(('name', 'email', 'subject', 'message', 'expected_result'), [
+    ("Test", "test@mail.com", "Text", "Text", True),
+    ("Test", "without.at", "Text", "Text", False),
+    ("Test", "without@domain", "Text", "Text", False),
+])
+class ContactFormTestParametrized(TestCase):
+    def test_form(self):
+        data = {'name': self.name, 'email': self.email, 'subject': self.subject, 'message': self.message}
+        form = ContactForm(data=data)
+        self.assertEqual(form.is_valid(), self.expected_result)
+
+
 class ContactFormTest(TestCase):
     def test_valid_form(self):
         data = {'name': "Test", 'email': "test@mail.com", 'subject': "Text", 'message': "Text"}
@@ -150,6 +163,17 @@ class SellProductForm(TestCase):
 """
 
 
+@parameterized_class(('full_name', 'phone', 'city', 'address', 'expected_result'), [
+    ("Test", 123, "Text", "Text", True),
+    ("Test", True, "Text", "Text", False),
+])
+class BuyerDeliveryFormTest(TestCase):
+    def test_form(self):
+        data = {'full_name': self.full_name, 'phone': self.phone, 'city': self.city, 'address': self.address}
+        form = BuyerDeliveryForm(data=data)
+        self.assertEqual(form.is_valid(), self.expected_result)
+
+
 class BuyerDeliveryFormTest(TestCase):
     def test_valid_form(self):
         data = {'full_name': "Test", 'phone': 123, 'city': "Bergamo", 'address': "Text"}
@@ -160,6 +184,20 @@ class BuyerDeliveryFormTest(TestCase):
         data = {'full_name': "Test", 'phone': 123, 'city': "CittàNonPresente", 'address': "Text"}
         form = BuyerDeliveryForm(data=data)
         self.assertFalse(form.is_valid())
+
+
+@parameterized_class(('review', 'expected_result'), [
+    ("Test", True),
+    ('', False),
+    (
+            "UnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500Caratteri",
+            False),
+])
+class ReviewFormTest(TestCase):
+    def test_form(self):
+        data = {'review': "Text"}
+        form = ReviewForm(data=data)
+        self.assertEqual(form.is_valid(), self.expected_result)
 
 
 class ReviewFormTest(TestCase):
