@@ -323,8 +323,8 @@ JUnit
 \emph on
  settings.py
 \emph default
- della nostra applicazione è stata definita la creazione automatica di un
- database di prova 
+ dell'applicazione è stata definita la creazione automatica di un database
+ di prova 
 \emph on
 testdatabase
 \emph default
@@ -705,7 +705,7 @@ Sono rappresentate sono alcune linee della tabella, il report completo è
 \end_inset
 
 .
- Si può notare che i nostri casi di test coprono 84% del codice realizzato.
+ Si può notare che i casi di test coprono 84% del codice realizzato.
 \end_layout
 
 \begin_layout Standard
@@ -1163,8 +1163,8 @@ Grazie al file .
 pylintrc
 \emph default
  è possibile personalizzare interamente i parametri della ricerca andando
- a settare le varie impostazioni al proprio interno; la nostra configurazione
- si può trovare nel file .
+ a settare le varie impostazioni al proprio interno; la configurazione si
+ può trovare nel file .
 \emph on
 pylintrc
 \emph default

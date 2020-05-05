@@ -635,8 +635,8 @@ IsStaffOrReadOnly
  permette l'accesso a una determinata funzione se e solo se l'utente che
  richiede l'azione è membro dello staff (farmacista) oppure l'azione è solo
  di lettura.
- In particolare per limitare l'accesso a tutte le API fornite dalla nostra
- applicazione vengono usate questi permessi.
+ In particolare per limitare l'accesso a tutte le API fornite dall'applicazione
+ vengono usate questi permessi.
  In 
 \emph on
 SAFE_METHODS
@@ -1124,8 +1124,8 @@ REST API
 \end_layout
 
 \begin_layout Standard
-La nostra applicazione mette a disposizione una serie di API (Application
- Programming Interfaces) grazie a 
+L'applicazione mette a disposizione una serie di API (Application Programming
+ Interfaces) grazie a 
 \emph on
 Django REST Framework.
 \end_layout

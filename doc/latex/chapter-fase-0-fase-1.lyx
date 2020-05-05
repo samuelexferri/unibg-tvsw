@@ -2816,7 +2816,7 @@ Community: lavorare con un framework, ancora meglio se open source, riduce
 Inoltre con Django è possibile creare un sito web accessibile da qualsiasi
  tipo di terminale (computer, tablet, smartphone...) usato dai vari attori
  (clienti, farmacisti, manager) come si vede dall'architettura hardware
- del nostro progetto.
+ del progetto.
 \end_layout
 
 \begin_layout Standard
@@ -3038,10 +3038,10 @@ Deployment diagram
 \end_layout
 
 \begin_layout Standard
-Successivamente è stato deciso ridisegnare le componenti principali della
- nostra applicazione, passando dal deployment con raggruppamento delle funzioni
- richieste dai casi d'uso al deployment diviso per macro funzionalità che
- l'applicazione dovrà implementare; le nuove componenti sono: 
+Successivamente è stato deciso ridisegnare le componenti principali dell'applica
+zione, passando dal deployment con raggruppamento delle funzioni richieste
+ dai casi d'uso al deployment diviso per macro funzionalità che l'applicazione
+ dovrà implementare; le nuove componenti sono: 
 \emph on
 authentication, shop, timetable, transfer
 \emph default
