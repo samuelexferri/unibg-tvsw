@@ -170,6 +170,11 @@ customHeadersFooters
 \filename_suffix 0
 \color #faf0e6
 \end_branch
+\branch chapter-6
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -495,7 +500,7 @@ status open
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chapter-1-fase-0-fase-1.lyx"
+filename "chapter-fase-0-fase-1.lyx"
 
 \end_inset
 
@@ -515,7 +520,7 @@ status open
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chapter-2-fase-2.lyx"
+filename "chapter-fase-2.lyx"
 
 \end_inset
 
@@ -535,7 +540,7 @@ status open
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chapter-3-fase-3-timetable.lyx"
+filename "chapter-fase-3-timetable.lyx"
 
 \end_inset
 
@@ -555,7 +560,7 @@ status open
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chapter-4-fase-4-transfer.lyx"
+filename "chapter-fase-4-transfer.lyx"
 
 \end_inset
 
@@ -575,7 +580,27 @@ status open
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chapter-5-manuale-utente.lyx"
+filename "chapter-tvsw.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch chapter-6
+inverted 0
+status open
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "chapter-manuale-utente.lyx"
 
 \end_inset
 
