@@ -113,9 +113,11 @@ Forms tests
 
 
 @parameterized_class(('name', 'email', 'subject', 'message', 'expected_result'), [
-    ("Test", "test@mail.com", "Text", "Text", True),
+    ("Test", "test@email.com", "Text", "Text", True),
     ("Test", "without.at", "Text", "Text", False),
     ("Test", "without@domain", "Text", "Text", False),
+    ("", "test@email.com", "Text", "Text", False),
+    ("LongNameLongNameLongNameLongNameLongNameLongNameLongNameLongName", "test@email.com", "Text", "Text", False),
 ])
 class ContactFormTestParametrized(TestCase):
     def test_form(self):
@@ -131,7 +133,6 @@ class ContactFormTest(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_invalid_form(self):
-        # Mail without @
         data = {'name': "Test", 'email': "testmail.com", 'subject': "Text", 'message': "Text"}
         form = ContactForm(data=data)
         self.assertFalse(form.is_valid())
@@ -164,7 +165,8 @@ class SellProductForm(TestCase):
 
 
 @parameterized_class(('full_name', 'phone', 'city', 'address', 'expected_result'), [
-    ("Test", 123, "Text", "Text", True),
+    ("Test", 123, "Bergamo", "Text", True),
+    ("Test", 123, "CityNotInChoices", "Text", False),
     ("Test", True, "Text", "Text", False),
 ])
 class BuyerDeliveryFormTest(TestCase):
@@ -187,15 +189,15 @@ class BuyerDeliveryFormTest(TestCase):
 
 
 @parameterized_class(('review', 'expected_result'), [
-    ("Test", True),
-    ('', False),
+    ("Text", True),
+    ("", False),
     (
-            "UnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500CaratteriUnaReviewOltre500Caratteri",
+            "LongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReview",
             False),
 ])
 class ReviewFormTest(TestCase):
     def test_form(self):
-        data = {'review': "Text"}
+        data = {'review': self.review}
         form = ReviewForm(data=data)
         self.assertEqual(form.is_valid(), self.expected_result)
 
@@ -337,7 +339,7 @@ class ViewTest(TestCase):
 
 
 """
-Views tests (Uses Selenium), two command prompt necessary
+Views tests using Selenium, two command prompt necessary
 """
 
 

@@ -338,7 +338,11 @@ testdatabase
 \end_layout
 
 \begin_layout Standard
-TODO (Algoritmi, Numeri di test fatti)
+TODO (Algoritmi)
+\end_layout
+
+\begin_layout Standard
+TODO (Numeri di test fatti)
 \end_layout
 
 \begin_layout Subsection
@@ -419,87 +423,6 @@ class PharmacyModelTest(TestCase):
 \end_layout
 
 \begin_layout Standard
-Un altro esempio di caso di test riguardante la creazione di un prodotto:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class ProductModelTest(TestCase):     
-\end_layout
-
-\begin_layout Plain Layout
-
-	def create_product(self, name="Oki", image="pharmacy.png", description="Text",
- brand="Brand", quantity=30, price=20,                        shipping_fee=10):
-         
-\end_layout
-
-\begin_layout Plain Layout
-
-		user = User.objects.create(username='TestUser')         
-\end_layout
-
-\begin_layout Plain Layout
-
-		farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.p
-ng", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
-         
-\end_layout
-
-\begin_layout Plain Layout
-
-		categoria = Category.objects.create(name="Antinfiammatorio", description="Text",
- slug=slugify("Antinfiammatorio").__str__())         
-\end_layout
-
-\begin_layout Plain Layout
-
-		return Product.objects.create(name=name, category=categoria, pharmacy=farmacia,
- image=image, description=description, brand=brand, quantity=quantity, price=pri
-ce, shipping_fee=shipping_fee, slug=slugify(1).__str__())
-\end_layout
-
-\begin_layout Plain Layout
-
-	    
-\end_layout
-
-\begin_layout Plain Layout
-
-	def test_product_creation(self):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		w = self.create_product()         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertTrue(isinstance(w, Product))         
-\end_layout
-
-\begin_layout Plain Layout
-
-		fields = w.id, w.name, w.description         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertEqual(w.__unicode__(), fields)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 In totale sono state create 6 classi per testare i models, ognuna con i
  rispettivi metodi e parametri per testare la corretta istanziazione di
  un modello nel database.
@@ -550,31 +473,6 @@ class ContactFormTest(TestCase):
 		self.assertTrue(form.is_valid())
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-    def test_invalid_form(self):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		data = {'name': "Test", 'email': "testmail.com", 'subject': "Text", 'message':
- "Text"}         
-\end_layout
-
-\begin_layout Plain Layout
-
-		form = ContactForm(data=data)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertFalse(form.is_valid()) 
-\end_layout
-
 \end_inset
 
 
@@ -595,7 +493,7 @@ i metodi per verificare la corretta compilazione dei campi e l'invio del
 \emph on
 Test parametrici
 \emph default
-) molto più completa.
+).
 \end_layout
 
 \begin_layout Subsection
@@ -651,71 +549,6 @@ ng", x=50, y=50,                                            slot4hMinWeek=5,
 \begin_layout Plain Layout
 
 		self.assertEqual(resp.status_code, 200)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Un altro esempio riguardante l'aggiunta di un prodotto al carrello:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class ViewTest(TestCase):
-\end_layout
-
-\begin_layout Plain Layout
-
-    def test_add_cart(self):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		user = User.objects.create(username='TestUser')         
-\end_layout
-
-\begin_layout Plain Layout
-
-		farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.p
-ng", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
-         
-\end_layout
-
-\begin_layout Plain Layout
-
-		categoria = Category.objects.create(name="Antinfiammatorio", description="Text",
- slug=slugify("Antinfiammatorio").__str__())         
-\end_layout
-
-\begin_layout Plain Layout
-
-		prodotto = Product.objects.create(name="Tachipirina", category=categoria,
- pharmacy=farmacia, image="image.png",                                  
-      		description="Text", brand="Brand", quantity=10, price=2, shipping_fee=1,
- slug=slugify(1).__str__())         
-\end_layout
-
-\begin_layout Plain Layout
-
-		url = reverse('shop:add_cart', args=(prodotto.slug,))         
-\end_layout
-
-\begin_layout Plain Layout
-
-		resp = self.client.get(url)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertEqual(resp.status_code, 302)  # Redirect
 \end_layout
 
 \end_inset
@@ -856,11 +689,6 @@ status open
 
 \begin_layout Plain Layout
 
-    ("", "test@email.com", "Text", "Text", False),
-\end_layout
-
-\begin_layout Plain Layout
-
 ])
 \end_layout
 
@@ -896,76 +724,6 @@ class ContactFormTestParametrized(TestCase):
 \end_layout
 
 \begin_layout Standard
-Un altro esempio riguardante il 
-\emph on
-BuyerForm
-\emph default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-@parameterized_class(('full_name', 'phone', 'city', 'address', 'expected_result'
-), [
-\end_layout
-
-\begin_layout Plain Layout
-
-    ("Test", 123, "Bergamo", "Text", True),
-\end_layout
-
-\begin_layout Plain Layout
-
-    ("Test", 123, "CityNotInChoices", "Text", False),
-\end_layout
-
-\begin_layout Plain Layout
-
-    ("Test", True, "Text", "Text", False),
-\end_layout
-
-\begin_layout Plain Layout
-
-]) 
-\end_layout
-
-\begin_layout Plain Layout
-
-class BuyerDeliveryFormTest(TestCase):     
-\end_layout
-
-\begin_layout Plain Layout
-
-	def test_form(self):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		data = {'full_name': self.full_name, 'phone': self.phone, 'city': self.city,
- 'address': self.address}         
-\end_layout
-
-\begin_layout Plain Layout
-
-		form = BuyerDeliveryForm(data=data)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertEqual(form.is_valid(), self.expected_result)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Attraverso questi test sono stati individuati degli errori anche negli altri
  form, tra cui
 \end_layout
@@ -983,26 +741,15 @@ Attraverso questi test sono stati individuati degli errori anche negli altri
 \end_layout
 
 \begin_layout Standard
-- Venivano accettate stringhe troppo lunghe rispetto al vincolo presente
- nei models.
-\end_layout
-
-\begin_layout Standard
-- Venivano accettate città al di fuori di una lista presente nel file 
-\emph on
-choices.py.
-\end_layout
-
-\begin_layout Standard
 Tutti questi errori sono stati corretti attraverso l'insermiento degli 
 \emph on
 asserts
 \emph default
- (vedi sezione 
+ durante la creazione dei form (vedi sezione 
 \emph on
 assert
 \emph default
-s) oppure modificando i vincoli dei models.
+s).
 \end_layout
 
 \begin_layout Section
@@ -1050,7 +797,7 @@ $ coverage xml
 
 \begin_layout Plain Layout
 
-$ coverage erase
+$ coverage erase # Delete previous coverage
 \end_layout
 
 \end_inset
@@ -1075,7 +822,7 @@ status open
 
 \begin_layout Plain Layout
 Sono rappresentate sono alcune linee della tabella, il report completo è
- disponibile al percorso 
+ disponibile nella percorso 
 \emph on
 /pharmacies/htmlcov
 \end_layout
@@ -1087,7 +834,7 @@ Sono rappresentate sono alcune linee della tabella, il report completo è
 \end_layout
 
 \begin_layout Standard
-TODO (Numero percentuale)
+TODO (Aggiornare immagini Prima-Dopo, Numero percentuale)
 \end_layout
 
 \begin_layout Standard
@@ -1200,10 +947,6 @@ CodeCov Coverage Sunbrust
 TODO (Aggiornare immagini Prima-Dopo)
 \end_layout
 
-\begin_layout Standard
-TODO (Codeclimate, Codacy)
-\end_layout
-
 \begin_layout Section
 Criteri MCDC o logici
 \end_layout
@@ -1276,7 +1019,7 @@ requirements.txt
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiungere, Descrizione passaggi CI)
+TODO (Descrizione passaggi CI)
 \end_layout
 
 \begin_layout Standard
@@ -1409,7 +1152,7 @@ geckodriver.exe
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiugnere)
+TODO (Estendere)
 \end_layout
 
 \begin_layout Section
@@ -1442,7 +1185,7 @@ assert
 \end_layout
 
 \begin_layout Standard
-Assert sui privilegi admin...
+TODO (Esempio form)
 \end_layout
 
 \begin_layout Standard

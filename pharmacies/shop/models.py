@@ -10,9 +10,9 @@ from shop.choices import city_choices
 class Contact(models.Model):
     id = models.AutoField(primary_key=True)
 
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=50)
     email = models.EmailField()
-    subject = models.CharField(max_length=250, blank=True)
+    subject = models.CharField(max_length=50, blank=True)
     message = models.TextField()
 
     def __str__(self):
@@ -118,7 +118,7 @@ class Buyer(models.Model):
     id = models.AutoField(primary_key=True)
 
     full_name = models.CharField(max_length=250)
-    phone = models.CharField(max_length=20)
+    phone = models.IntegerField()
     city = models.CharField(max_length=250, choices=city_choices)
     address = models.CharField(max_length=250, default="via Vittoria 10")
     product = models.ManyToManyField(Product)
