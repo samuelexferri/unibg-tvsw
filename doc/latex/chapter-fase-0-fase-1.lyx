@@ -667,7 +667,7 @@ Testing e verifica del software:
 \begin_layout Itemize
 
 \series bold
-Test Framework:
+Test:
 \series default
  
 \emph on
@@ -737,6 +737,31 @@ https://codecov.io/
 \begin_layout Itemize
 
 \series bold
+Criteri di copertura avanzati:
+\series default
+ TODO
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Continuous Integration:
+\series default
+ 
+\emph on
+GitHub Actions
+\emph default
+, permette di compilare il codice ed eseguire i test direttamente dal repository
+ di GitHub (
+\emph on
+https://help.github.com/en/actions
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
 Capture and Replay:
 \series default
 \emph on
@@ -758,18 +783,9 @@ Firefox
 \begin_layout Itemize
 
 \series bold
-Continuous Integration:
+Mock:
 \series default
- 
-\emph on
-GitHub Actions
-\emph default
-, permette di compilare il codice ed eseguire i test direttamente dal repository
- di GitHub (
-\emph on
-https://help.github.com/en/actions
-\emph default
-).
+ TODO
 \end_layout
 
 \begin_layout Itemize
@@ -793,7 +809,7 @@ strumento d'analisi del codice sorgente (bug finder) che fa anche controllo
 \end_layout
 
 \begin_layout Itemize
-TODO (Aggiungere, Inglese, Riadattare)
+TODO
 \end_layout
 
 \end_deeper

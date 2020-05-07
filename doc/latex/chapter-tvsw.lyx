@@ -302,9 +302,9 @@ Code Testing
 \begin_layout Section
 
 \series bold
-Test Framework
+Test
 \series default
- (Unittest)
+ (unittest)
 \end_layout
 
 \begin_layout Standard
@@ -338,7 +338,11 @@ testdatabase
 \end_layout
 
 \begin_layout Standard
-TODO (Algoritmi, Numeri di test fatti)
+TODO (Algoritmi)
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiornare numeri di test fatti)
 \end_layout
 
 \begin_layout Subsection
@@ -799,7 +803,7 @@ Molti di questi test hanno permesso di individuare falle sia per quanto
 \end_layout
 
 \begin_layout Standard
-TODO (Immagine aggiornata)
+TODO (Aggiornare immagine in due colonne)
 \end_layout
 
 \begin_layout Section
@@ -1005,6 +1009,10 @@ assert
 s) oppure modificando i vincoli dei models.
 \end_layout
 
+\begin_layout Standard
+TODO (Estendere)
+\end_layout
+
 \begin_layout Section
 Criteri di copertura
 \end_layout
@@ -1087,7 +1095,7 @@ Sono rappresentate sono alcune linee della tabella, il report completo è
 \end_layout
 
 \begin_layout Standard
-TODO (Numero percentuale)
+TODO (Aggiornare numero percentuale)
 \end_layout
 
 \begin_layout Standard
@@ -1197,7 +1205,7 @@ CodeCov Coverage Sunbrust
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiornare immagini Prima-Dopo)
+TODO (Aggiornare immagini prima-dopo)
 \end_layout
 
 \begin_layout Standard
@@ -1205,31 +1213,21 @@ TODO (Codeclimate, Codacy)
 \end_layout
 
 \begin_layout Section
-Criteri MCDC o logici
+Criteri avanzati di copertura (MCDC, Logici, Dataflow, Loop, Random?, Mutation
+ testing)
 \end_layout
 
 \begin_layout Standard
-TODO (Modified Condition/Decision Coverage di tipo statement?)
+TODO (Modificare il titolo)
 \end_layout
 
 \begin_layout Standard
-TODO
-\end_layout
-
-\begin_layout Section
-Criteri di tipo Dataflow, Loop, Random
+TODO (Modified Condition/Decision Coverage di tipo statement non esiste
+ in Python)
 \end_layout
 
 \begin_layout Standard
-TODO (Dataflow sono i flow chart degli algoritmi?)
-\end_layout
-
-\begin_layout Standard
-TODO (Loop)
-\end_layout
-
-\begin_layout Standard
-TODO (Random)
+TODO (MutPy)
 \end_layout
 
 \begin_layout Standard
@@ -1276,11 +1274,19 @@ requirements.txt
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiungere, Descrizione passaggi CI)
+Inoltre anche parte dell'analisi statica è stata integrata in 
+\emph on
+GitHub Actions
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
-TODO (Analisi statica messa dopo)
+TODO (Aggiornare lista)
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiungere in .yml)
 \end_layout
 
 \begin_layout Section
@@ -1420,6 +1426,10 @@ Mock
 TODO (unittest.mock)
 \end_layout
 
+\begin_layout Standard
+TODO
+\end_layout
+
 \begin_layout Chapter
 Code Verification
 \end_layout
@@ -1429,7 +1439,7 @@ Assertions
 \end_layout
 
 \begin_layout Standard
-Attraverso i test parametrici effettuati in precedenza sono state individuate
+*Attraverso i test parametrici effettuati in precedenza sono state individuate
  delle casistiche che non dovrebbero esistere durante la compilazione dei
  form.
  Con l'introduzione degli 
@@ -1446,7 +1456,11 @@ Assert sui privilegi admin...
 \end_layout
 
 \begin_layout Standard
-TODO (In qualche classe/funzione, non solo nei test)
+TODO (All'interno del codice, non solo nei test)
+\end_layout
+
+\begin_layout Standard
+TODO
 \end_layout
 
 \begin_layout Section
@@ -1454,7 +1468,15 @@ Design by Contract (JML*)
 \end_layout
 
 \begin_layout Standard
+TODO (PEP 316)
+\end_layout
+
+\begin_layout Standard
 TODO (pact-test)
+\end_layout
+
+\begin_layout Standard
+TODO
 \end_layout
 
 \begin_layout Section
@@ -1639,7 +1661,7 @@ Output di pylint
 \end_layout
 
 \begin_layout Standard
-TODO (Ampliare, Prima-Dopo)
+TODO (Rifare, Estendere, Aggiornare prima-dopo)
 \end_layout
 
 \begin_layout Standard
@@ -1838,24 +1860,19 @@ Packages
 \end_layout
 
 \begin_layout Section
-Eliminazione/Giustifica Wall
-\end_layout
-
-\begin_layout Standard
-TODO (?)
-\end_layout
-
-\begin_layout Section
 Code Refractoring
 \end_layout
 
 \begin_layout Standard
-TODO (Dimostra come hai dovuto refrattorizzare il codice (da struttura a
- renaming), Moving models)
+TODO (Moving models)
+\end_layout
+
+\begin_layout Standard
+TODO
 \end_layout
 
 \begin_layout Section
-Integrazione con CI o con Unittest
+Integrazione con CI
 \end_layout
 
 \begin_layout Standard
@@ -1876,7 +1893,7 @@ pylint
 \end_layout
 
 \begin_layout Standard
-TODO (Lista)
+TODO (Aggiornare lista)
 \end_layout
 
 \begin_layout Section
@@ -1885,6 +1902,10 @@ Code Inspection
 
 \begin_layout Standard
 TODO (Checklist a mano su un modulo)
+\end_layout
+
+\begin_layout Standard
+TODO
 \end_layout
 
 \begin_layout Chapter
