@@ -664,6 +664,20 @@ $ pip install coverage
 
 \begin_layout Plain Layout
 
+// django-mutpy
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install django-mutpy
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 // Selenium (Firefox necessario e geckodriver.exe) 
 \end_layout
 

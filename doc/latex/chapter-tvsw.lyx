@@ -1019,10 +1019,7 @@ choices.py.
 \end_layout
 
 \begin_layout Standard
-Tutti questi errori sono stati corretti attraverso l'inserimento degli 
-\emph on
-asserts
-\emph default
+Tutti questi errori sono stati corretti attraverso l'inserimento degli asserts
  (vedi sezione 
 \emph on
 Assertions
@@ -1255,9 +1252,126 @@ TODO (Aumentare dove)
 Criteri avanzati di copertura
 \end_layout
 
+\begin_layout Subsection
+Mutation testing
+\end_layout
+
 \begin_layout Standard
-TODO (MCDC, Logici, Dataflow, Loop, Random, Mutation testing) (Modified
- Condition/Decision Coverage di tipo statement)
+Il 
+\emph on
+mutation testing
+\emph default
+ valuta la qualità dei test modificando il codice sorgente di un programma
+ in piccole parti.
+ Una test suit che non rileva e rifiuta il codice mutato è considerata difettosa.
+ Queste mutazioni si basano su operatori di mutazione ben definiti che imitano
+ i tipici errori di programmazione (come l'uso dell'operatore sbagliato
+ o il nome della variabile) o costringono alla creazione di test significativi
+ (come portare ogni espressione a zero).
+ Lo scopo è aiutare lo sviluppatore a sviluppare test efficaci o a individuare
+ punti deboli nel codice o in sezioni in cui non si accede mai o solo raramente
+ durante l'esecuzione.
+\end_layout
+
+\begin_layout Standard
+È stato usato il pacchetto 
+\emph on
+django-mutpy
+\emph default
+ ottimizzato per Django e basato su 
+\emph on
+mutpy
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ python manage.py muttest shop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una lista degli operatori di mutazione di 
+\emph on
+mutpy
+\emph default
+: AOD - arithmetic operator deletion, AOR - arithmetic operator replacement,
+ ASR - assignment operator replacement, BCR - break continue replacement,
+ COD - conditional operator deletion, COI - conditional operator insertion,
+ CRP - constant replacement, DDL - decorator deletion, EHD - exception handler
+ deletion, EXS - exception swallowing, IHD - hiding variable deletion, IOD
+ - overriding method deletion, IOP - overridden method calling position
+ change, LCR - logical connector replacement, LOD - logical operator deletion,
+ LOR - logical operator replacement, ROR - relational operator replacement,
+ SCD - super calling deletion, SCI - super calling insert, SIR - slice index
+ remove.
+\end_layout
+
+\begin_layout Standard
+Il risultato finale dei test di mutazione è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/MutPy.png
+	lyxscale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "MutPy"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MutPy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+TODO
+\end_layout
+
+\begin_layout Standard
+TODO (MCDC, Logici, Dataflow, Loop, Random) (Modified Condition/Decision
+ Coverage di tipo statement)
 \end_layout
 
 \begin_layout Standard
@@ -1693,6 +1807,10 @@ k=slot4hMinWeek, location=location, description=description)
 TODO (Estendere)
 \end_layout
 
+\begin_layout Standard
+TODO (Mettere FakeCreditCard e aggiornare i codici)
+\end_layout
+
 \begin_layout Chapter
 Code Verification
 \end_layout
@@ -1878,10 +1996,6 @@ TODO (PEP 316)
 \end_layout
 
 \begin_layout Standard
-TODO (pact-test)
-\end_layout
-
-\begin_layout Standard
 TODO
 \end_layout
 
@@ -1890,7 +2004,7 @@ Program Verification (KEYJML*)
 \end_layout
 
 \begin_layout Standard
-TODO (?)
+TODO
 \end_layout
 
 \begin_layout Section
@@ -2263,6 +2377,10 @@ Packages
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiornare grafici)
 \end_layout
 
 \begin_layout Section

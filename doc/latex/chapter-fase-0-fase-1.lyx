@@ -739,6 +739,22 @@ https://codecov.io/
 \series bold
 Criteri di copertura avanzati:
 \series default
+ 
+\emph on
+django-mutpy,
+\emph default
+ framework per il mutation testing in Python (
+\emph on
+https://pypi.org/project/django-mutpy
+\emph default
+/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Criteri di copertura avanzati:
+\series default
  TODO
 \end_layout
 

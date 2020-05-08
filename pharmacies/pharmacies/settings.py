@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_forms_bootstrap',
     'drf_yasg',
+    'django_mutpy',
     'authentication',
     'shop',
     'timetable',

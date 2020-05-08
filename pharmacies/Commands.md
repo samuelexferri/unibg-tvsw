@@ -82,6 +82,13 @@ CodeCov:
 Site
 ```
 
+django-mutpy:
+
+```bash
+$ pip install django-mutpy
+$ python manage.py muttest shop  # Remember to disable Selenium
+```
+
 Selenium: (Firefox necessario e geckodriver.exe)
 
 ```bash

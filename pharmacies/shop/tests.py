@@ -36,6 +36,10 @@ class ContactModelTest(TestCase):
         fields = w.id, w.name, w.email, w.subject, w.message
         self.assertEqual(w.__unicode__(), fields)
 
+    def test_contact_str(self):
+        category = Contact.objects.create(name="Test", email="test@mail.com", subject="Text", message="Text")
+        self.assertEqual(str(category), category.name)
+
 
 class PharmacyModelTest(TestCase):
 
@@ -51,6 +55,13 @@ class PharmacyModelTest(TestCase):
         fields = w.id, w.owner, w.name
         self.assertEqual(w.__unicode__(), fields)
 
+    def test_pharmacy_str(self):
+        user = User.objects.create(username='TestUser')
+        category = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.png", x=50, y=0,
+                                           slot4hMinWeek=5, location="Bergamo",
+                                           description="Text")
+        self.assertEqual(str(category), "[" + category.id.__str__() + "] " + category.name)
+
 
 class CategoryModelTest(TestCase):
 
@@ -62,6 +73,10 @@ class CategoryModelTest(TestCase):
         self.assertTrue(isinstance(w, Category))
         fields = w.id, w.name, w.description
         self.assertEqual(w.__unicode__(), fields)
+
+    def test_category_str(self):
+        category = Category.objects.create(name="Antinfiammatorio", description="Text")
+        self.assertEqual(str(category), category.name)
 
 
 class ProductModelTest(TestCase):
@@ -83,10 +98,21 @@ class ProductModelTest(TestCase):
         fields = w.id, w.name, w.description
         self.assertEqual(w.__unicode__(), fields)
 
+    def test_product_str(self):
+        user = User.objects.create(username='TestUser')
+        farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.png", x=50, y=50,
+                                           slot4hMinWeek=5, location="Bergamo", description="Text")
+        categoria = Category.objects.create(name="Antinfiammatorio", description="Text",
+                                            slug=slugify("Antinfiammatorio").__str__())
+        category = Product.objects.create(category=categoria, pharmacy=farmacia, name="Oki", image="pharmacy.png",
+                                          description="Text", brand="Brand", quantity=30, price=20,
+                                          shipping_fee=10)
+        self.assertEqual(str(category), category.name)
+
 
 class ReviewModelTest(TestCase):
 
-    def create_review(self, review="Ottimo"):
+    def create_review(self, review="Text"):
         user = User.objects.create(username='TestUser')
         farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.png", x=50, y=50,
                                            slot4hMinWeek=5, location="Bergamo", description="Text")
@@ -103,6 +129,18 @@ class ReviewModelTest(TestCase):
         fields = w.id, w.review
         self.assertEqual(w.__unicode__(), fields)
 
+    def test_review_str(self):
+        user = User.objects.create(username='TestUser')
+        farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.png", x=50, y=50,
+                                           slot4hMinWeek=5, location="Bergamo", description="Text")
+        categoria = Category.objects.create(name="Antinfiammatorio", description="Text",
+                                            slug=slugify("Antinfiammatorio").__str__())
+        prodotto = Product.objects.create(name="Tachipirina", category=categoria, pharmacy=farmacia, image="image.png",
+                                          description="Text", brand="Brand", quantity=10, price=2, shipping_fee=1,
+                                          slug=slugify(1).__str__())
+        category = Review.objects.create(review="Text", user=user, product=prodotto)
+        self.assertEqual(str(category), category.product.__str__())
+
 
 class BuyerModelTest(TestCase):
 
@@ -114,6 +152,10 @@ class BuyerModelTest(TestCase):
         self.assertTrue(isinstance(w, Buyer))
         fields = w.id, w.full_name, w.phone
         self.assertEqual(w.__unicode__(), fields)
+
+    def test_buyer_str(self):
+        category = Buyer.objects.create(full_name="Mario", phone=123, city="Bergamo", address="via Vittoria 20")
+        self.assertEqual(str(category), category.full_name)
 
 
 """
