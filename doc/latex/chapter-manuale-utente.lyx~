@@ -688,20 +688,6 @@ $ pip install defusedxml
 
 \begin_layout Plain Layout
 
-// mock
-\end_layout
-
-\begin_layout Plain Layout
-
-$ pip install mock
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 // Code Verification //
 \end_layout
 

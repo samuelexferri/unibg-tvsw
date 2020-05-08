@@ -1,3 +1,5 @@
+from random import randint
+
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
@@ -144,8 +146,52 @@ def payment(request):
 
 def checkout(request):
     request.session.pop('data', None)
-    messages.success(request, 'Done! Thanks for using our services')
+    payment = Payment(1, FakeCreditCard(50))  # Fake
+    status = payment.process(request)
+    if status == 'processed':
+        messages.success(request, 'Done! Thanks for using our services!')
+    else:
+        messages.error(request, 'Cancelled! Not enough money!')
     return redirect("shop:cart")
+
+
+"""
+Payment and FakeCreditCard classes called by checkout()
+"""
+
+
+def calculate_amount():
+    return randint(1, 100)  # Random
+
+
+class Payment():
+    def __init__(self, invoice_id, credit_card):
+        assert isinstance(credit_card, FakeCreditCard), "credit_card is not a FakeCreditCard instance"
+        self.credit_card = credit_card
+
+    def process(self, request):
+        amount = calculate_amount()
+        assert amount >= 0, "amount should be positive"
+        if self.credit_card.has_enough_credit(amount):
+            self.credit_card.withdraw(amount)
+            self.status = 'processed'
+        else:
+            self.status = 'cancelled'
+
+        return self.status
+
+
+class FakeCreditCard:
+    def __init__(self, balance=50):
+        assert balance >= 0, "balance should be positive"
+        self.balance = balance
+
+    def has_enough_credit(self, amount):
+        return self.balance > amount
+
+    def withdraw(self, amount):
+        self.balance = self.balance - amount
+        assert self.balance >= 0, "balance should be positive"
 
 
 def add_cart(request, id):

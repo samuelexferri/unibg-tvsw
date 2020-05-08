@@ -789,8 +789,9 @@ Firefox
 \series bold
 Mock:
 \series default
+ 
 \emph on
- unittest.mock
+unittest.mock
 \emph default
 , una libreria per il testing in Python che permette di sostituire parti
  del sistema con oggetti mock e fare assertions sul loro funzionamento (

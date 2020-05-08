@@ -1019,15 +1019,15 @@ choices.py.
 \end_layout
 
 \begin_layout Standard
-Tutti questi errori sono stati corretti attraverso l'inserimento degli 
+Tutti questi errori sono stati corretti attraverso l'insermiento degli 
 \emph on
 asserts
 \emph default
  (vedi sezione 
 \emph on
-Assertions
+Assert
 \emph default
-) oppure modificando i vincoli dei models.
+s) oppure modificando i vincoli dei models.
 \end_layout
 
 \begin_layout Standard
@@ -1493,20 +1493,6 @@ ato al termine del test.
 \end_layout
 
 \begin_layout Standard
-Nel seguente esempio viene illustrato l'utilizzo del decoratore 
-\emph on
-patch() 
-\emph default
-usato per sostituire la funzione 
-\emph on
-calculate_amount()
-\emph default
- con una fittizia che restituisce un determinato valore.
- Nel primo caso si testa il pagamentro tramite carta in cui si ha abbastanza
- credito per portare a termine la transazione, viceversa nel secondo caso.
-\end_layout
-
-\begin_layout Standard
 \begin_inset listings
 inline false
 status open
@@ -1538,150 +1524,17 @@ class PaymentTestCase(unittest.TestCase):
 
 \begin_layout Plain Layout
 
-		payment = Payment(1, cc)         status = payment.process(self)       
-  
+payment = Payment(1, cc)         status = payment.process(self)         self.asser
+tEqual(status, 'processed')
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertEqual(status, 'processed')
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-	@mock.patch('shop.views.calculate_amount', autospec=True)     
-\end_layout
-
-\begin_layout Plain Layout
-
-	def test_process_cc_without_credit(self, mock_calculate_amount):      
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-		cc = FakeCreditCard(50)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		mock_calculate_amount.return_value = 200         
-\end_layout
-
-\begin_layout Plain Layout
-
-		payment = Payment(1, cc)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		status = payment.process(self)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertEqual(status, 'cancelled')
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Usando 
-\emph on
-MagicMock
-\emph default
-, una sottoclasse di 
-\emph on
-Mock
-\emph default
- con tutti i metodi magici precedentemente creati e pronti all'uso, si è
- creato un oggetto di tipo file (
-\emph on
-spec=File
-\emph default
-) usato come parametro durante la creazione di un prodotto nel database.
- In particolare quest'oggetto fittizio file va a simulare un'immagine del
- prodotto.
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class PharmacyModelTestMockFile(TestCase):
-\end_layout
-
-\begin_layout Plain Layout
-
-    def create_pharmacy_image(self, image, name="Farmacia", x=50, y=0, slot4hMin
-Week=5, location="Bergamo", description="Text"):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		user = User.objects.create(username='TestUser')         
-\end_layout
-
-\begin_layout Plain Layout
-
-		file_mock = mock.MagicMock(spec=File)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		file_mock.name = image         
-\end_layout
-
-\begin_layout Plain Layout
-
-		return Pharmacy(owner=user, name=name, image=file_mock, x=x, y=y, slot4hMinWee
-k=slot4hMinWeek, location=location, description=description)
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-	def test_pharmacy_creation_image(self):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		w = self.create_pharmacy_image("image.png")         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertTrue(isinstance(w, Pharmacy))         
-\end_layout
-
-\begin_layout Plain Layout
-
-		fields = w.id, w.owner, w.name         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertEqual(w.__unicode__(), fields)         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertEqual(w.image.name, "image.png")
+    @mock.patch('shop.views.calculate_amount', autospec=True)     def test_process_
+cc_without_credit(self, mock_calculate_amount):         cc = FakeCreditCard(50)
+         mock_calculate_amount.return_value = 200         payment = Payment(1,
+ cc)         status = payment.process(self)         self.assertEqual(status,
+ 'cancelled')
 \end_layout
 
 \end_inset
@@ -1702,171 +1555,28 @@ Assertions
 \end_layout
 
 \begin_layout Standard
-Gli 
+*Attraverso i test parametrici effettuati in precedenza sono state individuate
+ delle casistiche che non dovrebbero esistere durante la compilazione dei
+ form.
+ Con l'introduzione degli 
 \emph on
-asserts
+assert
 \emph default
- dovrebbero essere usati per testare condizioni che non dovrebbero mai accadere
- con lo scopo di inviare un segnale di errore e arrestarsi in anticipo nel
- caso di funzionamento non corretto sollevando un'eccezione.
- Quini gli asserts servono per trovare bug facilmente e velocemente.
+ durante la creazione del form si è potuto evitare tali situzioni.
+ Inoltre anche all'interno dei test abbiamo usato gli assert per verificare
+ che il risultato di un test sia identico a un valore aspettato.
 \end_layout
 
 \begin_layout Standard
-Come si possono usare gli asserts
-\emph on
-:
+Assert sui privilegi admin...
 \end_layout
 
 \begin_layout Standard
-- Controllo di tipi di parametri, classi o valori.
+TODO (All'interno del codice, non solo nei test)
 \end_layout
 
 \begin_layout Standard
-- Verifica degli invarianti delle strutture dei dati.
-\end_layout
-
-\begin_layout Standard
-- Verifica di situazioni 
-\begin_inset Quotes fld
-\end_inset
-
-impossibili
-\begin_inset Quotes frd
-\end_inset
-
- (duplicati in un elenco, variabili di stato contraddittorie).
- 
-\end_layout
-
-\begin_layout Standard
-- Dopo aver chiamato una funzione, per assicurarsi che il valore di ritorno
- sia ragionevole.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Nota:
-\series default
- Non usare gli asserts per la convalida dei dati! Gli asserts possono essere
- disattivati globalmente nell'interprete Python, quindi non bisogna fare
- affidamento sugli asserts per la validazione dei dati.
-\end_layout
-
-\begin_layout Standard
-Un esempio di utilizzo degli asserts riguardante la classe 
-\emph on
-Payment
-\emph default
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class Payment():     
-\end_layout
-
-\begin_layout Plain Layout
-
-	def __init__(self, invoice_id, credit_card):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		assert isinstance(credit_card, FakeCreditCard), "credit_card is not a
- FakeCreditCard instance"         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.credit_card = credit_card
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\end_layout
-
-\begin_layout Plain Layout
-
-	def process(self, request):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		amount = calculate_amount()         
-\end_layout
-
-\begin_layout Plain Layout
-
-		assert amount >= 0, "amount should be positive"         
-\end_layout
-
-\begin_layout Plain Layout
-
-		if self.credit_card.has_enough_credit(amount):             
-\end_layout
-
-\begin_layout Plain Layout
-
-			self.credit_card.withdraw(amount)             
-\end_layout
-
-\begin_layout Plain Layout
-
-			self.status = 'processed'         
-\end_layout
-
-\begin_layout Plain Layout
-
-		else:             
-\end_layout
-
-\begin_layout Plain Layout
-
-			self.status = 'cancelled'
-\end_layout
-
-\begin_layout Plain Layout
-
-        return self.status
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Si può notare che è stato usato un assert per verificare che la variabile
- 
-\emph on
-credit_card
-\emph default
- passata come argomento alla funzione sia effettivamente un'istanza della
- classe 
-\emph on
-FakeCreditCard
-\emph default
-.
- Un altro utilizzo dell'assert è verificare che il quantitativo richiesto
- per il pagamento sia un valore positivo.
- In entrambi i casi, se l'assert non è verifiato viene sollevata un'eccezione.
-\end_layout
-
-\begin_layout Standard
-Inoltre anche all'interno dei test abbiamo usato gli assert per verificare
- che il risultato di un test sia identico a un valore atteso.
-\end_layout
-
-\begin_layout Standard
-TODO (Estendere)
+TODO
 \end_layout
 
 \begin_layout Section

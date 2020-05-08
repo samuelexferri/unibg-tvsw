@@ -158,6 +158,8 @@
       <workItem from="1588688438677" duration="6060000" />
       <workItem from="1588749881449" duration="3365000" />
       <workItem from="1588837790438" duration="195000" />
+      <workItem from="1588922179139" duration="1292000" />
+      <workItem from="1588924719416" duration="20369000" />
     </task>
     <servers />
   </component>
@@ -177,45 +179,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="23" key="#Notifications" timestamp="1579623945237">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="23" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1579623945237" />
     <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587979007464">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587979007464" />
-    <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580121800481">
+    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588924587122">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1580121800481" />
-    <state x="430" y="221" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1580220278784">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="430" y="221" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1580220278784" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1579635939504">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579635939504" />
+    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1588924587122" />
     <state x="184" y="7" key="SettingsEditor" timestamp="1580905455909">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580905455909" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1579622219470">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1579622219470" />
     <state x="368" y="-15" width="607" height="728" key="find.popup" timestamp="1588236975807">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="368" y="-15" width="607" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1588236975807" />
-    <state x="400" y="173" key="jetbrains.nodejs.interpreters-dialog" timestamp="1579635167129">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="400" y="173" key="jetbrains.nodejs.interpreters-dialog/0.0.1366.728@0.0.1366.728" timestamp="1579635167129" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1579636618310">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1579636618310" />
   </component>
 </project>

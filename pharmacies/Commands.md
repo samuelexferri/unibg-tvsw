@@ -67,7 +67,7 @@ parameterized:
 $ pip install parameterized
 ```
 
-Coverage (Run Test):
+coverage:
 
 ```bash
 $ coverage run manage.py test -v 2 --exclude-tag=selenium
@@ -94,6 +94,12 @@ GitHub Actions (Continuos Integration)
 
 ```bash
 Site
+```
+
+mock:
+
+```bash
+$ pip install mock
 ```
 
 ### Code Verification

@@ -1865,10 +1865,6 @@ Inoltre anche all'interno dei test abbiamo usato gli assert per verificare
  che il risultato di un test sia identico a un valore atteso.
 \end_layout
 
-\begin_layout Standard
-TODO (Estendere)
-\end_layout
-
 \begin_layout Section
 Design by Contract (JML*)
 \end_layout
