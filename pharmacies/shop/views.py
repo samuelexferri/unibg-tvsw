@@ -165,12 +165,6 @@ def calculate_amount():
 
 
 class Payment():
-    """
-    Payment class
-
-    inv: self.amount >= 300
-    """
-
     def __init__(self, invoice_id, credit_card):
         assert isinstance(credit_card, FakeCreditCard), "credit_card is not a FakeCreditCard instance"
         self.credit_card = credit_card

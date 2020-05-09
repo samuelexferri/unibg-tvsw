@@ -29,8 +29,8 @@ coverage.wire_up_help_panel = function () {
         var koff = $("#keyboard_icon").offset();
         var poff = $("#panel_icon").position();
         $(".help_panel").offset({
-            top: koff.top - poff.top,
-            left: koff.left - poff.left
+            top: koff.top-poff.top,
+            left: koff.left-poff.left
         });
     });
     $("#panel_icon").click(function () {
@@ -70,7 +70,8 @@ coverage.wire_up_filter = function () {
             }
             table.show();
 
-        } else {
+        }
+        else {
             // Filter table items by value.
             var hidden = 0;
             var shown = 0;
@@ -83,7 +84,8 @@ coverage.wire_up_filter = function () {
                     // hide
                     element.addClass("hidden");
                     hidden++;
-                } else {
+                }
+                else {
                     // show
                     element.removeClass("hidden");
                     shown++;
@@ -96,7 +98,8 @@ coverage.wire_up_filter = function () {
                     // Show placeholder, hide table.
                     no_rows.show();
                     table.hide();
-                } else {
+                }
+                else {
                     // Hide placeholder, show table.
                     no_rows.hide();
                     table.show();
@@ -121,7 +124,8 @@ coverage.wire_up_filter = function () {
                             var splitted = ratio.split(" ");
                             numer += parseInt(splitted[0], 10);
                             denom += parseInt(splitted[1], 10);
-                        } else {
+                        }
+                        else {
                             sum += parseInt(this.innerHTML, 10);
                         }
                     });
@@ -140,7 +144,8 @@ coverage.wire_up_filter = function () {
                         }
                         var pct = numer * 100 / denom;
                         footer_cell.text(pct.toFixed(places) + '%');
-                    } else {
+                    }
+                    else {
                         footer_cell.text(sum);
                     }
                 }
@@ -148,7 +153,8 @@ coverage.wire_up_filter = function () {
                 // Hide standard footer, show dynamic footer.
                 table_footer.addClass("hidden");
                 table_dynamic_footer.removeClass("hidden");
-            } else {
+            }
+            else {
                 // Show standard footer, hide dynamic footer.
                 table_footer.removeClass("hidden");
                 table_dynamic_footer.addClass("hidden");
@@ -183,7 +189,8 @@ coverage.index_ready = function ($) {
                 // This table hasn't been sorted before - we'll use
                 // our stored settings:
                 $(table).trigger('sorton', [sort_list]);
-            } else {
+            }
+            else {
                 // This is not the first load - something has
                 // already defined sorting so we'll just update
                 // our stored value to match:
@@ -197,11 +204,11 @@ coverage.index_ready = function ($) {
     var headers = [];
     var col_count = $("table.index > thead > tr > th").length;
 
-    headers[0] = {sorter: 'text'};
-    for (i = 1; i < col_count - 1; i++) {
-        headers[i] = {sorter: 'digit'};
+    headers[0] = { sorter: 'text' };
+    for (i = 1; i < col_count-1; i++) {
+        headers[i] = { sorter: 'digit' };
     }
-    headers[col_count - 1] = {sorter: 'percent'};
+    headers[col_count-1] = { sorter: 'percent' };
 
     // Enable the table sorter:
     $("table.index").tablesorter({
@@ -227,7 +234,8 @@ coverage.pyfile_ready = function ($) {
     if (frag.length > 2 && frag[1] === 't') {
         $(frag).addClass('highlight');
         coverage.set_sel(parseInt(frag.substr(2), 10));
-    } else {
+    }
+    else {
         coverage.set_sel(0);
     }
 
@@ -236,20 +244,12 @@ coverage.pyfile_ready = function ($) {
         .bind('keydown', 'k', coverage.to_prev_chunk_nicely)
         .bind('keydown', '0', coverage.to_top)
         .bind('keydown', '1', coverage.to_first_chunk)
-    ;
+        ;
 
-    $(".button_toggle_run").click(function (evt) {
-        coverage.toggle_lines(evt.target, "run");
-    });
-    $(".button_toggle_exc").click(function (evt) {
-        coverage.toggle_lines(evt.target, "exc");
-    });
-    $(".button_toggle_mis").click(function (evt) {
-        coverage.toggle_lines(evt.target, "mis");
-    });
-    $(".button_toggle_par").click(function (evt) {
-        coverage.toggle_lines(evt.target, "par");
-    });
+    $(".button_toggle_run").click(function (evt) {coverage.toggle_lines(evt.target, "run");});
+    $(".button_toggle_exc").click(function (evt) {coverage.toggle_lines(evt.target, "exc");});
+    $(".button_toggle_mis").click(function (evt) {coverage.toggle_lines(evt.target, "mis");});
+    $(".button_toggle_par").click(function (evt) {coverage.toggle_lines(evt.target, "par");});
 
     coverage.assign_shortkeys();
     coverage.wire_up_help_panel();
@@ -262,11 +262,12 @@ coverage.pyfile_ready = function ($) {
 
 coverage.toggle_lines = function (btn, cls) {
     btn = $(btn);
-    var show = "show_" + cls;
+    var show = "show_"+cls;
     if (btn.hasClass(show)) {
         $("#source ." + cls).removeClass(show);
         btn.removeClass(show);
-    } else {
+    }
+    else {
         $("#source ." + cls).addClass(show);
         btn.addClass(show);
     }
@@ -288,7 +289,7 @@ coverage.set_sel = function (b, e) {
     // The first line selected.
     coverage.sel_begin = b;
     // The next line not selected.
-    coverage.sel_end = (e === undefined) ? b + 1 : e;
+    coverage.sel_end = (e === undefined) ? b+1 : e;
 };
 
 coverage.to_top = function () {
@@ -350,7 +351,7 @@ coverage.to_prev_chunk = function () {
     var c = coverage;
 
     // Find the end of the prev colored chunk.
-    var probe = c.sel_begin - 1;
+    var probe = c.sel_begin-1;
     var probe_line = c.line_elt(probe);
     if (probe_line.length === 0) {
         return;
@@ -366,7 +367,7 @@ coverage.to_prev_chunk = function () {
     }
 
     // There's a prev chunk, `probe` points to its last line.
-    var end = probe + 1;
+    var end = probe+1;
 
     // Find the beginning of this chunk.
     var prev_indicator = chunk_indicator;
@@ -375,7 +376,7 @@ coverage.to_prev_chunk = function () {
         probe_line = c.line_elt(probe);
         prev_indicator = c.chunk_indicator(probe_line);
     }
-    c.set_sel(probe + 1, end);
+    c.set_sel(probe+1, end);
     c.show_selection();
 };
 
@@ -390,10 +391,12 @@ coverage.line_at_pos = function (pos) {
             nlines = (pos - l1_top) / line_height;
         if (nlines < 1) {
             result = 1;
-        } else {
+        }
+        else {
             result = Math.ceil(nlines);
         }
-    } else {
+    }
+    else {
         result = 1;
     }
     return result;
@@ -407,7 +410,7 @@ coverage.selection_ends_on_screen = function () {
     }
 
     var top = coverage.line_elt(coverage.sel_begin);
-    var next = coverage.line_elt(coverage.sel_end - 1);
+    var next = coverage.line_elt(coverage.sel_end-1);
 
     return (
         (top.isOnScreen() ? 1 : 0) +
@@ -469,7 +472,8 @@ coverage.select_line_or_chunk = function (lineno) {
         }
 
         coverage.set_sel(begin, probe);
-    } else {
+    }
+    else {
         coverage.set_sel(lineno);
     }
 };
@@ -539,7 +543,8 @@ coverage.build_scroll_markers = function () {
         if (line_height > max_line_height) {
             line_height = max_line_height;
         }
-    } else {
+    }
+    else {
         line_height = min_line_height;
     }
 
@@ -549,7 +554,7 @@ coverage.build_scroll_markers = function () {
         offsets = {};
 
     // Calculate line offsets outside loop to prevent relayouts
-    c.lines_to_mark.each(function () {
+    c.lines_to_mark.each(function() {
         offsets[this.id] = $(this).offset().top;
     });
     c.lines_to_mark.each(function () {
@@ -562,7 +567,8 @@ coverage.build_scroll_markers = function () {
             last_mark.css({
                 'height': line_top + line_height - last_top
             });
-        } else {
+        }
+        else {
             // Add colored line in scroll_marker block.
             scroll_marker.append('<div id="m' + line_number + '" class="marker"></div>');
             last_mark = $('#m' + line_number);

@@ -1805,11 +1805,7 @@ k=slot4hMinWeek, location=location, description=description)
 \end_layout
 
 \begin_layout Standard
-Questi test si basano su delle classi fake tra cui 
-\emph on
-FakeCreditCard
-\emph default
-:
+Questi test si basano su delle classi fake:
 \end_layout
 
 \begin_layout Standard
@@ -1819,99 +1815,23 @@ status open
 
 \begin_layout Plain Layout
 
-class FakeCreditCard:     
+class Payment():     
 \end_layout
 
 \begin_layout Plain Layout
 
-	def __init__(self, balance=50):         
+	def __init__(self, invoice_id, credit_card):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert balance >= 0, "balance should be positive"         
+		assert isinstance(credit_card, FakeCreditCard), "credit_card is not a
+ FakeCreditCard instance"         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.balance = balance
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	def has_enough_credit(self, amount):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		return self.balance > amount
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	def withdraw(self, amount):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.balance = self.balance - amount         
-\end_layout
-
-\begin_layout Plain Layout
-
-		assert self.balance >= 0, "balance should be positive"
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-È stato usato MagicMock() anche nel testare permission.py:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class TestPermissions(TestCase):
-\end_layout
-
-\begin_layout Plain Layout
-
-    def test_permissions_IsAdmin_true(self):         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.request = MagicMock(user=MagicMock())         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.request.user.is_superuser = True         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.view = MagicMock()         
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.assertTrue(IsAdmin.has_permission(self, self.request, self.view))
+		self.credit_card = credit_card
 \end_layout
 
 \begin_layout Plain Layout
@@ -1921,27 +1841,42 @@ class TestPermissions(TestCase):
 
 \begin_layout Plain Layout
 
-	def test_permissions_IsAdmin_false(self):         
+	def process(self, request):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.request = MagicMock(user=MagicMock())         
+		amount = calculate_amount()         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.request.user.is_superuser = False         
+		assert amount >= 0, "amount should be positive"         if self.credit_card.has_
+enough_credit(amount):             self.credit_card.withdraw(amount)     
+        self.status = 'processed'         else:             self.status =
+ 'cancelled'
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.view = MagicMock()         
+        return self.status
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertFalse(IsAdmin.has_permission(self, self.request, self.view))
+class FakeCreditCard:     def __init__(self, balance=50):         assert
+ balance >= 0, "balance should be positive"         self.balance = balance
+\end_layout
+
+\begin_layout Plain Layout
+
+    def has_enough_credit(self, amount):         return self.balance > amount
+\end_layout
+
+\begin_layout Plain Layout
+
+    def withdraw(self, amount):         self.balance = self.balance - amount
+         assert self.balance >= 0, "balance should be positive"
 \end_layout
 
 \end_inset
@@ -1950,7 +1885,11 @@ class TestPermissions(TestCase):
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiornare i codici)
+TODO (Estendere)
+\end_layout
+
+\begin_layout Standard
+TODO (Mettere FakeCreditCard e aggiornare i codici)
 \end_layout
 
 \begin_layout Chapter
@@ -2130,7 +2069,7 @@ TODO (Estendere)
 \end_layout
 
 \begin_layout Section
-Design by Contract
+Design by Contract (JML*)
 \end_layout
 
 \begin_layout Standard
@@ -2142,7 +2081,7 @@ TODO
 \end_layout
 
 \begin_layout Section
-Program Verification
+Program Verification (KEYJML*)
 \end_layout
 
 \begin_layout Standard
@@ -2523,14 +2462,6 @@ Packages
 
 \begin_layout Standard
 TODO (Aggiornare grafici)
-\end_layout
-
-\begin_layout Subsection
-TODO
-\end_layout
-
-\begin_layout Standard
-TODO (Altri tools)
 \end_layout
 
 \begin_layout Section

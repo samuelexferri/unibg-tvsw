@@ -12,6 +12,7 @@ from transfer.views import *
 
 # CASO 1: Basta una farmacia per soddisfare la richiesta che è la più vicina
 class TransferTest1(TestCase):
+
     def test_algorithm_Transfer1(self):
         xScelta = 0
         yScelta = 0
@@ -65,6 +66,7 @@ class TransferTest1(TestCase):
 # CASO 2: NON va dalla prima farmacia nonostante sia la più vicina ma da tutte le altre che sono più lontane visto
 # che andare dalla prima porterebbe solo 1 prodotto
 class TransferTest2(TestCase):
+
     def test_algorithm_Transfer2(self):
         xScelta = 0
         yScelta = 0
@@ -118,6 +120,7 @@ class TransferTest2(TestCase):
 # CASO 3: La scelta ottima locale porta ad una scelta ottima globale in quanto non utilizza la farmacia3 che non sarebbe
 # stata in grado di soddisfare la quantità richiesta e sarebbe stata necessaria anche la farmacia4
 class TransferTest3(TestCase):
+
     def test_algorithm_Transfer3(self):
         xScelta = 0
         yScelta = 0
@@ -171,6 +174,7 @@ class TransferTest3(TestCase):
 # CASO 4: La scelta ottima locale porta ad una scelta NON ottima globale in quanto utilizza la farmacia3 che non è
 # stata in grado di soddisfare la quantità richiesta e quindi bisogna utilizzare anche la farmacia4
 class TransferTest4(TestCase):
+
     def test_algorithm_Transfer4(self):
         xScelta = 0
         yScelta = 0
@@ -224,6 +228,7 @@ class TransferTest4(TestCase):
 # CASO 5: Scelta ambigua in quanto per la prima scelta presenta entrambi lo stesso vantaggio sia 1 che 2
 # Sceglie la farmacia con indice minore in caso di parità di vantaggio
 class TransferTest5(TestCase):
+
     def test_algorithm_Transfer5(self):
         xScelta = 50
         yScelta = 50
@@ -278,6 +283,7 @@ class TransferTest5(TestCase):
 # e solamente come seconda farmacia la farmacia1 viene scelta quando rimane nettamente quella con maggiore
 # quantità
 class TransferTest6(TestCase):
+
     def test_algorithm_Transfer6(self):
         xScelta = 50
         yScelta = 50
@@ -332,6 +338,7 @@ class TransferTest6(TestCase):
 # farmacia1 <= 669 si ha che la prima farmacia scelta è la farmacia2
 # farmacia1 >= 670 si ha che la prima farmacia scelta è la farmacia1
 class TransferTest7(TestCase):
+
     def test_algorithm_Transfer7(self):
         xScelta = 50
         yScelta = 50

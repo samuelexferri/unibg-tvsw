@@ -401,14 +401,13 @@ Selenium, two command prompt necessary
 """
 
 
+@tag('selenium')
 class ContactViewSeleniumTest(LiveServerTestCase):
 
-    @tag('selenium')
     def setUp(self):
         self.driver = webdriver.Firefox()
         last_height = self.driver.execute_script("return document.body.scrollHeight")
 
-    @tag('selenium')
     def test_selenium_contact(self):
         self.driver.get("http://localhost:8000/shop/contact")
         self.driver.find_element_by_id('id_name').send_keys("Gino")
@@ -418,13 +417,13 @@ class ContactViewSeleniumTest(LiveServerTestCase):
         self.driver.find_element_by_id('submit').click()  # Submit button
         self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
 
-    @tag('selenium')
     def tearDown(self):
-        self.driver.quit
+        self.driver.close()
+        self.driver.quit()
 
 
 """
-Mock
+Mock tests
 """
 
 
