@@ -3344,30 +3344,14 @@ Class diagram
 \end_layout
 
 \begin_layout Standard
-Ci sono due interfacce 
-\emph on
-CartData
-\emph default
- e 
-\emph on
-CartController
-\emph default
-.
+Ci sono due interfacce Cart data e Cart controller.
  Sono due interfacce separate che interagiscono tra loro.
- 
-\emph on
-CartController
-\emph default
- si occupa di fornire tutte le azioni disponibili al cliente con il carrello:
- aggiungere prodotti, togliere prodotti e svuotare il carrello.
- 
-\emph on
-CartData
-\emph default
- si occupa di salvare per l'account il relativo carrello in modo che rimanga
- anche ai prossimi login (in sessioni successive) quindi cart data fornisce
- funzionalità per salvare i dati del carrello di un account e recuperare
- i dati in sessione successive.
+ Cart controller si occupa di fornire tutte le azioni disponibili al cliente
+ con il carrello: aggiungere prodotti, togliere prodotti e svuotare il carrello.
+ Cart data si occupa di salvare per l'account il relativo carrello in modo
+ che rimanga anche ai prossimi login (in sessioni successive) quindi cart
+ data fornisce funzionalità per salvare i dati del carrello di un account
+ e recuperare i dati in sessione successive.
 \end_layout
 
 \begin_layout Standard

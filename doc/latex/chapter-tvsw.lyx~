@@ -1066,6 +1066,11 @@ $ coverage run manage.py test -v 2
 
 \begin_layout Plain Layout
 
+$ coverage report
+\end_layout
+
+\begin_layout Plain Layout
+
 $ coverage html
 \end_layout
 
@@ -1112,14 +1117,75 @@ Sono rappresentate sono alcune linee della tabella, il report completo è
 \end_layout
 
 \begin_layout Standard
-In una prima stesura di test si era raggiunto il XX% di copertura del codice.
- Usando i report si è potuto indagare i moduli scoperti e si è proceduto
- a implementare ulteriori casi di test fino a raggiungere XX% di copertura
- del codice.
+In una prima stesura di test si era raggiunto il 49% di copertura del codice.
+ In figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Coverage-Vecchio"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sono rappresentati le parti meno coperte.
+ La parte di autenticazione era stata in gran parte trascurata, così come
+ non erano state coperte tutte le funzioni presente nei vari file 
+\emph on
+views.py
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiornare numeri)
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Coverage (Vecchio).png
+	lyxscale 75
+	scale 250
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Coverage-Vecchio"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Coverage precedente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando i report si è potuto indagare i moduli scoperti e si è proceduto
+ a implementare ulteriori casi di test fino a raggiungere 90% di copertura
+ del codice.
 \end_layout
 
 \begin_layout Standard
@@ -1154,7 +1220,7 @@ name "Coverage"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Coverage
+Coverage finale
 \end_layout
 
 \end_inset
@@ -1950,10 +2016,6 @@ class TestPermissions(TestCase):
 \end_layout
 
 \begin_layout Standard
-TODO (Estendere)
-\end_layout
-
-\begin_layout Standard
 TODO (Aggiornare i codici)
 \end_layout
 
@@ -2135,10 +2197,6 @@ TODO (Estendere)
 
 \begin_layout Section
 Design by Contract
-\end_layout
-
-\begin_layout Standard
-TODO (PEP 316)
 \end_layout
 
 \begin_layout Standard
@@ -2538,15 +2596,213 @@ TODO (Altri tools)
 \end_layout
 
 \begin_layout Section
-Code Refractoring
+Code Refactoring
 \end_layout
 
 \begin_layout Standard
-TODO (Moving models)
+Il 
+\emph on
+code refactoring
+\emph default
+ è il processo di modifica di un sistema software in modo tale da migliorare
+ la sua struttura interna del codice senza alterarne il comportamento esterno.
+\end_layout
+
+\begin_layout Standard
+È una fase molto importante dello sviluppo del software, rende il codice
+ più semplice da leggere e più facile da estendere.
+ Molto spesso ci si accorge che man mano che il progetto diventa grande,
+ sia necessaria una nuova struttura del codice e dei vari componenti.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+App:
+\end_layout
+
+\begin_layout Standard
+In questo caso inizialmente l'intero progetto era contenuto in un'unica
+ app, tuttavia la necessità di semplificare il codice e raggruppare le funzioni
+ ha portato alla divisione del progetto in quattro distinte componenti:
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+authentication
+\emph default
+: modulo che si occupa di tutta la parte di autenticazione e registrazione
+ degli utenti e dei permessi relativi.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+shop
+\emph default
+: modulo principale che si occupa di gestire tutta la parte di presentazione,
+ acquisto e vendita dei farmaci e della gestione delle farmacie.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+timetable
+\emph default
+: modulo che si occupa della presentazione e del calcolo degli orari settimanali
+ delle farmacie.
+\end_layout
+
+\begin_layout Standard
+- 
+\emph on
+transfer
+\emph default
+: modulo che si occupa del trasferimento dei farmaci tra la farmacia.
+\end_layout
+
+\begin_layout Standard
+Dopo aver deciso la nuova struttura del progetto raggruppando in base al
+ contesto, bisogna spostare tutti i modelli attinenti alla componente più
+ appropriata.
+ In 
+\emph on
+authentication
+\emph default
+ sono presenti i modelli relativi agli utenti, in 
+\emph on
+timetable
+\emph default
+ quelli relativi agli orari delle farmacie, in 
+\emph on
+transfer 
+\emph default
+quelli relativi alle richieste dei medicinali e in 
+\emph on
+shop
+\emph default
+ la restante grande parte che si occupa di gestire le funzionalità del sito.
+\end_layout
+
+\begin_layout Standard
+Grazie a questa divisione si è potuto rendere il codice più leggibile, rendere
+ chiaro i collegamenti e le interdipendenze tra i vari moduli e si è potuto
+ sviluppare ogni algoritmo (
+\emph on
+timetable
+\emph default
+, 
+\emph on
+transfer
+\emph default
+) in modo isolato.
+ Inoltre è stato possibile accorpare ed eliminare funzionalità duplicate
+ o modelli inutilizzati.
+\end_layout
+
+\begin_layout Standard
+I numerosi test presenti nel progetto sono anch'essi divisi in base al modulo
+ di appartenenza e possono essere eseguiti in modo indipendente attraverso
+ appositi comandi.
+\end_layout
+
+\begin_layout Standard
+Naturalmente spostare tutti i modelli e fare il refractoring del codice
+ non è stata una cosa semplice.
+ I principali passaggi effettuati possono concentrarsi nei seguenti punti:
+\end_layout
+
+\begin_layout Standard
+- Rinominare tutte le tabelle durante lo spostamento per adattarsi alla
+ nuova struttura di destinazione ed evitare conflitti.
+\end_layout
+
+\begin_layout Standard
+- Fare una migrazione per spostare i modelli nell'app di destinazione.
+\end_layout
+
+\begin_layout Standard
+- Aggiornare eventuali foreinkeys and relations tra i vari modelli (anche
+ di app differenti).
+\end_layout
+
+\begin_layout Standard
+- Fare una migrazione per eliminare i modelli dall'applicazione di origine.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+API:
+\end_layout
+
+\begin_layout Standard
+Allo stesso modo le varie application programming interface sono state separate
+ nei vari moduli.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi REST API.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Algoritmi:
+\end_layout
+
+\begin_layout Standard
+Isolati gli algoritmi, la loro stesura è stata migliorata e divisa in più
+ funzioni ognuna con uno scopo preciso.
+ Si è usato anche un data flow chart per ristrutturare il codice in modo
+ da rendere chiara la divisione in varie casistiche degli algoritmi.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi le fasi precedenti riguardanti gli algoritmi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Documentazione:
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi REST API per la documentazione delle API.
 \end_layout
 
 \begin_layout Standard
 TODO
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Performance:
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Variabili:
+\end_layout
+
+\begin_layout Standard
+In generale nell'applicazione sono state rinominate molte variabili per
+ rendere più esplicito e facilmente intuibile il loro scopo; anche gli import
+ dei pacchetti necessari sono stati riorganizzati.
 \end_layout
 
 \begin_layout Section
@@ -2584,6 +2840,24 @@ TODO (Checklist a mano su un modulo)
 
 \begin_layout Standard
 TODO
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Le liste di controllo sono un elemento fondamentale dell'ispezione classica.
+ Riassumono l'esperienza accumulata in progetti precedenti e guidare il
+ sessioni di revisione.
+ Una lista di controllo contiene una serie di domande che aiutano identificare
+ i difetti nel manufatto ispezionato e verificare che il manufatto è conforme
+ agli standard aziendali.
+ Una buona lista di controllo dovrebbe essere aggiornato regolarmente per
+ rimuovere elementi obsoleti e per aggiungere nuovi controlli suggeriti
+ dall'esperienza accumulata in nuovi progetti.
+ Ad esempio, possiamo rimuovere alcuni semplici controlli sulla codifica
+ standard dopo l'introduzione di analizzatori automatici che impongono il
+ standard, oppure possiamo aggiungere specifici controlli semantici per
+ evitare guasti che ha causato problemi in progetti recenti.
 \end_layout
 
 \begin_layout Chapter

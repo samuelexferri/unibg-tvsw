@@ -71,6 +71,7 @@ coverage:
 
 ```bash
 $ coverage run manage.py test -v 2 --exclude-tag=selenium
+$ coverage report
 $ coverage html
 $ coverage xml
 $ coverage erase
