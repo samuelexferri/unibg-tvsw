@@ -656,12 +656,12 @@ class ViewTest(TestCase):
 
 		farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.p
 ng", x=50, y=50,                                            slot4hMinWeek=5,
- location="Bergamo", description="Text")
+ location="Bergamo", description="Text")         
 \end_layout
 
 \begin_layout Plain Layout
 
-		url = reverse('shop:pharmacies_detail', args=(farmacia.id,))
+		url = reverse('shop:pharmacies_detail', args=(farmacia.id,))         
 \end_layout
 
 \begin_layout Plain Layout
@@ -695,24 +695,25 @@ class ViewTest(TestCase):
 
 \begin_layout Plain Layout
 
-    def test_add_cart(self):
+    def test_add_cart(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		user = User.objects.create(username='TestUser')
+		user = User.objects.create(username='TestUser')         
 \end_layout
 
 \begin_layout Plain Layout
 
 		farmacia = Pharmacy.objects.create(owner=user, name="Farmacia", image="farmacia.p
 ng", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
+         
 \end_layout
 
 \begin_layout Plain Layout
 
 		categoria = Category.objects.create(name="Antinfiammatorio", description="Text",
- slug=slugify("Antinfiammatorio").__str__())
+ slug=slugify("Antinfiammatorio").__str__())         
 \end_layout
 
 \begin_layout Plain Layout
@@ -720,17 +721,17 @@ ng", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
 		prodotto = Product.objects.create(name="Tachipirina", category=categoria,
  pharmacy=farmacia, image="image.png",                                  
       		description="Text", brand="Brand", quantity=10, price=2, shipping_fee=1,
- slug=slugify(1).__str__())
+ slug=slugify(1).__str__())         
 \end_layout
 
 \begin_layout Plain Layout
 
-		url = reverse('shop:add_cart', args=(prodotto.slug,))
+		url = reverse('shop:add_cart', args=(prodotto.slug,))         
 \end_layout
 
 \begin_layout Plain Layout
 
-		resp = self.client.get(url)
+		resp = self.client.get(url)         
 \end_layout
 
 \begin_layout Plain Layout
@@ -885,23 +886,23 @@ status open
 
 \begin_layout Plain Layout
 
-class ContactFormTestParametrized(TestCase):
+class ContactFormTestParametrized(TestCase):     
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_form(self):
+	def test_form(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
 		data = {'name': self.name, 'email': self.email, 'subject': self.subject,
- 'message': self.message}
+ 'message': self.message}         
 \end_layout
 
 \begin_layout Plain Layout
 
-		form = ContactForm(data=data)
+		form = ContactForm(data=data)         
 \end_layout
 
 \begin_layout Plain Layout
@@ -950,28 +951,28 @@ status open
 
 \begin_layout Plain Layout
 
-])
+]) 
 \end_layout
 
 \begin_layout Plain Layout
 
-class BuyerDeliveryFormTest(TestCase):
+class BuyerDeliveryFormTest(TestCase):     
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_form(self):
+	def test_form(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
 		data = {'full_name': self.full_name, 'phone': self.phone, 'city': self.city,
- 'address': self.address}
+ 'address': self.address}         
 \end_layout
 
 \begin_layout Plain Layout
 
-		form = BuyerDeliveryForm(data=data)
+		form = BuyerDeliveryForm(data=data)         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1565,12 +1566,12 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
 \begin_layout Plain Layout
 
-    def setUp(self):
+    def setUp(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.driver = webdriver.Firefox()
+		self.driver = webdriver.Firefox()         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1580,16 +1581,17 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
 \begin_layout Plain Layout
 
+    
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_selenium_contact(self):
+	def test_selenium_contact(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.driver.get("http://localhost:8000/shop/contact")
+		self.driver.get("http://localhost:8000/shop/contact")         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1610,7 +1612,8 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
 \begin_layout Plain Layout
 
-		self.driver.find_element_by_id('submit').click()  # Submit button
+		self.driver.find_element_by_id('submit').click()  # Submit button       
+  
 \end_layout
 
 \begin_layout Plain Layout
@@ -1625,7 +1628,7 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
 \begin_layout Plain Layout
 
-	def tearDown(self):
+	def tearDown(self):         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1701,32 +1704,28 @@ class PaymentTestCase(unittest.TestCase):
 
 \begin_layout Plain Layout
 
-    @mock.patch('shop.views.calculate_amount', autospec=True)
+    @mock.patch('shop.views.calculate_amount', autospec=True)     
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_process_cc_with_credit(self, mock_calculate_amount):
+	def test_process_cc_with_credit(self, mock_calculate_amount):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		cc = FakeCreditCard(50)
+		cc = FakeCreditCard(50)         
 \end_layout
 
 \begin_layout Plain Layout
 
-		mock_calculate_amount.return_value = 25
+		mock_calculate_amount.return_value = 25         
 \end_layout
 
 \begin_layout Plain Layout
 
-		payment = Payment(1, cc)
-\end_layout
-
-\begin_layout Plain Layout
-
-		status = payment.process(self)
+		payment = Payment(1, cc)         status = payment.process(self)       
+  
 \end_layout
 
 \begin_layout Plain Layout
@@ -1741,32 +1740,33 @@ class PaymentTestCase(unittest.TestCase):
 
 \begin_layout Plain Layout
 
-	@mock.patch('shop.views.calculate_amount', autospec=True)
+	@mock.patch('shop.views.calculate_amount', autospec=True)     
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_process_cc_without_credit(self, mock_calculate_amount):
+	def test_process_cc_without_credit(self, mock_calculate_amount):      
+   
 \end_layout
 
 \begin_layout Plain Layout
 
-		cc = FakeCreditCard(50)
+		cc = FakeCreditCard(50)         
 \end_layout
 
 \begin_layout Plain Layout
 
-		mock_calculate_amount.return_value = 200
+		mock_calculate_amount.return_value = 200         
 \end_layout
 
 \begin_layout Plain Layout
 
-		payment = Payment(1, cc)
+		payment = Payment(1, cc)         
 \end_layout
 
 \begin_layout Plain Layout
 
-		status = payment.process(self)
+		status = payment.process(self)         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1816,17 +1816,17 @@ Week=5, location="Bergamo", description="Text"):
 
 \begin_layout Plain Layout
 
-		user = User.objects.create(username='TestUser')
+		user = User.objects.create(username='TestUser')         
 \end_layout
 
 \begin_layout Plain Layout
 
-		file_mock = mock.MagicMock(spec=File)
+		file_mock = mock.MagicMock(spec=File)         
 \end_layout
 
 \begin_layout Plain Layout
 
-		file_mock.name = image
+		file_mock.name = image         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1842,27 +1842,27 @@ k=slot4hMinWeek, location=location, description=description)
 
 \begin_layout Plain Layout
 
-	def test_pharmacy_creation_image(self):
+	def test_pharmacy_creation_image(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		w = self.create_pharmacy_image("image.png")
+		w = self.create_pharmacy_image("image.png")         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertTrue(isinstance(w, Pharmacy))
+		self.assertTrue(isinstance(w, Pharmacy))         
 \end_layout
 
 \begin_layout Plain Layout
 
-		fields = w.id, w.owner, w.name
+		fields = w.id, w.owner, w.name         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertEqual(w.__unicode__(), fields)
+		self.assertEqual(w.__unicode__(), fields)         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1890,17 +1890,17 @@ status open
 
 \begin_layout Plain Layout
 
-class FakeCreditCard:
+class FakeCreditCard:     
 \end_layout
 
 \begin_layout Plain Layout
 
-	def __init__(self, balance=50):
+	def __init__(self, balance=50):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert balance >= 0, "balance should be positive"
+		assert balance >= 0, "balance should be positive"         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1914,7 +1914,7 @@ class FakeCreditCard:
 
 \begin_layout Plain Layout
 
-	def has_enough_credit(self, amount):
+	def has_enough_credit(self, amount):         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1928,12 +1928,12 @@ class FakeCreditCard:
 
 \begin_layout Plain Layout
 
-	def withdraw(self, amount):
+	def withdraw(self, amount):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.balance = self.balance - amount
+		self.balance = self.balance - amount         
 \end_layout
 
 \begin_layout Plain Layout
@@ -1971,22 +1971,22 @@ class TestPermissions(TestCase):
 
 \begin_layout Plain Layout
 
-    def test_permissions_IsAdmin_true(self):
+    def test_permissions_IsAdmin_true(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.request = MagicMock(user=MagicMock())
+		self.request = MagicMock(user=MagicMock())         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.request.user.is_superuser = True
+		self.request.user.is_superuser = True         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.view = MagicMock()
+		self.view = MagicMock()         
 \end_layout
 
 \begin_layout Plain Layout
@@ -2001,22 +2001,22 @@ class TestPermissions(TestCase):
 
 \begin_layout Plain Layout
 
-	def test_permissions_IsAdmin_false(self):
+	def test_permissions_IsAdmin_false(self):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.request = MagicMock(user=MagicMock())
+		self.request = MagicMock(user=MagicMock())         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.request.user.is_superuser = False
+		self.request.user.is_superuser = False         
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.view = MagicMock()
+		self.view = MagicMock()         
 \end_layout
 
 \begin_layout Plain Layout
@@ -2105,18 +2105,18 @@ status open
 
 \begin_layout Plain Layout
 
-class Payment():
+class Payment():     
 \end_layout
 
 \begin_layout Plain Layout
 
-	def __init__(self, invoice_id, credit_card):
+	def __init__(self, invoice_id, credit_card):         
 \end_layout
 
 \begin_layout Plain Layout
 
 		assert isinstance(credit_card, FakeCreditCard), "credit_card is not a
- FakeCreditCard instance"
+ FakeCreditCard instance"         
 \end_layout
 
 \begin_layout Plain Layout
@@ -2131,37 +2131,37 @@ class Payment():
 
 \begin_layout Plain Layout
 
-	def process(self, request):
+	def process(self, request):         
 \end_layout
 
 \begin_layout Plain Layout
 
-		amount = calculate_amount()
+		amount = calculate_amount()         
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert amount >= 0, "amount should be positive"
+		assert amount >= 0, "amount should be positive"         
 \end_layout
 
 \begin_layout Plain Layout
 
-		if self.credit_card.has_enough_credit(amount):
+		if self.credit_card.has_enough_credit(amount):             
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.credit_card.withdraw(amount)
+			self.credit_card.withdraw(amount)             
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.status = 'processed'
+			self.status = 'processed'         
 \end_layout
 
 \begin_layout Plain Layout
 
-		else:
+		else:             
 \end_layout
 
 \begin_layout Plain Layout
@@ -2301,18 +2301,18 @@ status open
 
 \begin_layout Plain Layout
 
-$ pylint --rcfile=./.pylintrc  ./shop
+$ pylint --rcfile=./.pylintrc  ./shop 
 \end_layout
 
 \begin_layout Plain Layout
 
-$ pylint --rcfile=./.pylintrc --errors-only ./shop
+$ pylint --rcfile=./.pylintrc --errors-only ./shop 
 \end_layout
 
 \begin_layout Plain Layout
 
 $ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins
- pylint_django.checkers.db_performance ./shop
+ pylint_django.checkers.db_performance ./shop 
 \end_layout
 
 \end_inset
@@ -2456,7 +2456,7 @@ $ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
 
 \begin_layout Plain Layout
 
-$ python manage.py graph_models -a -o models.png
+$ python manage.py graph_models -a -o models.png 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2767,21 +2767,6 @@ Isolati gli algoritmi, la loro stesura è stata migliorata e divisa in più
 
 \emph on
 Vedi le fasi precedenti riguardanti gli algoritmi.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Codice:
-\end_layout
-
-\begin_layout Standard
-È stato usato 
-\emph on
-black
-\emph default
-, un formattatore di codice per Python in cui ogni riga del codice viene
- formattato automaticamente liberando lo sviluppatore di questo pensiero.
 \end_layout
 
 \begin_layout Standard

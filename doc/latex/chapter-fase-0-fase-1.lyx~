@@ -837,19 +837,11 @@ strumento d'analisi del codice sorgente (bug finder) che fa anche controllo
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-Code Refractoring:
-\series default
- 
+Code Refractoring: 
 \emph on
 black
 \emph default
-, un formattatore di codice per Python (
-\emph on
-https://pypi.org/project/black/
-\emph default
-)
+, un formattatore di codice per Python
 \end_layout
 
 \begin_layout Itemize

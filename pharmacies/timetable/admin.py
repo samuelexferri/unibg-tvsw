@@ -4,7 +4,7 @@ from timetable.models import Timetable
 
 
 class TimetableAdmin(admin.ModelAdmin):
-    readonly_fields = ['day', 'slot4h']
+    readonly_fields = ["day", "slot4h"]
 
     def has_add_permission(self, request):
         return False

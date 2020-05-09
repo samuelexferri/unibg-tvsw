@@ -5,13 +5,13 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('shop', '0001_initial'),
+        ("shop", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='pharmacy',
-            name='image',
-            field=models.ImageField(blank='x.img', upload_to='pharmacy_pics'),
+            model_name="pharmacy",
+            name="image",
+            field=models.ImageField(blank="x.img", upload_to="pharmacy_pics"),
         ),
     ]

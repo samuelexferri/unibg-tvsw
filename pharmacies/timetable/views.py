@@ -19,36 +19,59 @@ logger = logging.getLogger("mylogger")
 def homepage(request):
     products_all = Product.objects.filter(active=True)
     categories = Category.objects.filter(active=True)
-    products = Product.objects.filter(active=True).order_by('-created')
+    products = Product.objects.filter(active=True).order_by("-created")
     featured_products = Product.objects.filter(featured=True)
     paginator = Paginator(products, 6)
-    page = request.GET.get('page')
+    page = request.GET.get("page")
     products = paginator.get_page(page)
-    return render(request, 'shop/base.html',
-                  {'products_all': products_all, 'categories': categories, 'product': products,
-                   'featured_products': featured_products})
+    return render(
+        request,
+        "shop/base.html",
+        {
+            "products_all": products_all,
+            "categories": categories,
+            "product": products,
+            "featured_products": featured_products,
+        },
+    )
 
 
 def view(request):
-    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    days = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+    ]
     array = [1, 2, 3, 4, 5, 6]
-    slots = Timetable.objects.order_by('day', 'slot4h')
-    return render(request, 'timetable/timetable.html', {'slots': slots, 'days': days, 'array': array})
+    slots = Timetable.objects.order_by("day", "slot4h")
+    return render(
+        request,
+        "timetable/timetable.html",
+        {"slots": slots, "days": days, "array": array},
+    )
 
 
 def calculate(request):
     count = Pharmacy.objects.all().count()
 
     if not request.user.is_superuser:
-        messages.info(request, 'You have to logged as admin in first to calculate the timetable')
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+        messages.info(
+            request, "You have to logged as admin in first to calculate the timetable"
+        )
+        return redirect("%s?next=%s" % (settings.LOGIN_URL, request.path))
     elif count < 3:
-        messages.error(request, 'Three pharmacies are needed in order to calculate the timetable')
-        return redirect('timetable:view_timetable')
+        messages.error(
+            request, "Three pharmacies are needed in order to calculate the timetable"
+        )
+        return redirect("timetable:view_timetable")
     else:
         algorithm_timetable(request)  # Chiamata algorithm_timetable()
-        messages.success(request, 'Timetable calculated!')
-        return redirect('timetable:view_timetable')
+        messages.success(request, "Timetable calculated!")
+        return redirect("timetable:view_timetable")
 
 
 def algorithm_timetable(request):
@@ -88,7 +111,9 @@ def algorithm_timetable(request):
             slotmin = itemSlotMin[i]
 
             for j in range(slotmin):  # Per ogni suo slot
-                if contatore < 42:  # PRIMA EFFETTUO I RIEMPIMENTI OBBLIGATORI, POI QUELLI PER SOVRAPPOSIZIONI
+                if (
+                    contatore < 42
+                ):  # PRIMA EFFETTUO I RIEMPIMENTI OBBLIGATORI, POI QUELLI PER SOVRAPPOSIZIONI
                     s = int(random.choice(K))
                     insert(s, farm)
                     K.remove(s)
@@ -107,7 +132,9 @@ def algorithm_timetable(request):
                             while CT == 0 and len(numberList) > 0:
                                 s = random.choice(numberList)
                                 G = calcolagiorno(s)
-                                tupla = Timetable.objects.filter(pharmacy=farm.id, day=G, slot4h=w)
+                                tupla = Timetable.objects.filter(
+                                    pharmacy=farm.id, day=G, slot4h=w
+                                )
                                 if len(tupla) == 0:
                                     CT = 1
                                     insert(s, farm)
@@ -121,7 +148,9 @@ def algorithm_timetable(request):
                             while CT == 0 and len(numberList) > 0:
                                 s = random.choice(numberList)
                                 G = calcolagiorno(s)
-                                tupla = Timetable.objects.filter(pharmacy=farm.id, day=G, slot4h=w)
+                                tupla = Timetable.objects.filter(
+                                    pharmacy=farm.id, day=G, slot4h=w
+                                )
                                 if len(tupla) == 0:
                                     CT = 1
                                     insert(s, farm)
@@ -136,7 +165,9 @@ def algorithm_timetable(request):
                             while CT == 0 and len(numberList) > 0:
                                 s = random.choice(numberList)
                                 G = calcolagiorno(s)
-                                tupla = Timetable.objects.filter(pharmacy=farm.id, day=G, slot4h=w)
+                                tupla = Timetable.objects.filter(
+                                    pharmacy=farm.id, day=G, slot4h=w
+                                )
                                 if len(tupla) == 0:
                                     CT = 1
                                     insert(s, farm)
@@ -153,7 +184,9 @@ def algorithm_timetable(request):
                             while CT == 0 and len(numberList) > 0:
                                 s = random.choice(numberList)
                                 G = calcolagiorno(s)
-                                tupla = Timetable.objects.filter(pharmacy=farm.id, day=G, slot4h=w)
+                                tupla = Timetable.objects.filter(
+                                    pharmacy=farm.id, day=G, slot4h=w
+                                )
                                 if len(tupla) == 0:
                                     CT = 1
                                     insert(s, farm)
@@ -170,7 +203,9 @@ def algorithm_timetable(request):
                             while CT == 0 and len(numberList) > 0:
                                 s = random.choice(numberList)
                                 G = calcolagiorno(s)
-                                tupla = Timetable.objects.filter(pharmacy=farm.id, day=G, slot4h=w)
+                                tupla = Timetable.objects.filter(
+                                    pharmacy=farm.id, day=G, slot4h=w
+                                )
                                 if len(tupla) == 0:
                                     CT = 1
                                     insert(s, farm)
@@ -186,7 +221,9 @@ def algorithm_timetable(request):
                                 s = random.choice(numberList)
                                 G = calcolagiorno(s)
 
-                                tupla = Timetable.objects.filter(pharmacy=farm.id, day=G, slot4h=w)
+                                tupla = Timetable.objects.filter(
+                                    pharmacy=farm.id, day=G, slot4h=w
+                                )
                                 if len(tupla) == 0:
                                     CT = 1
                                     insert(s, farm)
@@ -218,24 +255,30 @@ def algorithm_timetable(request):
             x = random.choice(K)
 
             if x < 10:
-                itemsFarmacieOrdered = Pharmacy.objects.all().order_by('-slot4hMinWeek')[0]
+                itemsFarmacieOrdered = Pharmacy.objects.all().order_by(
+                    "-slot4hMinWeek"
+                )[0]
                 insert(K[0], itemsFarmacieOrdered)
                 K.pop(0)
 
             elif x >= 10 and x < 40:
-                itemsFarmacieOrdered = Pharmacy.objects.all().order_by('-slot4hMinWeek')[1]
+                itemsFarmacieOrdered = Pharmacy.objects.all().order_by(
+                    "-slot4hMinWeek"
+                )[1]
                 insert(K[0], itemsFarmacieOrdered)
                 K.pop(0)
 
             else:
-                itemsFarmacieOrdered = Pharmacy.objects.all().order_by('-slot4hMinWeek')[2]
+                itemsFarmacieOrdered = Pharmacy.objects.all().order_by(
+                    "-slot4hMinWeek"
+                )[2]
                 insert(K[0], itemsFarmacieOrdered)
                 K.pop(0)
         # END WHILE
 
 
 def calcolagiorno(p):
-    giorno = (math.trunc(p // 6) + 1)
+    giorno = math.trunc(p // 6) + 1
 
     # Scelta del giorno della settimana
     if giorno == 1:

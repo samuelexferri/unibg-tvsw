@@ -12,7 +12,7 @@ admin.site.register(Pharmacy)
 
 
 class BuyerAdmin(admin.ModelAdmin):
-    readonly_fields = ['product']
+    readonly_fields = ["product"]
 
 
 admin.site.register(Buyer, BuyerAdmin)

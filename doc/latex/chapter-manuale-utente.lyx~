@@ -747,7 +747,7 @@ $ pip install pylint-django
 
 \begin_layout Plain Layout
 
-// black
+// black:
 \end_layout
 
 \begin_layout Plain Layout

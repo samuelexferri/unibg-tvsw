@@ -27,10 +27,16 @@ class Pharmacy(models.Model):
     owner = models.ForeignKey(User, on_delete=CASCADE)
 
     name = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='pharmacy_pics', blank="x.img")
-    x = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    y = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    slot4hMinWeek = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(42)])  # 24/4 * 7
+    image = models.ImageField(upload_to="pharmacy_pics", blank="x.img")
+    x = models.IntegerField(
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(100)]
+    )
+    y = models.IntegerField(
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(100)]
+    )
+    slot4hMinWeek = models.IntegerField(
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(42)]
+    )  # 24/4 * 7
     location = models.CharField(max_length=250, choices=city_choices)
     description = models.TextField(blank=True)
     active = models.BooleanField(default=True)
@@ -56,7 +62,7 @@ class Pharmacy(models.Model):
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
 
-    slug = AutoSlugField(populate_from='name')
+    slug = AutoSlugField(populate_from="name")
     name = models.CharField(max_length=250)
     description = models.TextField(blank=True)
     active = models.BooleanField(default=True)
@@ -78,9 +84,9 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=CASCADE)
     pharmacy = models.ForeignKey(Pharmacy, on_delete=CASCADE)
 
-    slug = AutoSlugField(populate_from='id')
+    slug = AutoSlugField(populate_from="id")
     name = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='products')
+    image = models.ImageField(upload_to="products")
     description = models.TextField(blank=True, default="Description field")
     brand = models.CharField(max_length=250)
     quantity = models.PositiveIntegerField(default=1)

@@ -10,7 +10,6 @@ Permission tests (Mock)
 
 
 class TestPermissions(TestCase):
-
     def test_permissions_IsAdmin_true(self):
         self.request = MagicMock(user=MagicMock())
         self.request.user.is_superuser = True
@@ -45,7 +44,9 @@ class TestPermissions(TestCase):
         self.request = MagicMock(user=MagicMock())
         self.request.user.is_superuser = False
         self.view = MagicMock()
-        self.assertFalse(IsAdminOrReadOnly.has_permission(self, self.request, self.view))
+        self.assertFalse(
+            IsAdminOrReadOnly.has_permission(self, self.request, self.view)
+        )
 
     def test_permissions_IsStaffOrReadOnly_true(self):
         self.request = MagicMock(user=MagicMock())
@@ -57,16 +58,22 @@ class TestPermissions(TestCase):
         self.request = MagicMock(user=MagicMock())
         self.request.user.is_staff = False
         self.view = MagicMock()
-        self.assertFalse(IsStaffOrReadOnly.has_permission(self, self.request, self.view))
+        self.assertFalse(
+            IsStaffOrReadOnly.has_permission(self, self.request, self.view)
+        )
 
     def test_permissions_IsAuthenticatedOrReadOnly_true(self):
         self.request = MagicMock(user=MagicMock())
         self.request.user.is_authenticated = True
         self.view = MagicMock()
-        self.assertTrue(IsAuthenticatedOrReadOnly.has_permission(self, self.request, self.view))
+        self.assertTrue(
+            IsAuthenticatedOrReadOnly.has_permission(self, self.request, self.view)
+        )
 
     def test_permissions_IsAuthenticatedOrReadOnly_false(self):
         self.request = MagicMock(user=MagicMock())
         self.request.user.is_authenticated = False
         self.view = MagicMock()
-        self.assertFalse(IsAuthenticatedOrReadOnly.has_permission(self, self.request, self.view))
+        self.assertFalse(
+            IsAuthenticatedOrReadOnly.has_permission(self, self.request, self.view)
+        )

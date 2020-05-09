@@ -9,25 +9,38 @@ from pharmacies import settings
 from pharmacies.permission import IsAdminOrReadOnly, IsStaffOrReadOnly, IsStaff
 from shop.forms import ReviewForm, SellProductForm, BuyerDeliveryForm, ContactForm
 from shop.models import Category, Product, Pharmacy, Contact, Review, Buyer
-from shop.serializer import PharmacySerializer, CategorySerializer, ReviewSerializer, BuyerSerializer, \
-    ProductSerializer, ContactSerializer
+from shop.serializer import (
+    PharmacySerializer,
+    CategorySerializer,
+    ReviewSerializer,
+    BuyerSerializer,
+    ProductSerializer,
+    ContactSerializer,
+)
 
 
 def homepage(request):
     products_all = Product.objects.filter(active=True)
     categories = Category.objects.filter(active=True)
-    products = Product.objects.filter(active=True).order_by('-created')
+    products = Product.objects.filter(active=True).order_by("-created")
     featured_products = Product.objects.filter(featured=True)
     paginator = Paginator(products, 6)
-    page = request.GET.get('page')
+    page = request.GET.get("page")
     products = paginator.get_page(page)
-    return render(request, 'shop/base.html',
-                  {'products_all': products_all, 'categories': categories, 'product': products,
-                   'featured_products': featured_products})
+    return render(
+        request,
+        "shop/base.html",
+        {
+            "products_all": products_all,
+            "categories": categories,
+            "product": products,
+            "featured_products": featured_products,
+        },
+    )
 
 
 def about(request):
-    return render(request, 'shop/about.html')
+    return render(request, "shop/about.html")
 
 
 def contact(request):
@@ -36,45 +49,51 @@ def contact(request):
         if form.is_valid():
             contact = form.save(commit=False)
             contact.save()
-            messages.success(request, 'Your message has been sent!')
-            return redirect('shop:contact')
+            messages.success(request, "Your message has been sent!")
+            return redirect("shop:contact")
         else:
-            messages.error(request, 'Error! Try again')
-            return redirect('shop:contact')
+            messages.error(request, "Error! Try again")
+            return redirect("shop:contact")
     else:
         form = ContactForm()
-    return render(request, "shop/contact.html", {'form': form})
+    return render(request, "shop/contact.html", {"form": form})
 
 
 def pharmacy_list(request):
     pharmacies = Pharmacy.objects.filter(active=True)
-    return render(request, 'shop/pharmacies_list.html', {'pharmacies': pharmacies})
+    return render(request, "shop/pharmacies_list.html", {"pharmacies": pharmacies})
 
 
 def pharmacy_detail(request, id):
     pharmacy = Pharmacy.objects.get(active=True, id=id)
-    return render(request, 'shop/pharmacies_detail.html', {'pharmacy': pharmacy})
+    return render(request, "shop/pharmacies_detail.html", {"pharmacy": pharmacy})
 
 
 def categories(request, slug):
     category = Category.objects.get(slug=slug)
     products = Product.objects.filter(category=category, active=True)
-    return render(request, 'shop/products_list.html', {'products': products})
+    return render(request, "shop/products_list.html", {"products": products})
 
 
 def product_list(request):
     products_all = Product.objects.filter(active=True)
-    products = Product.objects.filter(active=True).order_by('-created')
+    products = Product.objects.filter(active=True).order_by("-created")
     paginator = Paginator(products, 6)
-    page = request.GET.get('page')
+    page = request.GET.get("page")
     products = paginator.get_page(page)
-    return render(request, "shop/products_list.html", {'products_all': products_all, 'products': products})
+    return render(
+        request,
+        "shop/products_list.html",
+        {"products_all": products_all, "products": products},
+    )
 
 
 def product_detail(request, id):
     product = Product.objects.get(id=id)
     form = ReviewForm()
-    return render(request, 'shop/products_detail.html', {'product': product, 'form': form})
+    return render(
+        request, "shop/products_detail.html", {"product": product, "form": form}
+    )
 
 
 def search(request):
@@ -82,35 +101,34 @@ def search(request):
     if q:
         products = Product.objects.filter(active=True, name__icontains=q)
         categories = Category.objects.filter(active=True)
-        context = {"products": products,
-                   "categories": categories}
+        context = {"products": products, "categories": categories}
         return render(request, "shop/products_list.html", context)
     else:
-        return redirect('/')
+        return redirect("/")
 
 
 def sell_product(request):
     if not request.user.is_staff:
-        messages.info(request, 'You have to logged in first to sell the product')
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+        messages.info(request, "You have to logged in first to sell the product")
+        return redirect("%s?next=%s" % (settings.LOGIN_URL, request.path))
     if request.method == "POST":
         form = SellProductForm(request.POST, request.FILES)
         if form.is_valid():
             myproduct = form.save(commit=False)
             myproduct.seller = request.user
             myproduct.save()
-            messages.success(request, 'Your product has been posted successfully')
-            return redirect('shop:products_list')
+            messages.success(request, "Your product has been posted successfully")
+            return redirect("shop:products_list")
 
     else:
         form = SellProductForm()
-    return render(request, 'shop/sell_product.html', {'form': form})
+    return render(request, "shop/sell_product.html", {"form": form})
 
 
 def buy_items(request):
     if not request.user.is_authenticated:
-        messages.info(request, 'You have to logged in first')
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+        messages.info(request, "You have to logged in first")
+        return redirect("%s?next=%s" % (settings.LOGIN_URL, request.path))
     sess = request.session.get("data", {"items": []})
     if request.method == "POST":
         form = BuyerDeliveryForm(request.POST)
@@ -118,40 +136,39 @@ def buy_items(request):
             buyer = form.save(commit=False)
             buyer.save()
             buyer.product.set(Product.objects.filter(active=True, id__in=sess["items"]))
-            return redirect('shop:payment')
+            return redirect("shop:payment")
     else:
         form = BuyerDeliveryForm()
-    return render(request, 'shop/delivery_form.html', {'form': form})
+    return render(request, "shop/delivery_form.html", {"form": form})
 
 
 def cart(request):
     sess = request.session.get("data", {"items": []})
     products = Product.objects.filter(active=True, id__in=sess["items"])
     if not products:
-        return render(request, 'shop/empty_cart.html')
-    context = {"products": products,
-               "categories": categories}
-    return render(request, 'shop/cart_item.html', context)
+        return render(request, "shop/empty_cart.html")
+    context = {"products": products, "categories": categories}
+    return render(request, "shop/cart_item.html", context)
 
 
 def reset_cart(request):
-    request.session.pop('data', None)
-    messages.success(request, 'Done! Cart resetted')
+    request.session.pop("data", None)
+    messages.success(request, "Done! Cart resetted")
     return redirect("shop:cart")
 
 
 def payment(request):
-    return render(request, 'shop/payment.html')
+    return render(request, "shop/payment.html")
 
 
 def checkout(request):
-    request.session.pop('data', None)
+    request.session.pop("data", None)
     payment = Payment(1, FakeCreditCard(50))  # Fake
     status = payment.process(request)
-    if status == 'processed':
-        messages.success(request, 'Done! Thanks for using our services!')
+    if status == "processed":
+        messages.success(request, "Done! Thanks for using our services!")
     else:
-        messages.error(request, 'Cancelled! Not enough money!')
+        messages.error(request, "Cancelled! Not enough money!")
     return redirect("shop:cart")
 
 
@@ -164,9 +181,11 @@ def calculate_amount():
     return randint(1, 100)  # Random
 
 
-class Payment():
+class Payment:
     def __init__(self, invoice_id, credit_card):
-        assert isinstance(credit_card, FakeCreditCard), "credit_card is not a FakeCreditCard instance"
+        assert isinstance(
+            credit_card, FakeCreditCard
+        ), "credit_card is not a FakeCreditCard instance"
         self.credit_card = credit_card
 
     def process(self, request):
@@ -174,9 +193,9 @@ class Payment():
         assert amount >= 0, "amount should be positive"
         if self.credit_card.has_enough_credit(amount):
             self.credit_card.withdraw(amount)
-            self.status = 'processed'
+            self.status = "processed"
         else:
-            self.status = 'cancelled'
+            self.status = "cancelled"
 
         return self.status
 
@@ -197,24 +216,24 @@ class FakeCreditCard:
 def add_cart(request, id):
     product = Product.objects.get(id=id)
     initial = {"items": [], "price": 0.0, "count": 0}
-    session = request.session.get('data', initial)
-    if id in session['items']:
-        messages.error(request, 'Already added')
+    session = request.session.get("data", initial)
+    if id in session["items"]:
+        messages.error(request, "Already added")
     else:
         session["items"].append(id)
         session["price"] += float(product.price)
         if product.shipping_fee:
-            session['price'] += float(product.shipping_fee)
+            session["price"] += float(product.shipping_fee)
         session["count"] += 1
         request.session["data"] = session
-        messages.success(request, 'Added to cart')
-    return redirect('shop:products_detail', id)
+        messages.success(request, "Added to cart")
+    return redirect("shop:products_detail", id)
 
 
 def add_review(request, id):
     if not request.user.is_authenticated:
         messages.info(request, "You need to be logged in in order to give a review")
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+        return redirect("%s?next=%s" % (settings.LOGIN_URL, request.path))
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -222,15 +241,15 @@ def add_review(request, id):
             review.product = Product.objects.get(id=id)
             review.user = request.user
             review.save()
-            messages.success(request, 'Review saved')
-            return redirect('shop:products_detail', id)
+            messages.success(request, "Review saved")
+            return redirect("shop:products_detail", id)
     else:
-        return redirect('shop:products_detail', id)
+        return redirect("shop:products_detail", id)
 
 
-'''
+"""
 API with permissions
-'''
+"""
 
 
 class ContactViewSet(viewsets.ModelViewSet):

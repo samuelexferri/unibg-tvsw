@@ -10,39 +10,61 @@ View tests
 
 
 class ViewTest(TestCase):
-
     def test_homepage(self):
-        url = reverse('home')
+        url = reverse("home")
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 200)
 
     def test_view(self):
-        url = reverse('timetable:view_timetable')
+        url = reverse("timetable:view_timetable")
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 200)
 
     def test_calculate(self):
-        url = reverse('timetable:calc_timetable')
+        url = reverse("timetable:calc_timetable")
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 302)
 
 
 # CASO IN CUI SIANO MENO DI 42
 class AlgoritmoCalculateTimetable1(TestCase):
-
     def test_algorithm_calculate1(self):
-        user1 = User.objects.create(username='Testuser1')
-        user2 = User.objects.create(username='Testuser2')
-        user3 = User.objects.create(username='Testuser3')
+        user1 = User.objects.create(username="Testuser1")
+        user2 = User.objects.create(username="Testuser2")
+        user3 = User.objects.create(username="Testuser3")
 
-        farmacia1 = Pharmacy.objects.create(owner=user1, name="farmacia1", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=5, location="Bergamo", description="Text")
+        farmacia1 = Pharmacy.objects.create(
+            owner=user1,
+            name="farmacia1",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
+        )
 
-        farmacia2 = Pharmacy.objects.create(owner=user2, name="farmacia2", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=5, location="Bergamo", description="Text")
+        farmacia2 = Pharmacy.objects.create(
+            owner=user2,
+            name="farmacia2",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
+        )
 
-        farmacia3 = Pharmacy.objects.create(owner=user3, name="farmacia3", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=5, location="Bergamo", description="Text")
+        farmacia3 = Pharmacy.objects.create(
+            owner=user3,
+            name="farmacia3",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
+        )
         farmacia1.save()
         farmacia2.save()
         farmacia3.save()
@@ -58,20 +80,43 @@ class AlgoritmoCalculateTimetable1(TestCase):
 
 # CASO IN CUI SONO PIU DI 42
 class AlgoritmoCalculateTimetable2(TestCase):
-
     def test_algorithm_calculate2(self):
-        user1 = User.objects.create(username='Testuser1')
-        user2 = User.objects.create(username='Testuser2')
-        user3 = User.objects.create(username='Testuser3')
+        user1 = User.objects.create(username="Testuser1")
+        user2 = User.objects.create(username="Testuser2")
+        user3 = User.objects.create(username="Testuser3")
 
-        farmacia1 = Pharmacy.objects.create(owner=user1, name="farmacia1", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=20, location="Bergamo", description="Text")
+        farmacia1 = Pharmacy.objects.create(
+            owner=user1,
+            name="farmacia1",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=20,
+            location="Bergamo",
+            description="Text",
+        )
 
-        farmacia2 = Pharmacy.objects.create(owner=user2, name="farmacia2", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=25, location="Bergamo", description="Text")
+        farmacia2 = Pharmacy.objects.create(
+            owner=user2,
+            name="farmacia2",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=25,
+            location="Bergamo",
+            description="Text",
+        )
 
-        farmacia3 = Pharmacy.objects.create(owner=user3, name="farmacia3", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=35, location="Bergamo", description="Text")
+        farmacia3 = Pharmacy.objects.create(
+            owner=user3,
+            name="farmacia3",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=35,
+            location="Bergamo",
+            description="Text",
+        )
         farmacia1.save()
         farmacia2.save()
         farmacia3.save()
@@ -90,20 +135,43 @@ class AlgoritmoCalculateTimetable2(TestCase):
 
 # CASO IN CUI SONO 42
 class AlgoritmoCalculateTimetable3(TestCase):
-
     def test_algorithm_calculate3(self):
-        user1 = User.objects.create(username='Testuser1')
-        user2 = User.objects.create(username='Testuser2')
-        user3 = User.objects.create(username='Testuser3')
+        user1 = User.objects.create(username="Testuser1")
+        user2 = User.objects.create(username="Testuser2")
+        user3 = User.objects.create(username="Testuser3")
 
-        farmacia1 = Pharmacy.objects.create(owner=user1, name="farmacia1", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=15, location="Bergamo", description="Text")
+        farmacia1 = Pharmacy.objects.create(
+            owner=user1,
+            name="farmacia1",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=15,
+            location="Bergamo",
+            description="Text",
+        )
 
-        farmacia2 = Pharmacy.objects.create(owner=user2, name="farmacia2", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=10, location="Bergamo", description="Text")
+        farmacia2 = Pharmacy.objects.create(
+            owner=user2,
+            name="farmacia2",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=10,
+            location="Bergamo",
+            description="Text",
+        )
 
-        farmacia3 = Pharmacy.objects.create(owner=user3, name="farmacia3", image="farmacia.png", x=50, y=50,
-                                            slot4hMinWeek=17, location="Bergamo", description="Text")
+        farmacia3 = Pharmacy.objects.create(
+            owner=user3,
+            name="farmacia3",
+            image="farmacia.png",
+            x=50,
+            y=50,
+            slot4hMinWeek=17,
+            location="Bergamo",
+            description="Text",
+        )
         farmacia1.save()
         farmacia2.save()
         farmacia3.save()

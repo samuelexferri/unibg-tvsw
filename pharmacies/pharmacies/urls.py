@@ -27,7 +27,7 @@ from shop import views
 schema_view = get_schema_view(
     openapi.Info(
         title="Pharmacies API",
-        default_version='v0.1',
+        default_version="v0.1",
         description="Our API!",
         terms_of_service="https:/farmacie.pythonanywhere.com",
         contact=openapi.Contact(email="contact@farmacie.pythonanywhere.com"),
@@ -38,16 +38,22 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-                  path('', views.homepage, name='home'),
-                  path('admin/', admin.site.urls),
-                  path('api-auth/', include('rest_framework.urls')),
-                  url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-                  url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-                  path('authentication/', include('authentication.urls')),
-                  path('shop/', include('shop.urls')),
-                  path('timetable/', include('timetable.urls')),
-                  path('transfer/', include('transfer.urls')),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-admin.sites.AdminSite.site_header = 'Pharmacies'
-admin.sites.AdminSite.site_title = 'Pharmacies'
-admin.sites.AdminSite.index_title = 'Admin'
+    path("", views.homepage, name="home"),
+    path("admin/", admin.site.urls),
+    path("api-auth/", include("rest_framework.urls")),
+    url(
+        r"^swagger/$",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+    url(
+        r"^redoc/$", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"
+    ),
+    path("authentication/", include("authentication.urls")),
+    path("shop/", include("shop.urls")),
+    path("timetable/", include("timetable.urls")),
+    path("transfer/", include("transfer.urls")),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+admin.sites.AdminSite.site_header = "Pharmacies"
+admin.sites.AdminSite.site_title = "Pharmacies"
+admin.sites.AdminSite.index_title = "Admin"

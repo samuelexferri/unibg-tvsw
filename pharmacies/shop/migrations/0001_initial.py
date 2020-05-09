@@ -16,98 +16,178 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=250)),
-                ('slug', autoslug.fields.AutoSlugField(editable=False, populate_from='name')),
-                ('description', models.TextField(blank=True)),
-                ('active', models.BooleanField(default=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('modified', models.DateTimeField(auto_now=True)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=250)),
+                (
+                    "slug",
+                    autoslug.fields.AutoSlugField(editable=False, populate_from="name"),
+                ),
+                ("description", models.TextField(blank=True)),
+                ("active", models.BooleanField(default=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("modified", models.DateTimeField(auto_now=True)),
             ],
-            options={
-                'verbose_name_plural': 'Categories',
-            },
+            options={"verbose_name_plural": "Categories",},
         ),
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=250)),
-                ('email', models.EmailField(max_length=254)),
-                ('subject', models.CharField(blank=True, max_length=250)),
-                ('message', models.TextField()),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Pharmacy',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=250)),
-                ('image', models.ImageField(blank=True, upload_to='pharmacy_pics')),
-                ('x', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0),
-                                                                 django.core.validators.MaxValueValidator(100)])),
-                ('y', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0),
-                                                                 django.core.validators.MaxValueValidator(100)])),
-                ('slot4hMinWeek', models.IntegerField(default=0,
-                                                      validators=[django.core.validators.MinValueValidator(0),
-                                                                  django.core.validators.MaxValueValidator(42)])),
-                ('location',
-                 models.CharField(choices=[('Bergamo', 'Bergamo'), ('Treviglio', 'Treviglio'), ('Dalmine', 'Dalmine')],
-                                  max_length=250)),
-                ('description', models.TextField(blank=True)),
-                ('active', models.BooleanField(default=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('modified', models.DateTimeField(auto_now=True)),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-            options={
-                'verbose_name_plural': 'Pharmacies',
-            },
-        ),
-        migrations.CreateModel(
-            name='Product',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('slug', autoslug.fields.AutoSlugField(editable=False, populate_from='id')),
-                ('name', models.CharField(max_length=250)),
-                ('image', models.ImageField(upload_to='products')),
-                ('description', models.TextField(blank=True, default='Description field')),
-                ('brand', models.CharField(max_length=250)),
-                ('quantity', models.PositiveIntegerField(default=1)),
-                ('price', models.DecimalField(decimal_places=2, default=0.0, max_digits=10)),
-                ('shipping_fee', models.DecimalField(decimal_places=2, default=0.0, max_digits=10)),
-                ('featured', models.BooleanField(default=False)),
-                ('active', models.BooleanField(default=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('modified', models.DateTimeField(auto_now=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.Category')),
-                ('pharmacy', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.Pharmacy')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=250)),
+                ("email", models.EmailField(max_length=254)),
+                ("subject", models.CharField(blank=True, max_length=250)),
+                ("message", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Review',
+            name="Pharmacy",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('review', models.CharField(blank=True, max_length=1000)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('active', models.BooleanField(default=True)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.Product')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=250)),
+                ("image", models.ImageField(blank=True, upload_to="pharmacy_pics")),
+                (
+                    "x",
+                    models.IntegerField(
+                        default=0,
+                        validators=[
+                            django.core.validators.MinValueValidator(0),
+                            django.core.validators.MaxValueValidator(100),
+                        ],
+                    ),
+                ),
+                (
+                    "y",
+                    models.IntegerField(
+                        default=0,
+                        validators=[
+                            django.core.validators.MinValueValidator(0),
+                            django.core.validators.MaxValueValidator(100),
+                        ],
+                    ),
+                ),
+                (
+                    "slot4hMinWeek",
+                    models.IntegerField(
+                        default=0,
+                        validators=[
+                            django.core.validators.MinValueValidator(0),
+                            django.core.validators.MaxValueValidator(42),
+                        ],
+                    ),
+                ),
+                (
+                    "location",
+                    models.CharField(
+                        choices=[
+                            ("Bergamo", "Bergamo"),
+                            ("Treviglio", "Treviglio"),
+                            ("Dalmine", "Dalmine"),
+                        ],
+                        max_length=250,
+                    ),
+                ),
+                ("description", models.TextField(blank=True)),
+                ("active", models.BooleanField(default=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("modified", models.DateTimeField(auto_now=True)),
+                (
+                    "owner",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+            ],
+            options={"verbose_name_plural": "Pharmacies",},
+        ),
+        migrations.CreateModel(
+            name="Product",
+            fields=[
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "slug",
+                    autoslug.fields.AutoSlugField(editable=False, populate_from="id"),
+                ),
+                ("name", models.CharField(max_length=250)),
+                ("image", models.ImageField(upload_to="products")),
+                (
+                    "description",
+                    models.TextField(blank=True, default="Description field"),
+                ),
+                ("brand", models.CharField(max_length=250)),
+                ("quantity", models.PositiveIntegerField(default=1)),
+                (
+                    "price",
+                    models.DecimalField(decimal_places=2, default=0.0, max_digits=10),
+                ),
+                (
+                    "shipping_fee",
+                    models.DecimalField(decimal_places=2, default=0.0, max_digits=10),
+                ),
+                ("featured", models.BooleanField(default=False)),
+                ("active", models.BooleanField(default=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("modified", models.DateTimeField(auto_now=True)),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="shop.Category"
+                    ),
+                ),
+                (
+                    "pharmacy",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="shop.Pharmacy"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Buyer',
+            name="Review",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('full_name', models.CharField(max_length=250)),
-                ('phone', models.CharField(max_length=20)),
-                ('city',
-                 models.CharField(choices=[('Bergamo', 'Bergamo'), ('Treviglio', 'Treviglio'), ('Dalmine', 'Dalmine')],
-                                  max_length=250)),
-                ('address', models.CharField(default='via Vittoria 10', max_length=250)),
-                ('product', models.ManyToManyField(to='shop.Product')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("review", models.CharField(blank=True, max_length=1000)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("active", models.BooleanField(default=True)),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="shop.Product"
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+            ],
+        ),
+        migrations.CreateModel(
+            name="Buyer",
+            fields=[
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("full_name", models.CharField(max_length=250)),
+                ("phone", models.CharField(max_length=20)),
+                (
+                    "city",
+                    models.CharField(
+                        choices=[
+                            ("Bergamo", "Bergamo"),
+                            ("Treviglio", "Treviglio"),
+                            ("Dalmine", "Dalmine"),
+                        ],
+                        max_length=250,
+                    ),
+                ),
+                (
+                    "address",
+                    models.CharField(default="via Vittoria 10", max_length=250),
+                ),
+                ("product", models.ManyToManyField(to="shop.Product")),
             ],
         ),
     ]

@@ -1,6 +1,6 @@
 # Commands
 
-Code path:
+Code Path:
 
 ```bash
 $ cd C:\GitHub\tvsw\pharmacies
@@ -12,7 +12,7 @@ Upgrade pip:
 $ python -m pip install --upgrade pip
 ```
 
-Virtual environment:
+Virtual Environment:
 
 ```bash
 $ pip3 install virtualenvwrapper-win
@@ -28,7 +28,9 @@ $ pip freeze > requirements.txt
 $ pip install -r requirements.txt
 ```
 
-Data: delete the `db.sqlite3` file to avoid conflicts; run migrate and create your own superuser admin and re-run migrate; then import the `db.json` with the commands below and start the server again.
+Data:
+
+Delete the `db.sqlite3` file to avoid conflicts; run migrate and create your own superuser admin and re-run migrate; then import the `db.json` with the commands below and start the server again.
 
 ```bash
 $ python manage.py dumpdata > db.json
@@ -90,18 +92,12 @@ $ pip install django-mutpy
 $ python manage.py muttest shop  # Remember to disable Selenium
 ```
 
-Selenium: (Firefox necessario e geckodriver.exe)
+Selenium:
 
 ```bash
 $ pip install selenium
 $ pip install lxml
 $ pip install defusedxml
-```
-
-GitHub Actions (Continuos Integration)
-
-```bash
-Site
 ```
 
 mock:
@@ -132,4 +128,11 @@ pylint:
 $ pylint --rcfile=./.pylintrc  ./shop
 $ pylint --rcfile=./.pylintrc --errors-only ./shop
 $ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
+```
+
+black:
+
+```bash
+$ black . --check
+$ black .
 ```
