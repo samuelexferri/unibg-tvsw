@@ -519,9 +519,13 @@ ce, shipping_fee=shipping_fee, slug=slugify(1).__str__())
 \end_layout
 
 \begin_layout Standard
-In totale sono state create 6 classi per testare i models, ognuna con i
- rispettivi metodi e parametri per testare la corretta istanziazione di
- un modello nel database.
+In totale sono state create 12 classi per testare i models (compresa la
+ funzione 
+\emph on
+str
+\emph default
+), ognuna con i rispettivi metodi e parametri per testare la corretta istanziazi
+one di un modello nel database.
 \end_layout
 
 \begin_layout Subsection
@@ -600,9 +604,9 @@ class ContactFormTest(TestCase):
 \end_layout
 
 \begin_layout Standard
-In totale sono state create 4 classi per testare i forms, ognuna con i rispettiv
-i metodi per verificare la corretta compilazione dei campi e l'invio del
- form.
+In totale sono state create 15 classi per testare i forms (anche parametrici),
+ ognuna con i rispettivi metodi per verificare la corretta compilazione
+ dei campi e l'invio del form.
  In particolare, un metodo testa un caso positivo in cui sono passati correttame
 nte tutti i parametri necessari, e un altro metodo testa un caso negativo
  in cui si testa il rifuto dell'invio del form dovuto alla mancanza di campi
@@ -744,8 +748,9 @@ ng", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
 \end_layout
 
 \begin_layout Standard
-In totale sono stati creati 17 metodi per testare varie funzionalità offerte
- dall'applicazione a livello di views.
+In totale sono stati creati 26 casi di test per le varie funzionalità offerte
+ dall'applicazione a livello di views in aggiunta a 3 test speciali sul
+ pagamento e l'upload dell'immagine dei prodotti usando i mock.
 \end_layout
 
 \begin_layout Standard
@@ -759,11 +764,12 @@ noprefix "false"
 
 \end_inset
 
- è riportato l'output di alcuni test eseguiti con 
+ è riportato l'output dei test eseguiti con 
 \emph on
 unittest
 \emph default
-; sono anche compresi i test effettuati sui due algoritmi.
+; sono anche compresi i test effettuati sui due algoritmi (10 casi di test)
+ e sui permessi (10 casi di test usando i mock).
  
 \end_layout
 
@@ -779,7 +785,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Test.png
 	lyxscale 75
-	scale 250
+	scale 35
 
 \end_inset
 
@@ -816,14 +822,6 @@ Tests
 Molti di questi test hanno permesso di individuare falle sia per quanto
  riguarda la compilazione di form, sia per eventuali funzioni che non facevano
  il loro dovere.
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiornare numeri)
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiornare immagine in due colonne)
 \end_layout
 
 \begin_layout Section
@@ -1090,33 +1088,6 @@ $ coverage erase
 \end_layout
 
 \begin_layout Standard
-Nella figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Coverage"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- è riportato l'output in formato HTML della copertura del codice
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Sono rappresentate sono alcune linee della tabella, il report completo è
- disponibile al percorso 
-\emph on
-/pharmacies/htmlcov
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 In una prima stesura di test si era raggiunto il 49% di copertura del codice.
  In figura 
 \begin_inset CommandInset ref
@@ -1149,7 +1120,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Coverage (Vecchio).png
 	lyxscale 75
-	scale 250
+	scale 50
 
 \end_inset
 
@@ -1200,7 +1171,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Coverage.png
 	lyxscale 75
-	scale 150
+	scale 35
 
 \end_inset
 
@@ -1249,6 +1220,8 @@ GitHub Actions
 Continuos Integration
 \emph default
 ).
+ Grazie a questo strumento è possibile interagire con i report di copertura
+ che forniscono molti dati utili.
 \end_layout
 
 \begin_layout Standard
@@ -1263,6 +1236,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/CodeCov.png
 	lyxscale 75
+	scale 50
 
 \end_inset
 
@@ -1275,6 +1249,69 @@ status open
 \begin_inset CommandInset label
 LatexCommand label
 name "CodeCov"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CodeCov
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nell'immagine 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "CodeCov Sunbrust"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ sono rappresentati i vari moduli dell'applicazione (settori del grafico)
+ colorati usando una sfumatura che parte dal rosso (copertura insufficiente)
+ fino al verde (copertura massima): quello a sinistra era in una fase intermedia
+ del processo di testing, quello a destra in una fase finale.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/CodeCov Sunbrust.png
+	lyxscale 75
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "CodeCov Sunbrust"
 
 \end_inset
 
@@ -1296,22 +1333,7 @@ CodeCov Coverage Sunbrust
 \end_layout
 
 \begin_layout Standard
-In ques'immagine sono rappresentati i vari moduli dell'applicazione (settori
- del grafico) colorati usando una sfumatura che parte dal rosso (copertura
- insufficiente) fino al verde (copertura massima).
- 
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiornare immagini prima-dopo)
-\end_layout
-
-\begin_layout Standard
 TODO (Codeclimate, Codacy)
-\end_layout
-
-\begin_layout Standard
-TODO (Aumentare dove)
 \end_layout
 
 \begin_layout Section
@@ -1437,12 +1459,11 @@ TODO
 \end_layout
 
 \begin_layout Standard
-TODO (MCDC, Logici, Dataflow, Loop, Random) (Modified Condition/Decision
- Coverage di tipo statement)
+TODO (MCDC, Logici, Dataflow, Loop, Random)
 \end_layout
 
 \begin_layout Standard
-TODO (Coverage + Instrumental, Roboto, DataFlow, MutPy)
+TODO (Dataflow, Roboto)
 \end_layout
 
 \begin_layout Section
@@ -1450,7 +1471,7 @@ Continuous Integration
 \end_layout
 
 \begin_layout Standard
-Nello sviluppo di questo progetto è stata usata la Continuous Integration
+Nello sviluppo di questo progetto è stata usata la continuous integration
  offerta da
 \emph on
  GitHub Actions 
@@ -1497,10 +1518,6 @@ CodeCov
 \end_layout
 
 \begin_layout Standard
-- TODO
-\end_layout
-
-\begin_layout Standard
 Inoltre anche parte dell'analisi statica è stata integrata in 
 \emph on
 GitHub Actions
@@ -1510,10 +1527,6 @@ GitHub Actions
 
 \begin_layout Standard
 TODO (Aggiornare lista)
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiungere in .yml)
 \end_layout
 
 \begin_layout Section
@@ -1586,19 +1599,18 @@ class ContactViewSeleniumTest(LiveServerTestCase):
 
 \begin_layout Plain Layout
 
-		self.driver.find_element_by_id('id_name').send_keys("Gino")         
+		self.driver.find_element_by_id('id_name').send_keys("Gino")
 \end_layout
 
 \begin_layout Plain Layout
 
 		self.driver.find_element_by_id('id_email').send_keys("gino@mail.com")    
-     		self.driver.find_element_by_id('id_subject').send_keys("Text")     
-    
+     		self.driver.find_element_by_id('id_subject').send_keys("Text")
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.driver.find_element_by_id('id_message').send_keys("Text")         
+		self.driver.find_element_by_id('id_message').send_keys("Text")
 \end_layout
 
 \begin_layout Plain Layout
@@ -1647,10 +1659,6 @@ Manuale utente
 
 \begin_layout Standard
 TODO (Estendere)
-\end_layout
-
-\begin_layout Standard
-TODO (Video)
 \end_layout
 
 \begin_layout Section
@@ -1871,11 +1879,11 @@ k=slot4hMinWeek, location=location, description=description)
 \end_layout
 
 \begin_layout Standard
-Questi test si basano su delle classi fake tra cui 
+Sono state create delle classi fasulle tra cui 
 \emph on
 FakeCreditCard
 \emph default
-:
+ che simula le funzioni basilari di una carta di credito:
 \end_layout
 
 \begin_layout Standard
@@ -1942,7 +1950,16 @@ class FakeCreditCard:
 \end_layout
 
 \begin_layout Standard
-È stato usato MagicMock() anche nel testare permission.py:
+
+\emph on
+MagicMock
+\emph default
+ è stato indispensabile nel testare i permessi dei vari utenti presenti
+ nel 
+\emph on
+permission.py
+\emph default
+:
 \end_layout
 
 \begin_layout Standard
@@ -2013,10 +2030,6 @@ class TestPermissions(TestCase):
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiornare i codici)
 \end_layout
 
 \begin_layout Chapter
@@ -2388,10 +2401,6 @@ Output di pylint
 TODO (Rifare, Estendere, Aggiornare prima-dopo)
 \end_layout
 
-\begin_layout Standard
-TODO (Deep Analysis, Qualità del codice, Convenzioni)
-\end_layout
-
 \begin_layout Subsection
 Pyreverse e GraphViz
 \end_layout
@@ -2583,10 +2592,6 @@ Packages
 
 \end_layout
 
-\begin_layout Standard
-TODO (Aggiornare grafici)
-\end_layout
-
 \begin_layout Subsection
 TODO
 \end_layout
@@ -2774,13 +2779,13 @@ Documentazione:
 \end_layout
 
 \begin_layout Standard
-
-\emph on
-Vedi REST API per la documentazione delle API.
+TODO
 \end_layout
 
 \begin_layout Standard
-TODO
+
+\emph on
+Vedi REST API per la documentazione delle API.
 \end_layout
 
 \begin_layout Standard
@@ -2835,29 +2840,22 @@ Code Inspection
 \end_layout
 
 \begin_layout Standard
-TODO (Checklist a mano su un modulo)
-\end_layout
-
-\begin_layout Standard
-TODO
-\end_layout
-
-\begin_layout Standard
-
+Le 
 \emph on
-Le liste di controllo sono un elemento fondamentale dell'ispezione classica.
- Riassumono l'esperienza accumulata in progetti precedenti e guidare il
- sessioni di revisione.
- Una lista di controllo contiene una serie di domande che aiutano identificare
- i difetti nel manufatto ispezionato e verificare che il manufatto è conforme
- agli standard aziendali.
- Una buona lista di controllo dovrebbe essere aggiornato regolarmente per
- rimuovere elementi obsoleti e per aggiungere nuovi controlli suggeriti
- dall'esperienza accumulata in nuovi progetti.
- Ad esempio, possiamo rimuovere alcuni semplici controlli sulla codifica
- standard dopo l'introduzione di analizzatori automatici che impongono il
- standard, oppure possiamo aggiungere specifici controlli semantici per
- evitare guasti che ha causato problemi in progetti recenti.
+checklist
+\emph default
+ sono un elemento fondamentale dell'ispezione classica.
+ Riassumono l'esperienza accumulata nei progetti precedenti per guidare
+ le sessioni di revisione.
+ Una checklist contiene una serie di domande che aiutano a identificare
+ i difetti del modulo ispezionato..
+ Una buona checklist dovrebbe essere aggiornata regolarmente per rimuovere
+ le parti obsolete e per aggiungere nuovi controlli suggeriti dall'esperienza
+ accumulata.
+\end_layout
+
+\begin_layout Standard
+TODO (Checklist a mano su un modulo)
 \end_layout
 
 \begin_layout Chapter
