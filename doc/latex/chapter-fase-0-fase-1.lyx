@@ -720,7 +720,7 @@ Criteri di copertura
 \series default
 : 
 \emph on
-CodeCov,
+Codecov,
 \emph default
  sito per l'analisi approfondita della copertura del codice basata sulla
  comparazione tra reports precedenti

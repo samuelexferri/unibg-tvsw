@@ -781,7 +781,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Test.png
 	lyxscale 75
-	scale 35
+	scale 40
 
 \end_inset
 
@@ -1116,7 +1116,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Coverage (Vecchio).png
 	lyxscale 75
-	scale 50
+	scale 75
 
 \end_inset
 
@@ -1203,7 +1203,7 @@ Coverage finale
 \begin_layout Standard
 Inoltre è stato usato 
 \emph on
-CodeCov
+Codecov
 \emph default
 , un sito interattivo per la gestione e la comparazione dei rapporti di
  copertura del codice creati e caricati automaticamente ad ogni push grazie
@@ -1230,7 +1230,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename screenshot/CodeCov.png
+	filename screenshot/Codecov.png
 	lyxscale 75
 	scale 50
 
@@ -1244,7 +1244,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "CodeCov"
+name "Codecov"
 
 \end_inset
 
@@ -1252,7 +1252,7 @@ name "CodeCov"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CodeCov
+Codecov
 \end_layout
 
 \end_inset
@@ -1269,7 +1269,7 @@ CodeCov
 Nell'immagine 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "CodeCov Sunbrust"
+reference "Codecov Sunbrust"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1307,7 +1307,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "CodeCov Sunbrust"
+name "Codecov Sunbrust"
 
 \end_inset
 
@@ -1315,7 +1315,7 @@ name "CodeCov Sunbrust"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CodeCov Coverage Sunbrust
+Codecov Coverage Sunbrust
 \end_layout
 
 \end_inset
@@ -1475,9 +1475,9 @@ Nello sviluppo di questo progetto è stata usata la continuous integration
 e integrata nel repository del progetto stesso.
  Risulta molto comoda in quanto basta configurare al meglio il file 
 \emph on
-.github/workflows/django.yml
+.github/workflows/django-testing.yml
 \emph default
- (ad esempio) indicando i comandi da eseguire ogni volta.
+ (ad esempio per il testing) indicando i comandi da eseguire.
  Ad ogni push infatti vengono eseguiti numerosi test automaticamente che
  ci permettono di avere in tempo reale un indicatore se qualcosa è andato
  storto o meno dopo le ultime modifiche apportate al codice e caricate sul
@@ -1485,12 +1485,32 @@ e integrata nel repository del progetto stesso.
 \end_layout
 
 \begin_layout Standard
-In particolare, dopo aver configurato la versione di Python e aver installato
- i packages necessari presenti nel file 
+In particolare, la sequenza di passi che viene eseguita da 
+\emph on
+django-testing.yml
+\emph default
+ è la seguente:
+\end_layout
+
+\begin_layout Standard
+- Viene configurato l'ambiente (
+\emph on
+Ubuntu
+\emph default
+) e installata la versione corretta di Python, in questo caso la 3.8.
+\end_layout
+
+\begin_layout Standard
+- Vengono soddisfatte tutte le dipendenze installando i pacchetti indicati
+ nel file 
 \emph on
 requirements.txt 
 \emph default
-(sfruttando anche la cache), procede in questo modo:
+(sfruttando anche la cache).
+\end_layout
+
+\begin_layout Standard
+- Vengono fatte le migrazioni di Django.
 \end_layout
 
 \begin_layout Standard
@@ -1504,9 +1524,9 @@ unittest
 \begin_layout Standard
 - Viene effettuato un report di copertura del codice attraverso 
 \emph on
-coverage
+coverage 
 \emph default
- e caricato automaticamente su 
+(in formato HTML e XML) e caricato automaticamente su 
 \emph on
 CodeCov
 \emph default
@@ -1514,15 +1534,11 @@ CodeCov
 \end_layout
 
 \begin_layout Standard
-Inoltre anche parte dell'analisi statica è stata integrata in 
+Inoltre nel file 
 \emph on
-GitHub Actions
+django-verification.yml
 \emph default
- come si può vedere successivamente.
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiornare lista)
+ vi è la parte di code verification (illustrata successivamente).
 \end_layout
 
 \begin_layout Section
@@ -2269,11 +2285,11 @@ UML diagrams
 \emph default
 : 
 \emph on
-Pylint
+pylint
 \emph default
  integra 
 \emph on
-Pyreverse
+pyreverse
 \emph default
  che permette l'esportazione automatica di diagrammi UML riguardanti le
  classi, i package e la struttura del database in formato 
@@ -2361,7 +2377,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Pylint.png
 	lyxscale 75
-	scale 75
+	scale 80
 
 \end_inset
 
@@ -2587,6 +2603,10 @@ Packages
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiornare)
 \end_layout
 
 \begin_layout Subsection
@@ -2831,12 +2851,33 @@ In
 \emph on
 GitHub Actions
 \emph default
- sono state integrate gran parte delle verifiche sull'analisi statica, in
- particolare:
+ sono state integrate gran parte delle verifiche sul codice nel file 
+\emph on
+django-verification.yml
+\emph default
+.
+ I passi sono i seguenti:
 \end_layout
 
 \begin_layout Standard
-- Analisi del codice con 
+- Viene configurato l'ambiente (
+\emph on
+Ubuntu
+\emph default
+) e installata la versione corretta di Python, in questo caso la 3.8.
+\end_layout
+
+\begin_layout Standard
+- Vengono soddisfatte tutte le dipendenze installando i pacchetti indicati
+ nel file 
+\emph on
+requirements.txt 
+\emph default
+(sfruttando anche la cache).
+\end_layout
+
+\begin_layout Standard
+- Viene effettuata l'analisi del codice con 
 \emph on
 pylint
 \emph default
@@ -2864,6 +2905,42 @@ checklist
  Una buona checklist dovrebbe essere aggiornata regolarmente per rimuovere
  le parti obsolete e per aggiungere nuovi controlli suggeriti dall'esperienza
  accumulata.
+\end_layout
+
+\begin_layout Standard
+- Design and Architecture errors
+\end_layout
+
+\begin_layout Standard
+- Computation errors
+\end_layout
+
+\begin_layout Standard
+- Comparison errors
+\end_layout
+
+\begin_layout Standard
+- Control flow errors
+\end_layout
+
+\begin_layout Standard
+- Subroutine parameter errors
+\end_layout
+
+\begin_layout Standard
+- Input/Output errors
+\end_layout
+
+\begin_layout Standard
+- Memory allocation errors
+\end_layout
+
+\begin_layout Standard
+- Error discovered from previous code reviews
+\end_layout
+
+\begin_layout Standard
+- Other check (Pass the lint test?...)
 \end_layout
 
 \begin_layout Standard

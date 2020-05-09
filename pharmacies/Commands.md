@@ -79,7 +79,7 @@ $ coverage xml
 $ coverage erase
 ```
 
-CodeCov:
+Codecov:
 
 ```bash
 Site
