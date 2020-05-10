@@ -1,6 +1,7 @@
 import random
 from math import sqrt
 
+import icontract
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
@@ -89,7 +90,13 @@ def transfer(request):
     return render(request, "transfer/transfer.html", {"form": form})
 
 
-def algorithm_transfer(request, category, quantity, x, y):
+@icontract.require(lambda quantity: quantity < 0)
+# @deal.pre(lambda category: Product.objects.all().filter(category=category) >= 1)
+#@deal.inv(lambda quantity: quantity >= 0)
+#@deal.inv(lambda x: x >= 0 and x <= 100)
+#@deal.inv(lambda y: y >= 0 and y <= 100)
+# @deal.post(lambda doppia: doppia[0].size == doppia[1].size)
+def algorithm_transfer(request, category: Category, quantity: int, x: int, y: int) -> list:
     listaProducts = Product.objects.all().filter(
         category=category
     )  # Prodotti filtrati per categoria
@@ -116,7 +123,7 @@ def algorithm_transfer(request, category, quantity, x, y):
             )  # Ultima farmacia ne prende solo una parte
 
         quantity = (
-            int(quantity) - quintupla[1]
+                int(quantity) - quintupla[1]
         )  # Decremento la quantità richiesta
 
         # Popping (Escludere farmacia già scelta)
@@ -142,7 +149,7 @@ def findGreedy(listaProducts, x, y):
     # Pesiamo quantità disponibile e distanza
     for prod in listaProducts:
         distanzapitagora = (x - prod.pharmacy.x) * (x - prod.pharmacy.x) + (
-            y - prod.pharmacy.y
+                y - prod.pharmacy.y
         ) * (y - prod.pharmacy.y)
 
         # Stessa posizione della farmacia

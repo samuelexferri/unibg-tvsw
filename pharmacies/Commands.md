@@ -108,13 +108,20 @@ $ pip install mock
 
 ### Code Verification
 
+icontract:
+
+```bash
+$ pip install icontract
+```
+
 pylint:
 
 ```bash
 $ pip install pylint
-$ pylint --rcfile=./.pylintrc  ./shop
+$ pylint --rcfile=./.pylintrc ./shop
 $ pylint --rcfile=./.pylintrc --errors-only ./shop
 $ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
+$ pylint --rcfile=./.pylintrc ./shop --exit-zero
 ```
 
 flake8:
@@ -135,11 +142,14 @@ $ bandit -r -v .
 pyreverse:
 
 ```bash
+$ pip install pyreverse
 $ pyreverse -o png -A -s 0 -a 0 -k authentication  shop timetable transfer --ignore=migrations,tests,tests.py
 $ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
 ```
 
-GraphViz: install GraphViz (visit the site) and add the the path `bin\\gvedit.exe` in the environment variables path.
+GraphViz:
+
+Install GraphViz (visit the site) and add the the path `bin\\gvedit.exe` in the environment variables path.
 
 ```bash
 $ python manage.py graph_models -a -o models.png
@@ -149,6 +159,7 @@ $ python manage.py graph_models authentication shop timetable transfer -o apps.p
 black:
 
 ```bash
+$ pip install black
 $ black . --line-length 79 --check
 $ black . --line-length 79
 ```

@@ -780,13 +780,7 @@ $ pip install bandit
 
 \begin_layout Plain Layout
 
-$ black .
- --check
-\end_layout
-
-\begin_layout Plain Layout
-
-$ black .
+$ pip install black
 \end_layout
 
 \end_inset

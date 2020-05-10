@@ -1315,7 +1315,7 @@ name "Codecov Sunbrust"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Codecov Coverage Sunbrust
+Codecov Sunbrust
 \end_layout
 
 \end_inset
@@ -2238,8 +2238,20 @@ PEP 316 - Programming by Contract for Python
 
 
 \emph default
- ma tuttavia non è stata ancora integrata in Python; bisogna quindi fare
- affidamento su altri pacchetti.
+ ma tuttavia non è stata ancora integrata in Python (Status 
+\emph on
+deferred
+\emph default
+); bisogna quindi fare affidamento su altri pacchetti come ad esempio 
+\emph on
+icontract.
+\end_layout
+
+\begin_layout Standard
+Questo pacchetto fornisce due decorators di funzioni, che richiedono e garantisc
+ono rispettivamente le pre-condizioni e le post-condizioni.
+ Inoltre, fornisce un decoratore di classe, invariante, per stabilire invarianti
+ di classe.
 \end_layout
 
 \begin_layout Standard
@@ -2335,7 +2347,7 @@ status open
 
 \begin_layout Plain Layout
 
-$ pylint --rcfile=./.pylintrc  ./shop
+$ pylint --rcfile=./.pylintrc ./shop
 \end_layout
 
 \begin_layout Plain Layout
@@ -2627,7 +2639,17 @@ $ bandit -r -v .
 
 \begin_layout Standard
 Verranno elencate le vulnerabilità trovate in un report con sommario finale
- come in figura.
+ come in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Bandit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

@@ -41,13 +41,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pharmacies" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="$PROJECT_DIR$/../../../Program Files/nodejs/node" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\samuelexferri\.PyCharm2019.3\config\plugins\prettierJS\lib" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -62,30 +62,7 @@
       <recent name="C:\GitHub\I3B\django\shop\templates\shop" />
     </key>
   </component>
-  <component name="RunManager" selected="Django Server.pharmacies">
-    <configuration name="django" type="Python.DjangoServer" factoryName="Django server">
-      <module name="django" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="pharmacies" type="Python.DjangoServer" factoryName="Django server">
       <module name="pharmacies" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,7 +70,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\GitHub\tvsw\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -161,7 +138,10 @@
       <workItem from="1588922179139" duration="1292000" />
       <workItem from="1588924719416" duration="26860000" />
       <workItem from="1589009180205" duration="10022000" />
-      <workItem from="1589096310453" duration="2347000" />
+      <workItem from="1589096310453" duration="9268000" />
+      <workItem from="1589112878422" duration="14000" />
+      <workItem from="1589112895486" duration="256000" />
+      <workItem from="1589113299741" duration="258000" />
     </task>
     <servers />
   </component>
@@ -181,18 +161,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587979007464">
+    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589113504992">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587979007464" />
+    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1589113504992" />
     <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588924587122">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1588924587122" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1580905455909">
+    <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1589113119792">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1580905455909" />
+    <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589113119792" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1589112156018">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589112156018" />
     <state x="368" y="-15" width="607" height="728" key="find.popup" timestamp="1588236975807">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
