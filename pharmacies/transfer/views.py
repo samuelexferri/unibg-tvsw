@@ -95,10 +95,8 @@ def transfer(request):
 @icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
 @icontract.require(lambda category: Product.objects.all().filter(category=category).count() >= 1,
                    "at least one product of that category is required")
-# @icontract.invariant(lambda self: self.quantity >= 0)
-# @icontract.invariant(lambda x: x >= 0 and x <= 100)
-# @icontract.invariant(lambda y: y >= 0 and y <= 100)
 @icontract.ensure(lambda result: len(result[0]) == len(result[1]))
+@icontract.ensure(lambda result, quantity: sum(result[1]) == quantity)
 def algorithm_transfer(request, category: Category, quantity: int, x: int, y: int) -> list:
     listaProducts = Product.objects.all().filter(
         category=category

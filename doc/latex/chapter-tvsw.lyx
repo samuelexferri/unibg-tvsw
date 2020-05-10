@@ -2302,21 +2302,110 @@ require
 \emph on
 ensure
 \emph default
- che richiedono e garantiscono rispettivamente le pre-condizioni e le post-condi
-zioni.
+ che richiedono e garantiscono rispettivamente le precondizioni e le postcondizi
+oni.
  Inoltre, fornisce anche un class decorator, 
 \emph on
 invariant
 \emph default
 , per stabilire i class invariant.
+ Le precondizioni sono scritte con il decoratore 
+\emph on
+require
+\emph default
+ e in lambda vi sono i parametri passati alla funzione.
+ Le postcondizioni sono scritte con il decoratore 
+\emph on
+ensure
+\emph default
+ e in lambda vi è un paramentro 
+\emph on
+result
+\emph default
+, ossia il risultato ritornato della funzione.
 \end_layout
 
 \begin_layout Standard
-Inviarianti solo sulle classi! Richiede self come unico paramentro in lambda!.
+
+\emph on
+Nota:
+\emph default
+ Inviarianti si possono usare solo con le classi, quindi gran parte delle
+ funzioni implementate non poteva avere gli invarianti; ogni inviariante
+ richiede 
+\emph on
+self
+\emph default
+ come unico paramentro.
 \end_layout
 
 \begin_layout Standard
-TODO
+Di seguito un esempio di contratti prima dell'algoritmo transfer:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda quantity: quantity > 0, "quantity must not be positive"
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda category: Product.objects.all().filter(category=category).c
+ount() >= 1, "at least one product of that category is required")
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.ensure(lambda result: len(result[0]) == len(result[1]))
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.ensure(lambda result, quantity: sum(result[1]) == quantity)
+\end_layout
+
+\begin_layout Plain Layout
+
+def algorithm_transfer(request, category: Category, quantity: int, x: int,
+ y: int) -> list:
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Codice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo esempio venogno verificati che i parametri passati siano corretti,
+ ossia che quantity sia strettamente positiva e che le coordinate x e y
+ siano comprese tra 0 e 100; inoltre viene anche verificato che esista un
+ prodotto di quella categoria all'interno del database.
+ A fine dell'algoritmo si verifica che il risultato, composto da una lista
+ di liste (la prima lista di ID delle farmacie, la seconda lista di quantità
+ prelevata da quella determinata farmacia), abbia le due liste interne di
+ lunghezza identica e che la somma delle quantità prelevate dalle farmacie
+ sia pari alla quantità richiesta.
 \end_layout
 
 \begin_layout Section
