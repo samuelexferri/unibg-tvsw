@@ -47,10 +47,10 @@ jobs:
       working-directory: ${{env.working-directory}}
       run: |
 
-    - name: Analisi statica (pylint, flake8, bandit) TODO
+    - name: Analisi statica (pylint)
       working-directory: ${{env.working-directory}}
       run: |
-        pylint --rcfile=./.pylintrc  ./shop --threshold 5
+        pylint --rcfile=./.pylintrc ./shop --exit-zero
         
     - name: Code Refractoring (black)
       working-directory: ${{env.working-directory}}
