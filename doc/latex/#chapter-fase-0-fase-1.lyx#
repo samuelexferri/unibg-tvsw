@@ -741,9 +741,9 @@ Criteri di copertura avanzati:
 \series default
  
 \emph on
-django-mutpy
+django-mutpy,
 \emph default
-, framework per il mutation testing in Python (
+ framework per il mutation testing in Python (
 \emph on
 https://pypi.org/project/django-mutpy
 \emph default
@@ -800,8 +800,8 @@ Mock:
 \emph on
  unittest.mock
 \emph default
-, libreria per il testing in Python che permette di sostituire parti del
- sistema con oggetti mock e fare assertions sul loro funzionamento (
+, una libreria per il testing in Python che permette di sostituire parti
+ del sistema con oggetti mock e fare assertions sul loro funzionamento (
 \emph on
 https://docs.python.org/3/library/unittest.mock.html
 \emph default
@@ -819,21 +819,13 @@ TODO
 \begin_layout Itemize
 
 \series bold
-Program Verificaion:
-\series default
- TODO
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
 Analisi statica
 \series default
 : 
 \emph on
-pylint,
+pylint, 
 \emph default
- strumento d'analisi del codice sorgente (bug finder) che fa anche controllo
+strumento d'analisi del codice sorgente (bug finder) che fa anche controllo
  di qualità per codice Python con configurazione altamente personalizzabile
  (
 \emph on
@@ -849,15 +841,7 @@ pylint,
 \series bold
 Analisi statica
 \series default
-: 
-\emph on
-flake8
-\emph default
-, strumento per l'analisi del codice (
-\emph on
-https://pypi.org/project/flake8/
-\emph default
-)
+: flake8, 
 \end_layout
 
 \begin_layout Itemize
@@ -865,16 +849,7 @@ https://pypi.org/project/flake8/
 \series bold
 Analisi statica
 \series default
-: 
-\emph on
-bandit
-\emph default
-, framework per eseguire analisi di sicurezza del codice sorgente Python
- (
-\emph on
-https://pypi.org/project/bandit/
-\emph default
-)
+:
 \end_layout
 
 \begin_layout Itemize
@@ -886,7 +861,7 @@ Code Refractoring:
 \emph on
 black
 \emph default
-, formattatore di codice per Python (
+, un formattatore di codice per Python (
 \emph on
 https://pypi.org/project/black/
 \emph default
@@ -894,7 +869,7 @@ https://pypi.org/project/black/
 \end_layout
 
 \begin_layout Itemize
-TODO (ASMETA...)
+TODO
 \end_layout
 
 \end_deeper

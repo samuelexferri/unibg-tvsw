@@ -1,9 +1,11 @@
 [MASTER]
 disable=
+		C0103, # Doesn't conform to snake_case naming style
 		C0114, # Missing-module-docstring
 		C0115, #Missing class docstring
 		C0116, # Missing function or method docstring
 		C0301, # Line too long
+		C0330, # Wrong hanging indentation before block
 		E1101, # Class 'X' has no 'objects' member
 
 # A comma-separated list of package or module names from where C extensions may

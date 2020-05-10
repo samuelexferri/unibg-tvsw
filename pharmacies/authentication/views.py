@@ -59,7 +59,9 @@ def signup(req):
             to_email = form.cleaned_data.get("email")
             to_list = [to_email]
             from_email = settings.EMAIL_HOST_USER
-            send_mail(mail_subject, message, from_email, to_list, fail_silently=True)
+            send_mail(
+                mail_subject, message, from_email, to_list, fail_silently=True
+            )
             messages.success(
                 req,
                 "Thanks for your registration! A confirmation link has been sent to your mail",

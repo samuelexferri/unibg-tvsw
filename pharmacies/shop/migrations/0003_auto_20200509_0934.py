@@ -14,7 +14,9 @@ class Migration(migrations.Migration):
             model_name="buyer", name="phone", field=models.IntegerField(),
         ),
         migrations.AlterField(
-            model_name="contact", name="name", field=models.CharField(max_length=50),
+            model_name="contact",
+            name="name",
+            field=models.CharField(max_length=50),
         ),
         migrations.AlterField(
             model_name="contact",
@@ -22,6 +24,8 @@ class Migration(migrations.Migration):
             field=models.CharField(blank=True, max_length=50),
         ),
         migrations.AlterField(
-            model_name="review", name="review", field=models.CharField(max_length=500),
+            model_name="review",
+            name="review",
+            field=models.CharField(max_length=500),
         ),
     ]

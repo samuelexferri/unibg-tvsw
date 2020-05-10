@@ -7,7 +7,12 @@ from rest_framework import viewsets
 
 from pharmacies import settings
 from pharmacies.permission import IsAdminOrReadOnly, IsStaffOrReadOnly, IsStaff
-from shop.forms import ReviewForm, SellProductForm, BuyerDeliveryForm, ContactForm
+from shop.forms import (
+    ReviewForm,
+    SellProductForm,
+    BuyerDeliveryForm,
+    ContactForm,
+)
 from shop.models import Category, Product, Pharmacy, Contact, Review, Buyer
 from shop.serializer import (
     PharmacySerializer,
@@ -61,12 +66,16 @@ def contact(request):
 
 def pharmacy_list(request):
     pharmacies = Pharmacy.objects.filter(active=True)
-    return render(request, "shop/pharmacies_list.html", {"pharmacies": pharmacies})
+    return render(
+        request, "shop/pharmacies_list.html", {"pharmacies": pharmacies}
+    )
 
 
 def pharmacy_detail(request, id):
     pharmacy = Pharmacy.objects.get(active=True, id=id)
-    return render(request, "shop/pharmacies_detail.html", {"pharmacy": pharmacy})
+    return render(
+        request, "shop/pharmacies_detail.html", {"pharmacy": pharmacy}
+    )
 
 
 def categories(request, slug):
@@ -92,7 +101,9 @@ def product_detail(request, id):
     product = Product.objects.get(id=id)
     form = ReviewForm()
     return render(
-        request, "shop/products_detail.html", {"product": product, "form": form}
+        request,
+        "shop/products_detail.html",
+        {"product": product, "form": form},
     )
 
 
@@ -109,7 +120,9 @@ def search(request):
 
 def sell_product(request):
     if not request.user.is_staff:
-        messages.info(request, "You have to logged in first to sell the product")
+        messages.info(
+            request, "You have to logged in first to sell the product"
+        )
         return redirect("%s?next=%s" % (settings.LOGIN_URL, request.path))
     if request.method == "POST":
         form = SellProductForm(request.POST, request.FILES)
@@ -117,7 +130,9 @@ def sell_product(request):
             myproduct = form.save(commit=False)
             myproduct.seller = request.user
             myproduct.save()
-            messages.success(request, "Your product has been posted successfully")
+            messages.success(
+                request, "Your product has been posted successfully"
+            )
             return redirect("shop:products_list")
 
     else:
@@ -135,7 +150,9 @@ def buy_items(request):
         if form.is_valid():
             buyer = form.save(commit=False)
             buyer.save()
-            buyer.product.set(Product.objects.filter(active=True, id__in=sess["items"]))
+            buyer.product.set(
+                Product.objects.filter(active=True, id__in=sess["items"])
+            )
             return redirect("shop:payment")
     else:
         form = BuyerDeliveryForm()
@@ -232,7 +249,9 @@ def add_cart(request, id):
 
 def add_review(request, id):
     if not request.user.is_authenticated:
-        messages.info(request, "You need to be logged in in order to give a review")
+        messages.info(
+            request, "You need to be logged in in order to give a review"
+        )
         return redirect("%s?next=%s" % (settings.LOGIN_URL, request.path))
     if request.method == "POST":
         form = ReviewForm(request.POST)

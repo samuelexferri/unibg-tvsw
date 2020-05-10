@@ -9,7 +9,9 @@ class Timetable(models.Model):
     id = models.AutoField(primary_key=True)
     pharmacy = models.ForeignKey(Pharmacy, on_delete=models.CASCADE)
 
-    day = models.CharField(max_length=250, choices=choices.day_choices, blank=True)
+    day = models.CharField(
+        max_length=250, choices=choices.day_choices, blank=True
+    )
     slot4h = models.IntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(6)]
     )

@@ -108,6 +108,30 @@ $ pip install mock
 
 ### Code Verification
 
+pylint:
+
+```bash
+$ pip install pylint
+$ pylint --rcfile=./.pylintrc  ./shop
+$ pylint --rcfile=./.pylintrc --errors-only ./shop
+$ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
+```
+
+flake8:
+
+```bash
+$ pip install flake8
+$ flake8 -v --count
+$ flake8 -v --count --ignore=E501,F405
+```
+
+bandit:
+
+```bash
+$ pip install bandit
+$ bandit -r -v .
+```
+
 pyreverse:
 
 ```bash
@@ -122,17 +146,9 @@ $ python manage.py graph_models -a -o models.png
 $ python manage.py graph_models authentication shop timetable transfer -o apps.png
 ```
 
-pylint:
-
-```bash
-$ pylint --rcfile=./.pylintrc  ./shop
-$ pylint --rcfile=./.pylintrc --errors-only ./shop
-$ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
-```
-
 black:
 
 ```bash
-$ black . --check
-$ black .
+$ black . --line-length 79 --check
+$ black . --line-length 79
 ```

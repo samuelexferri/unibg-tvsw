@@ -91,7 +91,9 @@ class Product(models.Model):
     brand = models.CharField(max_length=250)
     quantity = models.PositiveIntegerField(default=1)
     price = models.DecimalField(max_digits=10, default=0.0, decimal_places=2)
-    shipping_fee = models.DecimalField(max_digits=10, default=0.0, decimal_places=2)
+    shipping_fee = models.DecimalField(
+        max_digits=10, default=0.0, decimal_places=2
+    )
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)

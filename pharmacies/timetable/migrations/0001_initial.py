@@ -49,7 +49,8 @@ class Migration(migrations.Migration):
                 (
                     "pharmacy",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="shop.Pharmacy"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="shop.Pharmacy",
                     ),
                 ),
             ],

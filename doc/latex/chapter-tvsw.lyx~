@@ -1315,7 +1315,7 @@ name "Codecov Sunbrust"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Codecov Sunbrust
+Codecov Coverage Sunbrust
 \end_layout
 
 \end_inset
@@ -2627,17 +2627,7 @@ $ bandit -r -v .
 
 \begin_layout Standard
 Verranno elencate le vulnerabilità trovate in un report con sommario finale
- come in figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Bandit"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
+ come in figura.
 \end_layout
 
 \begin_layout Standard

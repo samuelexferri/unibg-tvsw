@@ -60,12 +60,14 @@ def calculate(request):
 
     if not request.user.is_superuser:
         messages.info(
-            request, "You have to logged as admin in first to calculate the timetable"
+            request,
+            "You have to logged as admin in first to calculate the timetable",
         )
         return redirect("%s?next=%s" % (settings.LOGIN_URL, request.path))
     elif count < 3:
         messages.error(
-            request, "Three pharmacies are needed in order to calculate the timetable"
+            request,
+            "Three pharmacies are needed in order to calculate the timetable",
         )
         return redirect("timetable:view_timetable")
     else:
@@ -102,7 +104,9 @@ def algorithm_timetable(request):
         # END FOR
     # END IF
 
-    elif SummSlotMin > 42:  ### CASO: SE ABBIAMO PIU DI 42, AVREMO DELLE SOVRAPPOSIZIONI
+    elif (
+        SummSlotMin > 42
+    ):  ### CASO: SE ABBIAMO PIU DI 42, AVREMO DELLE SOVRAPPOSIZIONI
         i = 0
         contatore = 0
         K = list(range(0, 42))
@@ -304,13 +308,27 @@ def insert(t, farmacia):
     # Scelta dello slot
     if t == 0 or t == 6 or t == 12 or t == 18 or t == 24 or t == 30 or t == 36:
         slot = 1
-    elif t == 1 or t == 7 or t == 13 or t == 19 or t == 25 or t == 31 or t == 37:
+    elif (
+        t == 1 or t == 7 or t == 13 or t == 19 or t == 25 or t == 31 or t == 37
+    ):
         slot = 2
-    elif t == 2 or t == 8 or t == 14 or t == 20 or t == 26 or t == 32 or t == 38:
+    elif (
+        t == 2 or t == 8 or t == 14 or t == 20 or t == 26 or t == 32 or t == 38
+    ):
         slot = 3
-    elif t == 3 or t == 9 or t == 15 or t == 21 or t == 27 or t == 33 or t == 39:
+    elif (
+        t == 3 or t == 9 or t == 15 or t == 21 or t == 27 or t == 33 or t == 39
+    ):
         slot = 4
-    elif t == 4 or t == 10 or t == 16 or t == 22 or t == 28 or t == 34 or t == 40:
+    elif (
+        t == 4
+        or t == 10
+        or t == 16
+        or t == 22
+        or t == 28
+        or t == 34
+        or t == 40
+    ):
         slot = 5
     else:
         slot = 6

@@ -865,16 +865,7 @@ https://pypi.org/project/flake8/
 \series bold
 Analisi statica
 \series default
-: 
-\emph on
-bandit
-\emph default
-, framework per eseguire analisi di sicurezza del codice sorgente Python
- (
-\emph on
-https://pypi.org/project/bandit/
-\emph default
-)
+:
 \end_layout
 
 \begin_layout Itemize

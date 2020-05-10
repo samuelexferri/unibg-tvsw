@@ -27,7 +27,11 @@ Models tests
 
 class ContactModelTest(TestCase):
     def create_contact(
-        self, name="Test", email="test@mail.com", subject="Text", message="Text"
+        self,
+        name="Test",
+        email="test@mail.com",
+        subject="Text",
+        message="Text",
     ):
         return Contact.objects.create(
             name=name, email=email, subject=subject, message=message
@@ -103,7 +107,9 @@ class CategoryModelTest(TestCase):
         self.assertEqual(w.__unicode__(), fields)
 
     def test_category_str(self):
-        category = Category.objects.create(name="Antinfiammatorio", description="Text")
+        category = Category.objects.create(
+            name="Antinfiammatorio", description="Text"
+        )
         self.assertEqual(str(category), category.name)
 
 
@@ -214,7 +220,9 @@ class ReviewModelTest(TestCase):
             shipping_fee=1,
             slug=slugify(1).__str__(),
         )
-        return Review.objects.create(review=review, user=user, product=prodotto)
+        return Review.objects.create(
+            review=review, user=user, product=prodotto
+        )
 
     def test_review_creation(self):
         w = self.create_review()
@@ -251,13 +259,19 @@ class ReviewModelTest(TestCase):
             shipping_fee=1,
             slug=slugify(1).__str__(),
         )
-        category = Review.objects.create(review="Text", user=user, product=prodotto)
+        category = Review.objects.create(
+            review="Text", user=user, product=prodotto
+        )
         self.assertEqual(str(category), category.product.__str__())
 
 
 class BuyerModelTest(TestCase):
     def create_buyer(
-        self, full_name="Mario", phone=123, city="Bergamo", address="via Vittoria 20"
+        self,
+        full_name="Mario",
+        phone=123,
+        city="Bergamo",
+        address="via Vittoria 20",
     ):
         return Buyer.objects.create(
             full_name=full_name, phone=phone, city=city, address=address
@@ -271,7 +285,10 @@ class BuyerModelTest(TestCase):
 
     def test_buyer_str(self):
         category = Buyer.objects.create(
-            full_name="Mario", phone=123, city="Bergamo", address="via Vittoria 20"
+            full_name="Mario",
+            phone=123,
+            city="Bergamo",
+            address="via Vittoria 20",
         )
         self.assertEqual(str(category), category.full_name)
 
@@ -382,7 +399,12 @@ class BuyerDeliveryFormTest(TestCase):
 
 class BuyerDeliveryFormTest(TestCase):
     def test_valid_form(self):
-        data = {"full_name": "Test", "phone": 123, "city": "Bergamo", "address": "Text"}
+        data = {
+            "full_name": "Test",
+            "phone": 123,
+            "city": "Bergamo",
+            "address": "Text",
+        }
         form = BuyerDeliveryForm(data=data)
         self.assertTrue(form.is_valid())
 
@@ -628,7 +650,9 @@ Selenium, two command prompt necessary
 class ContactViewSeleniumTest(LiveServerTestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
-        last_height = self.driver.execute_script("return document.body.scrollHeight")
+        last_height = self.driver.execute_script(
+            "return document.body.scrollHeight"
+        )
 
     def test_selenium_contact(self):
         self.driver.get("http://localhost:8000/shop/contact")
@@ -637,7 +661,9 @@ class ContactViewSeleniumTest(LiveServerTestCase):
         self.driver.find_element_by_id("id_subject").send_keys("Text")
         self.driver.find_element_by_id("id_message").send_keys("Text")
         self.driver.find_element_by_id("submit").click()  # Submit button
-        self.assertIn("http://localhost:8000/shop/contact", self.driver.current_url)
+        self.assertIn(
+            "http://localhost:8000/shop/contact", self.driver.current_url
+        )
 
     def tearDown(self):
         self.driver.close()

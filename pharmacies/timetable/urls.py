@@ -6,7 +6,9 @@ from timetable import views
 app_name = "timetable"
 
 router = routers.DefaultRouter()
-router.register(r"timetable/api", views.TimetableViewSet, basename="timetableapi")
+router.register(
+    r"timetable/api", views.TimetableViewSet, basename="timetableapi"
+)
 
 urlpatterns = [
     path("", views.homepage, name="home"),

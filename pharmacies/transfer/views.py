@@ -51,7 +51,9 @@ def transfer(request):
                 )
                 return redirect("transfer:transfer")
             else:
-                messages.success(request, "Your transfers request has been sent!")
+                messages.success(
+                    request, "Your transfers request has been sent!"
+                )
 
                 # Random GPS (Posizione iniziale cliente)
                 x = random.randint(0, 100)
@@ -63,7 +65,9 @@ def transfer(request):
 
                 listIdPharmUsate = []
                 for i in doppia[0]:
-                    listIdPharmUsate.append(Pharmacy.objects.get(id=i).__str__())
+                    listIdPharmUsate.append(
+                        Pharmacy.objects.get(id=i).__str__()
+                    )
 
                 listQuantityPharmUsate = doppia[1]
                 return render(
@@ -111,7 +115,9 @@ def algorithm_transfer(request, category, quantity, x, y):
                 quantity
             )  # Ultima farmacia ne prende solo una parte
 
-        quantity = int(quantity) - quintupla[1]  # Decremento la quantità richiesta
+        quantity = (
+            int(quantity) - quintupla[1]
+        )  # Decremento la quantità richiesta
 
         # Popping (Escludere farmacia già scelta)
         listaProductsPoppata = []

@@ -22,7 +22,9 @@ class Migration(migrations.Migration):
                 ("name", models.CharField(max_length=250)),
                 (
                     "slug",
-                    autoslug.fields.AutoSlugField(editable=False, populate_from="name"),
+                    autoslug.fields.AutoSlugField(
+                        editable=False, populate_from="name"
+                    ),
                 ),
                 ("description", models.TextField(blank=True)),
                 ("active", models.BooleanField(default=True)),
@@ -46,7 +48,10 @@ class Migration(migrations.Migration):
             fields=[
                 ("id", models.AutoField(primary_key=True, serialize=False)),
                 ("name", models.CharField(max_length=250)),
-                ("image", models.ImageField(blank=True, upload_to="pharmacy_pics")),
+                (
+                    "image",
+                    models.ImageField(blank=True, upload_to="pharmacy_pics"),
+                ),
                 (
                     "x",
                     models.IntegerField(
@@ -108,7 +113,9 @@ class Migration(migrations.Migration):
                 ("id", models.AutoField(primary_key=True, serialize=False)),
                 (
                     "slug",
-                    autoslug.fields.AutoSlugField(editable=False, populate_from="id"),
+                    autoslug.fields.AutoSlugField(
+                        editable=False, populate_from="id"
+                    ),
                 ),
                 ("name", models.CharField(max_length=250)),
                 ("image", models.ImageField(upload_to="products")),
@@ -120,11 +127,15 @@ class Migration(migrations.Migration):
                 ("quantity", models.PositiveIntegerField(default=1)),
                 (
                     "price",
-                    models.DecimalField(decimal_places=2, default=0.0, max_digits=10),
+                    models.DecimalField(
+                        decimal_places=2, default=0.0, max_digits=10
+                    ),
                 ),
                 (
                     "shipping_fee",
-                    models.DecimalField(decimal_places=2, default=0.0, max_digits=10),
+                    models.DecimalField(
+                        decimal_places=2, default=0.0, max_digits=10
+                    ),
                 ),
                 ("featured", models.BooleanField(default=False)),
                 ("active", models.BooleanField(default=True)),
@@ -133,13 +144,15 @@ class Migration(migrations.Migration):
                 (
                     "category",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="shop.Category"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="shop.Category",
                     ),
                 ),
                 (
                     "pharmacy",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="shop.Pharmacy"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="shop.Pharmacy",
                     ),
                 ),
             ],
@@ -154,7 +167,8 @@ class Migration(migrations.Migration):
                 (
                     "product",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="shop.Product"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="shop.Product",
                     ),
                 ),
                 (
@@ -185,7 +199,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "address",
-                    models.CharField(default="via Vittoria 10", max_length=250),
+                    models.CharField(
+                        default="via Vittoria 10", max_length=250
+                    ),
                 ),
                 ("product", models.ManyToManyField(to="shop.Product")),
             ],
