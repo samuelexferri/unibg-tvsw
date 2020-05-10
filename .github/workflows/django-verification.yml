@@ -50,7 +50,6 @@ jobs:
     - name: Analisi statica (pylint, flake8, bandit)
       working-directory: ${{env.working-directory}}
       run: |
-        pylint --rcfile=./.pylintrc --errors-only ./shop
         flake8 -v --count
         bandit -r -v .
         
