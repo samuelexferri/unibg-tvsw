@@ -764,7 +764,7 @@ class TransferTest6(TestCase):
         self.assertEqual(doppia[1], [201, 500, 290, 9])
 
 
-# CASO 6: Abbiamo cercato il trade-off e abbiamo constatato che giustamente per valori di:
+# CASO 7: Abbiamo cercato il trade-off e abbiamo constatato che giustamente per valori di:
 # farmacia1 <= 669 si ha che la prima farmacia scelta è la farmacia2
 # farmacia1 >= 670 si ha che la prima farmacia scelta è la farmacia1
 class TransferTest7(TestCase):
@@ -888,3 +888,82 @@ class TransferTest7(TestCase):
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
         self.assertEqual(doppia[0], [farmacia1.id, farmacia3.id, farmacia2.id])
         self.assertEqual(doppia[1], [670, 290, 40])
+
+
+# CASO 8: Non ci sono abbastanza prodotti, lanciata un'eccezione
+class TransferTest8(TestCase):
+    def test_algorithm_Transfer8(self):
+        xScelta = 50
+        yScelta = 50
+        quantitaScelta = 1000
+        categoriaScelta = Category.objects.create(
+            name="Antinfiammatori", description="Text"
+        )
+
+        user1 = User.objects.create(username="TestUser1")
+        user2 = User.objects.create(username="TestUser2")
+        user3 = User.objects.create(username="TestUser3")
+        user4 = User.objects.create(username="TestUser4")
+
+        farmacia1 = Pharmacy.objects.create(
+            owner=user1,
+            name="farmacia1",
+            image="farmacia1.png",
+            x=0,
+            y=0,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
+        )
+        farmacia2 = Pharmacy.objects.create(
+            owner=user2,
+            name="farmacia2",
+            image="farmacia2.png",
+            x=65,
+            y=65,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
+        )
+        farmacia3 = Pharmacy.objects.create(
+            owner=user3,
+            name="farmacia3",
+            image="farmacia3.png",
+            x=22,
+            y=22,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
+        )
+        farmacia4 = Pharmacy.objects.create(
+            owner=user4,
+            name="farmacia4",
+            image="farmacia4.png",
+            x=45,
+            y=50,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
+        )
+
+        farmacia1.save()
+        farmacia2.save()
+        farmacia3.save()
+        farmacia4.save()
+
+        prodotto1 = Product.objects.create(
+            name="prodotto1",
+            category=categoriaScelta,
+            pharmacy=farmacia1,
+            image="prodotto1.png",
+            description="Text",
+            brand="brand",
+            quantity=670,
+            price=10,
+            shipping_fee=2,
+            slug=slugify(1).__str__(),
+        )
+
+        prodotto1.save()
+
+        self.assertRaises(Exception)

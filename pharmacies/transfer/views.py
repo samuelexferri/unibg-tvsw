@@ -90,12 +90,15 @@ def transfer(request):
     return render(request, "transfer/transfer.html", {"form": form})
 
 
-@icontract.require(lambda quantity: quantity < 0)
-# @deal.pre(lambda category: Product.objects.all().filter(category=category) >= 1)
-#@deal.inv(lambda quantity: quantity >= 0)
-#@deal.inv(lambda x: x >= 0 and x <= 100)
-#@deal.inv(lambda y: y >= 0 and y <= 100)
-# @deal.post(lambda doppia: doppia[0].size == doppia[1].size)
+@icontract.require(lambda quantity: quantity > 0, "quantity must not be positive")
+@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
+@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+@icontract.require(lambda category: Product.objects.all().filter(category=category).count() >= 1,
+                   "at least one product of that category is required")
+# @icontract.invariant(lambda self: self.quantity >= 0)
+# @icontract.invariant(lambda x: x >= 0 and x <= 100)
+# @icontract.invariant(lambda y: y >= 0 and y <= 100)
+@icontract.ensure(lambda result: len(result[0]) == len(result[1]))
 def algorithm_transfer(request, category: Category, quantity: int, x: int, y: int) -> list:
     listaProducts = Product.objects.all().filter(
         category=category
@@ -105,6 +108,10 @@ def algorithm_transfer(request, category: Category, quantity: int, x: int, y: in
     listQuantityPharmUsate = []
 
     while int(quantity) > 0:
+        if (len(listaProducts) == 0):
+            raise Exception("Non ci sono abbastanza prodotti")  # In transfer() c'è un controllo precedente
+            break;
+
         quintupla = findGreedy(
             listaProducts, x, y
         )  # Chiamata findGreedy() a ogni iterazione

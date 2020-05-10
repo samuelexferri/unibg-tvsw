@@ -764,8 +764,8 @@ noprefix "false"
 \emph on
 unittest
 \emph default
-; sono anche compresi i test effettuati sui due algoritmi (10 casi di test)
- e sui permessi (10 casi di test usando i mock).
+; sono anche compresi i test effettuati sui due algoritmi (3 + 11 casi di
+ test) e sui permessi (10 casi di test usando i mock).
  
 \end_layout
 
@@ -2215,6 +2215,52 @@ FakeCreditCard
 \begin_layout Standard
 Inoltre anche all'interno dei test abbiamo usato gli assert per verificare
  che il risultato di un test sia identico a un valore atteso.
+ Un esempio particolare è quando nell'ottavo test dell'algoritmo transfer
+ si verifica che viene lanciata un'eccezione:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# views.py
+\end_layout
+
+\begin_layout Plain Layout
+
+if (len(listaProducts) == 0):
+\end_layout
+
+\begin_layout Plain Layout
+
+	raise Exception("Non ci sono abbastanza prodotti")
+\end_layout
+
+\begin_layout Plain Layout
+
+	break;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# tests.py
+\end_layout
+
+\begin_layout Plain Layout
+
+self.assertRaises(Exception)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2248,10 +2294,25 @@ icontract.
 \end_layout
 
 \begin_layout Standard
-Questo pacchetto fornisce due decorators di funzioni, che richiedono e garantisc
-ono rispettivamente le pre-condizioni e le post-condizioni.
- Inoltre, fornisce un decoratore di classe, invariante, per stabilire invarianti
- di classe.
+Questo pacchetto fornisce due function decorators, 
+\emph on
+require
+\emph default
+ e 
+\emph on
+ensure
+\emph default
+ che richiedono e garantiscono rispettivamente le pre-condizioni e le post-condi
+zioni.
+ Inoltre, fornisce anche un class decorator, 
+\emph on
+invariant
+\emph default
+, per stabilire i class invariant.
+\end_layout
+
+\begin_layout Standard
+Inviarianti solo sulle classi! Richiede self come unico paramentro in lambda!.
 \end_layout
 
 \begin_layout Standard
