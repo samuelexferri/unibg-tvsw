@@ -43,10 +43,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Analisi statica (pylint) TODO
-      working-directory: ${{env.working-directory}}
-      run: |
-        
     - name: Design by Contract (deal) TODO
       working-directory: ${{env.working-directory}}
       run: |
+
+    - name: Analisi statica (pylint, flake8, bandit)
+      working-directory: ${{env.working-directory}}
+      run: |
+        pylint --rcfile=./.pylintrc --errors-only ./shop
+        flake8 -v --count
+        bandit -r -v .
+        
+    - name: Code Refractoring (black)
+      working-directory: ${{env.working-directory}}
+      run: |
+        black . --line-length 79
