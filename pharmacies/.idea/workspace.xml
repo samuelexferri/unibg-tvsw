@@ -1,66 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a93ea76b-8f24-4729-b2d1-8f0efc96e10f" name="Default Changelist" comment="">
+    <list default="true" id="9b7ddfcd-b23f-4f17-bd72-eb26a2c2232f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pharmacies.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pharmacies.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
-  <component name="ProjectId" id="1WiAnGg0cLMjQYMKu95Nwpe5N75" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1biUTbmNdj6BhDOIYhkU7I57Zxt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path" value="node" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="$PROJECT_DIR$/../../../Program Files/nodejs/node" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\samuelexferri\.PyCharm2019.3\config\plugins\prettierJS\lib" />
-    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\GitHub\tvsw\pharmacies\pharmacies" />
-      <recent name="C:\GitHub\I3B\pharmacies\shop" />
-      <recent name="C:\GitHub\I3B\pharmacies\authentication" />
-      <recent name="C:\GitHub\I3B\pharmacies\timetable" />
-      <recent name="C:\GitHub\I3B\pharmacies" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\GitHub\I3B\pharmacies\authetication" />
-      <recent name="C:\GitHub\I3B\django\shop\templates\shop" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="pharmacies" type="Python.DjangoServer" factoryName="Django server">
@@ -70,7 +34,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\GitHub\tvsw\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -92,94 +56,22 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a93ea76b-8f24-4729-b2d1-8f0efc96e10f" name="Default Changelist" comment="" />
-      <created>1579622206948</created>
+      <changelist id="9b7ddfcd-b23f-4f17-bd72-eb26a2c2232f" name="Default Changelist" comment="" />
+      <created>1589114416407</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1579622206948</updated>
-      <workItem from="1579622217002" duration="566000" />
-      <workItem from="1579622844312" duration="2306000" />
-      <workItem from="1579630924792" duration="2810000" />
-      <workItem from="1579634735297" duration="900000" />
-      <workItem from="1579635667863" duration="357000" />
-      <workItem from="1579636042279" duration="377000" />
-      <workItem from="1579636459368" duration="170000" />
-      <workItem from="1579636686130" duration="72000" />
-      <workItem from="1579636779498" duration="2000" />
-      <workItem from="1579636821931" duration="328000" />
-      <workItem from="1579681006729" duration="10996000" />
-      <workItem from="1579696490832" duration="17395000" />
-      <workItem from="1579719356809" duration="4069000" />
-      <workItem from="1579767279376" duration="10823000" />
-      <workItem from="1579786387419" duration="286000" />
-      <workItem from="1579786864081" duration="14137000" />
-      <workItem from="1579805639608" duration="3304000" />
-      <workItem from="1579809760662" duration="1034000" />
-      <workItem from="1580113521605" duration="6914000" />
-      <workItem from="1580120865748" duration="20593000" />
-      <workItem from="1580152345298" duration="8447000" />
-      <workItem from="1580199531713" duration="20979000" />
-      <workItem from="1580306782110" duration="432000" />
-      <workItem from="1580323422289" duration="10884000" />
-      <workItem from="1580372563496" duration="1313000" />
-      <workItem from="1580544965185" duration="723000" />
-      <workItem from="1580896520972" duration="8299000" />
-      <workItem from="1580923597118" duration="834000" />
-      <workItem from="1581008074793" duration="226000" />
-      <workItem from="1581612333765" duration="20000" />
-      <workItem from="1581670068414" duration="1997000" />
-      <workItem from="1587978768199" duration="248000" />
-      <workItem from="1588235434104" duration="6277000" />
-      <workItem from="1588511522904" duration="2232000" />
-      <workItem from="1588681350789" duration="2104000" />
-      <workItem from="1588688438677" duration="6060000" />
-      <workItem from="1588749881449" duration="3365000" />
-      <workItem from="1588837790438" duration="195000" />
-      <workItem from="1588922179139" duration="1292000" />
-      <workItem from="1588924719416" duration="26860000" />
-      <workItem from="1589009180205" duration="10022000" />
-      <workItem from="1589096310453" duration="9268000" />
-      <workItem from="1589112878422" duration="14000" />
-      <workItem from="1589112895486" duration="256000" />
-      <workItem from="1589113299741" duration="258000" />
+      <updated>1589114416407</updated>
+      <workItem from="1589114506398" duration="106000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589113504992">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589114569148">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1589113504992" />
-    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1588924587122">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1588924587122" />
-    <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1589113119792">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589113119792" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1589112156018">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589112156018" />
-    <state x="368" y="-15" width="607" height="728" key="find.popup" timestamp="1588236975807">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="368" y="-15" width="607" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1588236975807" />
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1589114569148" />
   </component>
 </project>
