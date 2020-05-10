@@ -3274,8 +3274,8 @@ Premettiamo che è la funzione
 calculate(request) 
 \emph default
 che si occupa di chiamare l'algoritmo e prima di chiamarlo svolge un controllo
- sul numero di farmacie presenti nel DB e sul fatto che sia l'admin ad essere
- loggato.
+ sul numero di farmacie presenti nel database e sul fatto che sia l'admin
+ ad essere loggato.
 \end_layout
 
 \begin_layout Standard
@@ -3296,7 +3296,7 @@ se è l'admin ad essere loggato:
 
 \begin_deeper
 \begin_layout Itemize
-se il numero di farmacie presenti nel DB è > 3, chiamerà l'algoritmo.
+se il numero di farmacie presenti nel database è > 3, chiamerà l'algoritmo.
 \end_layout
 
 \begin_layout Itemize

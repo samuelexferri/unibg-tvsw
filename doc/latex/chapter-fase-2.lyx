@@ -484,8 +484,8 @@ oni.
 L'applicazione sarà divisa in quattro apps:
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 authentication
 \emph default
@@ -493,8 +493,8 @@ authentication
  degli utenti e dei permessi relativi.
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 shop
 \emph default
@@ -502,8 +502,8 @@ shop
  acquisto e vendita dei farmaci e della gestione delle farmacie.
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 timetable
 \emph default
@@ -515,8 +515,8 @@ Fase 3
 ).
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 transfer
 \emph default

@@ -660,7 +660,7 @@ HTML (Stili):
 
 \end_deeper
 \begin_layout Itemize
-Testing e verifica del software:
+Code Testing:
 \end_layout
 
 \begin_deeper
@@ -808,12 +808,25 @@ https://docs.python.org/3/library/unittest.mock.html
 )
 \end_layout
 
+\end_deeper
+\begin_layout Itemize
+Code Verification:
+\end_layout
+
+\begin_deeper
 \begin_layout Itemize
 
 \series bold
 Design by Contract: 
 \series default
-TODO
+\emph on
+icontract
+\emph default
+, pacchetto che fornisce Design by Contract in Python (
+\emph on
+https://pypi.org/project/icontract/
+\emph default
+)
 \end_layout
 
 \begin_layout Itemize
@@ -893,8 +906,24 @@ https://pypi.org/project/black/
 )
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
-TODO (ASMETA...)
+Model Verification
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+TODO (ASMETA)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Model Based Testing
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+TODO
 \end_layout
 
 \end_deeper

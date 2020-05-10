@@ -342,12 +342,12 @@ Per effettuare i test useremo
 \emph on
 unittest
 \emph default
-, framework per il testing ispirato da 
+, un framework per il testing ispirato a 
 \emph on
 JUnit
 \emph default
 .
- In particolar modo nel file
+ In particolar modo, nel file
 \emph on
  settings.py
 \emph default
@@ -519,10 +519,10 @@ ce, shipping_fee=shipping_fee, slug=slugify(1).__str__())
 In totale sono state create 12 classi per testare i models (compresa la
  funzione 
 \emph on
-str
+__str__
 \emph default
-), ognuna con i rispettivi metodi e parametri per testare la corretta istanziazi
-one di un modello nel database.
+), ognuna con i rispettivi metodi e parametri per verificare la corretta
+ istanziazione di un modello nel database.
 \end_layout
 
 \begin_layout Subsection
@@ -535,8 +535,11 @@ Sono stati eseguiti numerosi test sulla compilazione di ogni form presente
 \end_layout
 
 \begin_layout Standard
-Un esempio di caso di test è il seguente per la compilazione del contact
- form:
+Un esempio di caso di test è il seguente per la compilazione del 
+\emph on
+ContactForm
+\emph default
+:
 \end_layout
 
 \begin_layout Standard
@@ -745,8 +748,13 @@ ng", x=50, y=50, slot4hMinWeek=5, location="Bergamo", description="Text")
 
 \begin_layout Standard
 In totale sono stati creati 26 casi di test per le varie funzionalità offerte
- dall'applicazione a livello di views in aggiunta a 3 test speciali sul
- pagamento e l'upload dell'immagine dei prodotti usando i mock.
+ dall'applicazione a livello di views, in aggiunta a 3 test speciali sul
+ pagamento e l'upload dell'immagine dei prodotti usando i mock (vedi sezione
+ 
+\emph on
+Mock
+\emph default
+).
 \end_layout
 
 \begin_layout Standard
@@ -765,7 +773,7 @@ noprefix "false"
 unittest
 \emph default
 ; sono anche compresi i test effettuati sui due algoritmi (3 + 8 casi di
- test) e sui permessi (10 casi di test usando i mock).
+ test) e sui permessi (10 casi di test usando mock).
  
 \end_layout
 
@@ -779,7 +787,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename screenshot/Test.png
+	filename screenshot/Tests.png
 	lyxscale 75
 	scale 40
 
@@ -817,7 +825,7 @@ Tests
 \begin_layout Standard
 Molti di questi test hanno permesso di individuare falle sia per quanto
  riguarda la compilazione di form, sia per eventuali funzioni che non facevano
- il loro dovere.
+ correttamente il loro dovere.
 \end_layout
 
 \begin_layout Section
@@ -989,25 +997,25 @@ Attraverso questi test sono stati individuati delle falle anche negli altri
  form, tra cui:
 \end_layout
 
-\begin_layout Standard
-- Venivano accettate le mail senza la chiocciola.
+\begin_layout Itemize
+Venivano accettate le mail senza la chiocciola.
 \end_layout
 
-\begin_layout Standard
-- Venivano accettati i numeri di telefono composti da lettere.
+\begin_layout Itemize
+Venivano accettati i numeri di telefono composti da lettere.
 \end_layout
 
-\begin_layout Standard
-- Venivano accettate stringhe vuote nei vari campi.
+\begin_layout Itemize
+Venivano accettate stringhe vuote nei vari campi.
 \end_layout
 
-\begin_layout Standard
-- Venivano accettate stringhe troppo lunghe rispetto al vincolo sulla lunghezza
+\begin_layout Itemize
+Venivano accettate stringhe troppo lunghe rispetto al vincolo sulla lunghezza
  presente nei models.
 \end_layout
 
-\begin_layout Standard
-- Venivano accettate città al di fuori di una lista presente nel file 
+\begin_layout Itemize
+Venivano accettate città al di fuori di una lista presente nel file 
 \emph on
 choices.py.
 \end_layout
@@ -1151,7 +1159,7 @@ Coverage precedente
 
 \begin_layout Standard
 Usando i report si è potuto indagare i moduli scoperti e si è proceduto
- a implementare ulteriori casi di test fino a raggiungere 90% di copertura
+ a implementare ulteriori casi di test fino a raggiungere il 90% di copertura
  del codice.
 \end_layout
 
@@ -1217,7 +1225,7 @@ Continuos Integration
 \emph default
 ).
  Grazie a questo strumento è possibile interagire con i report di copertura
- che forniscono molti dati utili.
+ e analizzarli nel dettaglio.
 \end_layout
 
 \begin_layout Standard
@@ -1352,9 +1360,9 @@ mutation testing
  i tipici errori di programmazione (come l'uso dell'operatore sbagliato
  o il nome della variabile) o costringono alla creazione di test significativi
  (come portare ogni espressione a zero).
- Lo scopo è aiutare lo sviluppatore a sviluppare test efficaci o a individuare
- punti deboli nel codice o in sezioni in cui non si accede mai o solo raramente
- durante l'esecuzione.
+ Lo scopo è aiutare lo sviluppatore a sviluppare test efficaci, a individuare
+ punti deboli nel codice e a individuare sezioni in cui non si accede mai
+ o solo raramente durante l'esecuzione.
 \end_layout
 
 \begin_layout Standard
@@ -1364,9 +1372,9 @@ django-mutpy
 \emph default
  ottimizzato per Django e basato su 
 \emph on
-mutpy
+mutpy 
 \emph default
-.
+eseguibile usando questo comando:
 \end_layout
 
 \begin_layout Standard
@@ -1389,16 +1397,16 @@ Una lista degli operatori di mutazione di
 \emph on
 mutpy
 \emph default
-: AOD - arithmetic operator deletion, AOR - arithmetic operator replacement,
- ASR - assignment operator replacement, BCR - break continue replacement,
- COD - conditional operator deletion, COI - conditional operator insertion,
- CRP - constant replacement, DDL - decorator deletion, EHD - exception handler
- deletion, EXS - exception swallowing, IHD - hiding variable deletion, IOD
- - overriding method deletion, IOP - overridden method calling position
- change, LCR - logical connector replacement, LOD - logical operator deletion,
- LOR - logical operator replacement, ROR - relational operator replacement,
- SCD - super calling deletion, SCI - super calling insert, SIR - slice index
- remove.
+: AOD (Arithmetic operator deletion), AOR (Arithmetic operator replacement),
+ ASR (Assignment operator replacement), BCR (Break continue replacement),
+ COD (Conditional operator deletion), COI (Conditional operator insertion),
+ CRP (Constant replacement), DDL (Decorator deletion), EHD (Exception handler
+ deletion), EXS (Exception swallowing), IHD (Hiding variable deletion),
+ IOD (Overriding method deletion), IOP (Overridden method calling position
+ change), LCR (Logical connector replacement), LOD (Logical operator deletion),
+ LOR (Logical operator replacement), ROR (Relational operator replacement),
+ SCD (Super calling deletion), SCI (Super calling insert), SIR (Slice index
+ remove).
 \end_layout
 
 \begin_layout Standard
@@ -1463,7 +1471,7 @@ TODO (Dataflow, Roboto)
 \end_layout
 
 \begin_layout Section
-Continuous Integration
+Continuous Integration (CI)
 \end_layout
 
 \begin_layout Standard
@@ -1492,16 +1500,16 @@ django-testing.yml
  è la seguente:
 \end_layout
 
-\begin_layout Standard
-- Viene configurato l'ambiente (
+\begin_layout Itemize
+Viene configurato l'ambiente (
 \emph on
 Ubuntu
 \emph default
 ) e installata la versione corretta di Python, in questo caso la 3.8.
 \end_layout
 
-\begin_layout Standard
-- Vengono soddisfatte tutte le dipendenze installando i pacchetti indicati
+\begin_layout Itemize
+Vengono soddisfatte tutte le dipendenze installando i pacchetti indicati
  nel file 
 \emph on
 requirements.txt 
@@ -1509,20 +1517,24 @@ requirements.txt
 (sfruttando anche la cache).
 \end_layout
 
-\begin_layout Standard
-- Vengono fatte le migrazioni di Django.
+\begin_layout Itemize
+Vengono fatte le migrazioni di Django.
 \end_layout
 
-\begin_layout Standard
-- Vengono eseguiti tutti i test implementati con 
+\begin_layout Itemize
+Vengono eseguiti tutti i test implementati con 
 \emph on
 unittest
+\emph default
+ e implicitamente verificati i contratti stabiliti con 
+\emph on
+icontract
 \emph default
 .
 \end_layout
 
-\begin_layout Standard
-- Viene effettuato un report di copertura del codice attraverso 
+\begin_layout Itemize
+Viene effettuato un report di copertura del codice attraverso 
 \emph on
 coverage 
 \emph default
@@ -1538,7 +1550,12 @@ Inoltre nel file
 \emph on
 django-verification.yml
 \emph default
- vi è la parte di code verification (illustrata successivamente).
+ vi è la parte verifica del codice (vedi sezione (illustrata successivamente
+ 
+\emph on
+Integrazione con CI
+\emph default
+).
 \end_layout
 
 \begin_layout Section
@@ -1694,9 +1711,9 @@ ato al termine del test.
 \begin_layout Standard
 Nel seguente esempio viene illustrato l'utilizzo del decoratore 
 \emph on
-patch() 
+patch()
 \emph default
-usato per sostituire la funzione 
+ per sostituire la funzione 
 \emph on
 calculate_amount()
 \emph default
@@ -1810,8 +1827,12 @@ Mock
 spec=File
 \emph default
 ) usato come parametro durante la creazione di un prodotto nel database.
- In particolare quest'oggetto fittizio file va a simulare un'immagine del
- prodotto.
+ In particolare quest'oggetto fittizio va a simulare un'immagine in formato
+ 
+\emph on
+.png
+\emph default
+ del prodotto.
 \end_layout
 
 \begin_layout Standard
@@ -1892,82 +1913,11 @@ k=slot4hMinWeek, location=location, description=description)
 \end_layout
 
 \begin_layout Standard
-Sono state create delle classi fasulle tra cui 
-\emph on
-FakeCreditCard
-\emph default
- che simula le funzioni basilari di una carta di credito:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-class FakeCreditCard:
-\end_layout
-
-\begin_layout Plain Layout
-
-	def __init__(self, balance=50):
-\end_layout
-
-\begin_layout Plain Layout
-
-		assert balance >= 0, "balance should be positive"
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.balance = balance
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	def has_enough_credit(self, amount):
-\end_layout
-
-\begin_layout Plain Layout
-
-		return self.balance > amount
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	def withdraw(self, amount):
-\end_layout
-
-\begin_layout Plain Layout
-
-		self.balance = self.balance - amount
-\end_layout
-
-\begin_layout Plain Layout
-
-		assert self.balance >= 0, "balance should be positive"
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
+Inoltre 
 \emph on
 MagicMock
 \emph default
- è stato indispensabile nel testare i permessi dei vari utenti presenti
+ è stato impiegato anche nel testare i permessi dei vari utenti presenti
  nel 
 \emph on
 permission.py
@@ -2045,8 +1995,83 @@ class TestPermissions(TestCase):
 
 \end_layout
 
+\begin_layout Standard
+Sono state create anche delle classi fasulle come per esempio 
+\emph on
+FakeCreditCard
+\emph default
+ che simula le funzioni basilari di una carta di credito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class FakeCreditCard:
+\end_layout
+
+\begin_layout Plain Layout
+
+	def __init__(self, balance=50):
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert balance >= 0, "balance should be positive"
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.balance = balance
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	def has_enough_credit(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+		return self.balance > amount
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	def withdraw(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.balance = self.balance - amount
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert self.balance >= 0, "balance should be positive"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Code Verification
+\end_layout
+
+\begin_layout Standard
+TODO (Descrizione)
 \end_layout
 
 \begin_layout Section
@@ -2058,9 +2083,9 @@ Gli
 \emph on
 asserts
 \emph default
- dovrebbero essere usati per testare condizioni che non dovrebbero mai accadere
- con lo scopo di inviare un segnale di errore e arrestarsi in anticipo nel
- caso di funzionamento non corretto sollevando un'eccezione.
+ devono essere usati per testare condizioni che non dovrebbero mai accadere
+ con lo scopo di inviare un segnale di errore e arrestarsi in anticipo sollevand
+o un'eccezione nel caso di funzionamento non corretto.
  Quini gli asserts servono per trovare bug facilmente e velocemente.
 \end_layout
 
@@ -2070,16 +2095,16 @@ Come si possono usare gli asserts
 :
 \end_layout
 
-\begin_layout Standard
-- Controllo di tipi di parametri, classi o valori.
+\begin_layout Itemize
+Controllo di tipi di parametri, classi o valori.
 \end_layout
 
-\begin_layout Standard
-- Verifica degli invarianti delle strutture dei dati.
+\begin_layout Itemize
+Verifica degli invarianti delle strutture dei dati.
 \end_layout
 
-\begin_layout Standard
-- Verifica di situazioni 
+\begin_layout Itemize
+Verifica di situazioni 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2091,8 +2116,8 @@ impossibili
  
 \end_layout
 
-\begin_layout Standard
-- Dopo aver chiamato una funzione, per assicurarsi che il valore di ritorno
+\begin_layout Itemize
+Dopo aver chiamato una funzione, per assicurarsi che il valore di ritorno
  sia ragionevole.
 \end_layout
 
@@ -2207,16 +2232,17 @@ credit_card
 FakeCreditCard
 \emph default
 .
- Un altro utilizzo dell'assert è verificare che il quantitativo richiesto
- per il pagamento sia un valore positivo.
- In entrambi i casi, se l'assert non è verifiato viene sollevata un'eccezione.
+ Poco più sotto si verifica che il quantitativo richiesto per il pagamento
+ sia un valore positivo.
+ In entrambi i casi, se l'assert non è verificato viene sollevata un'eccezione.
 \end_layout
 
 \begin_layout Standard
 Inoltre anche all'interno dei test abbiamo usato gli assert per verificare
  che il risultato di un test sia identico a un valore atteso.
- Un esempio particolare è quando nell'ottavo test dell'algoritmo transfer
- si verifica che viene lanciata un'eccezione:
+ Un esempio particolare è nell'ottavo test dell'algoritmo transfer in cui
+ si verifica che venga lanciata un'eccezione causata da un numero di prodotti
+ insufficiente per soddisfare la richiesta di trasferimento:
 \end_layout
 
 \begin_layout Standard
@@ -2272,7 +2298,7 @@ Design by Contract
 \end_layout
 
 \begin_layout Standard
-Vi è una specifica 
+Per quanto converne il Design by Contract in Python vi è una specifica 
 \emph on
 
 \begin_inset Quotes fld
@@ -2284,11 +2310,11 @@ PEP 316 - Programming by Contract for Python
 
 
 \emph default
- ma tuttavia non è stata ancora integrata in Python (Status 
+ ma con status 
 \emph on
 deferred
 \emph default
-); bisogna quindi fare affidamento su altri pacchetti come ad esempio 
+; bisogna quindi fare affidamento su altri pacchetti come ad esempio 
 \emph on
 icontract.
 \end_layout
@@ -2309,7 +2335,10 @@ oni.
 invariant
 \emph default
 , per stabilire i class invariant.
- Le precondizioni sono scritte con il decoratore 
+\end_layout
+
+\begin_layout Standard
+Le precondizioni sono scritte con il decoratore 
 \emph on
 require
 \emph default
@@ -2318,20 +2347,20 @@ require
 \emph on
 ensure
 \emph default
- e in lambda vi è un paramentro 
+ e in lambda vi è perlomeno un paramentro 
 \emph on
 result
 \emph default
-, ossia il risultato ritornato della funzione.
+, ossia il valore ritornato dalla funzione.
 \end_layout
 
 \begin_layout Standard
 
-\emph on
+\series bold
 Nota:
-\emph default
- Inviarianti si possono usare solo con le classi, quindi gran parte delle
- funzioni implementate non poteva avere gli invarianti; ogni inviariante
+\series default
+ Gli inviarianti si possono usare solo con le classi, quindi gran parte
+ delle funzioni implementate non poteva avere gli invarianti; ogni inviariante
  richiede 
 \emph on
 self
@@ -2340,7 +2369,11 @@ self
 \end_layout
 
 \begin_layout Standard
-Di seguito un esempio di contratti prima dell'algoritmo transfer:
+Di seguito un esempio di contratto della funzione 
+\emph on
+algorithm_transfer()
+\emph default
+:
 \end_layout
 
 \begin_layout Standard
@@ -2397,15 +2430,96 @@ def algorithm_transfer(request, category: Category, quantity: int, x: int,
 \end_layout
 
 \begin_layout Standard
-In questo esempio venogno verificati che i parametri passati siano corretti,
- ossia che quantity sia strettamente positiva e che le coordinate x e y
+In questo esempio vengono verificati che i parametri passati siano corretti,
+ ossia che 
+\emph on
+quantity
+\emph default
+ sia strettamente positiva e che le coordinate 
+\emph on
+x
+\emph default
+ e
+\emph on
+ y
+\emph default
  siano comprese tra 0 e 100; inoltre viene anche verificato che esista un
- prodotto di quella categoria all'interno del database.
- A fine dell'algoritmo si verifica che il risultato, composto da una lista
- di liste (la prima lista di ID delle farmacie, la seconda lista di quantità
- prelevata da quella determinata farmacia), abbia le due liste interne di
- lunghezza identica e che la somma delle quantità prelevate dalle farmacie
- sia pari alla quantità richiesta.
+ prodotto di quella categoria specifica all'interno del database.
+ Alla fine dell'algoritmo si verifica che il risultato, composto da una
+ lista di liste (la prima lista interna di ID delle farmacie, la seconda
+ lista interna di quantità prelevata dalla determinata farmacia in quella
+ posizione), abbia le due liste interne di uguale lunghezza e che la somma
+ delle quantità prelevate dalle farmacie sia pari alla quantità richiesta
+ per il trasferimento.
+\end_layout
+
+\begin_layout Standard
+In modo simile è stato fatto un contratto alla funzione 
+\emph on
+findGreedy()
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda listaProducts: len(listaProducts) > 0, "listaProducts
+ must not be empty")
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.ensure(lambda result: Pharmacy.objects.filter(id=result[0]).count()
+ >= 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.ensure(lambda result: result[1] >= 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.ensure(lambda result: 0 <= result[2] <= 100)
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.ensure(lambda result: 0 <= result[3] <= 100)
+\end_layout
+
+\begin_layout Plain Layout
+
+def findGreedy(listaProducts: list, x: int, y: int):
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Codice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO (Estendere)
 \end_layout
 
 \begin_layout Section
@@ -2413,8 +2527,12 @@ Program Verification
 \end_layout
 
 \begin_layout Standard
-La verifica del programma mira a utilizzare prove formali per dimostrare
- che i programmi si comportano secondo le specifiche.
+La 
+\emph on
+program verification
+\emph default
+ mira a utilizzare prove formali per dimostrare che i programmi si comportano
+ secondo le specifiche.
 \end_layout
 
 \begin_layout Standard
@@ -2423,10 +2541,6 @@ TODO
 
 \begin_layout Section
 Analisi statica
-\end_layout
-
-\begin_layout Subsection
-Pylint
 \end_layout
 
 \begin_layout Standard
@@ -2438,7 +2552,11 @@ lint
 \emph on
 lint-like tools 
 \emph default
-sono strumenti che eseguono un'analisi statica del codice.
+indicano strumenti che eseguono un'analisi statica del codice.
+\end_layout
+
+\begin_layout Subsection
+Pylint
 \end_layout
 
 \begin_layout Standard
@@ -2449,21 +2567,21 @@ pylint
  è stato usato per l'analisti statica e comprende:
 \end_layout
 
-\begin_layout Standard
-- Coding standards: check sulla lunghezza delle linee di codice, check sui
+\begin_layout Itemize
+Coding standards: check sulla lunghezza delle linee di codice, check sui
  nomi delle variabili (notazioni), check sui moduli importati e usati.
 \end_layout
 
-\begin_layout Standard
-- Error detection: check sulle interfacce e la loro implementazione.
+\begin_layout Itemize
+Error detection: check sulle interfacce e la loro implementazione.
 \end_layout
 
-\begin_layout Standard
-- Refractoring: detection di codice duplicato.
+\begin_layout Itemize
+Refractoring: detection di codice duplicato.
 \end_layout
 
-\begin_layout Standard
-- UML diagrams: 
+\begin_layout Itemize
+UML diagrams: 
 \emph on
 pylint
 \emph default
@@ -2531,32 +2649,32 @@ pylintrc
  Gli errori più comuni sono:
 \end_layout
 
-\begin_layout Standard
-- C0103 Doesn't conform to snake_case naming style 
+\begin_layout Itemize
+C0103 Doesn't conform to snake_case naming style 
 \end_layout
 
-\begin_layout Standard
-- C0114 Missing-module-docstring 
+\begin_layout Itemize
+C0114 Missing-module-docstring 
 \end_layout
 
-\begin_layout Standard
-- C0115 Missing class docstring 
+\begin_layout Itemize
+C0115 Missing class docstring 
 \end_layout
 
-\begin_layout Standard
-- C0116 Missing function or method docstring 
+\begin_layout Itemize
+C0116 Missing function or method docstring 
 \end_layout
 
-\begin_layout Standard
-- C0301 Line too long
+\begin_layout Itemize
+C0301 Line too long
 \end_layout
 
-\begin_layout Standard
-- C0330 Wrong hanging indentation before block
+\begin_layout Itemize
+C0330 Wrong hanging indentation before block
 \end_layout
 
-\begin_layout Standard
-- E1101 Class 'X' has no 'objects' member
+\begin_layout Itemize
+E1101 Class 'X' has no 'objects' member
 \end_layout
 
 \begin_layout Standard
@@ -2570,8 +2688,11 @@ noprefix "false"
 
 \end_inset
 
- è riportato l'output di pylint dove viene valutato il codice su una scala
- da 0 a 10.
+ è riportato l'output di 
+\emph on
+pylint
+\emph default
+ dove viene valutato il codice su una scala da 0 a 10.
 \end_layout
 
 \begin_layout Standard
@@ -2628,7 +2749,7 @@ Flake8
 \end_layout
 
 \begin_layout Standard
-Il tool 
+Il pacchetto 
 \emph on
 flake8
 \emph default
@@ -2639,22 +2760,22 @@ flake8
 Al suo interno integra i seguenti tools:
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 pyflakes
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 pycodestyle
 \emph default
  
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 Ned Batchelder’s McCabe script 
 \end_layout
@@ -2697,21 +2818,20 @@ $ flake8 -v --count
 
 \begin_layout Standard
 Verrà restituito in output un elenco di violazioni ognuna con uno specifico
- codice identificativo del tipo di violazione.
- Ad esempio, molte violazioni sono:
+ codice identificativo del tipo di violazione; violazioni comuni sono:
+\end_layout
+
+\begin_layout Itemize
+E501 Line too long (90 > 79 characters)
+\end_layout
+
+\begin_layout Itemize
+F405 'User' may be undefined, or defined from star imports
 \end_layout
 
 \begin_layout Standard
-- E501 Line too long (90 > 79 characters)
-\end_layout
-
-\begin_layout Standard
-- F405 'User' may be undefined, or defined from star imports
-\end_layout
-
-\begin_layout Standard
-È possibile nascondere questi errori comuni per far risaltare gli altri
- magari molto più gravi usando questo comando:
+È possibile nascondere questi errori comuni per far risaltare altri errori
+ magari più gravi usando questo comando:
 \end_layout
 
 \begin_layout Standard
@@ -2847,14 +2967,13 @@ Bandit
 \end_layout
 
 \begin_layout Standard
-Dopo aver eliminato vulnerabilità anche gravi trovate nel codice, le uniche
- rimaste sono:
+Dopo aver eliminato e risolto vulnerabilità anche gravi trovate nel codice,
+ le uniche rimaste sono:
 \end_layout
 
-\begin_layout Standard
-- 
-\emph on
+\begin_layout Itemize
 
+\emph on
 \begin_inset Quotes fld
 \end_inset
 
@@ -2869,10 +2988,9 @@ Dopo aver eliminato vulnerabilità anche gravi trovate nel codice, le uniche
  non riguardano algoritmi crittografici o relativi alla sicurezza del sistema.
 \end_layout
 
-\begin_layout Standard
-- 
-\emph on
+\begin_layout Itemize
 
+\emph on
 \begin_inset Quotes fld
 \end_inset
 
@@ -2916,9 +3034,7 @@ GraphViz
 \emph default
  (necessita anche di aggiungere 
 \emph on
-bin
-\backslash
-gvedit.exe
+bin/gvedit.exe
 \emph default
  nel path delle variabili d'ambiente) si possono usare con i seguenti comandi:
 \end_layout
@@ -3110,8 +3226,8 @@ In questo caso inizialmente l'intero progetto era contenuto in un'unica
  ha portato alla divisione del progetto in quattro distinte componenti:
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 authentication
 \emph default
@@ -3119,8 +3235,8 @@ authentication
  degli utenti e dei permessi relativi.
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 shop
 \emph default
@@ -3128,8 +3244,8 @@ shop
  acquisto e vendita dei farmaci e della gestione delle farmacie.
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 timetable
 \emph default
@@ -3137,8 +3253,8 @@ timetable
  delle farmacie.
 \end_layout
 
-\begin_layout Standard
-- 
+\begin_layout Itemize
+
 \emph on
 transfer
 \emph default
@@ -3196,22 +3312,22 @@ Naturalmente spostare tutti i modelli e fare il refractoring del codice
  I principali passaggi effettuati possono concentrarsi nei seguenti punti:
 \end_layout
 
-\begin_layout Standard
-- Rinominare tutte le tabelle durante lo spostamento per adattarsi alla
- nuova struttura di destinazione ed evitare conflitti.
+\begin_layout Itemize
+Rinominare tutte le tabelle durante lo spostamento per adattarsi alla nuova
+ struttura di destinazione ed evitare conflitti.
 \end_layout
 
-\begin_layout Standard
-- Fare una migrazione per spostare i modelli nell'app di destinazione.
+\begin_layout Itemize
+Fare una migrazione per spostare i modelli nell'app di destinazione.
 \end_layout
 
-\begin_layout Standard
-- Aggiornare eventuali foreinkeys and relations tra i vari modelli (anche
+\begin_layout Itemize
+Aggiornare eventuali foreign keys and relations tra i vari modelli (anche
  di app differenti).
 \end_layout
 
-\begin_layout Standard
-- Fare una migrazione per eliminare i modelli dall'applicazione di origine.
+\begin_layout Itemize
+Fare una migrazione per eliminare i modelli dall'applicazione di origine.
 \end_layout
 
 \begin_layout Standard
@@ -3221,7 +3337,7 @@ API:
 \end_layout
 
 \begin_layout Standard
-Allo stesso modo le varie application programming interface sono state separate
+Allo stesso modo le varie Application Programming Interface sono state separate
  nei vari moduli.
 \end_layout
 
@@ -3241,13 +3357,13 @@ Algoritmi:
 Isolati gli algoritmi, la loro stesura è stata migliorata e divisa in più
  funzioni ognuna con uno scopo preciso.
  Si è usato anche un data flow chart per ristrutturare il codice in modo
- da rendere chiara la divisione in varie casistiche degli algoritmi.
+ da rendere chiara la divisione in varie casistiche.
 \end_layout
 
 \begin_layout Standard
 
 \emph on
-Vedi le fasi precedenti riguardanti gli algoritmi.
+Vedi fasi precedenti riguardanti gli algoritmi.
 \end_layout
 
 \begin_layout Standard
@@ -3262,11 +3378,17 @@ Codice:
 black
 \emph default
 , un formattatore di codice per Python in cui ogni riga del codice viene
- formattato automaticamente liberando lo sviluppatore di questo pensiero.
+ formattata automaticamente liberando lo sviluppatore di questo compito.
 \end_layout
 
 \begin_layout Standard
-Può essere usato con il seguente codice:
+Può essere usato con il seguente comando, in cui l'opzione 
+\emph on
+–check
+\emph default
+ mostra in output i file che verrebbero riformattati in 
+\emph on
+dry run:
 \end_layout
 
 \begin_layout Standard
@@ -3325,8 +3447,9 @@ Variabili:
 
 \begin_layout Standard
 In generale nell'applicazione sono state rinominate molte variabili per
- rendere più esplicito e facilmente intuibile il loro scopo; anche gli import
- dei pacchetti necessari sono stati riorganizzati.
+ rendere più esplicito e facilmente intuibile il loro scopo usando anche
+ lo stile snake_case; anche gli import dei pacchetti necessari sono stati
+ riorganizzati.
 \end_layout
 
 \begin_layout Section
@@ -3346,16 +3469,16 @@ django-verification.yml
  I passi sono i seguenti:
 \end_layout
 
-\begin_layout Standard
-- Viene configurato l'ambiente (
+\begin_layout Itemize
+Viene configurato l'ambiente (
 \emph on
 Ubuntu
 \emph default
 ) e installata la versione corretta di Python, in questo caso la 3.8.
 \end_layout
 
-\begin_layout Standard
-- Vengono soddisfatte tutte le dipendenze installando i pacchetti indicati
+\begin_layout Itemize
+Vengono soddisfatte tutte le dipendenze installando i pacchetti indicati
  nel file 
 \emph on
 requirements.txt 
@@ -3363,16 +3486,25 @@ requirements.txt
 (sfruttando anche la cache).
 \end_layout
 
-\begin_layout Standard
-- Viene effettuata l'analisi del codice con 
+\begin_layout Itemize
+Viene effettuata l'analisi del codice con 
 \emph on
 pylint
 \emph default
 .
 \end_layout
 
+\begin_layout Itemize
+Viene eseguito black per formattare il codice Python.
+\end_layout
+
 \begin_layout Standard
-TODO (Aggiornare lista) (DbC?)
+
+\series bold
+Nota:
+\series default
+ I contratti sono già stati verificati quando vengono eseguiti i casi di
+ test nella fase di testing.
 \end_layout
 
 \begin_layout Section
@@ -3380,54 +3512,212 @@ Code Inspection
 \end_layout
 
 \begin_layout Standard
-Le 
+La 
 \emph on
 checklist
 \emph default
- sono un elemento fondamentale dell'ispezione classica.
+ è un elemento fondamentale dell'ispezione classica.
  Riassumono l'esperienza accumulata nei progetti precedenti per guidare
  le sessioni di revisione.
  Una checklist contiene una serie di domande che aiutano a identificare
- i difetti del modulo ispezionato..
+ i difetti del modulo ispezionato.
  Una buona checklist dovrebbe essere aggiornata regolarmente per rimuovere
  le parti obsolete e per aggiungere nuovi controlli suggeriti dall'esperienza
  accumulata.
 \end_layout
 
-\begin_layout Standard
-- Design and Architecture errors
+\begin_layout Itemize
+Design and Architecture errors
+\end_layout
+
+\begin_layout Itemize
+Computation errors
+\end_layout
+
+\begin_layout Itemize
+Comparison errors
+\end_layout
+
+\begin_layout Itemize
+Control flow errors
+\end_layout
+
+\begin_layout Itemize
+Subroutine parameter errors
+\end_layout
+
+\begin_layout Itemize
+Input/Output errors
+\end_layout
+
+\begin_layout Itemize
+Memory allocation errors
+\end_layout
+
+\begin_layout Itemize
+Error discovered from previous code reviews
+\end_layout
+
+\begin_layout Itemize
+Other check (Pass the lint test?...)
 \end_layout
 
 \begin_layout Standard
-- Computation errors
+All Tests:
+\end_layout
+
+\begin_layout Itemize
+The CI jobs on the pull request have passed.
+\end_layout
+
+\begin_layout Itemize
+It is obvious what the test is trying to test.
+\end_layout
+
+\begin_layout Itemize
+The test passes when it’s supposed to pass.
+\end_layout
+
+\begin_layout Itemize
+The test fails when it’s supposed to fail.
+\end_layout
+
+\begin_layout Itemize
+The test is testing what it thinks it’s testing.
+\end_layout
+
+\begin_layout Itemize
+The spec backs up the expected behavior in the test.
+\end_layout
+
+\begin_layout Itemize
+The test is automated as either reftest or a script test unless there’s
+ a very good reason for it not to be.
+\end_layout
+
+\begin_layout Itemize
+The test does not use external resources.
+\end_layout
+
+\begin_layout Itemize
+The test does not use proprietary features (vendor-prefixed or otherwise).
+\end_layout
+
+\begin_layout Itemize
+The test does not contain commented-out code.
+\end_layout
+
+\begin_layout Itemize
+The test is placed in the relevant directory.
+\end_layout
+
+\begin_layout Itemize
+The test has a reasonable and concise filename.
+\end_layout
+
+\begin_layout Itemize
+If the test needs code running on the server side, the server code must
+ be written in Python, and the Python code must not do anything potentially
+ unsafe.
+\end_layout
+
+\begin_layout Itemize
+If the test needs to be run in some non-standard configuration or needs
+ user interaction, it is a manual test.
+\end_layout
+
+\begin_layout Itemize
+Nit: The title is descriptive but not too wordy.
+ 
 \end_layout
 
 \begin_layout Standard
-- Comparison errors
+Reftests Only:
+\end_layout
+
+\begin_layout Itemize
+The reference file is accurate and will render pixel-perfect identically
+ to the test on all platforms.
+\end_layout
+
+\begin_layout Itemize
+The reference file uses a different technique that won’t fail in the same
+ way as the test.
+\end_layout
+
+\begin_layout Itemize
+The test and reference render within a 800x600 viewport, only displaying
+ scrollbars if their presence is being tested.
+\end_layout
+
+\begin_layout Itemize
+Nit: The test has a self-describing statement.
+\end_layout
+
+\begin_layout Itemize
+Nit: The self-describing statement is accurate, precise, simple, and self-explan
+atory.
+ Someone with no technical knowledge should be able to say whether the test
+ passed or failed within a few seconds, and not need to spend several minutes
+ thinking or asking questions.
+ 
 \end_layout
 
 \begin_layout Standard
-- Control flow errors
+Script Tests Only:
+\end_layout
+
+\begin_layout Itemize
+The number of tests in each file and the test names are consistent across
+ runs and browsers.
+ It is best to avoid the pattern where there is a test that asserts that
+ the feature is supported and bails out without running the rest of the
+ tests in the file if it isn’t.
+\end_layout
+
+\begin_layout Itemize
+The test avoids patterns that make it less likely to be stable.
+ In particular, tests should avoid setting internal timeouts, since the
+ time taken to run it may vary on different devices; events should be used
+ instead (if at all possible).
+\end_layout
+
+\begin_layout Itemize
+The test uses the most specific asserts possible (e.g.
+ doesn’t use assert_true for everything).
+\end_layout
+
+\begin_layout Itemize
+The test uses idlharness.js if it is testing basic IDL-defined behavior.
+\end_layout
+
+\begin_layout Itemize
+Nit: Tests in a single file are separated by one empty line.
 \end_layout
 
 \begin_layout Standard
-- Subroutine parameter errors
+Visual Tests Only:
 \end_layout
 
-\begin_layout Standard
-- Input/Output errors
+\begin_layout Itemize
+The test has a self-describing statement.
 \end_layout
 
-\begin_layout Standard
-- Memory allocation errors
+\begin_layout Itemize
+The self-describing statement is accurate, precise, simple, and self-explanatory.
+ Someone with no technical knowledge should be able to say whether the test
+ passed or failed within a few seconds, and not need to spend several minutes
+ thinking or asking questions.
 \end_layout
 
-\begin_layout Standard
-- Error discovered from previous code reviews
+\begin_layout Itemize
+The test renders within a 800x600 viewport, only displaying scrollbars if
+ their presence is being tested.
 \end_layout
 
-\begin_layout Standard
-- Other check (Pass the lint test?...)
+\begin_layout Itemize
+The test renders to a fixed, static page with no animation.
+ 
 \end_layout
 
 \begin_layout Standard

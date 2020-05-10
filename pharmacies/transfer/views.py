@@ -148,7 +148,14 @@ def algorithm_transfer(request, category: Category, quantity: int, x: int, y: in
     return doppia
 
 
-def findGreedy(listaProducts, x, y):
+@icontract.require(lambda listaProducts: len(listaProducts) > 0, "listaProducts must not be empty")
+@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
+@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+@icontract.ensure(lambda result: Pharmacy.objects.filter(id=result[0]).count() >= 1)
+@icontract.ensure(lambda result: result[1] >= 0)
+@icontract.ensure(lambda result: 0 <= result[2] <= 100)
+@icontract.ensure(lambda result: 0 <= result[3] <= 100)
+def findGreedy(listaProducts: list, x: int, y: int):
     sceltaGolosa = []  # Vettore pesi
 
     # Pesiamo quantità disponibile e distanza

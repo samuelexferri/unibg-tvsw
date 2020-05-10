@@ -375,7 +375,7 @@ $ cd /indirizzo/pharmacies
 
 \begin_layout Plain Layout
 
-// Upgrade pip
+// pip
 \end_layout
 
 \begin_layout Plain Layout
@@ -389,22 +389,22 @@ $ python -m pip install --upgrade pip
 
 \begin_layout Plain Layout
 
-// Virtual environment
+// Virtual Environment
 \end_layout
 
 \begin_layout Plain Layout
 
-$ pip3 install virtualenvwrapper-win 
+$ pip3 install virtualenvwrapper-win
 \end_layout
 
 \begin_layout Plain Layout
 
-$ mkvirtualenv my_django_environment 
+$ mkvirtualenv my_django_environment
 \end_layout
 
 \begin_layout Plain Layout
 
-$ workon my_django_environment 
+$ workon my_django_environment
 \end_layout
 
 \begin_layout Plain Layout
@@ -427,7 +427,7 @@ $ pip install -r requirements.txt
 
 \begin_layout Plain Layout
 
-// Commands
+// Django
 \end_layout
 
 \begin_layout Plain Layout
@@ -630,7 +630,21 @@ status open
 
 \begin_layout Plain Layout
 
-// -- Code Testing -- //
+// --[Code Testing]-- //
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// unittest
+\end_layout
+
+\begin_layout Plain Layout
+
+// Integrato
 \end_layout
 
 \begin_layout Plain Layout
@@ -659,6 +673,20 @@ $ pip install parameterized
 \begin_layout Plain Layout
 
 $ pip install coverage
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Codecov
+\end_layout
+
+\begin_layout Plain Layout
+
+// Sito
 \end_layout
 
 \begin_layout Plain Layout
@@ -719,7 +747,21 @@ $ pip install mock
 
 \begin_layout Plain Layout
 
-// -- Code Verification -- //
+// --[Code Verification]-- //
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// icontract
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install icontract
 \end_layout
 
 \begin_layout Plain Layout
@@ -781,6 +823,20 @@ $ pip install bandit
 \begin_layout Plain Layout
 
 $ pip install pyreverse
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// GraphViz
+\end_layout
+
+\begin_layout Plain Layout
+
+// Istruzioni per l'installazione sul sito
 \end_layout
 
 \begin_layout Plain Layout

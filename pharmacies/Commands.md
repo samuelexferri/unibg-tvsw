@@ -1,12 +1,12 @@
 # Commands
 
-Code Path:
+Path:
 
 ```bash
 $ cd C:\GitHub\tvsw\pharmacies
 ```
 
-Upgrade pip:
+pip:
 
 ```bash
 $ python -m pip install --upgrade pip
@@ -28,16 +28,7 @@ $ pip freeze > requirements.txt
 $ pip install -r requirements.txt
 ```
 
-Data:
-
-Delete the `db.sqlite3` file to avoid conflicts; run migrate and create your own superuser admin and re-run migrate; then import the `db.json` with the commands below and start the server again.
-
-```bash
-$ python manage.py dumpdata > db.json
-$ python manage.py loaddata db.json
-```
-
-Commands:
+Django:
 
 ```bash
 $ python manage.py createsuperuser
@@ -47,7 +38,14 @@ $ python manage.py makemigrations
 $ python manage.py runserver
 ```
 
-### REST API
+Data:
+
+Delete the `db.sqlite3` file to avoid conflicts; run migrate and create your own superuser admin and re-run migrate; then import the `db.json` with the commands below and start the server again.
+
+```bash
+$ python manage.py dumpdata > db.json
+$ python manage.py loaddata db.json
+```
 
 Swagger UI:
 
@@ -72,6 +70,7 @@ $ pip install parameterized
 coverage:
 
 ```bash
+$ pip install coverage
 $ coverage run manage.py test -v 2 --exclude-tag=selenium
 $ coverage report
 $ coverage html
@@ -92,7 +91,7 @@ $ pip install django-mutpy
 $ python manage.py muttest shop  # Remember to disable Selenium
 ```
 
-Selenium:
+Selenium (Firefox necessario e geckodriver.exe):
 
 ```bash
 $ pip install selenium
