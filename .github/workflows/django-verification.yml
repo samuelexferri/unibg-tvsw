@@ -47,11 +47,9 @@ jobs:
       working-directory: ${{env.working-directory}}
       run: |
 
-    - name: Analisi statica (pylint, flake8, bandit)
+    - name: Analisi statica (pylint, flake8, bandit) TODO
       working-directory: ${{env.working-directory}}
       run: |
-        flake8 -v --count
-        bandit -r -v .
         
     - name: Code Refractoring (black)
       working-directory: ${{env.working-directory}}
