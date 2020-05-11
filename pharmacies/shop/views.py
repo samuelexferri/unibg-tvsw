@@ -1,5 +1,6 @@
 from random import randint
 
+import icontract
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
@@ -217,9 +218,10 @@ class Payment:
         return self.status
 
 
+@icontract.invariant(lambda self: self.balance >= 0, "balance must not be negative")
 class FakeCreditCard:
     def __init__(self, balance=50):
-        assert balance >= 0, "balance should be positive"
+        assert balance >= 0, "balance should not be negative"
         self.balance = balance
 
     def has_enough_credit(self, amount):
@@ -227,7 +229,7 @@ class FakeCreditCard:
 
     def withdraw(self, amount):
         self.balance = self.balance - amount
-        assert self.balance >= 0, "balance should be positive"
+        assert self.balance >= 0, "balance should not be negative"
 
 
 def add_cart(request, id):

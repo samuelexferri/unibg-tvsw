@@ -90,7 +90,7 @@ def transfer(request):
     return render(request, "transfer/transfer.html", {"form": form})
 
 
-@icontract.require(lambda quantity: quantity > 0, "quantity must not be positive")
+@icontract.require(lambda quantity: quantity > 0, "quantity must be positive")
 @icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
 @icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
 @icontract.require(lambda category: Product.objects.all().filter(category=category).count() >= 1,

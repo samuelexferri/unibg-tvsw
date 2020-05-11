@@ -27,11 +27,11 @@ Models tests
 
 class ContactModelTest(TestCase):
     def create_contact(
-        self,
-        name="Test",
-        email="test@mail.com",
-        subject="Text",
-        message="Text",
+            self,
+            name="Test",
+            email="test@mail.com",
+            subject="Text",
+            message="Text",
     ):
         return Contact.objects.create(
             name=name, email=email, subject=subject, message=message
@@ -52,14 +52,14 @@ class ContactModelTest(TestCase):
 
 class PharmacyModelTest(TestCase):
     def create_pharmacy(
-        self,
-        name="Farmacia",
-        image="farmacia.png",
-        x=50,
-        y=0,
-        slot4hMinWeek=5,
-        location="Bergamo",
-        description="Text",
+            self,
+            name="Farmacia",
+            image="farmacia.png",
+            x=50,
+            y=0,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
     ):
         user = User.objects.create(username="TestUser")
         return Pharmacy.objects.create(
@@ -115,14 +115,14 @@ class CategoryModelTest(TestCase):
 
 class ProductModelTest(TestCase):
     def create_product(
-        self,
-        name="Oki",
-        image="pharmacy.png",
-        description="Text",
-        brand="Brand",
-        quantity=30,
-        price=20,
-        shipping_fee=10,
+            self,
+            name="Oki",
+            image="pharmacy.png",
+            description="Text",
+            brand="Brand",
+            quantity=30,
+            price=20,
+            shipping_fee=10,
     ):
         user = User.objects.create(username="TestUser")
         farmacia = Pharmacy.objects.create(
@@ -267,11 +267,11 @@ class ReviewModelTest(TestCase):
 
 class BuyerModelTest(TestCase):
     def create_buyer(
-        self,
-        full_name="Mario",
-        phone=123,
-        city="Bergamo",
-        address="via Vittoria 20",
+            self,
+            full_name="Mario",
+            phone=123,
+            city="Bergamo",
+            address="via Vittoria 20",
     ):
         return Buyer.objects.create(
             full_name=full_name, phone=phone, city=city, address=address
@@ -306,11 +306,11 @@ Forms tests (Also parameterized)
         ("Test", "without@domain", "Text", "Text", False),
         ("", "test@email.com", "Text", "Text", False),
         (
-            "LongNameLongNameLongNameLongNameLongNameLongNameLongNameLongName",
-            "test@email.com",
-            "Text",
-            "Text",
-            False,
+                "LongNameLongNameLongNameLongNameLongNameLongNameLongNameLongName",
+                "test@email.com",
+                "Text",
+                "Text",
+                False,
         ),
     ],
 )
@@ -425,8 +425,8 @@ class BuyerDeliveryFormTest(TestCase):
         ("Text", True),
         ("", False),
         (
-            "LongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReview",
-            False,
+                "LongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReviewLongReview",
+                False,
         ),
     ],
 )
@@ -695,14 +695,14 @@ class PaymentTestCase(unittest.TestCase):
 
 class PharmacyModelTestMockFile(TestCase):
     def create_pharmacy_image(
-        self,
-        image,
-        name="Farmacia",
-        x=50,
-        y=0,
-        slot4hMinWeek=5,
-        location="Bergamo",
-        description="Text",
+            self,
+            image,
+            name="Farmacia",
+            x=50,
+            y=0,
+            slot4hMinWeek=5,
+            location="Bergamo",
+            description="Text",
     ):
         user = User.objects.create(username="TestUser")
         file_mock = mock.MagicMock(spec=File)

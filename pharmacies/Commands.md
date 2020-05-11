@@ -18,7 +18,7 @@ Virtual Environment:
 $ pip3 install virtualenvwrapper-win
 $ mkvirtualenv my_django_environment
 $ workon my_django_environment
-$ rmvirtualenv  my_django_environment # Delete the envrironment!
+$ rmvirtualenv my_django_environment # Delete the envrironment!
 ```
 
 Requirements:

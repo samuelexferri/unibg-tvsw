@@ -3446,11 +3446,8 @@ Variabili:
 \begin_layout Standard
 In generale nell'applicazione sono state rinominate molte variabili per
  rendere più esplicito e facilmente intuibile il loro scopo usando anche
- lo stile 
-\emph on
-snake_case
-\emph default
-; anche gli import dei pacchetti necessari sono stati riorganizzati.
+ lo stile snake_case; anche gli import dei pacchetti necessari sono stati
+ riorganizzati.
 \end_layout
 
 \begin_layout Section
@@ -3525,7 +3522,6 @@ checklist
  Una buona checklist dovrebbe essere aggiornata regolarmente per rimuovere
  le parti obsolete e per aggiungere nuovi controlli suggeriti dall'esperienza
  accumulata.
- Tipici controlli riguardano:
 \end_layout
 
 \begin_layout Itemize
@@ -3565,130 +3561,76 @@ Other check (Pass the lint test?...)
 \end_layout
 
 \begin_layout Standard
-Uso la seguente checklist sulla mia app shop:
-\end_layout
-
-\begin_layout Standard
 All Tests:
 \end_layout
 
 \begin_layout Itemize
 The CI jobs on the pull request have passed.
- 
-\emph on
-Yes, I controlled the last push.
 \end_layout
 
 \begin_layout Itemize
 It is obvious what the test is trying to test.
- 
-\emph on
-Yes, it is documented.
 \end_layout
 
 \begin_layout Itemize
 The test passes when it’s supposed to pass.
- 
-\emph on
-Yes, positive case passed.
 \end_layout
 
 \begin_layout Itemize
 The test fails when it’s supposed to fail.
- 
-\emph on
-Yes, negative case passed.
 \end_layout
 
 \begin_layout Itemize
 The test is testing what it thinks it’s testing.
- 
-\emph on
-Yes
-\emph default
-.
 \end_layout
 
 \begin_layout Itemize
 The spec backs up the expected behavior in the test.
- 
-\emph on
-Yes, conforms to specifications.
 \end_layout
 
 \begin_layout Itemize
 The test is automated as either reftest or a script test unless there’s
  a very good reason for it not to be.
- 
-\emph on
-Yes, the test is automated and started with a command line.
 \end_layout
 
 \begin_layout Itemize
 The test does not use external resources.
- 
-\emph on
-No, it use only packages imported.
 \end_layout
 
 \begin_layout Itemize
 The test does not use proprietary features (vendor-prefixed or otherwise).
- 
-\emph on
-No, it doesn't use propretary features.
 \end_layout
 
 \begin_layout Itemize
 The test does not contain commented-out code.
- 
-\emph on
-Yes, only a Selenium test is commented in order to avoid long execution
- times.
 \end_layout
 
 \begin_layout Itemize
 The test is placed in the relevant directory.
- 
-\emph on
-Yes, every test related to a specific app is located inside tests.py in the
- app's directory.
 \end_layout
 
 \begin_layout Itemize
 The test has a reasonable and concise filename.
-
-\emph on
- No, it's just tests.py.
 \end_layout
 
 \begin_layout Itemize
 If the test needs code running on the server side, the server code must
  be written in Python, and the Python code must not do anything potentially
  unsafe.
- 
-\emph on
-Yes, only in localhost for now.
 \end_layout
 
 \begin_layout Itemize
 If the test needs to be run in some non-standard configuration or needs
  user interaction, it is a manual test.
- 
-\emph on
-No, it is all automated.
 \end_layout
 
 \begin_layout Itemize
 Nit: The title is descriptive but not too wordy.
  
-\emph on
-Yes, the title has coincided but clear.
 \end_layout
 
 \begin_layout Standard
-Reftests Only: 
-\emph on
-(Not used)
+Reftests Only:
 \end_layout
 
 \begin_layout Itemize
@@ -3729,9 +3671,6 @@ The number of tests in each file and the test names are consistent across
  It is best to avoid the pattern where there is a test that asserts that
  the feature is supported and bails out without running the rest of the
  tests in the file if it isn’t.
- 
-\emph on
-Yes, the number of tests in each file and the test names are consistent.
 \end_layout
 
 \begin_layout Itemize
@@ -3739,31 +3678,23 @@ The test avoids patterns that make it less likely to be stable.
  In particular, tests should avoid setting internal timeouts, since the
  time taken to run it may vary on different devices; events should be used
  instead (if at all possible).
- 
-\emph on
-Yes, test avoids patterns that make it less likely to be stable.
 \end_layout
 
 \begin_layout Itemize
 The test uses the most specific asserts possible (e.g.
  doesn’t use assert_true for everything).
- 
-\emph on
-Yes, it use the proper assert, for example assertEqual, assertTrue, assertExcept
-ion.
+\end_layout
+
+\begin_layout Itemize
+The test uses idlharness.js if it is testing basic IDL-defined behavior.
 \end_layout
 
 \begin_layout Itemize
 Nit: Tests in a single file are separated by one empty line.
- 
-\emph on
-Yes, everything is in order.
 \end_layout
 
 \begin_layout Standard
-Visual Tests Only: 
-\emph on
-(Not used)
+Visual Tests Only:
 \end_layout
 
 \begin_layout Itemize
@@ -3788,7 +3719,7 @@ The test renders to a fixed, static page with no animation.
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiungere)
+TODO (Checklist a mano su un modulo)
 \end_layout
 
 \begin_layout Chapter
