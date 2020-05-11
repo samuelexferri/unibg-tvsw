@@ -2,13 +2,215 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b7ddfcd-b23f-4f17-bd72-eb26a2c2232f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../doc/latex/#chapter-tvsw.lyx#" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/latex/#chapter-tvsw.lyx#" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils-0.16.dist-info/COPYING.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils-0.16.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils-0.16.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils-0.16.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils-0.16.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils-0.16.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/examples.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/frontend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/io.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/af.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/ca.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/cs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/da.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/de.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/en.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/eo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/es.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/fa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/fi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/fr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/gl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/he.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/it.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/ja.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/ko.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/lt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/lv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/nl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/pl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/pt_br.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/ru.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/sk.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/sv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/zh_cn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/languages/zh_tw.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/nodes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/null.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/admonitions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/body.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/html.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/images.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/parts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/references.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/directives/tables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isoamsa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isoamsb.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isoamsc.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isoamsn.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isoamso.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isoamsr.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isobox.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isocyr1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isocyr2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isodia.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isogrk1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isogrk2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isogrk3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isogrk4-wide.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isogrk4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isolat1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isolat2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isomfrk-wide.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isomfrk.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isomopf-wide.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isomopf.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isomscr-wide.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isomscr.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isonum.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isopub.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/isotech.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/mmlalias.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/mmlextra-wide.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/mmlextra.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/s5defs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/xhtml1-lat1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/xhtml1-special.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/include/xhtml1-symbol.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/af.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/ca.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/cs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/da.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/de.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/en.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/eo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/es.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/fa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/fi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/fr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/gl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/he.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/it.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/ja.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/ko.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/lt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/lv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/nl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/pl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/pt_br.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/ru.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/sk.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/sv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/zh_cn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/languages/zh_tw.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/roles.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/states.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/parsers/rst/tableparser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/readers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/readers/doctree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/readers/pep.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/readers/standalone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/statemachine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/components.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/frontmatter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/parts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/peps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/references.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/universal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/transforms/writer_aux.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/code_analyzer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/error_reporting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/math/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/math/latex2mathml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/math/math2html.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/math/tex2mathml_extern.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/math/tex2unichar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/math/unichar2tex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/punctuation_chars.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/roman.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/smartquotes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/utils/urischemes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/_html_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/docutils_xml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html4css1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html4css1/html4css1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html4css1/template.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html5_polyglot/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html5_polyglot/math.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html5_polyglot/minimal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html5_polyglot/plain.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/html5_polyglot/template.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/latex2e/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/latex2e/default.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/latex2e/titlepage.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/latex2e/xelatex.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/manpage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/null.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/odf_odt/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/odf_odt/pygmentsformatter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/odf_odt/styles.odt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/pep_html/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/pep_html/pep.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/pep_html/template.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/pseudoxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/big-black/__base__" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/big-black/framing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/big-black/pretty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/big-white/framing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/big-white/pretty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/blank.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/framing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/iepngfix.htc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/opera.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/outline.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/pretty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/s5-core.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/slides.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/default/slides.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/medium-black/__base__" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/medium-black/pretty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/medium-white/framing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/medium-white/pretty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/small-black/__base__" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/small-black/pretty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/small-white/framing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/s5_html/themes/small-white/pretty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/docutils/writers/xetex/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2html.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2html4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2html5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2latex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2man.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2odt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2odt_prepstyles.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2pseudoxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2s5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2xetex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rst2xml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/rstpep2html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../doc/latex/#chapter-tvsw.lyx#" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../doc/latex/chapter-tvsw.lyx" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/latex/chapter-tvsw.lyx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands.md" beforeDir="false" afterPath="$PROJECT_DIR$/Commands.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacies/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacies/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacies/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacies/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +236,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="pharmacies" type="Python.DjangoServer" factoryName="Django server">
@@ -42,6 +245,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="pharmacies.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -73,6 +277,8 @@
       <workItem from="1589114506398" duration="106000" />
       <workItem from="1589114765723" duration="6180000" />
       <workItem from="1589186516872" duration="2767000" />
+      <workItem from="1589195080006" duration="582000" />
+      <workItem from="1589199846162" duration="339000" />
     </task>
     <servers />
   </component>
@@ -83,9 +289,17 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589114569148">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589195662851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1589114569148" />
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1589195662851" />
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1589195525980">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589195525980" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1589195588689">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589195588689" />
   </component>
 </project>

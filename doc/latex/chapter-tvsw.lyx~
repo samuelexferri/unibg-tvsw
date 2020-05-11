@@ -3450,10 +3450,6 @@ Vedi analisi di complessità degli algoritmi.
 \end_layout
 
 \begin_layout Standard
-TODO
-\end_layout
-
-\begin_layout Standard
 
 \series bold
 Variabili:
@@ -3467,6 +3463,10 @@ In generale nell'applicazione sono state rinominate molte variabili per
 snake_case
 \emph default
 ; anche gli import dei pacchetti necessari sono stati riorganizzati.
+\end_layout
+
+\begin_layout Standard
+TODO (Vario)
 \end_layout
 
 \begin_layout Section
