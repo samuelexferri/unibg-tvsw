@@ -26,8 +26,8 @@ class SaxError(etree.LxmlError):
 
 
 def _getNsTag(tag):
-    if tag[0] == '{':
-        return tuple(tag[1:].split('}', 1))
+    if tag[0] == "{":
+        return tuple(tag[1:].split("}", 1))
     else:
         return None, tag
 
@@ -35,13 +35,14 @@ def _getNsTag(tag):
 class ElementTreeContentHandler(ContentHandler):
     """Build an lxml ElementTree from SAX events.
     """
+
     def __init__(self, makeelement=None):
         ContentHandler.__init__(self)
         self._root = None
         self._root_siblings = []
         self._element_stack = []
         self._default_ns = None
-        self._ns_mapping = { None : [None] }
+        self._ns_mapping = {None: [None]}
         self._new_mappings = {}
         if makeelement is None:
             makeelement = etree.Element
@@ -107,15 +108,17 @@ class ElementTreeContentHandler(ContentHandler):
 
         element_stack = self._element_stack
         if self._root is None:
-            element = self._root = \
-                      self._makeelement(el_name, attrs, self._new_mappings)
-            if self._root_siblings and hasattr(element, 'addprevious'):
+            element = self._root = self._makeelement(
+                el_name, attrs, self._new_mappings
+            )
+            if self._root_siblings and hasattr(element, "addprevious"):
                 for sibling in self._root_siblings:
                     element.addprevious(sibling)
             del self._root_siblings[:]
         else:
-            element = SubElement(element_stack[-1], el_name,
-                                 attrs, self._new_mappings)
+            element = SubElement(
+                element_stack[-1], el_name, attrs, self._new_mappings
+            )
         element_stack.append(element)
 
         self._new_mappings.clear()
@@ -135,9 +138,7 @@ class ElementTreeContentHandler(ContentHandler):
 
     def startElement(self, name, attributes=None):
         if attributes:
-            attributes = dict(
-                    [((None, k), v) for k, v in attributes.items()]
-                )
+            attributes = dict([((None, k), v) for k, v in attributes.items()])
         self.startElementNS((None, name), name, attributes)
 
     def endElement(self, name):
@@ -148,10 +149,10 @@ class ElementTreeContentHandler(ContentHandler):
         try:
             # if there already is a child element, we must append to its tail
             last_element = last_element[-1]
-            last_element.tail = (last_element.tail or '') + data
+            last_element.tail = (last_element.tail or "") + data
         except IndexError:
             # otherwise: append to the text
-            last_element.text = (last_element.text or '') + data
+            last_element.text = (last_element.text or "") + data
 
     ignorableWhitespace = characters
 
@@ -159,6 +160,7 @@ class ElementTreeContentHandler(ContentHandler):
 class ElementTreeProducer(object):
     """Produces SAX events for an element and children.
     """
+
     def __init__(self, element_or_tree, content_handler):
         try:
             element = element_or_tree.getroot()
@@ -167,6 +169,7 @@ class ElementTreeProducer(object):
         self._element = element
         self._content_handler = content_handler
         from xml.sax.xmlreader import AttributesNSImpl as attr_class
+
         self._attr_class = attr_class
         self._empty_attributes = attr_class({}, {})
 
@@ -174,10 +177,10 @@ class ElementTreeProducer(object):
         self._content_handler.startDocument()
 
         element = self._element
-        if hasattr(element, 'getprevious'):
+        if hasattr(element, "getprevious"):
             siblings = []
             sibling = element.getprevious()
-            while getattr(sibling, 'tag', None) is ProcessingInstruction:
+            while getattr(sibling, "tag", None) is ProcessingInstruction:
                 siblings.append(sibling)
                 sibling = sibling.getprevious()
             for sibling in siblings[::-1]:
@@ -185,9 +188,9 @@ class ElementTreeProducer(object):
 
         self._recursive_saxify(element, {})
 
-        if hasattr(element, 'getnext'):
+        if hasattr(element, "getnext"):
             sibling = element.getnext()
-            while getattr(sibling, 'tag', None) is ProcessingInstruction:
+            while getattr(sibling, "tag", None) is ProcessingInstruction:
                 self._recursive_saxify(sibling, {})
                 sibling = sibling.getnext()
 
@@ -199,7 +202,8 @@ class ElementTreeProducer(object):
         if tag is Comment or tag is ProcessingInstruction:
             if tag is ProcessingInstruction:
                 content_handler.processingInstruction(
-                    element.target, element.text)
+                    element.target, element.text
+                )
             tail = element.tail
             if tail:
                 content_handler.characters(tail)
@@ -211,7 +215,7 @@ class ElementTreeProducer(object):
             # There have been updates to the namespace
             for prefix, ns_uri in element_nsmap.items():
                 if parent_nsmap.get(prefix) != ns_uri:
-                    new_prefixes.append( (prefix, ns_uri) )
+                    new_prefixes.append((prefix, ns_uri))
 
         attribs = element.items()
         if attribs:
@@ -221,20 +225,30 @@ class ElementTreeProducer(object):
                 attr_ns_tuple = _getNsTag(attr_ns_name)
                 attr_values[attr_ns_tuple] = value
                 attr_qnames[attr_ns_tuple] = self._build_qname(
-                    attr_ns_tuple[0], attr_ns_tuple[1], element_nsmap,
-                    preferred_prefix=None, is_attribute=True)
+                    attr_ns_tuple[0],
+                    attr_ns_tuple[1],
+                    element_nsmap,
+                    preferred_prefix=None,
+                    is_attribute=True,
+                )
             sax_attributes = self._attr_class(attr_values, attr_qnames)
         else:
             sax_attributes = self._empty_attributes
 
         ns_uri, local_name = _getNsTag(tag)
         qname = self._build_qname(
-            ns_uri, local_name, element_nsmap, element.prefix, is_attribute=False)
+            ns_uri,
+            local_name,
+            element_nsmap,
+            element.prefix,
+            is_attribute=False,
+        )
 
         for prefix, uri in new_prefixes:
             content_handler.startPrefixMapping(prefix, uri)
         content_handler.startElementNS(
-            (ns_uri, local_name), qname, sax_attributes)
+            (ns_uri, local_name), qname, sax_attributes
+        )
         text = element.text
         if text:
             content_handler.characters(text)
@@ -247,7 +261,9 @@ class ElementTreeProducer(object):
         if tail:
             content_handler.characters(tail)
 
-    def _build_qname(self, ns_uri, local_name, nsmap, preferred_prefix, is_attribute):
+    def _build_qname(
+        self, ns_uri, local_name, nsmap, preferred_prefix, is_attribute
+    ):
         if ns_uri is None:
             return local_name
 
@@ -256,19 +272,22 @@ class ElementTreeProducer(object):
         else:
             # Pick the first matching prefix, in alphabetical order.
             candidates = [
-                pfx for (pfx, uri) in nsmap.items()
+                pfx
+                for (pfx, uri) in nsmap.items()
                 if pfx is not None and uri == ns_uri
             ]
             prefix = (
-                candidates[0] if len(candidates) == 1
-                else min(candidates) if candidates
+                candidates[0]
+                if len(candidates) == 1
+                else min(candidates)
+                if candidates
                 else None
             )
 
         if prefix is None:
             # Default namespace
             return local_name
-        return prefix + ':' + local_name
+        return prefix + ":" + local_name
 
 
 def saxify(element_or_tree, content_handler):

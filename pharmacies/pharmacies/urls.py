@@ -51,6 +51,7 @@ urlpatterns = [
         schema_view.with_ui("redoc", cache_timeout=0),
         name="schema-redoc",
     ),
+    path("admin/doc/", include("django.contrib.admindocs.urls")),
     path("authentication/", include("authentication.urls")),
     path("shop/", include("shop.urls")),
     path("timetable/", include("timetable.urls")),

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django_extensions",
+    "django.contrib.admindocs",
     "rest_framework",
     "bootstrap4",
     "django_forms_bootstrap",

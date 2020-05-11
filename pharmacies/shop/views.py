@@ -218,7 +218,9 @@ class Payment:
         return self.status
 
 
-@icontract.invariant(lambda self: self.balance >= 0, "balance must not be negative")
+@icontract.invariant(
+    lambda self: self.balance >= 0, "balance must not be negative"
+)
 class FakeCreditCard:
     def __init__(self, balance=50):
         assert balance >= 0, "balance should not be negative"

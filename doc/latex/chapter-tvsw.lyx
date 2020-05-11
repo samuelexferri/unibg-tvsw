@@ -3418,7 +3418,12 @@ Documentazione:
 \end_layout
 
 \begin_layout Standard
-TODO
+Nel pannello admin, all'indirizzo 
+\emph on
+admin/doc/ 
+\emph default
+è possibile visualizzare la documentazione presa dalle docstrings dei models,
+ views, template tags e template filters di ogni app installata nel progetto.
 \end_layout
 
 \begin_layout Standard
@@ -3434,7 +3439,14 @@ Performance:
 \end_layout
 
 \begin_layout Standard
-TODO
+L'analisi della performance degli algortimi si può trarre dell'analisi di
+ complessità degli algoritmi descritta nelle fasi precedenti.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi analisi di complessità degli algoritmi.
 \end_layout
 
 \begin_layout Standard
@@ -3451,6 +3463,10 @@ In generale nell'applicazione sono state rinominate molte variabili per
 snake_case
 \emph default
 ; anche gli import dei pacchetti necessari sono stati riorganizzati.
+\end_layout
+
+\begin_layout Standard
+TODO (Vario)
 \end_layout
 
 \begin_layout Section

@@ -162,3 +162,8 @@ $ pip install black
 $ black . --line-length 79 --check
 $ black . --line-length 79
 ```
+
+### Users
+
+Account: cliente1, farmacista1, admin
+Password: ginopino, ginopino, admin

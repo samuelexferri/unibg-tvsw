@@ -3418,7 +3418,12 @@ Documentazione:
 \end_layout
 
 \begin_layout Standard
-TODO
+Nel pannello admin, all'indirizzo 
+\emph on
+admin/doc/ 
+\emph default
+è possibile visualizzare la documentazione presa dalle docstrings dei models,
+ views, template tags e template filters di ogni app installata nel progetto.
 \end_layout
 
 \begin_layout Standard
@@ -3431,6 +3436,17 @@ Vedi REST API.
 
 \series bold
 Performance:
+\end_layout
+
+\begin_layout Standard
+L'analisi della performance degli algortimi si può trarre dell'analisi di
+ complessità degli algoritmi descritta nelle fasi precedenti.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi analisi di complessità degli algoritmi.
 \end_layout
 
 \begin_layout Standard
@@ -3788,7 +3804,7 @@ The test renders to a fixed, static page with no animation.
 \end_layout
 
 \begin_layout Standard
-TODO (Checklist a mano su un modulo)
+TODO (Aggiungere)
 \end_layout
 
 \begin_layout Chapter

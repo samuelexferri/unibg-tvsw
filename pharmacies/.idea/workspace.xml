@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b7ddfcd-b23f-4f17-bd72-eb26a2c2232f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../doc/latex/#chapter-tvsw.lyx#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../doc/latex/#chapter-tvsw.lyx#" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/latex/#chapter-tvsw.lyx#" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../doc/latex/chapter-tvsw.lyx" beforeDir="false" afterPath="$PROJECT_DIR$/../doc/latex/chapter-tvsw.lyx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Commands.md" beforeDir="false" afterPath="$PROJECT_DIR$/Commands.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shop/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transfer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/transfer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacies/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacies/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacies/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacies/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
