@@ -51,4 +51,4 @@ jobs:
     - name: Code Refractoring (black)
       working-directory: ${{env.working-directory}}
       run: |
-        black . --line-length 79
+        black . --line-length 79 --check
