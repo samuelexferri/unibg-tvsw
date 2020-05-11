@@ -309,7 +309,7 @@ requirements.txt
 \emph on
 Django
 \emph default
- usata è la 3.0.1.
+ usata è la 3.0.6.
 \end_layout
 
 \begin_layout Standard
@@ -317,7 +317,7 @@ Assicurarsi di aver installato
 \emph on
 Python
 \emph default
- (versione 3.8) nel proprio sistema e di aver aggiornato 
+ (versione 3.7.7) nel proprio sistema e di aver aggiornato 
 \emph on
 pip.
 
@@ -340,6 +340,13 @@ http://127.0.0.1:8000/.
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+Nota:
+\series default
+\emph on
+ 
+\emph default
 Ulteriori comandi si possono trovare nel file 
 \emph on
 Commands.md 
@@ -375,12 +382,17 @@ $ cd /indirizzo/pharmacies
 
 \begin_layout Plain Layout
 
-// pip
+// PIP
 \end_layout
 
 \begin_layout Plain Layout
 
 $ python -m pip install --upgrade pip
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install --upgrade setuptools
 \end_layout
 
 \begin_layout Plain Layout
@@ -394,17 +406,22 @@ $ python -m pip install --upgrade pip
 
 \begin_layout Plain Layout
 
-$ pip3 install virtualenvwrapper-win
+$ pip install virtualenvwrapper-win
 \end_layout
 
 \begin_layout Plain Layout
 
-$ mkvirtualenv my_django_environment
+$ mkvirtualenv -p python3.7.7 venv_pharmacies
 \end_layout
 
 \begin_layout Plain Layout
 
-$ workon my_django_environment
+$ workon venv_pharmacies
+\end_layout
+
+\begin_layout Plain Layout
+
+$ rmvirtualenv venv_pharmacies
 \end_layout
 
 \begin_layout Plain Layout
@@ -630,7 +647,7 @@ status open
 
 \begin_layout Plain Layout
 
-// --[Code Testing]-- //
+// ### Code Testing ###
 \end_layout
 
 \begin_layout Plain Layout
@@ -644,7 +661,7 @@ status open
 
 \begin_layout Plain Layout
 
-// Integrato
+// Integrated
 \end_layout
 
 \begin_layout Plain Layout
@@ -686,7 +703,7 @@ $ pip install coverage
 
 \begin_layout Plain Layout
 
-// Sito
+// Site
 \end_layout
 
 \begin_layout Plain Layout
@@ -700,6 +717,11 @@ $ pip install coverage
 
 \begin_layout Plain Layout
 
+// Require to uninstall `pytest` and to comment Selenium test
+\end_layout
+
+\begin_layout Plain Layout
+
 $ pip install django-mutpy
 \end_layout
 
@@ -709,7 +731,12 @@ $ pip install django-mutpy
 
 \begin_layout Plain Layout
 
-// Selenium (Firefox necessario e geckodriver.exe)
+// Selenium
+\end_layout
+
+\begin_layout Plain Layout
+
+// Requires `Firefox` and `geckodriver.exe`
 \end_layout
 
 \begin_layout Plain Layout
@@ -747,7 +774,7 @@ $ pip install mock
 
 \begin_layout Plain Layout
 
-// --[Code Verification]-- //
+// ### Code Verification ###
 \end_layout
 
 \begin_layout Plain Layout
@@ -762,6 +789,25 @@ $ pip install mock
 \begin_layout Plain Layout
 
 $ pip install icontract
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// nagini
+\end_layout
+
+\begin_layout Plain Layout
+
+// Require `typed-ast==0.6.3` (Incompatible with black and astroid)
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install nagini
 \end_layout
 
 \begin_layout Plain Layout
@@ -836,7 +882,9 @@ $ pip install pyreverse
 
 \begin_layout Plain Layout
 
-// Istruzioni per l'installazione sul sito
+// Install GraphViz (visit the site) and add the the path `bin
+\backslash
+gvedit.exe` in the environment variables path
 \end_layout
 
 \begin_layout Plain Layout
@@ -870,6 +918,32 @@ Firefox
  ed è necessaria la presenza dell'eseguibile 
 \emph on
 geckodriver.exe.
+\end_layout
+
+\begin_layout Standard
+Alcuni tool hanno dipendenze incompatibili tra di loro se usato lo stesso
+ environment: ad esempio 
+\emph on
+nagini
+\emph default
+ richiede 
+\emph on
+`typed-ast==0.6.3`
+\emph default
+ mentre altri tools una versione più recente.
+ Vi sono alcuni problemi se si prova ad eseguire 
+\emph on
+django-mutpy
+\emph default
+ avendo installato anche 
+\emph on
+pytest
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+TODO (Incompatibilità)
 \end_layout
 
 \begin_layout Standard

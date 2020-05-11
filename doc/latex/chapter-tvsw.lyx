@@ -1063,7 +1063,7 @@ status open
 
 \begin_layout Plain Layout
 
-$ coverage run manage.py test -v 2
+$ coverage run --source ./ manage.py test -v 2 --exclude-tag=selenium
 \end_layout
 
 \begin_layout Plain Layout
@@ -1096,7 +1096,7 @@ In una prima stesura di test si era raggiunto il 49% di copertura del codice.
  In figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Coverage-Vecchio"
+reference "Coverage iniziale"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1122,7 +1122,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename screenshot/Coverage (Vecchio).png
+	filename screenshot/Coverage (Iniziale).png
 	lyxscale 75
 	scale 75
 
@@ -1136,7 +1136,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "Coverage-Vecchio"
+name "Coverage iniziale"
 
 \end_inset
 
@@ -1144,7 +1144,7 @@ name "Coverage-Vecchio"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Coverage precedente
+Coverage iniziale
 \end_layout
 
 \end_inset
@@ -1173,7 +1173,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename screenshot/Coverage.png
+	filename screenshot/Coverage (Finale).png
 	lyxscale 75
 	scale 35
 
@@ -1187,7 +1187,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "Coverage"
+name "Coverage finale"
 
 \end_inset
 
@@ -1410,11 +1410,17 @@ mutpy
 \end_layout
 
 \begin_layout Standard
-Il risultato finale dei test, dopo aver fatto varie iterazioni per migliorarlo,
- di mutazione è il seguente:
-\end_layout
+Inizialmente, avendo pochi test si otteneva il risultato in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "MutPy iniziale"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
+\end_inset
+
+.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1424,7 +1430,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename screenshot/MutPy.png
+	filename screenshot/MutPy (Iniziale).png
 	lyxscale 75
 
 \end_inset
@@ -1437,7 +1443,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "MutPy"
+name "MutPy iniziale"
 
 \end_inset
 
@@ -1445,7 +1451,66 @@ name "MutPy"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-MutPy
+MutPy iniziale
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il risultato finale, dopo aver aggiunto moltissimi test e aver migliorato
+ al massimo il codice, è quello mostrato in fiugra 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "MutPy finale"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/MutPy (Finale).png
+	lyxscale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "MutPy finale"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MutPy finale
 \end_layout
 
 \end_inset
@@ -1996,7 +2061,12 @@ Code Verification
 \end_layout
 
 \begin_layout Standard
-TODO (Descrizione)
+Introduciamo la 
+\emph on
+code verification
+\emph default
+: se con il testing si può solo provare la presenza di difetti, con la verifica
+ si può dimostrare l’assenza di difetti.
 \end_layout
 
 \begin_layout Section
@@ -2517,6 +2587,66 @@ class FakeCreditCard:
 \end_layout
 
 \begin_layout Standard
+Nel caso un contratto risultasse violato, durante l'esecuzione dei test
+ si otterrebbe l'output in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Contract error"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Contract error.png
+	lyxscale 75
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Contract error"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Contract error
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 TODO (Estendere)
 \end_layout
 
@@ -2533,8 +2663,20 @@ program verification
  secondo le specifiche.
 \end_layout
 
+\begin_layout Subsection
+Nagini 
+\end_layout
+
 \begin_layout Standard
 TODO
+\end_layout
+
+\begin_layout Subsection
+MyPy
+\end_layout
+
+\begin_layout Standard
+TODO (In realtà è sotto WALL)
 \end_layout
 
 \begin_layout Section

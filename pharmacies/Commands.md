@@ -6,19 +6,20 @@ Path:
 $ cd C:\GitHub\tvsw\pharmacies
 ```
 
-pip:
-
-```bash
-$ python -m pip install --upgrade pip
-```
-
 Virtual Environment:
 
 ```bash
-$ pip3 install virtualenvwrapper-win
-$ mkvirtualenv my_django_environment
-$ workon my_django_environment
-$ rmvirtualenv my_django_environment # Delete the envrironment!
+$ pip install virtualenvwrapper-win
+$ mkvirtualenv -p python3.7.7 venv_pharmacies
+$ workon venv_pharmacies
+$ rmvirtualenv venv_pharmacies
+```
+
+PIP:
+
+```bash
+$ python -m pip install --upgrade pip
+$ pip install --upgrade setuptools
 ```
 
 Requirements:
@@ -71,7 +72,7 @@ coverage:
 
 ```bash
 $ pip install coverage
-$ coverage run manage.py test -v 2 --exclude-tag=selenium
+$ coverage run --source ./ manage.py test -v 2 --exclude-tag=selenium
 $ coverage report
 $ coverage html
 $ coverage xml
@@ -86,12 +87,16 @@ Site
 
 django-mutpy:
 
+Require to uninstall `pytest` and to comment Selenium test
+
 ```bash
 $ pip install django-mutpy
-$ python manage.py muttest shop  # Remember to disable Selenium
+$ python manage.py muttest shop
 ```
 
-Selenium (Firefox necessario e geckodriver.exe):
+Selenium:
+
+Requires `Firefox` and `geckodriver.exe`
 
 ```bash
 $ pip install selenium
@@ -113,10 +118,20 @@ icontract:
 $ pip install icontract
 ```
 
+nagini:
+
+Require `typed-ast==0.6.3` (Incompatible with black and astroid)
+
+```bash
+$ pip install nagini
+$ nagini --z3 ViperToolsWin/z3/bin/z3 --viper-jar-path ViperToolsWin/backends/silicon.jar shop/views.py
+```
+
 pylint:
 
 ```bash
 $ pip install pylint
+$ pip install pylint-django
 $ pylint --rcfile=./.pylintrc ./shop
 $ pylint --rcfile=./.pylintrc --errors-only ./shop
 $ pylint --rcfile=./.pylintrc --load-plugins pylint_django --load-plugins pylint_django.checkers.db_performance ./shop
@@ -148,7 +163,7 @@ $ pyreverse -o png -A -s 0 -a 0 -k  shop --ignore=migrations,tests,tests.py
 
 GraphViz:
 
-Install GraphViz (visit the site) and add the the path `bin\\gvedit.exe` in the environment variables path.
+Install GraphViz (visit the site) and add the the path `bin\gvedit.exe` in the environment variables path
 
 ```bash
 $ python manage.py graph_models -a -o models.png
@@ -165,5 +180,4 @@ $ black . --line-length 79
 
 ### Users
 
-Account: cliente1, farmacista1, admin
-Password: ginopino, ginopino, admin
+Account: cliente1 (ginopino), farmacista1 (ginopino), admin (admin)

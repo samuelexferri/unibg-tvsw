@@ -644,7 +644,7 @@ class ViewTest(TestCase):
 """
 Selenium, two command prompt necessary
 """
-
+"""
 
 @tag("selenium")
 class ContactViewSeleniumTest(LiveServerTestCase):
@@ -668,7 +668,7 @@ class ContactViewSeleniumTest(LiveServerTestCase):
     def tearDown(self):
         self.driver.close()
         self.driver.quit()
-
+"""
 
 """
 Mock tests
