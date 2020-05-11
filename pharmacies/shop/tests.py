@@ -2,9 +2,7 @@ import unittest
 from unittest import mock
 
 from django.core.files import File
-from django.test import LiveServerTestCase
 from django.test import TestCase
-from django.test import tag
 from django.urls import reverse
 from django.utils.text import slugify
 from parameterized import parameterized_class
@@ -385,7 +383,7 @@ class SellProductFormTest(TestCase):
         ("Test", True, "Text", "Text", False),
     ],
 )
-class BuyerDeliveryFormTest(TestCase):
+class BuyerDeliveryFormTestParameterized(TestCase):
     def test_form(self):
         data = {
             "full_name": self.full_name,
@@ -430,7 +428,7 @@ class BuyerDeliveryFormTest(TestCase):
         ),
     ],
 )
-class ReviewFormTest(TestCase):
+class ReviewFormTestParameterized(TestCase):
     def test_form(self):
         data = {"review": self.review}
         form = ReviewForm(data=data)
@@ -644,8 +642,8 @@ class ViewTest(TestCase):
 """
 Selenium, two command prompt necessary
 """
-"""
 
+"""
 @tag("selenium")
 class ContactViewSeleniumTest(LiveServerTestCase):
     def setUp(self):

@@ -4,6 +4,7 @@ import icontract
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
+from nagini_contracts.contracts import Invariant
 from rest_framework import viewsets
 
 from pharmacies import settings
@@ -223,13 +224,16 @@ class Payment:
 )
 class FakeCreditCard:
     def __init__(self, balance=50):
+        Invariant(balance >= 100000000000)
         assert balance >= 0, "balance should not be negative"
         self.balance = balance
 
     def has_enough_credit(self, amount):
+        Invariant(self.balance >= 100000000000)
         return self.balance > amount
 
     def withdraw(self, amount):
+        Invariant(self.balance >= 100000000000)
         self.balance = self.balance - amount
         assert self.balance >= 0, "balance should not be negative"
 

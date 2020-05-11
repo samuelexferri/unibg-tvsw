@@ -802,8 +802,8 @@ $ pip install icontract
 
 \begin_layout Plain Layout
 
-// Require `typed-ast==0.6.3` (Incompatible with astroid, black and mypy)
- and `pytest` (Incompatible with django-mutpy)
+// Require `typed-ast==0.6.3` (Incompatible with black and astroid) and `pytest`
+ (Incompatible with django-mutpy)
 \end_layout
 
 \begin_layout Plain Layout
@@ -931,16 +931,12 @@ nagini
 \emph on
 typed-ast==0.6.3
 \emph default
- mentre altri tools richiedono una versione più recente e inoltre richiede
- anche 
+ mentre altri tools una versione più recente e inoltre richiede 
 \emph on
 pytest
 \emph default
- che tuttavia è incompatibile con 
-\emph on
-django-mutpy
-\emph default
-: infatti ci sono alcuni problemi se si prova ad eseguire 
+, incompatibile con django-mutpy: infatti ci sono alcuni problemi se si
+ prova ad eseguire 
 \emph on
 django-mutpy
 \emph default

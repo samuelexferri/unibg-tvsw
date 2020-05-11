@@ -120,7 +120,7 @@ $ pip install icontract
 
 nagini:
 
-Require `typed-ast==0.6.3` (Incompatible with black and astroid)
+Require `typed-ast==0.6.3` (Incompatible with astroid, black and mypy) and `pytest` (Incompatible with django-mutpy)
 
 ```bash
 $ pip install nagini
