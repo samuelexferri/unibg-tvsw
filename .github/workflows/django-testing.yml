@@ -43,7 +43,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Run migrations (mypu check included)
+    - name: Run migrations (mypy check included)
       working-directory: ${{env.working-directory}}
       run: |
         python manage.py makemigrations
