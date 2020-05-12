@@ -304,8 +304,7 @@ Le varie versioni dei pacchetti da installare sono definite nel file
 \emph on
 requirements.txt
 \emph default
-.
- La versione di 
+; la versione di 
 \emph on
 Django
 \emph default
@@ -817,6 +816,25 @@ $ pip install nagini
 
 \begin_layout Plain Layout
 
+// mypy, django-stub
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install mypy
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install django-stub
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 // pylint
 \end_layout
 
@@ -864,6 +882,20 @@ $ pip install bandit
 
 \begin_layout Plain Layout
 
+// black
+\end_layout
+
+\begin_layout Plain Layout
+
+$ pip install black
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 // pyreverse
 \end_layout
 
@@ -886,20 +918,6 @@ $ pip install pyreverse
 // Install GraphViz (visit the site) and add the the path `bin
 \backslash
 gvedit.exe` in the environment variables path
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-// black
-\end_layout
-
-\begin_layout Plain Layout
-
-$ pip install black
 \end_layout
 
 \end_inset
@@ -949,6 +967,10 @@ django-mutpy
 pytest
 \emph default
 .
+\end_layout
+
+\begin_layout Standard
+TODO (nagini)
 \end_layout
 
 \begin_layout Standard

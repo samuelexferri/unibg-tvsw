@@ -1,6 +1,7 @@
 import unittest
 from unittest import mock
 
+from django.contrib.auth.models import User
 from django.core.files import File
 from django.test import TestCase
 from django.urls import reverse
@@ -9,34 +10,30 @@ from parameterized import parameterized_class
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
+from shop.forms import ContactForm, ReviewForm, BuyerDeliveryForm
+from shop.models import Contact, Pharmacy, Category, Product, Review, Buyer
 from shop.views import Payment, FakeCreditCard
 
 options = Options()
 options.headless = True
 driver = webdriver.Firefox(options=options)
 
-from shop.forms import *
-from shop.models import *
-
 """
 Models tests
 """
 
 
-class ContactModelTest(TestCase):
-    def create_contact(
-        self,
-        name="Test",
-        email="test@mail.com",
-        subject="Text",
-        message="Text",
-    ):
-        return Contact.objects.create(
-            name=name, email=email, subject=subject, message=message
-        )
+def create_contact(
+    name="Test", email="test@mail.com", subject="Text", message="Text",
+):
+    return Contact.objects.create(
+        name=name, email=email, subject=subject, message=message
+    )
 
+
+class ContactModelTest(TestCase):
     def test_contact_creation(self):
-        w = self.create_contact()
+        w = create_contact()
         self.assertTrue(isinstance(w, Contact))
         fields = w.id, w.name, w.email, w.subject, w.message
         self.assertEqual(w.__unicode__(), fields)
@@ -48,31 +45,31 @@ class ContactModelTest(TestCase):
         self.assertEqual(str(category), category.name)
 
 
-class PharmacyModelTest(TestCase):
-    def create_pharmacy(
-        self,
-        name="Farmacia",
-        image="farmacia.png",
-        x=50,
-        y=0,
-        slot4hMinWeek=5,
-        location="Bergamo",
-        description="Text",
-    ):
-        user = User.objects.create(username="TestUser")
-        return Pharmacy.objects.create(
-            owner=user,
-            name=name,
-            image=image,
-            x=x,
-            y=y,
-            slot4hMinWeek=slot4hMinWeek,
-            location=location,
-            description=description,
-        )
+def create_pharmacy(
+    name="Farmacia",
+    image="farmacia.png",
+    x=50,
+    y=0,
+    slot_4h_min_week=5,
+    location="Bergamo",
+    description="Text",
+):
+    user = User.objects.create(username="TestUser")
+    return Pharmacy.objects.create(
+        owner=user,
+        name=name,
+        image=image,
+        x=x,
+        y=y,
+        slot4hMinWeek=slot_4h_min_week,
+        location=location,
+        description=description,
+    )
 
+
+class PharmacyModelTest(TestCase):
     def test_pharmacy_creation(self):
-        w = self.create_pharmacy()
+        w = create_pharmacy()
         self.assertTrue(isinstance(w, Pharmacy))
         fields = w.id, w.owner, w.name
         self.assertEqual(w.__unicode__(), fields)
@@ -94,12 +91,13 @@ class PharmacyModelTest(TestCase):
         )
 
 
-class CategoryModelTest(TestCase):
-    def create_category(self, name="Antinfiammatorio", description="Text"):
-        return Category.objects.create(name=name, description=description)
+def create_category(name="Antinfiammatorio", description="Text"):
+    return Category.objects.create(name=name, description=description)
 
+
+class CategoryModelTest(TestCase):
     def test_category_creation(self):
-        w = self.create_category()
+        w = create_category()
         self.assertTrue(isinstance(w, Category))
         fields = w.id, w.name, w.description
         self.assertEqual(w.__unicode__(), fields)
@@ -111,48 +109,47 @@ class CategoryModelTest(TestCase):
         self.assertEqual(str(category), category.name)
 
 
-class ProductModelTest(TestCase):
-    def create_product(
-        self,
-        name="Oki",
-        image="pharmacy.png",
+def create_product(
+    name="Oki",
+    image="pharmacy.png",
+    description="Text",
+    brand="Brand",
+    quantity=30,
+    price=20,
+    shipping_fee=10,
+):
+    user = User.objects.create(username="TestUser")
+    farmacia = Pharmacy.objects.create(
+        owner=user,
+        name="Farmacia",
+        image="farmacia.png",
+        x=50,
+        y=50,
+        slot4hMinWeek=5,
+        location="Bergamo",
         description="Text",
-        brand="Brand",
-        quantity=30,
-        price=20,
-        shipping_fee=10,
-    ):
-        user = User.objects.create(username="TestUser")
-        farmacia = Pharmacy.objects.create(
-            owner=user,
-            name="Farmacia",
-            image="farmacia.png",
-            x=50,
-            y=50,
-            slot4hMinWeek=5,
-            location="Bergamo",
-            description="Text",
-        )
-        categoria = Category.objects.create(
-            name="Antinfiammatorio",
-            description="Text",
-            slug=slugify("Antinfiammatorio").__str__(),
-        )
-        return Product.objects.create(
-            name=name,
-            category=categoria,
-            pharmacy=farmacia,
-            image=image,
-            description=description,
-            brand=brand,
-            quantity=quantity,
-            price=price,
-            shipping_fee=shipping_fee,
-            slug=slugify(1).__str__(),
-        )
+    )
+    categoria = Category.objects.create(
+        name="Antinfiammatorio",
+        description="Text",
+        slug=slugify("Antinfiammatorio").__str__(),
+    )
+    return Product.objects.create(
+        name=name,
+        category=categoria,
+        pharmacy=farmacia,
+        image=image,
+        description=description,
+        brand=brand,
+        quantity=quantity,
+        price=price,
+        shipping_fee=shipping_fee,
+    )
 
+
+class ProductModelTest(TestCase):
     def test_product_creation(self):
-        w = self.create_product()
+        w = create_product()
         self.assertTrue(isinstance(w, Product))
         fields = w.id, w.name, w.description
         self.assertEqual(w.__unicode__(), fields)
@@ -184,46 +181,46 @@ class ProductModelTest(TestCase):
             quantity=30,
             price=20,
             shipping_fee=10,
+            slug=slugify("1"),
         )
         self.assertEqual(str(category), category.name)
 
 
-class ReviewModelTest(TestCase):
-    def create_review(self, review="Text"):
-        user = User.objects.create(username="TestUser")
-        farmacia = Pharmacy.objects.create(
-            owner=user,
-            name="Farmacia",
-            image="farmacia.png",
-            x=50,
-            y=50,
-            slot4hMinWeek=5,
-            location="Bergamo",
-            description="Text",
-        )
-        categoria = Category.objects.create(
-            name="Antinfiammatorio",
-            description="Text",
-            slug=slugify("Antinfiammatorio").__str__(),
-        )
-        prodotto = Product.objects.create(
-            name="Tachipirina",
-            category=categoria,
-            pharmacy=farmacia,
-            image="image.png",
-            description="Text",
-            brand="Brand",
-            quantity=10,
-            price=2,
-            shipping_fee=1,
-            slug=slugify(1).__str__(),
-        )
-        return Review.objects.create(
-            review=review, user=user, product=prodotto
-        )
+def create_review(review="Text"):
+    user = User.objects.create(username="TestUser")
+    farmacia = Pharmacy.objects.create(
+        owner=user,
+        name="Farmacia",
+        image="farmacia.png",
+        x=50,
+        y=50,
+        slot4hMinWeek=5,
+        location="Bergamo",
+        description="Text",
+    )
+    categoria = Category.objects.create(
+        name="Antinfiammatorio",
+        description="Text",
+        slug=slugify("Antinfiammatorio").__str__(),
+    )
+    prodotto = Product.objects.create(
+        name="Tachipirina",
+        category=categoria,
+        pharmacy=farmacia,
+        image="image.png",
+        description="Text",
+        brand="Brand",
+        quantity=10,
+        price=2,
+        shipping_fee=1,
+        slug=slugify("1"),
+    )
+    return Review.objects.create(review=review, user=user, product=prodotto)
 
+
+class ReviewModelTest(TestCase):
     def test_review_creation(self):
-        w = self.create_review()
+        w = create_review()
         self.assertTrue(isinstance(w, Review))
         fields = w.id, w.review
         self.assertEqual(w.__unicode__(), fields)
@@ -255,7 +252,7 @@ class ReviewModelTest(TestCase):
             quantity=10,
             price=2,
             shipping_fee=1,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         category = Review.objects.create(
             review="Text", user=user, product=prodotto
@@ -263,20 +260,17 @@ class ReviewModelTest(TestCase):
         self.assertEqual(str(category), category.product.__str__())
 
 
-class BuyerModelTest(TestCase):
-    def create_buyer(
-        self,
-        full_name="Mario",
-        phone=123,
-        city="Bergamo",
-        address="via Vittoria 20",
-    ):
-        return Buyer.objects.create(
-            full_name=full_name, phone=phone, city=city, address=address
-        )
+def create_buyer(
+    full_name="Mario", phone=123, city="Bergamo", address="via Vittoria 20",
+):
+    return Buyer.objects.create(
+        full_name=full_name, phone=phone, city=city, address=address
+    )
 
+
+class BuyerModelTest(TestCase):
     def test_buyer_creation(self):
-        w = self.create_buyer()
+        w = create_buyer()
         self.assertTrue(isinstance(w, Buyer))
         fields = w.id, w.full_name, w.phone
         self.assertEqual(w.__unicode__(), fields)
@@ -361,7 +355,7 @@ class SellProductFormTest(TestCase):
 
             data = {'pharmacy': farmacia, 'category': categoria, 'name': "Oki", 'image': "img", 'description': "Text",
                     'brand': "Brand", 'quantity': 10,
-                    'price': 20.00, 'shipping_fee': 5.00, 'slug': slugify(1).__str__()}
+                    'price': 20.00, 'shipping_fee': 5.00}
 
             file_dict = {'file': SimpleUploadedFile(img.name, img.read())}
 
@@ -531,9 +525,9 @@ class ViewTest(TestCase):
             quantity=10,
             price=2,
             shipping_fee=1,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
-        url = reverse("shop:products_detail", args=(prodotto.slug,))
+        url = reverse("shop:products_detail", args=(prodotto.id,))
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 200)
 
@@ -599,9 +593,9 @@ class ViewTest(TestCase):
             quantity=10,
             price=2,
             shipping_fee=1,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
-        url = reverse("shop:add_cart", args=(prodotto.slug,))
+        url = reverse("shop:add_cart", args=(prodotto.id,))
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 302)  # Redirect
 
@@ -632,9 +626,9 @@ class ViewTest(TestCase):
             quantity=10,
             price=2,
             shipping_fee=1,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
-        url = reverse("shop:add_review", args=(prodotto.slug,))
+        url = reverse("shop:add_review", args=(prodotto.id,))
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 302)  # Redirect
 
@@ -679,7 +673,7 @@ class PaymentTestCase(unittest.TestCase):
         cc = FakeCreditCard(50)
         mock_calculate_amount.return_value = 25
         payment = Payment(1, cc)
-        status = payment.process(self)
+        status = payment.process()
         self.assertEqual(status, "processed")
 
     @mock.patch("shop.views.calculate_amount", autospec=True)
@@ -687,37 +681,37 @@ class PaymentTestCase(unittest.TestCase):
         cc = FakeCreditCard(50)
         mock_calculate_amount.return_value = 200
         payment = Payment(1, cc)
-        status = payment.process(self)
+        status = payment.process()
         self.assertEqual(status, "cancelled")
 
 
-class PharmacyModelTestMockFile(TestCase):
-    def create_pharmacy_image(
-        self,
-        image,
-        name="Farmacia",
-        x=50,
-        y=0,
-        slot4hMinWeek=5,
-        location="Bergamo",
-        description="Text",
-    ):
-        user = User.objects.create(username="TestUser")
-        file_mock = mock.MagicMock(spec=File)
-        file_mock.name = image
-        return Pharmacy(
-            owner=user,
-            name=name,
-            image=file_mock,
-            x=x,
-            y=y,
-            slot4hMinWeek=slot4hMinWeek,
-            location=location,
-            description=description,
-        )
+def create_pharmacy_image(
+    image,
+    name="Farmacia",
+    x=50,
+    y=0,
+    slot_4h_min_week=5,
+    location="Bergamo",
+    description="Text",
+):
+    user = User.objects.create(username="TestUser")
+    file_mock = mock.MagicMock(spec=File)
+    file_mock.name = image
+    return Pharmacy(
+        owner=user,
+        name=name,
+        image=file_mock,
+        x=x,
+        y=y,
+        slot4hMinWeek=slot_4h_min_week,
+        location=location,
+        description=description,
+    )
 
+
+class PharmacyModelTestMockFile(TestCase):
     def test_pharmacy_creation_image(self):
-        w = self.create_pharmacy_image("image.png")
+        w = create_pharmacy_image("image.png")
         self.assertTrue(isinstance(w, Pharmacy))
         fields = w.id, w.owner, w.name
         self.assertEqual(w.__unicode__(), fields)

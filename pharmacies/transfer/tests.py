@@ -1,8 +1,9 @@
+from autoslug.settings import slugify
+from django.contrib.auth.models import User
 from django.test import TestCase
-from django.utils.text import slugify
 
-from shop.models import *
-from transfer.views import *
+from shop.models import Category, Pharmacy, Product
+from transfer.views import algorithm_transfer
 
 
 # Transfer(request) si occupa di chiamare l'algoritmo.
@@ -13,10 +14,10 @@ from transfer.views import *
 # CASO 1: Basta una farmacia per soddisfare la richiesta che è la più vicina
 class TransferTest1(TestCase):
     def test_algorithm_Transfer1(self):
-        xScelta = 0
-        yScelta = 0
-        quantitaScelta = 40
-        categoriaScelta = Category.objects.create(
+        x_scelta = 0
+        y_scelta = 0
+        quantita_scelta = 40
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -73,7 +74,7 @@ class TransferTest1(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -81,11 +82,11 @@ class TransferTest1(TestCase):
             quantity=40,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto2 = Product.objects.create(
             name="prodotto2",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia2,
             image="prodotto2.png",
             description="Text",
@@ -93,11 +94,11 @@ class TransferTest1(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto3 = Product.objects.create(
             name="prodotto3",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia3,
             image="prodotto3.png",
             description="Text",
@@ -105,11 +106,11 @@ class TransferTest1(TestCase):
             quantity=0,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto4 = Product.objects.create(
             name="prodotto4",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia4,
             image="prodotto4.png",
             description="Text",
@@ -117,7 +118,7 @@ class TransferTest1(TestCase):
             quantity=0,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
@@ -126,7 +127,7 @@ class TransferTest1(TestCase):
         prodotto4.save()
 
         doppia = algorithm_transfer(
-            self, categoriaScelta, quantitaScelta, xScelta, yScelta
+            self, categoria_scelta, quantita_scelta, x_scelta, y_scelta
         )
         # doppia[0] contiene la lista degli ID delle farmacie interessate
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
@@ -138,10 +139,10 @@ class TransferTest1(TestCase):
 # che andare dalla prima porterebbe solo 1 prodotto
 class TransferTest2(TestCase):
     def test_algorithm_Transfer2(self):
-        xScelta = 0
-        yScelta = 0
-        quantitaScelta = 70
-        categoriaScelta = Category.objects.create(
+        x_scelta = 0
+        y_scelta = 0
+        quantita_scelta = 70
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -198,7 +199,7 @@ class TransferTest2(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -206,11 +207,11 @@ class TransferTest2(TestCase):
             quantity=1,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto2 = Product.objects.create(
             name="prodotto2",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia2,
             image="prodotto2.png",
             description="Text",
@@ -218,11 +219,11 @@ class TransferTest2(TestCase):
             quantity=30,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto3 = Product.objects.create(
             name="prodotto3",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia3,
             image="prodotto3.png",
             description="Text",
@@ -230,11 +231,11 @@ class TransferTest2(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto4 = Product.objects.create(
             name="prodotto4",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia4,
             image="prodotto4.png",
             description="Text",
@@ -242,7 +243,7 @@ class TransferTest2(TestCase):
             quantity=40,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
@@ -251,7 +252,7 @@ class TransferTest2(TestCase):
         prodotto4.save()
 
         doppia = algorithm_transfer(
-            self, categoriaScelta, quantitaScelta, xScelta, yScelta
+            self, categoria_scelta, quantita_scelta, x_scelta, y_scelta
         )
         # doppia[0] contiene la lista degli ID delle farmacie interessate
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
@@ -263,10 +264,10 @@ class TransferTest2(TestCase):
 # stata in grado di soddisfare la quantità richiesta e sarebbe stata necessaria anche la farmacia4
 class TransferTest3(TestCase):
     def test_algorithm_Transfer3(self):
-        xScelta = 0
-        yScelta = 0
-        quantitaScelta = 50
-        categoriaScelta = Category.objects.create(
+        x_scelta = 0
+        y_scelta = 0
+        quantita_scelta = 50
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -323,7 +324,7 @@ class TransferTest3(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -331,11 +332,11 @@ class TransferTest3(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto2 = Product.objects.create(
             name="prodotto2",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia2,
             image="prodotto2.png",
             description="Text",
@@ -343,11 +344,11 @@ class TransferTest3(TestCase):
             quantity=10,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto3 = Product.objects.create(
             name="prodotto3",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia3,
             image="prodotto3.png",
             description="Text",
@@ -355,11 +356,11 @@ class TransferTest3(TestCase):
             quantity=5,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto4 = Product.objects.create(
             name="prodotto4",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia4,
             image="prodotto4.png",
             description="Text",
@@ -367,7 +368,7 @@ class TransferTest3(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
@@ -376,7 +377,7 @@ class TransferTest3(TestCase):
         prodotto4.save()
 
         doppia = algorithm_transfer(
-            self, categoriaScelta, quantitaScelta, xScelta, yScelta
+            self, categoria_scelta, quantita_scelta, x_scelta, y_scelta
         )
         # doppia[0] contiene la lista degli ID delle farmacie interessate
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
@@ -388,10 +389,10 @@ class TransferTest3(TestCase):
 # stata in grado di soddisfare la quantità richiesta e quindi bisogna utilizzare anche la farmacia4
 class TransferTest4(TestCase):
     def test_algorithm_Transfer4(self):
-        xScelta = 0
-        yScelta = 0
-        quantitaScelta = 50
-        categoriaScelta = Category.objects.create(
+        x_scelta = 0
+        y_scelta = 0
+        quantita_scelta = 50
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -448,7 +449,7 @@ class TransferTest4(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -456,11 +457,11 @@ class TransferTest4(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto2 = Product.objects.create(
             name="prodotto2",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia2,
             image="prodotto2.png",
             description="Text",
@@ -468,11 +469,11 @@ class TransferTest4(TestCase):
             quantity=10,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto3 = Product.objects.create(
             name="prodotto3",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia3,
             image="prodotto3.png",
             description="Text",
@@ -480,11 +481,11 @@ class TransferTest4(TestCase):
             quantity=5,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto4 = Product.objects.create(
             name="prodotto4",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia4,
             image="prodotto4.png",
             description="Text",
@@ -492,7 +493,7 @@ class TransferTest4(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
@@ -501,7 +502,7 @@ class TransferTest4(TestCase):
         prodotto4.save()
 
         doppia = algorithm_transfer(
-            self, categoriaScelta, quantitaScelta, xScelta, yScelta
+            self, categoria_scelta, quantita_scelta, x_scelta, y_scelta
         )
         # doppia[0] contiene la lista degli ID delle farmacie interessate
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
@@ -515,10 +516,10 @@ class TransferTest4(TestCase):
 # Sceglie la farmacia con indice minore in caso di parità di vantaggio
 class TransferTest5(TestCase):
     def test_algorithm_Transfer5(self):
-        xScelta = 50
-        yScelta = 50
-        quantitaScelta = 50
-        categoriaScelta = Category.objects.create(
+        x_scelta = 50
+        y_scelta = 50
+        quantita_scelta = 50
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -575,7 +576,7 @@ class TransferTest5(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -583,11 +584,11 @@ class TransferTest5(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto2 = Product.objects.create(
             name="prodotto2",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia2,
             image="prodotto2.png",
             description="Text",
@@ -595,11 +596,11 @@ class TransferTest5(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto3 = Product.objects.create(
             name="prodotto3",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia3,
             image="prodotto3.png",
             description="Text",
@@ -607,11 +608,11 @@ class TransferTest5(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto4 = Product.objects.create(
             name="prodotto4",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia4,
             image="prodotto4.png",
             description="Text",
@@ -619,7 +620,7 @@ class TransferTest5(TestCase):
             quantity=20,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
@@ -628,7 +629,7 @@ class TransferTest5(TestCase):
         prodotto4.save()
 
         doppia = algorithm_transfer(
-            self, categoriaScelta, quantitaScelta, xScelta, yScelta
+            self, categoria_scelta, quantita_scelta, x_scelta, y_scelta
         )
         # doppia[0] contiene la lista degli ID delle farmacie interessate
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
@@ -641,10 +642,10 @@ class TransferTest5(TestCase):
 # quantità
 class TransferTest6(TestCase):
     def test_algorithm_Transfer6(self):
-        xScelta = 50
-        yScelta = 50
-        quantitaScelta = 1000
-        categoriaScelta = Category.objects.create(
+        x_scelta = 50
+        y_scelta = 50
+        quantita_scelta = 1000
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -701,7 +702,7 @@ class TransferTest6(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -709,11 +710,11 @@ class TransferTest6(TestCase):
             quantity=500,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto2 = Product.objects.create(
             name="prodotto2",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia2,
             image="prodotto2.png",
             description="Text",
@@ -721,11 +722,11 @@ class TransferTest6(TestCase):
             quantity=201,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto3 = Product.objects.create(
             name="prodotto3",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia3,
             image="prodotto3.png",
             description="Text",
@@ -733,11 +734,11 @@ class TransferTest6(TestCase):
             quantity=290,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto4 = Product.objects.create(
             name="prodotto4",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia4,
             image="prodotto4.png",
             description="Text",
@@ -745,7 +746,7 @@ class TransferTest6(TestCase):
             quantity=10,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
@@ -754,7 +755,7 @@ class TransferTest6(TestCase):
         prodotto4.save()
 
         doppia = algorithm_transfer(
-            self, categoriaScelta, quantitaScelta, xScelta, yScelta
+            self, categoria_scelta, quantita_scelta, x_scelta, y_scelta
         )
         # doppia[0] contiene la lista degli ID delle farmacie interessate
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
@@ -769,10 +770,10 @@ class TransferTest6(TestCase):
 # farmacia1 >= 670 si ha che la prima farmacia scelta è la farmacia1
 class TransferTest7(TestCase):
     def test_algorithm_Transfer7(self):
-        xScelta = 50
-        yScelta = 50
-        quantitaScelta = 1000
-        categoriaScelta = Category.objects.create(
+        x_scelta = 50
+        y_scelta = 50
+        quantita_scelta = 1000
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -829,7 +830,7 @@ class TransferTest7(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -837,11 +838,11 @@ class TransferTest7(TestCase):
             quantity=670,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto2 = Product.objects.create(
             name="prodotto2",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia2,
             image="prodotto2.png",
             description="Text",
@@ -849,11 +850,11 @@ class TransferTest7(TestCase):
             quantity=201,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto3 = Product.objects.create(
             name="prodotto3",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia3,
             image="prodotto3.png",
             description="Text",
@@ -861,11 +862,11 @@ class TransferTest7(TestCase):
             quantity=290,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
         prodotto4 = Product.objects.create(
             name="prodotto4",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia4,
             image="prodotto4.png",
             description="Text",
@@ -873,7 +874,7 @@ class TransferTest7(TestCase):
             quantity=10,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
@@ -882,7 +883,7 @@ class TransferTest7(TestCase):
         prodotto4.save()
 
         doppia = algorithm_transfer(
-            self, categoriaScelta, quantitaScelta, xScelta, yScelta
+            self, categoria_scelta, quantita_scelta, x_scelta, y_scelta
         )
         # doppia[0] contiene la lista degli ID delle farmacie interessate
         # doppia[1] contiene la lista delle quantità presa da ogni farmacia
@@ -890,13 +891,13 @@ class TransferTest7(TestCase):
         self.assertEqual(doppia[1], [670, 290, 40])
 
 
-# CASO 8: Non ci sono abbastanza prodotti, lanciata un'eccezione
+# CASO 8: Non ci sono abbastanza prodotti, viene lanciata un'eccezione
 class TransferTest8(TestCase):
     def test_algorithm_Transfer8(self):
-        xScelta = 50
-        yScelta = 50
-        quantitaScelta = 1000
-        categoriaScelta = Category.objects.create(
+        x_scelta = 50
+        y_scelta = 50
+        quantita_scelta = 1000
+        categoria_scelta = Category.objects.create(
             name="Antinfiammatori", description="Text"
         )
 
@@ -953,7 +954,7 @@ class TransferTest8(TestCase):
 
         prodotto1 = Product.objects.create(
             name="prodotto1",
-            category=categoriaScelta,
+            category=categoria_scelta,
             pharmacy=farmacia1,
             image="prodotto1.png",
             description="Text",
@@ -961,9 +962,17 @@ class TransferTest8(TestCase):
             quantity=670,
             price=10,
             shipping_fee=2,
-            slug=slugify(1).__str__(),
+            slug=slugify("1"),
         )
 
         prodotto1.save()
 
-        self.assertRaises(Exception)
+        self.assertRaises(
+            Exception,
+            algorithm_transfer,
+            self,
+            categoria_scelta,
+            quantita_scelta,
+            x_scelta,
+            y_scelta,
+        )

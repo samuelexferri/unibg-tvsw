@@ -127,6 +127,14 @@ $ pip install nagini
 $ nagini --z3 ViperToolsWin/z3/bin/z3 --viper-jar-path ViperToolsWin/backends/silicon.jar shop/views.py
 ```
 
+mypy, django-stub:
+
+```bash
+$ pip install mypy
+$ pip install django-stub
+$ mypy -p shop
+```
+
 pylint:
 
 ```bash

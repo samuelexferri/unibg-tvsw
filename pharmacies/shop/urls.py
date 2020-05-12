@@ -19,10 +19,12 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("contact/", views.contact, name="contact"),
     path("pharmacies/", views.pharmacy_list, name="pharmacies_list"),
-    path("pharmacies/<id>/", views.pharmacy_detail, name="pharmacies_detail"),
+    path(
+        "pharmacies/<iden>/", views.pharmacy_detail, name="pharmacies_detail"
+    ),
     path("categories/<slug>/", views.categories, name="categories"),
     path("products/", views.product_list, name="products_list"),
-    path("products/<id>", views.product_detail, name="products_detail"),
+    path("products/<iden>", views.product_detail, name="products_detail"),
     path("search/", views.search, name="search"),
     path("sellproduct/", views.sell_product, name="sell_product"),
     path("buyitems/", views.buy_items, name="buy_items"),
@@ -30,6 +32,6 @@ urlpatterns = [
     path("resetcart/", views.reset_cart, name="reset_cart"),
     path("payment/", views.payment, name="payment"),
     path("checkout/", views.checkout, name="checkout"),
-    path("<id>/addcart/", views.add_cart, name="add_cart"),
-    path("<id>/addreview/", views.add_review, name="add_review"),
+    path("<iden>/addcart/", views.add_cart, name="add_cart"),
+    path("<iden>/addreview/", views.add_review, name="add_review"),
 ]

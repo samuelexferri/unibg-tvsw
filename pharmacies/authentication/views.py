@@ -84,6 +84,7 @@ def activate(req, uidb64, token):
         return redirect("authentication:login")
     else:
         messages.error(req, "Activation link is invalid")
+        return redirect("authentication:login")
 
 
 def signin(request):

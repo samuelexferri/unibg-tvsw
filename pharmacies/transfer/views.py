@@ -37,13 +37,13 @@ def transfer(request):
             category = form["category"].value()
             quantity = form["quantity"].value()
 
-            listaProducts = Product.objects.all().filter(
+            lista_products = Product.objects.all().filter(
                 category=category
             )  # Prodotti filtrati per categoria
 
             # Caso quantità non disponibile
             count = 0
-            for p in listaProducts:
+            for p in lista_products:
                 count += p.quantity
 
             if count < int(quantity):
@@ -64,19 +64,19 @@ def transfer(request):
                     request, category, quantity, x, y
                 )  # Chiamata algorithm_transfer()
 
-                listIdPharmUsate = []
+                list_id_pharm_usate = []
                 for i in doppia[0]:
-                    listIdPharmUsate.append(
+                    list_id_pharm_usate.append(
                         Pharmacy.objects.get(id=i).__str__()
                     )
 
-                listQuantityPharmUsate = doppia[1]
+                list_quantity_pharm_usate = doppia[1]
                 return render(
                     request,
                     "transfer/transfer_done.html",
                     {
-                        "lid": listIdPharmUsate,
-                        "lq": listQuantityPharmUsate,
+                        "lid": list_id_pharm_usate,
+                        "lq": list_quantity_pharm_usate,
                         "tot": quantity,
                         "x": x,
                         "y": y,
@@ -91,8 +91,8 @@ def transfer(request):
 
 
 @icontract.require(lambda quantity: quantity > 0, "quantity must be positive")
-@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
-@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+@icontract.require(lambda x: 0 <= x <= 100, "coordinate 0 <= x <= 100")
+@icontract.require(lambda y: 0 <= y <= 100, "coordinate 0 <= y <= 100")
 @icontract.require(
     lambda category: Product.objects.all().filter(category=category).count()
     >= 1,
@@ -102,35 +102,34 @@ def transfer(request):
 @icontract.ensure(lambda result, quantity: sum(result[1]) == quantity)
 def algorithm_transfer(
     request, category: Category, quantity: int, x: int, y: int
-) -> list:
-    listaProducts = Product.objects.all().filter(
-        category=category
+):
+    lista_products = list(
+        Product.objects.all().filter(category=category)
     )  # Prodotti filtrati per categoria
 
-    listIdPharmUsate = []
-    listQuantityPharmUsate = []
+    list_id_pharm_usate = []
+    list_quantity_pharm_usate = []
 
     while int(quantity) > 0:
-        if len(listaProducts) == 0:
+        if len(lista_products) == 0:
             raise Exception(
                 "Non ci sono abbastanza prodotti"
             )  # In transfer() c'è un controllo precedente
-            break
 
-        quintupla = findGreedy(
-            listaProducts, x, y
+        quintupla = find_greedy(
+            lista_products, x, y
         )  # Chiamata findGreedy() a ogni iterazione
 
         # Il cliente si è spostato presso la farmacia (nuova posizione)
         x = quintupla[2]
         y = quintupla[3]
 
-        listIdPharmUsate.append(quintupla[0])
+        list_id_pharm_usate.append(quintupla[0])
 
         if int(quantity) > quintupla[1]:
-            listQuantityPharmUsate.append(quintupla[1])
+            list_quantity_pharm_usate.append(quintupla[1])
         else:
-            listQuantityPharmUsate.append(
+            list_quantity_pharm_usate.append(
                 quantity
             )  # Ultima farmacia ne prende solo una parte
 
@@ -139,82 +138,92 @@ def algorithm_transfer(
         )  # Decremento la quantità richiesta
 
         # Popping (Escludere farmacia già scelta)
-        listaProductsPoppata = []
+        lista_products_poppata = []
         i = 0
 
-        for p in listaProducts:
+        for p in lista_products:
             if i != quintupla[4]:
-                listaProductsPoppata.append(p)
+                lista_products_poppata.append(p)
             i += 1
         # END FOR
-        listaProducts = listaProductsPoppata
+        lista_products = lista_products_poppata
 
     # END WHILE
 
-    doppia = [listIdPharmUsate, listQuantityPharmUsate]
+    doppia = [list_id_pharm_usate, list_quantity_pharm_usate]
     return doppia
 
 
 @icontract.require(
-    lambda listaProducts: len(listaProducts) > 0,
+    lambda lista_products: len(lista_products) > 0,
     "listaProducts must not be empty",
 )
-@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
-@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+@icontract.require(lambda x: 0 <= x <= 100, "coordinate 0 <= x <= 100")
+@icontract.require(lambda y: 0 <= y <= 100, "coordinate 0 <= y <= 100")
 @icontract.ensure(
     lambda result: Pharmacy.objects.filter(id=result[0]).count() >= 1
 )
 @icontract.ensure(lambda result: result[1] >= 0)
 @icontract.ensure(lambda result: 0 <= result[2] <= 100)
 @icontract.ensure(lambda result: 0 <= result[3] <= 100)
-def findGreedy(listaProducts: list, x: int, y: int):
-    sceltaGolosa = []  # Vettore pesi
+def find_greedy(lista_products, x: int, y: int):
+    scelta_golosa = []  # Vettore pesi
 
     # Pesiamo quantità disponibile e distanza
-    for prod in listaProducts:
-        distanzapitagora = (x - prod.pharmacy.x) * (x - prod.pharmacy.x) + (
+    for prod in lista_products:
+        distanza_pitagora = (x - prod.pharmacy.x) * (x - prod.pharmacy.x) + (
             y - prod.pharmacy.y
         ) * (y - prod.pharmacy.y)
 
         # Stessa posizione della farmacia
-        if distanzapitagora == 0:
-            distanzapitagora = 0.01
+        if distanza_pitagora == 0:
+            distanza_pitagora = 0.01
 
-        weigth = float(prod.quantity) / sqrt(distanzapitagora)
-        sceltaGolosa.append(weigth)
+        weigth = float(prod.quantity) / sqrt(distanza_pitagora)
+        scelta_golosa.append(weigth)
     # END FOR
 
     # Massimizziamo il peso
-    idPharmScelta = 0
-    quantityScelta = 0
-    xScelto = 0
-    yScelto = 0
-    indiceScelto = 0
+    id_pharm_scelta = 0
+    quantity_scelta = 0
+    x_scelto = 0
+    y_scelto = 0
+    indice_scelto = 0
 
     i = 0
 
-    for prod in listaProducts:
+    peso_scelta = scelta_golosa[0]
+
+    for prod in lista_products:
         if i == 0:  # Inizializza con il primo prodotto
-            pesoScelta = sceltaGolosa[i]
+            peso_scelta = scelta_golosa[i]
 
-            idPharmScelta = prod.pharmacy.id
-            quantityScelta = prod.quantity
-            xScelto = prod.pharmacy.x
-            yScelto = prod.pharmacy.y
-            indiceScelto = i
-        elif sceltaGolosa[i] > pesoScelta:
-            pesoScelta = sceltaGolosa[i]  # Sovrascrivo il massimo massimo peso
+            id_pharm_scelta = prod.pharmacy.id
+            quantity_scelta = prod.quantity
+            x_scelto = prod.pharmacy.x
+            y_scelto = prod.pharmacy.y
+            indice_scelto = i
+        elif scelta_golosa[i] > peso_scelta:
+            peso_scelta = scelta_golosa[
+                i
+            ]  # Sovrascrivo il massimo massimo peso
 
-            idPharmScelta = prod.pharmacy.id
-            quantityScelta = prod.quantity
-            xScelto = prod.pharmacy.x
-            yScelto = prod.pharmacy.y
-            indiceScelto = i
+            id_pharm_scelta = prod.pharmacy.id
+            quantity_scelta = prod.quantity
+            x_scelto = prod.pharmacy.x
+            y_scelto = prod.pharmacy.y
+            indice_scelto = i
 
         i += 1  # Passo al prossimo prodotto
 
     # END FOR
 
-    quintupla = [idPharmScelta, quantityScelta, xScelto, yScelto, indiceScelto]
+    quintupla = [
+        id_pharm_scelta,
+        quantity_scelta,
+        x_scelto,
+        y_scelto,
+        indice_scelto,
+    ]
 
     return quintupla

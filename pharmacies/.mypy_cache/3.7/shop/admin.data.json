@@ -1,0 +1,152 @@
+{
+  ".class": "MypyFile",
+  "_fullname": "shop.admin",
+  "is_partial_stub_package": false,
+  "is_stub": false,
+  "names": {
+    ".class": "SymbolTable",
+    "Buyer": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "shop.models.Buyer",
+      "kind": "Gdef"
+    },
+    "BuyerAdmin": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "TypeInfo",
+        "_promote": null,
+        "abstract_attributes": [],
+        "bases": [
+          "django.contrib.admin.options.ModelAdmin"
+        ],
+        "declared_metaclass": null,
+        "defn": {
+          ".class": "ClassDef",
+          "fullname": "shop.admin.BuyerAdmin",
+          "name": "BuyerAdmin",
+          "type_vars": []
+        },
+        "flags": [],
+        "fullname": "shop.admin.BuyerAdmin",
+        "metaclass_type": null,
+        "metadata": {},
+        "module_name": "shop.admin",
+        "mro": [
+          "shop.admin.BuyerAdmin",
+          "django.contrib.admin.options.ModelAdmin",
+          "django.contrib.admin.options.BaseModelAdmin",
+          "builtins.object"
+        ],
+        "names": {
+          ".class": "SymbolTable",
+          "readonly_fields": {
+            ".class": "SymbolTableNode",
+            "kind": "Mdef",
+            "node": {
+              ".class": "Var",
+              "flags": [
+                "is_initialized_in_class"
+              ],
+              "fullname": "shop.admin.BuyerAdmin.readonly_fields",
+              "name": "readonly_fields",
+              "type": {
+                ".class": "Instance",
+                "args": [
+                  "builtins.str"
+                ],
+                "type_ref": "builtins.list"
+              }
+            }
+          }
+        },
+        "tuple_type": null,
+        "type_vars": [],
+        "typeddict_type": null
+      }
+    },
+    "Category": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "shop.models.Category",
+      "kind": "Gdef"
+    },
+    "Contact": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "shop.models.Contact",
+      "kind": "Gdef"
+    },
+    "Pharmacy": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "shop.models.Pharmacy",
+      "kind": "Gdef"
+    },
+    "Product": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "shop.models.Product",
+      "kind": "Gdef"
+    },
+    "Review": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "shop.models.Review",
+      "kind": "Gdef"
+    },
+    "__doc__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "shop.admin.__doc__",
+        "name": "__doc__",
+        "type": "builtins.str"
+      }
+    },
+    "__file__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "shop.admin.__file__",
+        "name": "__file__",
+        "type": "builtins.str"
+      }
+    },
+    "__name__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "shop.admin.__name__",
+        "name": "__name__",
+        "type": "builtins.str"
+      }
+    },
+    "__package__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "shop.admin.__package__",
+        "name": "__package__",
+        "type": "builtins.str"
+      }
+    },
+    "admin": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "django.contrib.admin",
+      "kind": "Gdef"
+    }
+  },
+  "path": "C:\\GitHub\\tvsw\\pharmacies\\shop\\admin.py"
+}

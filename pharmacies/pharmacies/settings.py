@@ -22,7 +22,7 @@ SECRET_KEY = "ieh+p3k4^vq$(yzn7zp4o$fgz-8g#^gx2$+_8009_eonig^d7+"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # TODO Debug
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]  # TODO Allowed Hosts
 
 SITE_ID = 1
 

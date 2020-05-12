@@ -2293,7 +2293,7 @@ Design by Contract
 \end_layout
 
 \begin_layout Standard
-Per quanto converne il Design by Contract in Python vi è una specifica 
+Per quanto concerne il Design by Contract in Python vi è una specifica 
 \emph on
 
 \begin_inset Quotes fld
@@ -2314,8 +2314,16 @@ deferred
 icontract.
 \end_layout
 
+\begin_layout Subsection
+iContract
+\end_layout
+
 \begin_layout Standard
-Questo pacchetto fornisce due function decorators, 
+Il pacchetto 
+\emph on
+icontract
+\emph default
+ fornisce due function decorators, 
 \emph on
 require
 \emph default
@@ -2671,14 +2679,6 @@ Nagini
 TODO
 \end_layout
 
-\begin_layout Subsection
-MyPy
-\end_layout
-
-\begin_layout Standard
-TODO (In realtà è sotto WALL)
-\end_layout
-
 \begin_layout Section
 Analisi statica
 \end_layout
@@ -2693,6 +2693,312 @@ lint
 lint-like tools 
 \emph default
 indicano strumenti che eseguono un'analisi statica del codice.
+\end_layout
+
+\begin_layout Subsection
+MyPy
+\end_layout
+
+\begin_layout Standard
+Il tool 
+\emph on
+mypy
+\emph default
+ è uno static type checker per Python che combina i benefici del dynamic
+ (or "duck") typing e static typing.
+ Si basa sulla specifica 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+PEP 484 -- Type Hints
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+I passi pricnipali eseguiti sono:
+\end_layout
+
+\begin_layout Enumerate
+Installare 
+\emph on
+mypy
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Installare 
+\emph on
+django-stubs
+\emph default
+ (type hints for Django).
+\end_layout
+
+\begin_layout Enumerate
+Configurare django-stubs mypy plugin.
+ Bisogna creare un file di configurazione 
+\emph on
+mypy.ini 
+\emph default
+nella cartella principale del progetto e un file 
+\emph on
+.env
+\emph default
+ per impostare la variabile d'ambiente in modo da puntare al file 
+\emph on
+mypy.ini
+\emph default
+.
+ In questo modo si potrà usare il file 
+\emph on
+mypy.ini
+\emph default
+ per abilitare il plugin django-stub e aggiungere tutte le regole e gli
+ attributi da ignorare durante la verifica del codice.
+\end_layout
+
+\begin_layout Enumerate
+Aggiungere un check personalizzato a Django che quando viene eseguito il
+ server o fatto le migrazioni si esegue il check che esegue automaticamente
+ mypy.
+ Grazie al check framework di Django è possibile creare un file 
+\emph on
+checks.py 
+\emph default
+contenente tutti i comandi di mypy e per essere eseguito ogni volta di riavvio
+ server o migrate è necessario configurare anche il file 
+\emph on
+__init__.py 
+\emph default
+del progetto principale.
+\end_layout
+
+\begin_layout Standard
+Tutti i file sono configurati e visibili all'interno della cartella del
+ codice.
+ In particolare sono stati ignorati tutti gli errori di questo tipo 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+Skipping analyzing X: found module but no type hints or library stubs
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\emph default
+tipici di una libreria di terze parti che non ha implementato la specifica
+ 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+PEP 561 -- Distributing and Packaging Type Information
+\begin_inset Quotes frd
+\end_inset
+
+.
+
+\emph default
+ Il pacchetto 
+\emph on
+django-stub
+\emph default
+ risolveva questi errori per tutti i pacchetti relativi all'ambiente Django.
+\end_layout
+
+\begin_layout Standard
+Si può eseguire anche da terminale con il seguente comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ mypy -p shop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/MyPy (Success).png
+	lyxscale 75
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "MyPy success"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MyPy success
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All'inizio si avevano degli errori del tipo in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "MyPy iniziale"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/MyPy (Iniziale).png
+	lyxscale 75
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "MyPy iniziale"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MyPy iniziale
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo varie modifice e miglioramenti al codice si è ottenuto il risultato
+ in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "MyPy finale"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/MyPy (Iniziale).png
+	lyxscale 75
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "MyPy finale"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MyPy finale
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO IMMAGINE
 \end_layout
 
 \begin_layout Subsection
@@ -2786,7 +3092,7 @@ pylintrc
 pylintrc
 \emph default
  presente nella cartella base.
- Gli errori più comuni sono:
+ Gli errori più disabilitati sono:
 \end_layout
 
 \begin_layout Itemize
@@ -2806,10 +3112,6 @@ C0116 Missing function or method docstring
 \end_layout
 
 \begin_layout Itemize
-C0301 Line too long
-\end_layout
-
-\begin_layout Itemize
 C0330 Wrong hanging indentation before block
 \end_layout
 
@@ -2817,22 +3119,24 @@ C0330 Wrong hanging indentation before block
 E1101 Class 'X' has no 'objects' member
 \end_layout
 
+\begin_layout Itemize
+R0901 Too many ancestors
+\end_layout
+
+\begin_layout Itemize
+R0903 Too few public methods
+\end_layout
+
+\begin_layout Itemize
+W0105 String statement has no effect
+\end_layout
+
 \begin_layout Standard
-Nella figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Pylint"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- è riportato l'output di 
+Nella figura prossime figure sono riportati gli output di 
 \emph on
 pylint
 \emph default
- dove viene valutato il codice su una scala da 0 a 10.
+ sulle quattro app dove viene valutato il codice su una scala da 0 a 10.
 \end_layout
 
 \begin_layout Standard
@@ -2845,7 +3149,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename screenshot/Pylint.png
+	filename screenshot/Pylint (Authentication).png
 	lyxscale 75
 	scale 80
 
@@ -2859,7 +3163,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "Pylint"
+name "Pylint su authentication"
 
 \end_inset
 
@@ -2867,7 +3171,7 @@ name "Pylint"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Pylint
+Pylint su authentication
 \end_layout
 
 \end_inset
@@ -2881,7 +3185,184 @@ Pylint
 \end_layout
 
 \begin_layout Standard
-TODO (Risolvere)
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Pylint (Shop).png
+	lyxscale 75
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Pylint su shop"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pylint su shop
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Pylint (Timetable).png
+	lyxscale 75
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Pylint su timetable"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pylint su timetable
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Pylint (Transfer).png
+	lyxscale 75
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Pylint su transfer"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pylint su transfer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particolare grazie ai seguenti plugin basati è stato possibile individuare
+ i problemi e sistemarli:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Linting
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+MyPy
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Prettier
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+String Manipulation
+\end_layout
+
+\begin_layout Standard
+Molti problemi erano semplici da risolvere dovuti a nomi di variabili non
+ conformi con la specifica 
+\emph on
+
+\begin_inset Quotes fld
+\end_inset
+
+PEP 8 -- Style Guide for Python Code
+\begin_inset Quotes frd
+\end_inset
+
+
+\emph default
+ oppure moduli importati tramite wildcards.
 \end_layout
 
 \begin_layout Subsection
@@ -3145,12 +3626,207 @@ Dopo aver eliminato e risolto vulnerabilità anche gravi trovate nel codice,
  oltre agli assert.
 \end_layout
 
-\begin_layout Subsection
-MyPy
+\begin_layout Section
+Code Refactoring
 \end_layout
 
 \begin_layout Standard
-TODO
+Il 
+\emph on
+code refactoring
+\emph default
+ è il processo di modifica di un sistema software in modo tale da migliorare
+ la sua struttura interna del codice senza alterarne il comportamento esterno.
+\end_layout
+
+\begin_layout Standard
+È una fase molto importante dello sviluppo del software, rende il codice
+ più semplice da leggere e più facile da estendere.
+ Molto spesso ci si accorge che man mano che il progetto diventa grande,
+ sia necessaria una nuova struttura del codice e dei vari componenti.
+\end_layout
+
+\begin_layout Subsection
+Generale
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+App:
+\end_layout
+
+\begin_layout Standard
+In questo caso inizialmente l'intero progetto era contenuto in un'unica
+ app, tuttavia la necessità di semplificare il codice e raggruppare le funzioni
+ ha portato alla divisione del progetto in quattro distinte componenti:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+authentication
+\emph default
+: modulo che si occupa di tutta la parte di autenticazione e registrazione
+ degli utenti e dei permessi relativi.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+shop
+\emph default
+: modulo principale che si occupa di gestire tutta la parte di presentazione,
+ acquisto e vendita dei farmaci e della gestione delle farmacie.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+timetable
+\emph default
+: modulo che si occupa della presentazione e del calcolo degli orari settimanali
+ delle farmacie.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+transfer
+\emph default
+: modulo che si occupa del trasferimento dei farmaci tra la farmacia.
+\end_layout
+
+\begin_layout Standard
+Dopo aver deciso la nuova struttura del progetto raggruppando in base al
+ contesto, bisogna spostare tutti i modelli attinenti alla componente più
+ appropriata.
+ In 
+\emph on
+authentication
+\emph default
+ sono presenti i modelli relativi agli utenti, in 
+\emph on
+timetable
+\emph default
+ quelli relativi agli orari delle farmacie, in 
+\emph on
+transfer 
+\emph default
+quelli relativi alle richieste dei medicinali e in 
+\emph on
+shop
+\emph default
+ la restante grande parte che si occupa di gestire le funzionalità del sito.
+\end_layout
+
+\begin_layout Standard
+Grazie a questa divisione si è potuto rendere il codice più leggibile, rendere
+ chiaro i collegamenti e le interdipendenze tra i vari moduli e si è potuto
+ sviluppare ogni algoritmo (
+\emph on
+timetable
+\emph default
+, 
+\emph on
+transfer
+\emph default
+) in modo isolato.
+ Inoltre è stato possibile accorpare ed eliminare funzionalità duplicate
+ o modelli inutilizzati.
+\end_layout
+
+\begin_layout Standard
+I numerosi test presenti nel progetto sono anch'essi divisi in base al modulo
+ di appartenenza e possono essere eseguiti in modo indipendente attraverso
+ appositi comandi.
+\end_layout
+
+\begin_layout Standard
+Naturalmente spostare tutti i modelli e fare il refractoring del codice
+ non è stata una cosa semplice.
+ I principali passaggi effettuati possono concentrarsi nei seguenti punti:
+\end_layout
+
+\begin_layout Itemize
+Rinominare tutte le tabelle durante lo spostamento per adattarsi alla nuova
+ struttura di destinazione ed evitare conflitti.
+\end_layout
+
+\begin_layout Itemize
+Fare una migrazione per spostare i modelli nell'app di destinazione.
+\end_layout
+
+\begin_layout Itemize
+Aggiornare eventuali foreign keys and relations tra i vari modelli (anche
+ di app differenti).
+\end_layout
+
+\begin_layout Itemize
+Fare una migrazione per eliminare i modelli dall'applicazione di origine.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Application Programming Interface:
+\end_layout
+
+\begin_layout Standard
+Allo stesso modo le varie Application Programming Interface sono state separate
+ nei vari moduli.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi REST API.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Algoritmi:
+\end_layout
+
+\begin_layout Standard
+Isolati gli algoritmi, la loro stesura è stata migliorata e divisa in più
+ funzioni ognuna con uno scopo preciso.
+ Si è usato anche un data flow chart per ristrutturare il codice in modo
+ da rendere chiara la divisione in varie casistiche.
+ L'analisi della performance degli algortimi si può trarre dell'analisi
+ di complessità degli algoritmi descritta nelle fasi precedenti.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi fasi precedenti riguardanti gli algoritmi.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Documentazione:
+\end_layout
+
+\begin_layout Standard
+Nel pannello admin, all'indirizzo 
+\emph on
+admin/doc/ 
+\emph default
+è possibile visualizzare la documentazione presa dalle docstrings dei models,
+ views, template tags e template filters di ogni app installata nel progetto.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Vedi REST API.
+\end_layout
+
+\begin_layout Standard
+TODO (Performance, Vario)
 \end_layout
 
 \begin_layout Subsection
@@ -3342,190 +4018,16 @@ Packages
 
 \end_layout
 
-\begin_layout Section
-Code Refactoring
+\begin_layout Subsection
+Black
 \end_layout
 
 \begin_layout Standard
-Il 
-\emph on
-code refactoring
-\emph default
- è il processo di modifica di un sistema software in modo tale da migliorare
- la sua struttura interna del codice senza alterarne il comportamento esterno.
-\end_layout
-
-\begin_layout Standard
-È una fase molto importante dello sviluppo del software, rende il codice
- più semplice da leggere e più facile da estendere.
- Molto spesso ci si accorge che man mano che il progetto diventa grande,
- sia necessaria una nuova struttura del codice e dei vari componenti.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-App:
-\end_layout
-
-\begin_layout Standard
-In questo caso inizialmente l'intero progetto era contenuto in un'unica
- app, tuttavia la necessità di semplificare il codice e raggruppare le funzioni
- ha portato alla divisione del progetto in quattro distinte componenti:
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-authentication
-\emph default
-: modulo che si occupa di tutta la parte di autenticazione e registrazione
- degli utenti e dei permessi relativi.
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-shop
-\emph default
-: modulo principale che si occupa di gestire tutta la parte di presentazione,
- acquisto e vendita dei farmaci e della gestione delle farmacie.
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-timetable
-\emph default
-: modulo che si occupa della presentazione e del calcolo degli orari settimanali
- delle farmacie.
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-transfer
-\emph default
-: modulo che si occupa del trasferimento dei farmaci tra la farmacia.
-\end_layout
-
-\begin_layout Standard
-Dopo aver deciso la nuova struttura del progetto raggruppando in base al
- contesto, bisogna spostare tutti i modelli attinenti alla componente più
- appropriata.
- In 
-\emph on
-authentication
-\emph default
- sono presenti i modelli relativi agli utenti, in 
-\emph on
-timetable
-\emph default
- quelli relativi agli orari delle farmacie, in 
-\emph on
-transfer 
-\emph default
-quelli relativi alle richieste dei medicinali e in 
-\emph on
-shop
-\emph default
- la restante grande parte che si occupa di gestire le funzionalità del sito.
-\end_layout
-
-\begin_layout Standard
-Grazie a questa divisione si è potuto rendere il codice più leggibile, rendere
- chiaro i collegamenti e le interdipendenze tra i vari moduli e si è potuto
- sviluppare ogni algoritmo (
-\emph on
-timetable
-\emph default
-, 
-\emph on
-transfer
-\emph default
-) in modo isolato.
- Inoltre è stato possibile accorpare ed eliminare funzionalità duplicate
- o modelli inutilizzati.
-\end_layout
-
-\begin_layout Standard
-I numerosi test presenti nel progetto sono anch'essi divisi in base al modulo
- di appartenenza e possono essere eseguiti in modo indipendente attraverso
- appositi comandi.
-\end_layout
-
-\begin_layout Standard
-Naturalmente spostare tutti i modelli e fare il refractoring del codice
- non è stata una cosa semplice.
- I principali passaggi effettuati possono concentrarsi nei seguenti punti:
-\end_layout
-
-\begin_layout Itemize
-Rinominare tutte le tabelle durante lo spostamento per adattarsi alla nuova
- struttura di destinazione ed evitare conflitti.
-\end_layout
-
-\begin_layout Itemize
-Fare una migrazione per spostare i modelli nell'app di destinazione.
-\end_layout
-
-\begin_layout Itemize
-Aggiornare eventuali foreign keys and relations tra i vari modelli (anche
- di app differenti).
-\end_layout
-
-\begin_layout Itemize
-Fare una migrazione per eliminare i modelli dall'applicazione di origine.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-API:
-\end_layout
-
-\begin_layout Standard
-Allo stesso modo le varie Application Programming Interface sono state separate
- nei vari moduli.
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-Vedi REST API.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Algoritmi:
-\end_layout
-
-\begin_layout Standard
-Isolati gli algoritmi, la loro stesura è stata migliorata e divisa in più
- funzioni ognuna con uno scopo preciso.
- Si è usato anche un data flow chart per ristrutturare il codice in modo
- da rendere chiara la divisione in varie casistiche.
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-Vedi fasi precedenti riguardanti gli algoritmi.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Codice:
-\end_layout
-
-\begin_layout Standard
-È stato usato 
+Il tool 
 \emph on
 black
 \emph default
-, un formattatore di codice per Python in cui ogni riga del codice viene
+ è un formattatore di codice per Python in cui ogni riga del codice viene
  formattata automaticamente liberando lo sviluppatore di questo compito.
 \end_layout
 
@@ -3562,61 +4064,13 @@ $ black .
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-Documentazione:
-\end_layout
-
-\begin_layout Standard
-Nel pannello admin, all'indirizzo 
-\emph on
-admin/doc/ 
-\emph default
-è possibile visualizzare la documentazione presa dalle docstrings dei models,
- views, template tags e template filters di ogni app installata nel progetto.
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-Vedi REST API.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Performance:
-\end_layout
-
-\begin_layout Standard
-L'analisi della performance degli algortimi si può trarre dell'analisi di
- complessità degli algoritmi descritta nelle fasi precedenti.
-\end_layout
-
-\begin_layout Standard
-
-\emph on
-Vedi analisi di complessità degli algoritmi.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Variabili:
-\end_layout
-
-\begin_layout Standard
 In generale nell'applicazione sono state rinominate molte variabili per
- rendere più esplicito e facilmente intuibile il loro scopo usando anche
- lo stile 
+ rendere più esplicito e facilmente intuibile il loro scopo usando lo stile
+ 
 \emph on
 snake_case
 \emph default
 ; anche gli import dei pacchetti necessari sono stati riorganizzati.
-\end_layout
-
-\begin_layout Standard
-TODO (Vario)
 \end_layout
 
 \begin_layout Section

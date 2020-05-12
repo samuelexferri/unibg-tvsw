@@ -4,7 +4,6 @@ import icontract
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from nagini_contracts.contracts import Invariant
 from rest_framework import viewsets
 
 from pharmacies import settings
@@ -28,7 +27,7 @@ from shop.serializer import (
 
 def homepage(request):
     products_all = Product.objects.filter(active=True)
-    categories = Category.objects.filter(active=True)
+    categ = Category.objects.filter(active=True)
     products = Product.objects.filter(active=True).order_by("-created")
     featured_products = Product.objects.filter(featured=True)
     paginator = Paginator(products, 6)
@@ -39,7 +38,7 @@ def homepage(request):
         "shop/base.html",
         {
             "products_all": products_all,
-            "categories": categories,
+            "categories": categ,
             "product": products,
             "featured_products": featured_products,
         },
@@ -54,8 +53,8 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            contact = form.save(commit=False)
-            contact.save()
+            c = form.save(commit=False)
+            c.save()
             messages.success(request, "Your message has been sent!")
             return redirect("shop:contact")
         else:
@@ -73,8 +72,8 @@ def pharmacy_list(request):
     )
 
 
-def pharmacy_detail(request, id):
-    pharmacy = Pharmacy.objects.get(active=True, id=id)
+def pharmacy_detail(request, iden):
+    pharmacy = Pharmacy.objects.get(active=True, id=iden)
     return render(
         request, "shop/pharmacies_detail.html", {"pharmacy": pharmacy}
     )
@@ -99,8 +98,8 @@ def product_list(request):
     )
 
 
-def product_detail(request, id):
-    product = Product.objects.get(id=id)
+def product_detail(request, iden):
+    product = Product.objects.get(id=iden)
     form = ReviewForm()
     return render(
         request,
@@ -113,8 +112,8 @@ def search(request):
     q = request.GET["q"]
     if q:
         products = Product.objects.filter(active=True, name__icontains=q)
-        categories = Category.objects.filter(active=True)
-        context = {"products": products, "categories": categories}
+        categ = Category.objects.filter(active=True)
+        context = {"products": products, "categories": categ}
         return render(request, "shop/products_list.html", context)
     else:
         return redirect("/")
@@ -182,8 +181,8 @@ def payment(request):
 
 def checkout(request):
     request.session.pop("data", None)
-    payment = Payment(1, FakeCreditCard(50))  # Fake
-    status = payment.process(request)
+    p = Payment(1, FakeCreditCard(50))  # Fake
+    status = p.process()
     if status == "processed":
         messages.success(request, "Done! Thanks for using our services!")
     else:
@@ -202,12 +201,14 @@ def calculate_amount():
 
 class Payment:
     def __init__(self, invoice_id, credit_card):
+        self.status = "cancelled"
+        self.invoice_id = invoice_id
         assert isinstance(
             credit_card, FakeCreditCard
         ), "credit_card is not a FakeCreditCard instance"
         self.credit_card = credit_card
 
-    def process(self, request):
+    def process(self):
         amount = calculate_amount()
         assert amount >= 0, "amount should be positive"
         if self.credit_card.has_enough_credit(amount):
@@ -223,39 +224,36 @@ class Payment:
     lambda self: self.balance >= 0, "balance must not be negative"
 )
 class FakeCreditCard:
-    def __init__(self, balance=50):
-        Invariant(balance >= 100000000000)
-        assert balance >= 0, "balance should not be negative"
-        self.balance = balance
+    def __init__(self, b=50):
+        assert b >= 0, "balance should not be negative"
+        self.balance = b
 
     def has_enough_credit(self, amount):
-        Invariant(self.balance >= 100000000000)
         return self.balance > amount
 
     def withdraw(self, amount):
-        Invariant(self.balance >= 100000000000)
         self.balance = self.balance - amount
         assert self.balance >= 0, "balance should not be negative"
 
 
-def add_cart(request, id):
-    product = Product.objects.get(id=id)
+def add_cart(request, iden):
+    product = Product.objects.get(id=iden)
     initial = {"items": [], "price": 0.0, "count": 0}
     session = request.session.get("data", initial)
-    if id in session["items"]:
+    if iden in session["items"]:
         messages.error(request, "Already added")
     else:
-        session["items"].append(id)
+        session["items"].append(iden)
         session["price"] += float(product.price)
         if product.shipping_fee:
             session["price"] += float(product.shipping_fee)
         session["count"] += 1
         request.session["data"] = session
         messages.success(request, "Added to cart")
-    return redirect("shop:products_detail", id)
+    return redirect("shop:products_detail", iden)
 
 
-def add_review(request, id):
+def add_review(request, iden):
     if not request.user.is_authenticated:
         messages.info(
             request, "You need to be logged in in order to give a review"
@@ -265,13 +263,13 @@ def add_review(request, id):
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            review.product = Product.objects.get(id=id)
+            review.product = Product.objects.get(id=iden)
             review.user = request.user
             review.save()
             messages.success(request, "Review saved")
-            return redirect("shop:products_detail", id)
+            return redirect("shop:products_detail", iden)
     else:
-        return redirect("shop:products_detail", id)
+        return redirect("shop:products_detail", iden)
 
 
 """

@@ -475,8 +475,8 @@ Class diagram, sequence diagram
 \emph on
 pyreverse
 \emph default
-, UML Diagrams for Python, analizza codice Python ed estrare UML class diagrams
- e package dependencies 
+, diagrammi UML per Python, analizza codice Python per estrarre i diagrammi
+ delle classa UML e le package dependencies 
 \emph on
 (https://pypi.org/project/pyreverse/)
 \end_layout
@@ -490,7 +490,11 @@ Database diagram
 \emph on
 GraphViz
 \emph default
-, libreria usata da Pyreverse per creare un database diagram
+, libreria usata da 
+\emph on
+pyreverse
+\emph default
+ per creare un database diagram
 \emph on
  (https://www.graphviz.org/)
 \end_layout
@@ -834,7 +838,41 @@ https://pypi.org/project/icontract/
 \series bold
 Program Verificaion:
 \series default
- TODO
+ 
+\emph on
+nagini, 
+\emph default
+verificatore automatico per programmi Python con tipi statici, basato sull'infra
+struttura per la verifica del codice 
+\emph on
+Viper
+\emph default
+ (
+\emph on
+https://pypi.org/project/nagini/
+\emph default
+) 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Analisi statica:
+\series default
+ 
+\emph on
+mypy
+\emph default
+ con 
+\emph on
+django-stub, 
+\emph default
+uno static type checker per Python che combina i benefici del dynamic (or
+ "duck") typing e static typing (
+\emph on
+https://pypi.org/project/mypy/
+\emph default
+)
 \end_layout
 
 \begin_layout Itemize
@@ -854,7 +892,7 @@ pylint,
 \emph default
 ) 
 \emph on
-(https://www.pylint.org/)
+(https://pypi.org/project/pylint/)
 \end_layout
 
 \begin_layout Itemize
@@ -904,6 +942,43 @@ black
 https://pypi.org/project/black/
 \emph default
 )
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Code Refractoring
+\series default
+: 
+\emph on
+pyreverse
+\emph default
+, diagrammi UML per Python, analizza codice Python per estrarre i diagrammi
+ delle classa UML e le package dependencies 
+\emph on
+(https://pypi.org/project/pyreverse/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Code Refractoring
+\series default
+: 
+\emph on
+GraphViz
+\emph default
+, libreria usata da 
+\emph on
+pyreverse
+\emph default
+ per creare un database diagram
+\emph on
+ (https://www.graphviz.org/)
+\end_layout
+
+\begin_layout Itemize
+TODO (nagini)
 \end_layout
 
 \end_deeper

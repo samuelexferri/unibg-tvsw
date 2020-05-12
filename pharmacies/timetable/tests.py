@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
-from shop.models import *
-from timetable.views import *
+from shop.models import Pharmacy
+from timetable.models import Timetable
+from timetable.views import algorithm_timetable
 
 """
 View tests
@@ -69,10 +71,6 @@ class AlgoritmoCalculateTimetable1(TestCase):
         farmacia2.save()
         farmacia3.save()
         algorithm_timetable(self)
-
-        c1 = Timetable.objects.filter(pharmacy=farmacia1).count()
-        c2 = Timetable.objects.filter(pharmacy=farmacia2).count()
-        c3 = Timetable.objects.filter(pharmacy=farmacia3).count()
 
         count = Timetable.objects.all().count()
         self.assertEqual(count, 42)

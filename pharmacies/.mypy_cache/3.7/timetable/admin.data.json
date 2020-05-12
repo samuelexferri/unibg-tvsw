@@ -1,0 +1,146 @@
+{
+  ".class": "MypyFile",
+  "_fullname": "timetable.admin",
+  "is_partial_stub_package": false,
+  "is_stub": false,
+  "names": {
+    ".class": "SymbolTable",
+    "Timetable": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "timetable.models.Timetable",
+      "kind": "Gdef"
+    },
+    "TimetableAdmin": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "TypeInfo",
+        "_promote": null,
+        "abstract_attributes": [],
+        "bases": [
+          "django.contrib.admin.options.ModelAdmin"
+        ],
+        "declared_metaclass": null,
+        "defn": {
+          ".class": "ClassDef",
+          "fullname": "timetable.admin.TimetableAdmin",
+          "name": "TimetableAdmin",
+          "type_vars": []
+        },
+        "flags": [],
+        "fullname": "timetable.admin.TimetableAdmin",
+        "metaclass_type": null,
+        "metadata": {},
+        "module_name": "timetable.admin",
+        "mro": [
+          "timetable.admin.TimetableAdmin",
+          "django.contrib.admin.options.ModelAdmin",
+          "django.contrib.admin.options.BaseModelAdmin",
+          "builtins.object"
+        ],
+        "names": {
+          ".class": "SymbolTable",
+          "has_add_permission": {
+            ".class": "SymbolTableNode",
+            "kind": "Mdef",
+            "node": {
+              ".class": "FuncDef",
+              "arg_kinds": [
+                0,
+                0
+              ],
+              "arg_names": [
+                "self",
+                "request"
+              ],
+              "flags": [],
+              "fullname": "timetable.admin.TimetableAdmin.has_add_permission",
+              "name": "has_add_permission",
+              "type": null
+            }
+          },
+          "readonly_fields": {
+            ".class": "SymbolTableNode",
+            "kind": "Mdef",
+            "node": {
+              ".class": "Var",
+              "flags": [
+                "is_initialized_in_class"
+              ],
+              "fullname": "timetable.admin.TimetableAdmin.readonly_fields",
+              "name": "readonly_fields",
+              "type": {
+                ".class": "Instance",
+                "args": [
+                  "builtins.str"
+                ],
+                "type_ref": "builtins.list"
+              }
+            }
+          }
+        },
+        "tuple_type": null,
+        "type_vars": [],
+        "typeddict_type": null
+      }
+    },
+    "__doc__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "timetable.admin.__doc__",
+        "name": "__doc__",
+        "type": "builtins.str"
+      }
+    },
+    "__file__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "timetable.admin.__file__",
+        "name": "__file__",
+        "type": "builtins.str"
+      }
+    },
+    "__name__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "timetable.admin.__name__",
+        "name": "__name__",
+        "type": "builtins.str"
+      }
+    },
+    "__package__": {
+      ".class": "SymbolTableNode",
+      "kind": "Gdef",
+      "node": {
+        ".class": "Var",
+        "flags": [
+          "is_ready"
+        ],
+        "fullname": "timetable.admin.__package__",
+        "name": "__package__",
+        "type": "builtins.str"
+      }
+    },
+    "admin": {
+      ".class": "SymbolTableNode",
+      "cross_ref": "django.contrib.admin",
+      "kind": "Gdef"
+    }
+  },
+  "path": "C:\\GitHub\\tvsw\\pharmacies\\timetable\\admin.py"
+}

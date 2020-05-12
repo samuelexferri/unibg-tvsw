@@ -16,7 +16,7 @@ class Contact(models.Model):
     message = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.name.__str__()
 
     def __unicode__(self):
         return self.id, self.name, self.email, self.subject, self.message
@@ -44,15 +44,15 @@ class Pharmacy(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "[" + self.id.__str__() + "] " + self.name
+        return "[" + self.id.__str__() + "] " + self.name.__str__()
 
     def __unicode__(self):
         return self.id, self.owner, self.name
 
-    def getSlot4hMinWeek(self):
+    def get_slot_4h_min_week(self):
         return self.slot4hMinWeek
 
-    def getId(self):
+    def get_id(self):
         return self.id
 
     class Meta:
@@ -62,7 +62,7 @@ class Pharmacy(models.Model):
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
 
-    slug = AutoSlugField(populate_from="name")
+    slug = AutoSlugField(populate_from="name", null=True, default=None)
     name = models.CharField(max_length=250)
     description = models.TextField(blank=True)
     active = models.BooleanField(default=True)
@@ -70,7 +70,7 @@ class Category(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.name.__str__()
 
     def __unicode__(self):
         return self.id, self.name, self.description
@@ -84,7 +84,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=CASCADE)
     pharmacy = models.ForeignKey(Pharmacy, on_delete=CASCADE)
 
-    slug = AutoSlugField(populate_from="id")
+    slug = AutoSlugField(populate_from="id", null=True, default=None)
     name = models.CharField(max_length=250)
     image = models.ImageField(upload_to="products")
     description = models.TextField(blank=True, default="Description field")
@@ -100,7 +100,7 @@ class Product(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.name.__str__()
 
     def __unicode__(self):
         return self.id, self.name, self.description
@@ -132,7 +132,7 @@ class Buyer(models.Model):
     product = models.ManyToManyField(Product)
 
     def __str__(self):
-        return self.full_name
+        return self.full_name.__str__()
 
     def __unicode__(self):
         return self.id, self.full_name, self.phone

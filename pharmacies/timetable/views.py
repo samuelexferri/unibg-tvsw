@@ -78,232 +78,232 @@ def calculate(request):
 
 def algorithm_timetable(request):
     # Vettori paralleli
-    itemsFarmacie = Pharmacy.objects.all()
+    items_farmacie = Pharmacy.objects.all()
 
-    itemSlotMin = []
+    item_slot_min = []
 
-    for f in itemsFarmacie:
-        itemSlotMin.append(f.getSlot4hMinWeek())
+    for f in items_farmacie:
+        item_slot_min.append(f.get_slot_4h_min_week())
 
-    SummSlotMin = sum(itemSlotMin)
+    summ_slot_min = sum(item_slot_min)
 
     Timetable.objects.all().delete()  # Svuotare le istanze di Timetable
 
-    if SummSlotMin == 42:  ### CASO: SE ABBIAMO ESATTAMENTE 42 SLOT DA RIEMPIRE
-        K = list(range(0, 42))
+    if summ_slot_min == 42:  # CASO: SE ABBIAMO ESATTAMENTE 42 SLOT DA RIEMPIRE
+        k = list(range(0, 42))
         i = 0
-        for farm in itemsFarmacie:  # Per ogni farmacia
-            slotmin = itemSlotMin[i]
+        for farm in items_farmacie:  # Per ogni farmacia
+            slotmin = item_slot_min[i]
 
             for j in range(slotmin):  # Per ogni suo slot
-                s = int(random.choice(K))
+                s = int(random.choice(k))
                 insert(s, farm)
-                K.remove(s)
+                k.remove(s)
             # END FOR
             i = i + 1
         # END FOR
     # END IF
 
     elif (
-        SummSlotMin > 42
-    ):  ### CASO: SE ABBIAMO PIU DI 42, AVREMO DELLE SOVRAPPOSIZIONI
+        summ_slot_min > 42
+    ):  # CASO: SE ABBIAMO PIU DI 42, AVREMO DELLE SOVRAPPOSIZIONI
         i = 0
         contatore = 0
-        K = list(range(0, 42))
+        k = list(range(0, 42))
 
-        for farm in itemsFarmacie:  # Per ogni farmacia
-            slotmin = itemSlotMin[i]
+        for farm in items_farmacie:  # Per ogni farmacia
+            slotmin = item_slot_min[i]
 
             for j in range(slotmin):  # Per ogni suo slot
                 if (
                     contatore < 42
                 ):  # PRIMA EFFETTUO I RIEMPIMENTI OBBLIGATORI, POI QUELLI PER SOVRAPPOSIZIONI
-                    s = int(random.choice(K))
+                    s = int(random.choice(k))
                     insert(s, farm)
-                    K.remove(s)
+                    k.remove(s)
                     contatore = contatore + 1
 
                 else:
-                    CTT = 0
-                    LISTRND = list(range(1, 11))
-                    while len(LISTRND) > 0 and CTT == 0:
+                    ctt = 0
+                    listrnd = list(range(1, 11))
+                    while len(listrnd) > 0 and ctt == 0:
 
-                        p = random.choice(LISTRND)
+                        p = random.choice(listrnd)
                         if p == 1:
-                            numberList = [0, 6, 12, 18, 24, 30, 36]
+                            number_list = [0, 6, 12, 18, 24, 30, 36]
                             w = 1
-                            CT = 0
-                            while CT == 0 and len(numberList) > 0:
-                                s = random.choice(numberList)
-                                G = calcolagiorno(s)
+                            ct = 0
+                            while ct == 0 and len(number_list) > 0:
+                                s = random.choice(number_list)
+                                g = calcola_giorno(s)
                                 tupla = Timetable.objects.filter(
-                                    pharmacy=farm.id, day=G, slot4h=w
+                                    pharmacy=farm.id, day=g, slot4h=w
                                 )
                                 if len(tupla) == 0:
-                                    CT = 1
+                                    ct = 1
                                     insert(s, farm)
-                                    CTT = 1
-                                numberList.remove(s)
-                            LISTRND.remove(1)
+                                    ctt = 1
+                                number_list.remove(s)
+                            listrnd.remove(1)
                         elif p == 2:
-                            numberList = [1, 7, 13, 19, 25, 31, 37]
+                            number_list = [1, 7, 13, 19, 25, 31, 37]
                             w = 2
-                            CT = 0
-                            while CT == 0 and len(numberList) > 0:
-                                s = random.choice(numberList)
-                                G = calcolagiorno(s)
+                            ct = 0
+                            while ct == 0 and len(number_list) > 0:
+                                s = random.choice(number_list)
+                                g = calcola_giorno(s)
                                 tupla = Timetable.objects.filter(
-                                    pharmacy=farm.id, day=G, slot4h=w
+                                    pharmacy=farm.id, day=g, slot4h=w
                                 )
                                 if len(tupla) == 0:
-                                    CT = 1
+                                    ct = 1
                                     insert(s, farm)
-                                    CTT = 1
-                                numberList.remove(s)
-                            LISTRND.remove(2)
+                                    ctt = 1
+                                number_list.remove(s)
+                            listrnd.remove(2)
 
-                        elif p >= 3 and p < 6:
-                            numberList = [2, 8, 14, 20, 26, 32, 38]
+                        elif 3 <= p < 6:
+                            number_list = [2, 8, 14, 20, 26, 32, 38]
                             w = 3
-                            CT = 0
-                            while CT == 0 and len(numberList) > 0:
-                                s = random.choice(numberList)
-                                G = calcolagiorno(s)
+                            ct = 0
+                            while ct == 0 and len(number_list) > 0:
+                                s = random.choice(number_list)
+                                g = calcola_giorno(s)
                                 tupla = Timetable.objects.filter(
-                                    pharmacy=farm.id, day=G, slot4h=w
+                                    pharmacy=farm.id, day=g, slot4h=w
                                 )
                                 if len(tupla) == 0:
-                                    CT = 1
+                                    ct = 1
                                     insert(s, farm)
-                                    CTT = 1
-                                numberList.remove(s)
-                            LISTRND.remove(3)
-                            LISTRND.remove(4)
-                            LISTRND.remove(5)
+                                    ctt = 1
+                                number_list.remove(s)
+                            listrnd.remove(3)
+                            listrnd.remove(4)
+                            listrnd.remove(5)
 
-                        elif p >= 6 and p < 9:
-                            numberList = [3, 9, 15, 21, 27, 33, 39]
+                        elif 6 <= p < 9:
+                            number_list = [3, 9, 15, 21, 27, 33, 39]
                             w = 4
-                            CT = 0
-                            while CT == 0 and len(numberList) > 0:
-                                s = random.choice(numberList)
-                                G = calcolagiorno(s)
+                            ct = 0
+                            while ct == 0 and len(number_list) > 0:
+                                s = random.choice(number_list)
+                                g = calcola_giorno(s)
                                 tupla = Timetable.objects.filter(
-                                    pharmacy=farm.id, day=G, slot4h=w
+                                    pharmacy=farm.id, day=g, slot4h=w
                                 )
                                 if len(tupla) == 0:
-                                    CT = 1
+                                    ct = 1
                                     insert(s, farm)
-                                    CTT = 1
-                                numberList.remove(s)
-                            LISTRND.remove(6)
-                            LISTRND.remove(7)
-                            LISTRND.remove(8)
+                                    ctt = 1
+                                number_list.remove(s)
+                            listrnd.remove(6)
+                            listrnd.remove(7)
+                            listrnd.remove(8)
 
                         elif p == 9:
-                            numberList = [4, 10, 16, 22, 28, 34, 40]
+                            number_list = [4, 10, 16, 22, 28, 34, 40]
                             w = 5
-                            CT = 0
-                            while CT == 0 and len(numberList) > 0:
-                                s = random.choice(numberList)
-                                G = calcolagiorno(s)
+                            ct = 0
+                            while ct == 0 and len(number_list) > 0:
+                                s = random.choice(number_list)
+                                g = calcola_giorno(s)
                                 tupla = Timetable.objects.filter(
-                                    pharmacy=farm.id, day=G, slot4h=w
+                                    pharmacy=farm.id, day=g, slot4h=w
                                 )
                                 if len(tupla) == 0:
-                                    CT = 1
+                                    ct = 1
                                     insert(s, farm)
-                                    CTT = 1
-                                numberList.remove(s)
-                            LISTRND.remove(9)
+                                    ctt = 1
+                                number_list.remove(s)
+                            listrnd.remove(9)
 
                         else:
-                            numberList = [5, 11, 17, 23, 29, 35, 41]
+                            number_list = [5, 11, 17, 23, 29, 35, 41]
                             w = 6
-                            CT = 0
-                            while CT == 0 and len(numberList) > 0:
-                                s = random.choice(numberList)
-                                G = calcolagiorno(s)
+                            ct = 0
+                            while ct == 0 and len(number_list) > 0:
+                                s = random.choice(number_list)
+                                g = calcola_giorno(s)
 
                                 tupla = Timetable.objects.filter(
-                                    pharmacy=farm.id, day=G, slot4h=w
+                                    pharmacy=farm.id, day=g, slot4h=w
                                 )
                                 if len(tupla) == 0:
-                                    CT = 1
+                                    ct = 1
                                     insert(s, farm)
-                                    CTT = 1
-                                numberList.remove(s)
+                                    ctt = 1
+                                number_list.remove(s)
 
-                            LISTRND.remove(10)
+                            listrnd.remove(10)
             # END FOR
             i = i + 1
         # END FOR
 
-    else:  ### CASO: SE ABBIAMO MENO DI 42 SLOT, DEVO FORZARE ALCUNE/TUTTE LE FARMACIE A TENERE APERTO PIU DEGLI SLOT MINIMI
-        K = list(range(0, 42))
+    else:  # CASO: SE ABBIAMO MENO DI 42 SLOT, DEVO FORZARE ALCUNE/TUTTE LE FARMACIE A TENERE APERTO PIU DEGLI SLOT MINIMI
+        k = list(range(0, 42))
 
         i = 0
-        for farm in itemsFarmacie:  # Per ogni farmacia
-            slotmin = itemSlotMin[i]
+        for farm in items_farmacie:  # Per ogni farmacia
+            slotmin = item_slot_min[i]
 
             for j in range(slotmin):  # Per ogni suo slot
-                s = int(random.choice(K))
+                s = int(random.choice(k))
                 insert(s, farm)
-                K.remove(s)
+                k.remove(s)
 
             # END FOR
             i = i + 1
         # END FOR
 
-        while len(K) > 0:
-            x = random.choice(K)
+        while len(k) > 0:
+            x = random.choice(k)
 
             if x < 10:
-                itemsFarmacieOrdered = Pharmacy.objects.all().order_by(
+                items_farmacie_ordered = Pharmacy.objects.all().order_by(
                     "-slot4hMinWeek"
                 )[0]
-                insert(K[0], itemsFarmacieOrdered)
-                K.pop(0)
+                insert(k[0], items_farmacie_ordered)
+                k.pop(0)
 
-            elif x >= 10 and x < 40:
-                itemsFarmacieOrdered = Pharmacy.objects.all().order_by(
+            elif 10 <= x < 40:
+                items_farmacie_ordered = Pharmacy.objects.all().order_by(
                     "-slot4hMinWeek"
                 )[1]
-                insert(K[0], itemsFarmacieOrdered)
-                K.pop(0)
+                insert(k[0], items_farmacie_ordered)
+                k.pop(0)
 
             else:
-                itemsFarmacieOrdered = Pharmacy.objects.all().order_by(
+                items_farmacie_ordered = Pharmacy.objects.all().order_by(
                     "-slot4hMinWeek"
                 )[2]
-                insert(K[0], itemsFarmacieOrdered)
-                K.pop(0)
+                insert(k[0], items_farmacie_ordered)
+                k.pop(0)
         # END WHILE
 
 
-def calcolagiorno(p):
+def calcola_giorno(p):
     giorno = math.trunc(p // 6) + 1
 
     # Scelta del giorno della settimana
     if giorno == 1:
-        G = "Monday"
+        g = "Monday"
     elif giorno == 2:
-        G = "Tuesday"
+        g = "Tuesday"
     elif giorno == 3:
-        G = "Wednesday"
+        g = "Wednesday"
     elif giorno == 4:
-        G = "Thursday"
+        g = "Thursday"
     elif giorno == 5:
-        G = "Friday"
+        g = "Friday"
     elif giorno == 6:
-        G = "Saturday"
+        g = "Saturday"
     else:
-        G = "Sunday"
-    return G
+        g = "Sunday"
+    return g
 
 
 def insert(t, farmacia):
-    G = calcolagiorno(t)
+    g = calcola_giorno(t)
 
     # Scelta dello slot
     if t == 0 or t == 6 or t == 12 or t == 18 or t == 24 or t == 30 or t == 36:
@@ -336,7 +336,7 @@ def insert(t, farmacia):
     t = Pharmacy.objects.get(id=farmacia.id)
 
     logger.info("Insert in database (Timetable)")
-    p = Timetable(day=G, slot4h=slot, pharmacy=t)
+    p = Timetable(day=g, slot4h=slot, pharmacy=t)
     p.save()
 
 
