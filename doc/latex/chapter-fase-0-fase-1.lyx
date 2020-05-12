@@ -836,7 +836,7 @@ https://pypi.org/project/icontract/
 \begin_layout Itemize
 
 \series bold
-Program Verificaion:
+Program Verification:
 \series default
  
 \emph on
@@ -867,8 +867,8 @@ mypy
 \emph on
 django-stub, 
 \emph default
-uno static type checker per Python che combina i benefici del dynamic (or
- "duck") typing e static typing (
+uno static type checker per Python che combina i benefici del dynamic ("duck")
+ typing e static typing (
 \emph on
 https://pypi.org/project/mypy/
 \emph default
@@ -998,7 +998,7 @@ Model Based Testing
 
 \begin_deeper
 \begin_layout Itemize
-TODO
+TODO (CTWEDGE)
 \end_layout
 
 \end_deeper

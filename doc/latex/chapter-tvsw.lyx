@@ -1336,10 +1336,6 @@ Codecov Sunbrust
 
 \end_layout
 
-\begin_layout Standard
-TODO (Codeclimate, Codacy)
-\end_layout
-
 \begin_layout Section
 Criteri avanzati di copertura
 \end_layout
@@ -1566,7 +1562,7 @@ Viene configurato l'ambiente (
 \emph on
 Ubuntu
 \emph default
-) e installata la versione corretta di Python, in questo caso la 3.8.
+) e installata la versione corretta di Python, in questo caso la 3.7.
 \end_layout
 
 \begin_layout Itemize
@@ -1579,7 +1575,11 @@ requirements.txt
 \end_layout
 
 \begin_layout Itemize
-Vengono fatte le migrazioni di Django.
+Vengono fatte le migrazioni di Django (incluso un check con 
+\emph on
+mypy
+\emph default
+).
 \end_layout
 
 \begin_layout Itemize
@@ -1795,77 +1795,76 @@ class PaymentTestCase(unittest.TestCase):
 
 \begin_layout Plain Layout
 
-    @mock.patch('shop.views.calculate_amount', autospec=True)
+    @mock.patch("shop.views.calculate_amount", autospec=True)
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_process_cc_with_credit(self, mock_calculate_amount):
+    def test_process_cc_with_credit(self, mock_calculate_amount):
 \end_layout
 
 \begin_layout Plain Layout
 
-		cc = FakeCreditCard(50)
+        cc = FakeCreditCard(50)
 \end_layout
 
 \begin_layout Plain Layout
 
-		mock_calculate_amount.return_value = 25
+        mock_calculate_amount.return_value = 25
 \end_layout
 
 \begin_layout Plain Layout
 
-		payment = Payment(1, cc)
+        payment = Payment(1, cc)
 \end_layout
 
 \begin_layout Plain Layout
 
-		status = payment.process(self)
+        status = payment.process()
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertEqual(status, 'processed')
+        self.assertEqual(status, "processed")
 \end_layout
 
 \begin_layout Plain Layout
 
-    
 \end_layout
 
 \begin_layout Plain Layout
 
-	@mock.patch('shop.views.calculate_amount', autospec=True)
+    @mock.patch("shop.views.calculate_amount", autospec=True)
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_process_cc_without_credit(self, mock_calculate_amount):
+    def test_process_cc_without_credit(self, mock_calculate_amount):
 \end_layout
 
 \begin_layout Plain Layout
 
-		cc = FakeCreditCard(50)
+        cc = FakeCreditCard(50)
 \end_layout
 
 \begin_layout Plain Layout
 
-		mock_calculate_amount.return_value = 200
+        mock_calculate_amount.return_value = 200
 \end_layout
 
 \begin_layout Plain Layout
 
-		payment = Payment(1, cc)
+        payment = Payment(1, cc)
 \end_layout
 
 \begin_layout Plain Layout
 
-		status = payment.process(self)
+        status = payment.process()
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertEqual(status, 'cancelled')
+        self.assertEqual(status, "cancelled")
 \end_layout
 
 \end_inset
@@ -1935,37 +1934,36 @@ k=slot4hMinWeek, location=location, description=description)
 
 \begin_layout Plain Layout
 
-    
 \end_layout
 
 \begin_layout Plain Layout
 
-	def test_pharmacy_creation_image(self):
+    def test_pharmacy_creation_image(self):
 \end_layout
 
 \begin_layout Plain Layout
 
-		w = self.create_pharmacy_image("image.png")
+        w = create_pharmacy_image("image.png")
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertTrue(isinstance(w, Pharmacy))
+        self.assertTrue(isinstance(w, Pharmacy))
 \end_layout
 
 \begin_layout Plain Layout
 
-		fields = w.id, w.owner, w.name
+        fields = w.id, w.owner, w.name
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertEqual(w.__unicode__(), fields)
+        self.assertEqual(w.__unicode__(), fields)
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.assertEqual(w.image.name, "image.png")
+        self.assertEqual(w.image.name, "image.png")
 \end_layout
 
 \end_inset
@@ -2018,7 +2016,7 @@ class TestPermissions(TestCase):
 
 \begin_layout Plain Layout
 
-		self.assertTrue(IsAdmin.has_permission(self, self.request, self.view))
+		self.assertTrue(IsAdmin.has_permission(self.request, self.request, self.view))
 \end_layout
 
 \begin_layout Plain Layout
@@ -2048,7 +2046,7 @@ class TestPermissions(TestCase):
 
 \begin_layout Plain Layout
 
-		self.assertFalse(IsAdmin.has_permission(self, self.request, self.view))
+		self.assertFalse(IsAdmin.has_permission(self.request, self.request, self.view))
 \end_layout
 
 \end_inset
@@ -2141,68 +2139,86 @@ status open
 
 \begin_layout Plain Layout
 
-class Payment():
+class Payment:
 \end_layout
 
 \begin_layout Plain Layout
 
-	def __init__(self, invoice_id, credit_card):
+    def __init__(self, invoice_id, credit_card):
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert isinstance(credit_card, FakeCreditCard), "credit_card is not a
- FakeCreditCard instance"
+        self.status = "cancelled"
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.credit_card = credit_card
+        self.invoice_id = invoice_id
 \end_layout
 
 \begin_layout Plain Layout
 
-    
+        assert isinstance(
 \end_layout
 
 \begin_layout Plain Layout
 
-	def process(self, request):
+            credit_card, FakeCreditCard
 \end_layout
 
 \begin_layout Plain Layout
 
-		amount = calculate_amount()
+        ), "credit_card is not a FakeCreditCard instance"
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert amount >= 0, "amount should be positive"
+        self.credit_card = credit_card
 \end_layout
 
 \begin_layout Plain Layout
 
-		if self.credit_card.has_enough_credit(amount):
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.credit_card.withdraw(amount)
+    def process(self):
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.status = 'processed'
+        amount = calculate_amount()
 \end_layout
 
 \begin_layout Plain Layout
 
-		else:
+        assert amount >= 0, "amount should be positive"
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.status = 'cancelled'
+        if self.credit_card.has_enough_credit(amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.credit_card.withdraw(amount)
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.status = "processed"
+\end_layout
+
+\begin_layout Plain Layout
+
+        else:
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.status = "cancelled"
 \end_layout
 
 \begin_layout Plain Layout
@@ -2262,11 +2278,6 @@ if (len(listaProducts) == 0):
 
 \begin_layout Plain Layout
 
-	break;
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -2276,7 +2287,8 @@ if (len(listaProducts) == 0):
 
 \begin_layout Plain Layout
 
-self.assertRaises(Exception)
+self.assertRaises(Exception, algorithm_transfer, self, categoria_scelta,
+ quantita_scelta, x_scelta, y_scelta)
 \end_layout
 
 \end_inset
@@ -2391,18 +2403,33 @@ status open
 
 \begin_layout Plain Layout
 
-@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
+@icontract.require(lambda x: 0 <= x <= 100, "coordinate 0 <= x <= 100")
 \end_layout
 
 \begin_layout Plain Layout
 
-@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+@icontract.require(lambda y: 0 <= y <= 100, "coordinate 0 <= y <= 100")
 \end_layout
 
 \begin_layout Plain Layout
 
-@icontract.require(lambda category: Product.objects.all().filter(category=category).c
-ount() >= 1, "at least one product of that category is required")
+@icontract.require(
+\end_layout
+
+\begin_layout Plain Layout
+
+    lambda category: Product.objects.all().filter(category=category).count()
+ >= 1,
+\end_layout
+
+\begin_layout Plain Layout
+
+    "at least one product of that category is required",
+\end_layout
+
+\begin_layout Plain Layout
+
+)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2417,8 +2444,7 @@ ount() >= 1, "at least one product of that category is required")
 
 \begin_layout Plain Layout
 
-def algorithm_transfer(request, category: Category, quantity: int, x: int,
- y: int) -> list:
+def algorithm_transfer(
 \end_layout
 
 \begin_layout Plain Layout
@@ -2470,18 +2496,32 @@ status open
 
 \begin_layout Plain Layout
 
-@icontract.require(lambda listaProducts: len(listaProducts) > 0, "listaProducts
- must not be empty")
+@icontract.require(
 \end_layout
 
 \begin_layout Plain Layout
 
-@icontract.require(lambda x: x >= 0 and x <= 100, "coordinate 0 <= x <= 100")
+    lambda lista_products: len(lista_products) > 0,
 \end_layout
 
 \begin_layout Plain Layout
 
-@icontract.require(lambda y: y >= 0 and y <= 100, "coordinate 0 <= y <= 100")
+    "listaProducts must not be empty",
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda x: 0 <= x <= 100, "coordinate 0 <= x <= 100")
+\end_layout
+
+\begin_layout Plain Layout
+
+@icontract.require(lambda y: 0 <= y <= 100, "coordinate 0 <= y <= 100")
 \end_layout
 
 \begin_layout Plain Layout
@@ -2507,7 +2547,7 @@ status open
 
 \begin_layout Plain Layout
 
-def findGreedy(listaProducts: list, x: int, y: int):
+def find_greedy(lista_products, x: int, y: int):
 \end_layout
 
 \begin_layout Plain Layout
@@ -2532,8 +2572,17 @@ status open
 
 \begin_layout Plain Layout
 
-@icontract.invariant(lambda self: self.balance >= 0, "balance must not be
- negative")
+@icontract.invariant(
+\end_layout
+
+\begin_layout Plain Layout
+
+    lambda self: self.balance >= 0, "balance must not be negative"
+\end_layout
+
+\begin_layout Plain Layout
+
+)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2543,31 +2592,17 @@ class FakeCreditCard:
 
 \begin_layout Plain Layout
 
-	def __init__(self, balance=50):
+    def __init__(self, b=50):
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert balance >= 0, "balance should not be negative"
+        assert b >= 0, "balance should not be negative"
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.balance = balance
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	def has_enough_credit(self, amount):
-\end_layout
-
-\begin_layout Plain Layout
-
-		return self.balance > amount
+        self.balance = b
 \end_layout
 
 \begin_layout Plain Layout
@@ -2576,17 +2611,31 @@ class FakeCreditCard:
 
 \begin_layout Plain Layout
 
-	def withdraw(self, amount):
+    def has_enough_credit(self, amount):
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.balance = self.balance - amount
+        return self.balance > amount
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert self.balance >= 0, "balance should not be negative"
+\end_layout
+
+\begin_layout Plain Layout
+
+    def withdraw(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance = self.balance - amount
+\end_layout
+
+\begin_layout Plain Layout
+
+        assert self.balance >= 0, "balance should not be negative"
 \end_layout
 
 \end_inset
@@ -2834,51 +2883,6 @@ $ mypy -p shop
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename screenshot/MyPy (Success).png
-	lyxscale 75
-	scale 80
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset CommandInset label
-LatexCommand label
-name "MyPy success"
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-MyPy success
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 All'inizio si avevano degli errori del tipo in figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2962,7 +2966,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename screenshot/MyPy (Iniziale).png
+	filename screenshot/MyPy (Success).png
 	lyxscale 75
 	scale 80
 
@@ -2995,10 +2999,6 @@ MyPy finale
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-TODO IMMAGINE
 \end_layout
 
 \begin_layout Subsection
@@ -3826,7 +3826,7 @@ Vedi REST API.
 \end_layout
 
 \begin_layout Standard
-TODO (Performance, Vario)
+TODO (Vario)
 \end_layout
 
 \begin_layout Subsection
@@ -4095,7 +4095,7 @@ Viene configurato l'ambiente (
 \emph on
 Ubuntu
 \emph default
-) e installata la versione corretta di Python, in questo caso la 3.8.
+) e installata la versione corretta di Python, in questo caso la 3.7.
 \end_layout
 
 \begin_layout Itemize
@@ -4108,6 +4108,22 @@ requirements.txt
 \end_layout
 
 \begin_layout Itemize
+Vengono verificati i contratti stipulati con 
+\emph on
+icontract
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Viene effettuata l'analisi del codice con 
+\emph on
+mypy
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
 Viene effettuata l'analisi del codice con 
 \emph on
 pylint
@@ -4116,7 +4132,11 @@ pylint
 \end_layout
 
 \begin_layout Itemize
-Viene eseguito black per formattare il codice Python.
+Viene eseguito 
+\emph on
+black
+\emph default
+ per formattare il codice Python.
 \end_layout
 
 \begin_layout Standard
@@ -4124,8 +4144,15 @@ Viene eseguito black per formattare il codice Python.
 \series bold
 Nota:
 \series default
- I contratti sono già stati verificati quando vengono eseguiti i casi di
- test nella fase di testing.
+ I contratti di 
+\emph on
+icontract
+\emph default
+ e il check di 
+\emph on
+mypy
+\emph default
+ sono già stati verificati nella fase di testing.
 \end_layout
 
 \begin_layout Section

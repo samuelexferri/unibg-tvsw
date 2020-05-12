@@ -480,7 +480,7 @@ $ python manage.py runserver
 Se tutto va a buon fine dovreste ottenere l'output in figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Server"
+reference "Server online"
 plural "false"
 caps "false"
 noprefix "false"
@@ -514,7 +514,7 @@ status open
 \align center
 \begin_inset CommandInset label
 LatexCommand label
-name "Server"
+name "Server online"
 
 \end_inset
 
@@ -594,7 +594,7 @@ status open
 
 \begin_layout Plain Layout
 
-$ python manage.py loaddata db.json 
+$ python manage.py loaddata db.json
 \end_layout
 
 \end_inset
@@ -941,7 +941,7 @@ geckodriver.exe.
 
 \begin_layout Standard
 Alcuni tool hanno dipendenze incompatibili tra di loro se usato lo stesso
- environment: ad esempio 
+ environment; ad esempio 
 \emph on
 nagini
 \emph default
@@ -956,17 +956,7 @@ pytest
 \emph default
  che tuttavia è incompatibile con 
 \emph on
-django-mutpy
-\emph default
-: infatti ci sono alcuni problemi se si prova ad eseguire 
-\emph on
-django-mutpy
-\emph default
- avendo installato anche 
-\emph on
-pytest
-\emph default
-.
+django-mutpy.
 \end_layout
 
 \begin_layout Standard

@@ -216,7 +216,6 @@ class Payment:
             self.status = "processed"
         else:
             self.status = "cancelled"
-
         return self.status
 
 

@@ -974,5 +974,5 @@ class TransferTest8(TestCase):
             categoria_scelta,
             quantita_scelta,
             x_scelta,
-            y_scelta,
+            y_scelta
         )

@@ -2420,7 +2420,7 @@ status open
 
 \begin_layout Plain Layout
 
-class TransferTestN(TestCase):     
+class TransferTestN(TestCase):
 \end_layout
 
 \begin_layout Plain Layout
@@ -2554,17 +2554,17 @@ categoriaScelta= Category.objects.create(name="antinfiammatori",
 
 \begin_layout Plain Layout
 
-user1 = User.objects.create(username='Testuser1')         
+user1 = User.objects.create(username='Testuser1')
 \end_layout
 
 \begin_layout Plain Layout
 
-user2 = User.objects.create(username='Testuser2')         
+user2 = User.objects.create(username='Testuser2')
 \end_layout
 
 \begin_layout Plain Layout
 
-user3 = User.objects.create(username='Testuser3')         
+user3 = User.objects.create(username='Testuser3')
 \end_layout
 
 \begin_layout Plain Layout
@@ -2589,7 +2589,7 @@ farmacia1= Pharmacy.objects.create(owner=user1, name="farmacia1",
 
 \begin_layout Plain Layout
 
-		   location="Bergamo",description="Text")         
+		   location="Bergamo",description="Text")
 \end_layout
 
 \begin_layout Plain Layout
@@ -2604,7 +2604,7 @@ farmacia2= Pharmacy.objects.create(owner=user2, name="farmacia2",
 
 \begin_layout Plain Layout
 
-		   location="Bergamo",description="Text")         
+		   location="Bergamo",description="Text")
 \end_layout
 
 \begin_layout Plain Layout
@@ -2619,7 +2619,7 @@ farmacia3= Pharmacy.objects.create(owner=user3, name="farmacia3",
 
 \begin_layout Plain Layout
 
-		   location="Bergamo",description="Text")         
+		   location="Bergamo",description="Text")
 \end_layout
 
 \begin_layout Plain Layout
@@ -2643,17 +2643,17 @@ farmacia4= Pharmacy.objects.create(owner=user4, name="farmacia4",
 
 \begin_layout Plain Layout
 
-farmacia1.save()         
+farmacia1.save()
 \end_layout
 
 \begin_layout Plain Layout
 
-farmacia2.save()         
+farmacia2.save()
 \end_layout
 
 \begin_layout Plain Layout
 
-farmacia3.save()         
+farmacia3.save()
 \end_layout
 
 \begin_layout Plain Layout
@@ -2682,7 +2682,7 @@ prodotto1=Product.objects.create(name="prodotto1",
 
 \begin_layout Plain Layout
 
-		  brand="brand", quantity=670, price=10,shipping_fee=2)         
+		  brand="brand", quantity=670, price=10,shipping_fee=2)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2702,7 +2702,7 @@ prodotto2=Product.objects.create(name="prodotto2",
 
 \begin_layout Plain Layout
 
-		  brand="brand", quantity=201, price=10,shipping_fee=2)         
+		  brand="brand", quantity=201, price=10,shipping_fee=2)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2722,7 +2722,7 @@ prodotto3=Product.objects.create(name="prodotto3",
 
 \begin_layout Plain Layout
 
-		  brand="brand", quantity=290, price=10,shipping_fee=2)         
+		  brand="brand", quantity=290, price=10,shipping_fee=2)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2751,17 +2751,17 @@ prodotto4=Product.objects.create(name="prodotto4",
 
 \begin_layout Plain Layout
 
-prodotto1.save()         
+prodotto1.save()
 \end_layout
 
 \begin_layout Plain Layout
 
-prodotto2.save()         
+prodotto2.save()
 \end_layout
 
 \begin_layout Plain Layout
 
-prodotto3.save()         
+prodotto3.save()
 \end_layout
 
 \begin_layout Plain Layout
@@ -2861,8 +2861,7 @@ status open
 
 \begin_layout Plain Layout
 
-self.assertEqual(doppia[0], [farmacia1.id, farmacia3.id,farmacia2.id])     
-    
+self.assertEqual(doppia[0], [farmacia1.id, farmacia3.id,farmacia2.id])
 \end_layout
 
 \begin_layout Plain Layout
@@ -2883,8 +2882,12 @@ Questi comandi servono per effettuare il test vero e proprio sui risultati
 self.assertEqual(argomento1, argomento2) 
 \emph default
 riceve due argomenti e controlla che siano uguali i valori.
- Inserendo al posto di argomento2 il valore che ci si aspetta, si verifica
- se l'algoritmo funziona correttamente o meno.
+ Inserendo al posto di 
+\emph on
+argomento2
+\emph default
+ il valore che ci si aspetta, si verifica se l'algoritmo funziona correttamente
+ o meno.
 \end_layout
 
 \end_body

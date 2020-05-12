@@ -578,23 +578,22 @@ status open
 
 \begin_layout Plain Layout
 
-class TokenGenerate(PasswordResetTokenGenerator):     
+class TokenGenerate(PasswordResetTokenGenerator):
 \end_layout
 
 \begin_layout Plain Layout
 
-	def _make_hash_value(self, user, timestamp):         
+	def _make_hash_value(self, user, timestamp):
 \end_layout
 
 \begin_layout Plain Layout
 
-		return (                 
+		return (
 \end_layout
 
 \begin_layout Plain Layout
 
 			six.text_type(user.id) + six.text_type(timestamp) + six.text_type(user.is_active)
-         
 \end_layout
 
 \begin_layout Plain Layout
@@ -657,43 +656,43 @@ status open
 
 \begin_layout Plain Layout
 
-class IsStaffOrReadOnly(permissions.BasePermission):     
+class IsStaffOrReadOnly(permissions.BasePermission):
 \end_layout
 
 \begin_layout Plain Layout
 
-	"""     The request is authenticated as a member of a staff, or is a read-only
- request     """
+	""" The request is authenticated as a member of a staff, or is a read-only
+ request """
 \end_layout
 
 \begin_layout Plain Layout
 
-	def has_permission(self, request, view):         
+	def has_permission(self, request, view):
 \end_layout
 
 \begin_layout Plain Layout
 
-		if request.method in SAFE_METHODS:             
+		if request.method in SAFE_METHODS:
 \end_layout
 
 \begin_layout Plain Layout
 
-			return True         
+			return True
 \end_layout
 
 \begin_layout Plain Layout
 
-		elif request.user.is_staff:             
+		elif request.user.is_staff:
 \end_layout
 
 \begin_layout Plain Layout
 
-			return True         
+			return True
 \end_layout
 
 \begin_layout Plain Layout
 
-		else:             
+		else:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1056,12 +1055,12 @@ status open
 
 \begin_layout Plain Layout
 
-def calculate_amount():     
+def calculate_amount():
 \end_layout
 
 \begin_layout Plain Layout
 
-	return randint(1, 100)  # Random
+    return randint(1, 100)  # Random
 \end_layout
 
 \begin_layout Plain Layout
@@ -1070,68 +1069,86 @@ def calculate_amount():
 
 \begin_layout Plain Layout
 
-class Payment():     
+class Payment:
 \end_layout
 
 \begin_layout Plain Layout
 
-	def __init__(self, invoice_id, credit_card):         
+    def __init__(self, invoice_id, credit_card):
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert isinstance(credit_card, FakeCreditCard), "credit_card is not a
- FakeCreditCard instance"         
+        self.status = "cancelled"
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.credit_card = credit_card
+        self.invoice_id = invoice_id
 \end_layout
 
 \begin_layout Plain Layout
 
-    
+        assert isinstance(
 \end_layout
 
 \begin_layout Plain Layout
 
-	def process(self, request):         
+            credit_card, FakeCreditCard
 \end_layout
 
 \begin_layout Plain Layout
 
-		amount = calculate_amount()         
+        ), "credit_card is not a FakeCreditCard instance"
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert amount >= 0, "amount should be positive"         
+        self.credit_card = credit_card
 \end_layout
 
 \begin_layout Plain Layout
 
-		if self.credit_card.has_enough_credit(amount):             
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.credit_card.withdraw(amount)             
+    def process(self):
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.status = 'processed'         
+        amount = calculate_amount()
 \end_layout
 
 \begin_layout Plain Layout
 
-		else:             
+        assert amount >= 0, "amount should be positive"
 \end_layout
 
 \begin_layout Plain Layout
 
-			self.status = 'cancelled'
+        if self.credit_card.has_enough_credit(amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.credit_card.withdraw(amount)
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.status = "processed"
+\end_layout
+
+\begin_layout Plain Layout
+
+        else:
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.status = "cancelled"
 \end_layout
 
 \begin_layout Plain Layout
@@ -1145,57 +1162,65 @@ class Payment():
 
 \begin_layout Plain Layout
 
-class FakeCreditCard:     
+@icontract.invariant(
 \end_layout
 
 \begin_layout Plain Layout
 
-	def __init__(self, balance=50):         
+    lambda self: self.balance >= 0, "balance must not be negative"
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert balance >= 0, "balance should be positive"         
+) class FakeCreditCard:
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.balance = balance
+    def __init__(self, b=50):
 \end_layout
 
 \begin_layout Plain Layout
 
-    
+        assert b >= 0, "balance should not be negative"
 \end_layout
 
 \begin_layout Plain Layout
 
-	def has_enough_credit(self, amount):         
+        self.balance = b
 \end_layout
 
 \begin_layout Plain Layout
 
-		return self.balance > amount
 \end_layout
 
 \begin_layout Plain Layout
 
-    
+    def has_enough_credit(self, amount):
 \end_layout
 
 \begin_layout Plain Layout
 
-	def withdraw(self, amount):         
+        return self.balance > amount
 \end_layout
 
 \begin_layout Plain Layout
 
-		self.balance = self.balance - amount         
 \end_layout
 
 \begin_layout Plain Layout
 
-		assert self.balance >= 0, "balance should be positive"
+    def withdraw(self, amount):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.balance = self.balance - amount
+\end_layout
+
+\begin_layout Plain Layout
+
+        assert self.balance >= 0, "balance should not be negative"
 \end_layout
 
 \end_inset
@@ -1318,7 +1343,7 @@ status open
 
 \begin_layout Plain Layout
 
-class UserSerializer(serializers.ModelSerializer):     
+class UserSerializer(serializers.ModelSerializer):
 \end_layout
 
 \begin_layout Plain Layout
@@ -1338,12 +1363,12 @@ class UserSerializer(serializers.ModelSerializer):
 
 \begin_layout Plain Layout
 
-	class Meta:         
+	class Meta:
 \end_layout
 
 \begin_layout Plain Layout
 
-		model = User         
+		model = User
 \end_layout
 
 \begin_layout Plain Layout
@@ -1373,17 +1398,17 @@ status open
 
 \begin_layout Plain Layout
 
-class UserViewSet(viewsets.ModelViewSet):     
+class UserViewSet(viewsets.ModelViewSet):
 \end_layout
 
 \begin_layout Plain Layout
 
-	queryset = User.objects.all()     
+	queryset = User.objects.all()
 \end_layout
 
 \begin_layout Plain Layout
 
-	serializer_class = UserSerializer     
+	serializer_class = UserSerializer
 \end_layout
 
 \begin_layout Plain Layout
