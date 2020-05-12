@@ -43,10 +43,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Analisi statica (mypy)
+    - name: Design by Contract (icontract) runned with test
       working-directory: ${{env.working-directory}}
       run: |
-        mypy -p shop
+        
+    - name: Analisi statica (mypy) runned with migrate
+      working-directory: ${{env.working-directory}}
+      run: |
 
     - name: Analisi statica (pylint)
       working-directory: ${{env.working-directory}}
