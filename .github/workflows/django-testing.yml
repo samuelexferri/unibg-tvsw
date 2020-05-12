@@ -43,13 +43,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
-    - name: Run migrations
+    - name: Run migrations (mypu check included)
       working-directory: ${{env.working-directory}}
       run: |
         python manage.py makemigrations
         python manage.py migrate
         
-    - name: Run test and generate coverage report (Design by Contract included in tests)
+    - name: Run test (icontract verification included) and generate coverage report
       working-directory: ${{env.working-directory}}
       run: |
         coverage run manage.py test -v 2 --exclude-tag=selenium
