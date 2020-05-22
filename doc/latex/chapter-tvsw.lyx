@@ -314,13 +314,11 @@ Fase IV
 \emph default
  per l'algoritmo 
 \emph on
-transfer
-\emph default
-.
+transfer.
 \end_layout
 
 \begin_layout Standard
-TODO (Algoritmi)
+TODO (API, Algoritmi)
 \end_layout
 
 \begin_layout Section
@@ -1575,7 +1573,7 @@ requirements.txt
 \end_layout
 
 \begin_layout Itemize
-Vengono fatte le migrazioni di Django (incluso un check con 
+Vengono fatte le migrazioni di Django (incluso anche un check con 
 \emph on
 mypy
 \emph default
@@ -1611,8 +1609,7 @@ Inoltre nel file
 \emph on
 django-verification.yml
 \emph default
- vi è la parte verifica del codice (vedi sezione (illustrata successivamente
- 
+ vi è la parte verifica del codice (vedi sezione 
 \emph on
 Integrazione con CI
 \emph default
@@ -2561,8 +2558,11 @@ def find_greedy(lista_products, x: int, y: int):
 \end_layout
 
 \begin_layout Standard
-Il controllo di un inviariante è stato fatto ad esempio nella classe FakeCreditC
-ard in cui il bilancio della carta non può mai essere negativo:
+Il controllo di un inviariante è stato fatto ad esempio nella classe 
+\emph on
+FakeCreditCard
+\emph default
+ in cui il bilancio della carta non può mai essere negativo:
 \end_layout
 
 \begin_layout Standard
@@ -2670,7 +2670,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Contract error.png
 	lyxscale 75
-	scale 80
+	scale 65
 
 \end_inset
 
@@ -2725,7 +2725,7 @@ Nagini
 \end_layout
 
 \begin_layout Standard
-TODO
+TODO (Nagini)
 \end_layout
 
 \begin_layout Section
@@ -2908,7 +2908,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/MyPy (Iniziale).png
 	lyxscale 75
-	scale 80
+	scale 50
 
 \end_inset
 
@@ -3196,7 +3196,7 @@ status open
 \begin_inset Graphics
 	filename screenshot/Pylint (Shop).png
 	lyxscale 75
-	scale 80
+	scale 65
 
 \end_inset
 
@@ -3320,8 +3320,11 @@ Pylint su transfer
 \end_layout
 
 \begin_layout Standard
-In particolare grazie ai seguenti plugin basati è stato possibile individuare
- i problemi e sistemarli:
+In particolare grazie ai seguenti plugin aggiunti a 
+\emph on
+PyCharm
+\emph default
+ basati è stato possibile individuare i problemi e sistemarli:
 \end_layout
 
 \begin_layout Itemize
@@ -3622,8 +3625,8 @@ Dopo aver eliminato e risolto vulnerabilità anche gravi trovate nel codice,
 
 
 \emph default
- che tuttavia si può ignorare perchè sono stati effettuati ulteriori controlli
- oltre agli assert.
+ che tuttavia si può ignorare perchè gli assert sono aggiuntivi e non compromett
+ono l'esecuzione corretta del programma nel caso fossero ignorati.
 \end_layout
 
 \begin_layout Section
@@ -3699,8 +3702,7 @@ transfer
 
 \begin_layout Standard
 Dopo aver deciso la nuova struttura del progetto raggruppando in base al
- contesto, bisogna spostare tutti i modelli attinenti alla componente più
- appropriata.
+ contesto, bisogna spostare tutti i modelli nella componente più appropriata.
  In 
 \emph on
 authentication
@@ -3793,7 +3795,7 @@ Algoritmi:
 Isolati gli algoritmi, la loro stesura è stata migliorata e divisa in più
  funzioni ognuna con uno scopo preciso.
  Si è usato anche un data flow chart per ristrutturare il codice in modo
- da rendere chiara la divisione in varie casistiche.
+ da rendere chiara la divisione nelle varie casistiche.
  L'analisi della performance degli algortimi si può trarre dell'analisi
  di complessità degli algoritmi descritta nelle fasi precedenti.
 \end_layout
@@ -3900,6 +3902,13 @@ $ python manage.py graph_models authentication shop timetable transfer -o
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Nella figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3960,6 +3969,13 @@ Classes
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Nella figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3985,7 +4001,7 @@ status open
 \begin_inset Graphics
 	filename img/Packages.png
 	lyxscale 30
-	scale 30
+	scale 25
 
 \end_inset
 
@@ -4435,11 +4451,1667 @@ The test renders to a fixed, static page with no animation.
 \end_layout
 
 \begin_layout Standard
-TODO (Aggiungere)
+TODO (Vario)
 \end_layout
 
 \begin_layout Chapter
 Model Verification
+\end_layout
+
+\begin_layout Standard
+Costruiamo un modello della componente 
+\emph on
+Cart
+\emph default
+ dell'applicazione per simularla e verificarla.
+\end_layout
+
+\begin_layout Section
+Modello ASM (ASMETAL)
+\end_layout
+
+\begin_layout Standard
+Usando 
+\emph on
+ASMETAL
+\emph default
+ aggiunto ad 
+\emph on
+Eclipse
+\emph default
+ si è creata una prima versione del 
+\emph on
+Cart.asm
+\emph default
+ il cui codice è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+asm Cart
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+import ./STDL/StandardLibrary
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+signature:
+\end_layout
+
+\begin_layout Plain Layout
+
+	// DOMAINS
+\end_layout
+
+\begin_layout Plain Layout
+
+	abstract domain Drug
+\end_layout
+
+\begin_layout Plain Layout
+
+	enum domain States = {WAITING | ADD_PRODUCT_OR_EXIT | CHOOSE_GEN_COM |
+ SELECTED_GENERIC | SELECTED_COMMERCIAL | CLOSED}
+\end_layout
+
+\begin_layout Plain Layout
+
+	enum domain Actions = {ORDER | EXIT}
+\end_layout
+
+\begin_layout Plain Layout
+
+	enum domain AddProduct = {YES | NO}
+\end_layout
+
+\begin_layout Plain Layout
+
+	enum domain Type = {GENERIC | COMMERCIAL}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// CONTROLLED VARAIBLES
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic controlled cartState: States
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic controlled currentDrug: Drug	
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic controlled outMess: Any	// Output message
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic controlled total: Integer
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic controlled numOfProductsInCart: Integer
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// MONITORED VARAIBLES
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic monitored action: Actions 
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic monitored selectedDrug: Drug 
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic monitored selectedAddProduct: AddProduct
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic monitored selectedDrugType: Type
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic monitored insertQuantity: Integer
+\end_layout
+
+\begin_layout Plain Layout
+
+	dynamic monitored insertPrice: Integer
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// STATIC VARIABLES
+\end_layout
+
+\begin_layout Plain Layout
+
+	static litio: Drug
+\end_layout
+
+\begin_layout Plain Layout
+
+	static morfina: Drug
+\end_layout
+
+\begin_layout Plain Layout
+
+	static paracetamolo: Drug
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// DERIVED FUNCTION
+\end_layout
+
+\begin_layout Plain Layout
+
+	derived valid: Boolean
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// STATIC FUNCTION (N-ARIE)
+\end_layout
+
+\begin_layout Plain Layout
+
+	static getPrice: Drug -> Integer  
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+definitions:
+\end_layout
+
+\begin_layout Plain Layout
+
+	// DERIVED FUNCTION
+\end_layout
+
+\begin_layout Plain Layout
+
+	function valid = numOfProductsInCart < 2 // Max number of products in cart
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// STATIC FUNCTION (N-ARIE)
+\end_layout
+
+\begin_layout Plain Layout
+
+	function getPrice($c in Drug) = // $c Input a string
+\end_layout
+
+\begin_layout Plain Layout
+
+		switch($c)
+\end_layout
+
+\begin_layout Plain Layout
+
+			case litio : 7
+\end_layout
+
+\begin_layout Plain Layout
+
+			case morfina : 10
+\end_layout
+
+\begin_layout Plain Layout
+
+			case paracetamolo : 4
+\end_layout
+
+\begin_layout Plain Layout
+
+		endswitch
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// MACRO RULE SUPPORT
+\end_layout
+
+\begin_layout Plain Layout
+
+	macro rule r_AddGenericToTotal =
+\end_layout
+
+\begin_layout Plain Layout
+
+		par
+\end_layout
+
+\begin_layout Plain Layout
+
+		total := total + getPrice(currentDrug)*insertQuantity
+\end_layout
+
+\begin_layout Plain Layout
+
+		outMess := "Total price updated"
+\end_layout
+
+\begin_layout Plain Layout
+
+		numOfProductsInCart := numOfProductsInCart + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+		cartState := ADD_PRODUCT_OR_EXIT
+\end_layout
+
+\begin_layout Plain Layout
+
+		endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	macro rule r_AddCommercialToTotal =
+\end_layout
+
+\begin_layout Plain Layout
+
+		par
+\end_layout
+
+\begin_layout Plain Layout
+
+		total := total + insertPrice*insertQuantity
+\end_layout
+
+\begin_layout Plain Layout
+
+		outMess := "Total price updated"
+\end_layout
+
+\begin_layout Plain Layout
+
+		numOfProductsInCart := numOfProductsInCart + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+		cartState := ADD_PRODUCT_OR_EXIT
+\end_layout
+
+\begin_layout Plain Layout
+
+		endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// MACRO RULE MAIN
+\end_layout
+
+\begin_layout Plain Layout
+
+	macro rule r_Waiting =
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (cartState=WAITING) then
+\end_layout
+
+\begin_layout Plain Layout
+
+			par
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (action=ORDER) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				par
+\end_layout
+
+\begin_layout Plain Layout
+
+				cartState := ADD_PRODUCT_OR_EXIT
+\end_layout
+
+\begin_layout Plain Layout
+
+				outMess := "Select a generic or commercial drug"
+\end_layout
+
+\begin_layout Plain Layout
+
+				endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (action=EXIT) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				par
+\end_layout
+
+\begin_layout Plain Layout
+
+				cartState := CLOSED
+\end_layout
+
+\begin_layout Plain Layout
+
+				outMess := "Successful!"
+\end_layout
+
+\begin_layout Plain Layout
+
+				endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+			endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+		endif
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	macro rule r_SelectAddProductOrExit =
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (cartState=ADD_PRODUCT_OR_EXIT) then
+\end_layout
+
+\begin_layout Plain Layout
+
+			par
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (selectedAddProduct=YES) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				par
+\end_layout
+
+\begin_layout Plain Layout
+
+				cartState := CHOOSE_GEN_COM
+\end_layout
+
+\begin_layout Plain Layout
+
+				outMess := "Choose the type of drugs (generic or commercial)"
+\end_layout
+
+\begin_layout Plain Layout
+
+				endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (selectedAddProduct=NO) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				par
+\end_layout
+
+\begin_layout Plain Layout
+
+				cartState := WAITING
+\end_layout
+
+\begin_layout Plain Layout
+
+				outMess := "Order or Exit"
+\end_layout
+
+\begin_layout Plain Layout
+
+				endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+			endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+		endif
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	macro rule r_SelectDrugType =
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (cartState=CHOOSE_GEN_COM) then
+\end_layout
+
+\begin_layout Plain Layout
+
+			par
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (selectedDrugType=GENERIC) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				par 
+\end_layout
+
+\begin_layout Plain Layout
+
+				cartState := SELECTED_GENERIC
+\end_layout
+
+\begin_layout Plain Layout
+
+				outMess := "Insert a name of a generic drug in the list"
+\end_layout
+
+\begin_layout Plain Layout
+
+				endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (selectedDrugType=COMMERCIAL) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				par 
+\end_layout
+
+\begin_layout Plain Layout
+
+				cartState := SELECTED_COMMERCIAL
+\end_layout
+
+\begin_layout Plain Layout
+
+				outMess := "Insert a name of a new commercial drug"
+\end_layout
+
+\begin_layout Plain Layout
+
+				endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+			endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+		endif
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	macro rule r_DrugDetail =
+\end_layout
+
+\begin_layout Plain Layout
+
+		par
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (cartState=SELECTED_GENERIC) then
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (exist $c in Drug with $c=selectedDrug) then	
+\end_layout
+
+\begin_layout Plain Layout
+
+				seq // Necessarily sequential
+\end_layout
+
+\begin_layout Plain Layout
+
+				currentDrug := selectedDrug
+\end_layout
+
+\begin_layout Plain Layout
+
+				r_AddGenericToTotal[]
+\end_layout
+
+\begin_layout Plain Layout
+
+				endseq
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+		endif
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (cartState=SELECTED_COMMERCIAL) then
+\end_layout
+
+\begin_layout Plain Layout
+
+			r_AddCommercialToTotal[]
+\end_layout
+
+\begin_layout Plain Layout
+
+		endif
+\end_layout
+
+\begin_layout Plain Layout
+
+		endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	macro rule r_Closing = 
+\end_layout
+
+\begin_layout Plain Layout
+
+		cartState := CLOSED
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// MAIN RULE
+\end_layout
+
+\begin_layout Plain Layout
+
+	main rule r_Main =
+\end_layout
+
+\begin_layout Plain Layout
+
+		seq
+\end_layout
+
+\begin_layout Plain Layout
+
+		r_Waiting[]
+\end_layout
+
+\begin_layout Plain Layout
+
+			if (valid) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				seq
+\end_layout
+
+\begin_layout Plain Layout
+
+				r_SelectAddProductOrExit[]
+\end_layout
+
+\begin_layout Plain Layout
+
+				r_SelectDrugType[]
+\end_layout
+
+\begin_layout Plain Layout
+
+				r_DrugDetail[]
+\end_layout
+
+\begin_layout Plain Layout
+
+				endseq
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				r_Closing[]
+\end_layout
+
+\begin_layout Plain Layout
+
+			endif
+\end_layout
+
+\begin_layout Plain Layout
+
+		endseq
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// INITIAL STATE
+\end_layout
+
+\begin_layout Plain Layout
+
+default init s0:
+\end_layout
+
+\begin_layout Plain Layout
+
+	function cartState = WAITING
+\end_layout
+
+\begin_layout Plain Layout
+
+	function numOfProductsInCart = 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+	function total = 0 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Descrizione:
+\end_layout
+
+\begin_layout Standard
+Inizialmente viene chiesto di procedere a effettuare un ordine scegliendo
+ se aggiungere o meno un prodotto.
+ Viene richiesto il tipo di farmaco (generico o commerciale) e successivamente
+ se generico viene richiesto il nome (corrispondente a una lista definita)
+ e la quantità richiesta mentre se commerciali il prezzo e la quantità richiesta.
+ Viene aggiornato il totale del carrello e viene richiesto se concludere
+ l'ordine o proseguire con l'aggiunta di un altro farmaco.
+ Vi è un limite massimo di farmaci diversi presenti nel carrello pari a
+ 2.
+\end_layout
+
+\begin_layout Standard
+È stata usata la 
+\emph on
+StandardLibrary.asm
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Sono stati usati domini astratti come 
+\emph on
+Drug
+\emph default
+ e alcuni domini enum.
+ Vi sono numerose variabili sia controllate che monitorate e alcune statiche
+ riferite al dominio astratto 
+\emph on
+Drug
+\emph default
+ definito prima.
+ Vi sono anche due funzioni, una derivata e una statica n-aria (
+\emph on
+static getPrice: Drug -> Integer 
+\emph default
+ritorna un valore intero indicante il prezzo di ogni farmaco).
+ Vi sono numerose regole, alcune delle quali di supporto e altre principali.
+\end_layout
+
+\begin_layout Standard
+Vi è un dominio astratto per i farmaci 
+\emph on
+Drug
+\emph default
+ e molti domini enumerativi 
+\emph on
+States, Actions, AddProduct, Type
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Vi sono cinque variabili controllate:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+cartState
+\emph default
+: indica lo stato attuale del sistema.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+currentDrug
+\emph default
+: indica il farmaco attualmente selezionato.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+outMess
+\emph default
+: dove vengono visualizzati messaggi di output.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+total
+\emph default
+: indica il costo totale dei farmaci presenti nel carrello.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+numOfProductsInCart
+\emph default
+: indica il numero di prodotti presenti nel carrello (usato per limitare
+ il numero massimo di prodotti nel carrello).
+\end_layout
+
+\begin_layout Standard
+Vi sono sei variabili monitorate:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+action
+\emph default
+: indica l'azione corrente.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+selectedDrug
+\emph default
+: indica il farmaco attualmente selezionato.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+selectedAddProduct
+\emph default
+: indica se si vuole o meno aggiungere un prodotto.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+selectedDrugType
+\emph default
+: indica il tipo di farmaco che si vuole aggiungere.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+insertQuantity
+\emph default
+: indica la quantità richiesta del farmaco.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+insertPrice
+\emph default
+: indica il prezzo unitario del farmaco.
+\end_layout
+
+\begin_layout Standard
+Vi sono alcune regole che governano il comportamento della macchina a stati:
+\end_layout
+
+\begin_layout Standard
+Regola 
+\series bold
+r_Waiting:
+\end_layout
+
+\begin_layout Standard
+Regola iniziale dove si attende che l'utente inizi un ordine o esca.
+\end_layout
+
+\begin_layout Standard
+Regola 
+\series bold
+r_SelectAddProductOrExit
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+Regola in cui si chiede se si voglia aggiungere un prodotto al carrello
+ oppure no.
+\end_layout
+
+\begin_layout Standard
+Regola 
+\series bold
+r_SelectDrugType:
+\end_layout
+
+\begin_layout Standard
+Regola in cui l'utente seglie se il farmaco da aggiungere è generico o commercia
+le.
+\end_layout
+
+\begin_layout Standard
+Regola 
+\series bold
+r_DrugDetail:
+\end_layout
+
+\begin_layout Standard
+Regola in cui, in base al tipo di farmaco, si inserisce la quantità richiesta
+ e chiamerà una delle due regole di supporto 
+\series bold
+r_AddGenericToTotal 
+\series default
+o
+\series bold
+ r_AddCommercialToTotal.
+\end_layout
+
+\begin_layout Standard
+Regola
+\series bold
+ r_AddGenericToTotal:
+\end_layout
+
+\begin_layout Standard
+Regola di supporto che aggiorna il prezzo totale del carrello e il numero
+ di farmaci nel carrello dopo l'aggiunta di un farmaco generico sfruttando
+ la funzione 
+\emph on
+getPrice()
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Regola 
+\series bold
+r_AddCommercialToTotal
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+Regola di supporto che aggiorna il prezzo totale del carrello e il numero
+ di farmaci nel carrello dopo l'aggiunta di un farmaco commerciale.
+\end_layout
+
+\begin_layout Standard
+Regola 
+\series bold
+r_Closing:
+\end_layout
+
+\begin_layout Standard
+Regola in cui si setta a CLOSED lo stato del carrello.
+\end_layout
+
+\begin_layout Standard
+Regola 
+\series bold
+r_Main
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+Questa è la main rule che governa il sistema.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Nota:
+\series default
+ 
+\emph on
+seq
+\emph default
+ indica l'esecuzione sequenziale delle regole, 
+\emph on
+par
+\emph default
+ indica l'esecuzione parallela delle regole.
+\end_layout
+
+\begin_layout Section
+Simulazione, Animazione e Scenario Validation (ASMETAV (Avalla))
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Section
+Model Checking (ASMETASMV)
+\end_layout
+
+\begin_layout Standard
+Il model checking è un metodo per verificare algoritmicamente i sistemi
+ formali.
+ Viene realizzato mediante la verifica del modello, spesso derivato dal
+ modello hardware o software, soddisfacendo una specifica formale.
+ La specifica è spesso scritta come formule logiche temporali.
+ È stato usato il tool 
+\emph on
+ASMETASMV
+\emph default
+ usando 
+\emph on
+Eclipse
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Sono state usate anche le librerie 
+\emph on
+LTLlibrary.asm
+\emph default
+ e 
+\emph on
+CTLlibrary.asm.
+
+\emph default
+ È necessario anche 
+\emph on
+NuSMV
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Prima di procedere, per poter usare il tool, si è dovuto semplificare il
+ modello descritto in precedenza in un nuovo file 
+\emph on
+CartSimple.asm
+\emph default
+.
+ Questo perchè non sono supportati domini astratti e non sono supportati
+ nemmeno tipi Any, Integer o String; si necessitano quindi di domini ristretti.
+\end_layout
+
+\begin_layout Standard
+Alcuni cambiamenti apportati:
+\end_layout
+
+\begin_layout Itemize
+No output messages
+\end_layout
+
+\begin_layout Itemize
+Removed abstract domain and transformed into an enum domain (
+\emph on
+Drug
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+Reduced domain 
+\emph on
+SubInteger
+\emph default
+ and 
+\emph on
+SubIntegerReduced
+\end_layout
+
+\begin_layout Itemize
+Removed various variables also static
+\end_layout
+
+\begin_layout Itemize
+Modified 
+\emph on
+Main
+\emph default
+ rule (not sequenzial because it is not supported)
+\end_layout
+
+\begin_layout Itemize
+Modified 
+\emph on
+DrugDetail
+\emph default
+ rule (removed 
+\emph on
+exist
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+Price fixed for generic drugs
+\end_layout
+
+\begin_layout Itemize
+Removed loop (
+\emph on
+NO -> CLOSED
+\emph default
+)
+\end_layout
+
+\begin_layout Standard
+I check sono scritti prima della main rule e sono i seguenti:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// I prodotti nel carrello sono sempre minori o uguali di due
+\end_layout
+
+\begin_layout Plain Layout
+
+CTLSPEC ag(numOfProductsInCart <= 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Effettuato il pagamento si rimarrà nello stato CLOSED
+\end_layout
+
+\begin_layout Plain Layout
+
+CTLSPEC ag(cartState = CLOSED implies ag(cartState = CLOSED))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Iniziato un ordine si finirà sicuramente nello stato CLOSED (Grazie al
+ numero massimo di prodotti nel carrello si evitano loop)
+\end_layout
+
+\begin_layout Plain Layout
+
+CTLSPEC ag(cartState = CHOOSE_GEN_COM implies af(cartState = CLOSED))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// In ogni percorso, dopo aver cliccato EXIT si passa allo stato CLOSED
+\end_layout
+
+\begin_layout Plain Layout
+
+CTLSPEC ag((cartState = WAITING and action = EXIT) implies ax(cartState
+ = CLOSED))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// In ogni percorso, dopo aver cliccato NO si passa allo stato CLOSED
+\end_layout
+
+\begin_layout Plain Layout
+
+CTLSPEC ag((cartState=ADD_PRODUCT_OR_EXIT and selectedAddProduct = NO) implies
+ ax(cartState = CLOSED))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiungere)
+\end_layout
+
+\begin_layout Section
+Model Review, Model Advisor (ASMETAMA)
+\end_layout
+
+\begin_layout Standard
+Il tool 
+\emph on
+ASMETAMA
+\emph default
+ usato in 
+\emph on
+Eclipse
+\emph default
+ ha lo scopo di verificare la presenza di difetti comuni nei modelli 
+\emph on
+ASMETAL
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Basandoci su una prima versione di 
+\emph on
+CartSimple.asm 
+\emph default
+si otteneva il seguente output (rimosso l'intestazione):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MP1: No inconsistent update is ever performed
+\end_layout
+
+\begin_layout Plain Layout
+
+NONE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP2: Every conditional rule must be complete
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(and(valid,eq(cartState,ADD_PRODUCT_OR_EXIT)),eq(selected
+AddProduct,YES))) is not complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(eq(cartState,WAITING),eq(action,EXIT))) is not complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(valid,eq(cartState,SELECTED_GENERIC))) is not complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(valid,eq(cartState,SELECTED_COMMERCIAL))) is not
+ complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(and(valid,eq(cartState,ADD_PRODUCT_OR_EXIT)),eq(selected
+AddProduct,NO))) is not complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(and(valid,eq(cartState,CHOOSE_GEN_COM)),eq(selectedDrugT
+ype,COMMERCIAL))) is not complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(and(valid,eq(cartState,CHOOSE_GEN_COM)),eq(selectedDrugT
+ype,GENERIC))) is not complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (and(eq(cartState,WAITING),eq(action,ORDER))) is not
+ complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+ConditionalRule if (not(valid)) is not complete.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP2: Every case rule without otherwise must be complete
+\end_layout
+
+\begin_layout Plain Layout
+
+NONE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP3: Choose rule is always/sometimes/never not empty
+\end_layout
+
+\begin_layout Plain Layout
+
+NONE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP3: Forall rule is always/sometimes/never not empty
+\end_layout
+
+\begin_layout Plain Layout
+
+NONE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP3: Conditional rule eval to true
+\end_layout
+
+\begin_layout Plain Layout
+
+NONE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP4: No assignment is always trivial
+\end_layout
+
+\begin_layout Plain Layout
+
+NONE
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP5: For every domain element e, there exists a location which has value
+ e
+\end_layout
+
+\begin_layout Plain Layout
+
+Domain Drug is unuseful.
+ All its values are neither used in a domain nor in a codomain.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP6: Every controlled location can take any value in its codomain
+\end_layout
+
+\begin_layout Plain Layout
+
+Function currentDrug should be removed, because it's never used.
+\end_layout
+
+\begin_layout Plain Layout
+
+Function numOfProductsInCart does not take the values {10, 3, 4, 5, 6, 7,
+ 8, 9} of its domain.
+ It could be defined over the smaller domain {0, 1, 2}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP7: a location could be removed
+\end_layout
+
+\begin_layout Plain Layout
+
+Controlled location currentDrug is never used.
+ It could be removed.
+\end_layout
+
+\begin_layout Plain Layout
+
+Monitored location selectedDrug is never used.
+ It could be removed.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP7: a controlled location is never updated
+\end_layout
+
+\begin_layout Plain Layout
+
+Location currentDrug is never updated.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+MP7: a controlled location could be static
+\end_layout
+
+\begin_layout Plain Layout
+
+NONE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particolar modo si è proceduto risolvendo i vari punti:
+\end_layout
+
+\begin_layout Itemize
+MP2: Every conditional rule must be complete - Questa punto è stato ignorato
+ trattandosi di estetica; pur aggiungendo gli skip questi warning non scompariva
+no.
+\end_layout
+
+\begin_layout Itemize
+MP5: For every domain element e, there exists a location which has value
+ e - Questo punto è stato risolto eliminando il dominio 
+\emph on
+Drug
+\emph default
+ non necessario in questa versione semplificata del carrello.
+\end_layout
+
+\begin_layout Itemize
+MP6: Every controlled location can take any value in its codomain - Questo
+ punto è stato risolto eliminando la variabile 
+\emph on
+currentDrug
+\emph default
+ non più usata e riducendo il dominio di 
+\emph on
+numOfProductsInCart
+\emph default
+ a {0, 1, 2}.
+\end_layout
+
+\begin_layout Itemize
+MP7: a location could be removed - Questo punto è stato risolto eliminando
+ la variabile controllata 
+\emph on
+currentDrug
+\emph default
+ non usata e la variabile 
+\emph on
+selectedDrug
+\emph default
+ non usata.
+\end_layout
+
+\begin_layout Itemize
+MP7: a controlled location is never updated - Questo punto è stato risolto
+ eliminando la variabile controllata 
+\emph on
+currentDrug 
+\emph default
+essendo mai usata e quindi mai aggiornata.
+\end_layout
+
+\begin_layout Section
+ATGT
 \end_layout
 
 \begin_layout Standard

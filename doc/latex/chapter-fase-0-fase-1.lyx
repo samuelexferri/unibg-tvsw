@@ -931,22 +931,6 @@ https://pypi.org/project/bandit/
 \begin_layout Itemize
 
 \series bold
-Code Refractoring:
-\series default
- 
-\emph on
-black
-\emph default
-, formattatore di codice per Python (
-\emph on
-https://pypi.org/project/black/
-\emph default
-)
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
 Code Refractoring
 \series default
 : 
@@ -978,7 +962,23 @@ pyreverse
 \end_layout
 
 \begin_layout Itemize
-TODO (nagini)
+
+\series bold
+Code Refractoring:
+\series default
+ 
+\emph on
+black
+\emph default
+, formattatore di codice per Python (
+\emph on
+https://pypi.org/project/black/
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+TODO (Eliminare nagini)
 \end_layout
 
 \end_deeper
@@ -988,7 +988,33 @@ Model Verification
 
 \begin_deeper
 \begin_layout Itemize
-TODO (ASMETA)
+
+\series bold
+IDE: 
+\series default
+\emph on
+Eclipse,
+\series bold
+\emph default
+ 
+\series default
+ambiente di sviluppo multifunzionale 
+\emph on
+(https://www.eclipse.org/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Model Verification: 
+\series default
+\emph on
+ASMETA
+\emph default
+, framework per Abstract State Machines (ASMs) formal method; Tools: 
+\emph on
+ASMETAL, ASMETAV (Avalla), ASMETASMV (Require NuSMV), ASMETAMA, ATGT (https://as
+meta.github.io/)
 \end_layout
 
 \end_deeper
@@ -998,7 +1024,7 @@ Model Based Testing
 
 \begin_deeper
 \begin_layout Itemize
-TODO (CTWEDGE)
+TODO
 \end_layout
 
 \end_deeper

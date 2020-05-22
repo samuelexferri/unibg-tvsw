@@ -920,6 +920,35 @@ $ pip install pyreverse
 gvedit.exe` in the environment variables path
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// ### Model Verification ###
+\end_layout
+
+\begin_layout Plain Layout
+
+// Use Eclipse IDE with ASMETAL, ASMETAV (Avalla), ASMETASMV (Require NuSMV),
+ ASMETAMA, ATGT
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// ### Model Based Testing ###
+\end_layout
+
+\begin_layout Plain Layout
+
+// TODO
+\end_layout
+
 \end_inset
 
 
@@ -960,11 +989,7 @@ django-mutpy.
 \end_layout
 
 \begin_layout Standard
-TODO (nagini)
-\end_layout
-
-\begin_layout Standard
-TODO (Incompatibilità)
+TODO (Eliminare Nagini, Incompatibilità)
 \end_layout
 
 \begin_layout Standard
