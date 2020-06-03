@@ -5591,7 +5591,307 @@ Simulazione, Animazione e Scenario Validation (ASMETAV (Avalla))
 \end_layout
 
 \begin_layout Standard
-TODO
+Sono stati creati numerosi scenari simulati e animati con ASMETAV (Avalla).
+\end_layout
+
+\begin_layout Standard
+I comandi usati sono i seguenti:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Set
+\series default
+: commando per impostare il valore delle monitorate a un valore specifico.
+ Simula l’ambiente.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Check
+\series default
+: per verificare il valore delle funzioni dello stato corrente.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Step
+\series default
+: esegue un passo dell’ASM.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+StepUntil
+\series default
+: esegue l’ASM finchè una condizione risulta vera.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Invariant
+\series default
+: per verificare che una proprietà è sempre vera durante l’esecuzione dello
+ scenario.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Exec
+\series default
+: esegue una regola di transizione.
+\end_layout
+
+\begin_layout Standard
+Un esempio di scenario in cui viene aggiunto solamente un prodotto di tipo
+ generico al carrello è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+scenario CartSimple1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+load CartSimple.asm
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Invariante di scenario che afferma che il numero di prodotti nel carrello
+ è sempre minore di tre
+\end_layout
+
+\begin_layout Plain Layout
+
+invariant inv_1: numOfProductsInCart < 3;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+check numOfProductsInCart = 0 and cartState = WAITING;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+exec
+\end_layout
+
+\begin_layout Plain Layout
+
+	par
+\end_layout
+
+\begin_layout Plain Layout
+
+		action := ORDER
+\end_layout
+
+\begin_layout Plain Layout
+
+		selectedAddProduct := YES
+\end_layout
+
+\begin_layout Plain Layout
+
+	endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+step
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+check cartState = CHOOSE_GEN_COM;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+exec
+\end_layout
+
+\begin_layout Plain Layout
+
+	selectedDrugType := GENERIC
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+step
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+check cartState = SELECTED_GENERIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+exec
+\end_layout
+
+\begin_layout Plain Layout
+
+	par
+\end_layout
+
+\begin_layout Plain Layout
+
+		selectedDrug := LITIO
+\end_layout
+
+\begin_layout Plain Layout
+
+		insertQuantity := 2
+\end_layout
+
+\begin_layout Plain Layout
+
+	endpar
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+step
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+check cartState = ADD_PRODUCT_OR_EXIT and total = 2 and currentDrug = LITIO
+ and numOfProductsInCart = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+exec
+\end_layout
+
+\begin_layout Plain Layout
+
+	selectedAddProduct := NO
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+step
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+check cartState = CLOSED;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vi sono anche casi in cui viene verificata la chiusura automatica dell'ordine
+ dovuta al raggiungimento del numero massimo di farmaci nel carrello.
+\end_layout
+
+\begin_layout Standard
+Oltre gli scenari è posssibile animare manualmente o in maniera random ogni
+ step e input richiesto dal modello tramite l'animatore.
+\end_layout
+
+\begin_layout Standard
+TODO (Aggiungere)
 \end_layout
 
 \begin_layout Section
@@ -6123,7 +6423,59 @@ Model Based Testing
 \end_layout
 
 \begin_layout Standard
+I test basati su modelli si dividono in quattro approcci principali: 
+\end_layout
+
+\begin_layout Standard
+1.
+ Generazione di test input data da un modello di dominio 
+\end_layout
+
+\begin_layout Standard
+2.
+ Generazione di casi di test da un modello ambientale 
+\end_layout
+
+\begin_layout Standard
+3.
+ Generazione di casi di test con oracoli da un modello comportamentale 
+\end_layout
+
+\begin_layout Standard
+4.
+ Generazione di test scripts da test astratti 
+\end_layout
+
+\begin_layout Section
+Input Domain Modeling
+\end_layout
+
+\begin_layout Standard
+Le partizioni devono essere divise, nessun elemento in comune.
+\end_layout
+
+\begin_layout Standard
 TODO
+\end_layout
+
+\begin_layout Section
+Combinatorial Testing
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Section
+Model Based Testing (ModelJUnit o Yakindu)
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Standard
+TODO (Tools, Manuale)
 \end_layout
 
 \begin_layout Standard

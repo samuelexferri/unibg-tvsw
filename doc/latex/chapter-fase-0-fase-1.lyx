@@ -1006,7 +1006,7 @@ ambiente di sviluppo multifunzionale
 \begin_layout Itemize
 
 \series bold
-Model Verification: 
+Modelling: 
 \series default
 \emph on
 ASMETA
@@ -1024,7 +1024,68 @@ Model Based Testing
 
 \begin_deeper
 \begin_layout Itemize
-TODO
+
+\series bold
+IDE: 
+\series default
+\emph on
+Eclipse,
+\series bold
+\emph default
+ 
+\series default
+ambiente di sviluppo multifunzionale 
+\emph on
+(https://www.eclipse.org/)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Combinatorial Testing:
+\series default
+ 
+\emph on
+CTWEDGE
+\emph default
+, plugin per Eclipse per il test combinatorio (
+\emph on
+https://foselab.unibg.it/ctwedge/
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Model Based Testing:
+\series default
+ 
+\emph on
+ModelJUnit, 
+\emph default
+strumento per le EFSM (Extended Finite State Machines)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Model Based Testing:
+\series default
+ 
+\emph on
+Yakindu
+\emph default
+, strumento per la specifica e lo sviluppo di sistemi reattivi guidati da
+ eventi con l'aiuto di macchine a stati finiti (
+\emph on
+https://www.itemis.com/en/yakindu/state-machine/
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+TODO (Scegliere MBT)
 \end_layout
 
 \end_deeper

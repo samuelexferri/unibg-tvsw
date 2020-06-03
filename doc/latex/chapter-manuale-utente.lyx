@@ -946,7 +946,12 @@ gvedit.exe` in the environment variables path
 
 \begin_layout Plain Layout
 
-// TODO
+// CTWEDGE (Plugin di Eclipse)
+\end_layout
+
+\begin_layout Plain Layout
+
+// ModelJUnit o Yakindu
 \end_layout
 
 \end_inset
@@ -989,7 +994,7 @@ django-mutpy.
 \end_layout
 
 \begin_layout Standard
-TODO (Eliminare Nagini, Incompatibilità)
+TODO (Eliminare Nagini, Incompatibilità, Scegliere MBT)
 \end_layout
 
 \begin_layout Standard
