@@ -152,14 +152,6 @@ $ pip install bandit
 $ bandit -r -v .
 ```
 
-CPD:
-
-Install PMD-CPD
-
-```bash
-$ cpd --minimum-tokens 75 --files C:\GitHub\tvsw\pharmacies --language python
-```
-
 pyreverse:
 
 ```bash
@@ -175,6 +167,14 @@ Install GraphViz (visit the site) and add the the path `bin\gvedit.exe` in the e
 ```bash
 $ python manage.py graph_models -a -o models.png
 $ python manage.py graph_models authentication shop timetable transfer -o apps.png
+```
+
+CPD:
+
+Install PMD-CPD
+
+```bash
+$ cpd --minimum-tokens 75 --files C:\GitHub\tvsw\pharmacies --language python
 ```
 
 black:
