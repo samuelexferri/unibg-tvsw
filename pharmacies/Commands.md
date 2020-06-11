@@ -161,6 +161,14 @@ $ pip install bandit
 $ bandit -r -v .
 ```
 
+CPD:
+
+Install PMD-CPD
+
+```bash
+$ cpd --minimum-tokens 75 --files C:\GitHub\tvsw\pharmacies --language python
+```
+
 pyreverse:
 
 ```bash

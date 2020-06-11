@@ -968,26 +968,6 @@ Code Refractoring:
 \series default
  
 \emph on
-CPD
-\emph default
-, parte di 
-\emph on
-PMD
-\emph default
-, copy-paste detector per trovare codice duplicato (
-\emph on
-https://pmd.github.io/
-\emph default
-)
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Code Refractoring:
-\series default
- 
-\emph on
 black
 \emph default
 , formattatore di codice per Python (
@@ -995,6 +975,10 @@ black
 https://pypi.org/project/black/
 \emph default
 )
+\end_layout
+
+\begin_layout Itemize
+TODO (Eliminare nagini)
 \end_layout
 
 \end_deeper
@@ -1078,6 +1062,18 @@ Model Based Testing:
 \series default
  
 \emph on
+ModelJUnit, 
+\emph default
+strumento per le EFSM (Extended Finite State Machines)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Model Based Testing:
+\series default
+ 
+\emph on
 Yakindu
 \emph default
 , strumento per la specifica e lo sviluppo di sistemi reattivi guidati da
@@ -1086,6 +1082,10 @@ Yakindu
 https://www.itemis.com/en/yakindu/state-machine/
 \emph default
 )
+\end_layout
+
+\begin_layout Itemize
+TODO (Scegliere MBT)
 \end_layout
 
 \end_deeper
