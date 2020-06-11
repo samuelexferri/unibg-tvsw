@@ -4463,7 +4463,7 @@ Costruiamo un modello della componente
 \emph on
 Cart
 \emph default
- dell'applicazione per simularla e verificarla.
+ dell'applicazione.
 \end_layout
 
 \begin_layout Section
@@ -4475,9 +4475,9 @@ Usando
 \emph on
 ASMETAL
 \emph default
- aggiunto ad 
+, plugin di 
 \emph on
-Eclipse
+Eclipse,
 \emph default
  si è creata una prima versione del 
 \emph on
@@ -5216,22 +5216,17 @@ definitions:
 
 \begin_layout Plain Layout
 
-		seq
-\end_layout
-
-\begin_layout Plain Layout
-
-		r_Waiting[]
-\end_layout
-
-\begin_layout Plain Layout
-
 			if (valid) then
 \end_layout
 
 \begin_layout Plain Layout
 
-				seq
+				par
+\end_layout
+
+\begin_layout Plain Layout
+
+				r_Waiting[]
 \end_layout
 
 \begin_layout Plain Layout
@@ -5251,7 +5246,7 @@ definitions:
 
 \begin_layout Plain Layout
 
-				endseq
+				endpar
 \end_layout
 
 \begin_layout Plain Layout
@@ -5267,11 +5262,6 @@ definitions:
 \begin_layout Plain Layout
 
 			endif
-\end_layout
-
-\begin_layout Plain Layout
-
-		endseq
 \end_layout
 
 \begin_layout Plain Layout
@@ -5586,12 +5576,71 @@ par
  indica l'esecuzione parallela delle regole.
 \end_layout
 
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Semantic visualization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è rappresentata la semantic visualization.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Semantic visualization.png
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Semantic visualization"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Semantic visualization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Simulazione, Animazione e Scenario Validation (ASMETAV (Avalla))
 \end_layout
 
 \begin_layout Standard
-Sono stati creati numerosi scenari simulati e animati con ASMETAV (Avalla).
+Sono stati creati alcuni scenari simulati e animati con ASMETAV (Avalla).
 \end_layout
 
 \begin_layout Standard
@@ -5684,7 +5733,7 @@ load CartSimple.asm
 
 \begin_layout Plain Layout
 
-invariant inv_1: numOfProductsInCart < 3;
+invariant inv_1: numOfProductsInCart <= 2;
 \end_layout
 
 \begin_layout Plain Layout
@@ -5707,12 +5756,39 @@ exec
 
 \begin_layout Plain Layout
 
-	par
+		action := ORDER
 \end_layout
 
 \begin_layout Plain Layout
 
-		action := ORDER
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+step
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+check cartState = ADD_PRODUCT_OR_EXIT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+exec
 \end_layout
 
 \begin_layout Plain Layout
@@ -5722,12 +5798,11 @@ exec
 
 \begin_layout Plain Layout
 
-	endpar
+;
 \end_layout
 
 \begin_layout Plain Layout
 
-;
 \end_layout
 
 \begin_layout Plain Layout
@@ -5925,11 +6000,11 @@ LTLlibrary.asm
 CTLlibrary.asm.
 
 \emph default
- È necessario anche 
+ È necessario aver installato anche 
 \emph on
 NuSMV
 \emph default
-.
+ (Environment variables).
 \end_layout
 
 \begin_layout Standard
@@ -6081,6 +6156,65 @@ CTLSPEC ag((cartState = WAITING and action = EXIT) implies ax(cartState
 
 CTLSPEC ag((cartState=ADD_PRODUCT_OR_EXIT and selectedAddProduct = NO) implies
  ax(cartState = CLOSED))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "NuSMV Output"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è presente un output di NuSMV.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/NuSMV Output.png
+	lyxscale 30
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "NuSMV Output"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+NuSMV Output
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6415,7 +6549,7 @@ ATGT
 \end_layout
 
 \begin_layout Standard
-TODO
+TODO (NO?)
 \end_layout
 
 \begin_layout Chapter
