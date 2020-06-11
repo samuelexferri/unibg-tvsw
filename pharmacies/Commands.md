@@ -118,15 +118,6 @@ icontract:
 $ pip install icontract
 ```
 
-nagini:
-
-Require `typed-ast==0.6.3` (Incompatible with astroid, black and mypy) and `pytest` (Incompatible with django-mutpy)
-
-```bash
-$ pip install nagini
-$ nagini --z3 ViperToolsWin/z3/bin/z3 --viper-jar-path ViperToolsWin/backends/silicon.jar shop/views.py
-```
-
 mypy, django-stub:
 
 ```bash

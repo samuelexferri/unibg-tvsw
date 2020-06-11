@@ -796,26 +796,6 @@ $ pip install icontract
 
 \begin_layout Plain Layout
 
-// nagini
-\end_layout
-
-\begin_layout Plain Layout
-
-// Require `typed-ast==0.6.3` (Incompatible with astroid, black and mypy)
- and `pytest` (Incompatible with django-mutpy)
-\end_layout
-
-\begin_layout Plain Layout
-
-$ pip install nagini
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 // mypy, django-stub
 \end_layout
 
@@ -993,27 +973,13 @@ geckodriver.exe.
 \end_layout
 
 \begin_layout Standard
-Alcuni tool hanno dipendenze incompatibili tra di loro se usato lo stesso
- environment; ad esempio 
-\emph on
-nagini
-\emph default
- richiede 
-\emph on
-typed-ast==0.6.3
-\emph default
- mentre altri tools richiedono una versione più recente e inoltre richiede
- anche 
+Il tool 
 \emph on
 pytest
 \emph default
- che tuttavia è incompatibile con 
+ è incompatibile con 
 \emph on
 django-mutpy.
-\end_layout
-
-\begin_layout Standard
-TODO (Eliminare Nagini, Incompatibilità, Scegliere MBT)
 \end_layout
 
 \begin_layout Standard

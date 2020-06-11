@@ -882,6 +882,20 @@ $ pip install bandit
 
 \begin_layout Plain Layout
 
+// CPD
+\end_layout
+
+\begin_layout Plain Layout
+
+// Install PMD-CPD
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 // black
 \end_layout
 

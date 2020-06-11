@@ -836,27 +836,6 @@ https://pypi.org/project/icontract/
 \begin_layout Itemize
 
 \series bold
-Program Verification:
-\series default
- 
-\emph on
-nagini, 
-\emph default
-verificatore automatico per programmi Python con tipi statici, basato sull'infra
-struttura per la verifica del codice 
-\emph on
-Viper
-\emph default
- (
-\emph on
-https://pypi.org/project/nagini/
-\emph default
-) 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
 Analisi statica:
 \series default
  
