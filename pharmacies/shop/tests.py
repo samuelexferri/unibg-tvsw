@@ -296,18 +296,19 @@ Forms tests (Also parameterized)
         ("Test", "test@email.com", "Text", "Text", True),
         ("Test", "without.at", "Text", "Text", False),
         ("Test", "without@domain", "Text", "Text", False),
+        ("Test", "", "Text", "Text", False),
         ("", "test@email.com", "Text", "Text", False),
         (
             "LongNameLongNameLongNameLongNameLongNameLongNameLongNameLongName",
             "test@email.com",
             "Text",
             "Text",
-            False,
+            False
         ),
     ],
 )
 class ContactFormTestParametrized(TestCase):
-    def test_form(self):
+    def test_contact_form(self):
         data = {
             "name": self.name,
             "email": self.email,
@@ -378,7 +379,7 @@ class SellProductFormTest(TestCase):
     ],
 )
 class BuyerDeliveryFormTestParameterized(TestCase):
-    def test_form(self):
+    def test_buyer_form(self):
         data = {
             "full_name": self.full_name,
             "phone": self.phone,
@@ -423,7 +424,7 @@ class BuyerDeliveryFormTest(TestCase):
     ],
 )
 class ReviewFormTestParameterized(TestCase):
-    def test_form(self):
+    def test_review_form(self):
         data = {"review": self.review}
         form = ReviewForm(data=data)
         self.assertEqual(form.is_valid(), self.expected_result)

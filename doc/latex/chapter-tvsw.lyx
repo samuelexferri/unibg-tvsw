@@ -598,7 +598,7 @@ class ContactFormTest(TestCase):
 \end_layout
 
 \begin_layout Standard
-In totale sono state create 15 classi per testare i forms (anche parametrici),
+In totale sono state create 16 classi per testare i forms (anche parametrici),
  ognuna con i rispettivi metodi per verificare la corretta compilazione
  dei campi e l'invio del form.
  In particolare, un metodo testa un caso positivo in cui sono passati correttame
@@ -856,33 +856,58 @@ status open
 
 \begin_layout Plain Layout
 
-@parameterized_class(('name', 'email', 'subject', 'message', 'expected_result'),
- [
+@parameterized_class(
 \end_layout
 
 \begin_layout Plain Layout
 
-    ("Test", "test@email.com", "Text", "Text", True),
+    ("name", "email", "subject", "message", "expected_result"),
 \end_layout
 
 \begin_layout Plain Layout
 
-    ("Test", "without.at", "Text", "Text", False),
+    [
 \end_layout
 
 \begin_layout Plain Layout
 
-    ("Test", "without@domain", "Text", "Text", False),
+        ("Test", "test@email.com", "Text", "Text", True),
 \end_layout
 
 \begin_layout Plain Layout
 
-    ("", "test@email.com", "Text", "Text", False),
+        ("Test", "without.at", "Text", "Text", False),
 \end_layout
 
 \begin_layout Plain Layout
 
-])
+        ("Test", "without@domain", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("Test", "", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("", "test@email.com", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("LongNameLongNameLongNameLongNameLongNameLongNameLongNameLongName",
+ "test@email.com", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+    ],
+\end_layout
+
+\begin_layout Plain Layout
+
+)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3807,10 +3832,6 @@ admin/doc/
 Vedi REST API.
 \end_layout
 
-\begin_layout Standard
-TODO (Vario)
-\end_layout
-
 \begin_layout Subsection
 Pyreverse e GraphViz
 \end_layout
@@ -4525,10 +4546,6 @@ The test renders within a 800x600 viewport, only displaying scrollbars if
 \begin_layout Itemize
 The test renders to a fixed, static page with no animation.
  
-\end_layout
-
-\begin_layout Standard
-TODO (Vario)
 \end_layout
 
 \begin_layout Chapter
@@ -6033,6 +6050,59 @@ check cartState = CLOSED;
 \end_layout
 
 \begin_layout Standard
+Viene eseguita anche la copertura delle regole:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+** Coverage Info: **
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+r_Main
+\end_layout
+
+\begin_layout Plain Layout
+
+r_Waiting
+\end_layout
+
+\begin_layout Plain Layout
+
+r_SelectAddProductOrExit
+\end_layout
+
+\begin_layout Plain Layout
+
+r_SelectDrugType
+\end_layout
+
+\begin_layout Plain Layout
+
+r_AddGenericToTotal
+\end_layout
+
+\begin_layout Plain Layout
+
+r_DrugDetail
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Vi sono anche casi in cui viene verificata la chiusura automatica dell'ordine
  dovuta al raggiungimento del numero massimo di farmaci nel carrello.
 \end_layout
@@ -6040,10 +6110,6 @@ Vi sono anche casi in cui viene verificata la chiusura automatica dell'ordine
 \begin_layout Standard
 Oltre gli scenari è posssibile animare manualmente o in maniera random ogni
  step e input richiesto dal modello tramite l'animatore.
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiungere)
 \end_layout
 
 \begin_layout Section
@@ -6297,10 +6363,6 @@ NuSMV Output
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-TODO (Aggiungere)
 \end_layout
 
 \begin_layout Section
@@ -6662,11 +6724,713 @@ Input Domain Modeling
 \end_layout
 
 \begin_layout Standard
-Le partizioni devono essere divise, nessun elemento in comune.
+Modelliamo l'input domain della funzionalità 
+\emph on
+ContactForm
+\emph default
+ presente nell'applicazione.
+ In particolare consideriamo due campi principali, il campo nome e il campo
+ mail.
+ Le partizioni devono essere divise, ossia non devono avere nessun elemento
+ in comune e non devono sovrapporsi.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dominio D1 Nome:
+\series default
+ il campo nome è di tipo String e è vincolato da un limite di lunghezza
+ massima delle stringhe di 50 caratteri.
+ Le tre partizioni identificate sono: stringa vuota, stringa valida e stringa
+ con lunghezza superiore a 50.
+ Stringhe con lunghezza negativa non hanno nessun significato.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Blocchi di D1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stringa vuota ('')
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+'Text'
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+'LongText...LongText'
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Lunghezza (Int)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x = 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0 < x <= 50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x > 50
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominio D1 Nome
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dominio D2 Mail: 
+\series default
+il campo mail viene definito in questo modo:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+PartA@PartB.com or PartA@PartB.org
+\end_layout
+
+\end_inset
+
+Gli unici domini accettati sono .com e .org per semplicità.
+ Inoltre si assume per semplicità che l'ordine delle parti è sempre rispettato.
+ Analizzando le varie parti del campo mail si individuano le seguenti caratteris
+tiche:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+D2a PartA
+\series default
+: rappresenta la lunghezza della parte di stringa che precede la chiocciola
+ (Int).
+ Si divide in due partizioni: stringa vuota o meno (lunghezza non determinata).
+ Stringhe con lunghezza negativa non hanno nessun significato.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Blocchi di D2a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stringa vuota ('')
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+'Text'
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Lunghezza (Int)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x = 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x > 0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominio D2a PartA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+D2b PartB: 
+\series default
+rappresenta la lunghezza della parte di stringa che segue la chiocciola
+ (Int).
+ Si divide in due partizioni: stringa vuota o meno (lunghezza non determinata).
+ Stringhe con lunghezza negativa non hanno nessun significato.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Blocchi di D2b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stringa vuota ('')
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+'Text'
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Lunghezza (Int)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x = 0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x > 0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominio D2b PartB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+D2c Chiocciola:
+\emph on
+ 
+\series default
+\emph default
+indica la presenza o meno della chiocciola (Booleano).
+ Si divide in due partizioni: vero o falso.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Blocchi di D2c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Chiocciola
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Chiocciola mancante
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Bool
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+true
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+false
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominio D2c Chiocciola
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+D2d Dominio mail: 
+\series default
+rappresenta il dominio della mail (Enumerativo).
+ Si divide in quattro partizioni: DOTCOM o DOTORG gli unici validi (assunzione),
+ INVALID se non appartiene a quei due domini e NULL se non è specificato.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Blocchi di D2d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stringa vuota ('')
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stringa diversa da .com o .org
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Enum
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NULL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+INVALID
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+.com
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+.org
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DOTCOM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DOTORG
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominio D2d Dominio mail
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Dopo aver individuato i domini e le partizioni, eseguiamo prima di tutto
+ il prodotto cartesiano riguardante al campo mail:
 \end_layout
 
 \begin_layout Standard
-TODO
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+D2 = D2a * D2b * D2c * D2d = 2 * 2 * 2 * 4 = 32
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In seguito eseguiamo il prodotto cartesiano tra i due campi principali del
+ form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+D = D1 * D2 = 3 * 32 = 96
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sono quindi 96 le combinazioni totali possibili per il 
+\emph on
+ContactForm
+\emph default
+.
+ 
 \end_layout
 
 \begin_layout Section
@@ -6674,19 +7438,888 @@ Combinatorial Testing
 \end_layout
 
 \begin_layout Standard
-TODO
+Tuttavia 96 casi di test sono molti per essere implementati; si possono
+ usare dei criteri per ridurre questi casi di test sfruttando il seguente
+ concetto: la maggior parte delle failures sono scaturite da singoli valori
+ o combinazioni di pochi valori; coprendo coppie o triple si riducono il
+ numero di test necessari e si rivelano la maggior parte delle falle nel
+ codice.
+\end_layout
+
+\begin_layout Standard
+Introduciamo i seguenti approcci al Combinatorial Testing:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+All Combination (ACoC):
+\series default
+ il numero di test è il prodotto del numero di blocchi per ogni caratteristica.
+ Nel nostro caso 96.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Each Choice (EC):
+\series default
+ il numero di test è il numero di blocchi nella più caratteristica più grande.
+ Nel nostro caso 4.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pair Wise (PW):
+\series default
+ il numero di test è almeno il prodotto tra le due più grandi caratteristiche.
+ Nel nostro caso 4*3 = 12.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+t-Wise (TW):
+\series default
+ il numero di test è almeno il prodotto delle 
+\emph on
+t
+\emph default
+ più grandi caratteristiche.
+ Nel nostro caso, per
+\emph on
+ t=3
+\emph default
+ ad esempio è 4*3*2 = 24.
+\end_layout
+
+\begin_layout Standard
+Grazie al tool 
+\emph on
+CTWEDGE
+\emph default
+ definiamo i parametri e i vincoli per la generazione di casi di test del
+ 
+\emph on
+ContactForm
+\emph default
+ sfruttando l'analisi del dominio input precedente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Model Form
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Parameters:
+\end_layout
+
+\begin_layout Plain Layout
+
+// Form
+\end_layout
+
+\begin_layout Plain Layout
+
+formValid: Boolean
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Name
+\end_layout
+
+\begin_layout Plain Layout
+
+nameValid: Boolean
+\end_layout
+
+\begin_layout Plain Layout
+
+nameLength: {0, 25, 75}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Mail (Valid: PartA@PartB.com or PartA@PartB.org)
+\end_layout
+
+\begin_layout Plain Layout
+
+mailValid: Boolean
+\end_layout
+
+\begin_layout Plain Layout
+
+mailOrder: Boolean
+\end_layout
+
+\begin_layout Plain Layout
+
+mailPartA: {0, 10}
+\end_layout
+
+\begin_layout Plain Layout
+
+mailPartB: {0, 10}
+\end_layout
+
+\begin_layout Plain Layout
+
+mailContainsChiocciola: Boolean
+\end_layout
+
+\begin_layout Plain Layout
+
+mailDomain: {NULL, INVALID, DOTCOM, DOTORG}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Constraints:
+\end_layout
+
+\begin_layout Plain Layout
+
+# mailOrder = true # // Right order between characters (Simplicity)
+\end_layout
+
+\begin_layout Plain Layout
+
+# nameValid => (nameLength>0 and nameLength<=50) #
+\end_layout
+
+\begin_layout Plain Layout
+
+# mailValid => (mailPartA > 0 and mailPartB > 0 and mailContainsChiocciola==true
+ and (mailDomain=DOTCOM or mailDomain=DOTORG)) # 
+\end_layout
+
+\begin_layout Plain Layout
+
+# formValid => (nameValid and mailValid and mailOrder) #
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// One line
+\end_layout
+
+\begin_layout Plain Layout
+
+// # formValid => (nameLength>0 and nameLength<=50)  and (mailPartA > 0
+ and mailPartB > 0 and mailContainsChiocciola==true and (mailDomain=DOTCOM
+ or mailDomain=DOTORG)) #
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+È generato anche l'oracolo 
+\emph on
+formValid
+\emph default
+ che indica se il form è valido, ossia se tutti i campi e i vincoli sono
+ soddisfatti.
+ 
+\end_layout
+
+\begin_layout Standard
+È stato usato l'algoritmo ACTS e usando la copertura Pair Wise (N-Wise =
+ 2) ottengo 14 casi di test (sarebbero 12 ma con l'aggiunta dell'oracolo
+ sono considerati anche i due valori true) come si può vedere in figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "CTWEDGE"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/CTWEDGE.png
+	lyxscale 30
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "CTWEDGE"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CTWEDGE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questi test sono stati poi sfruttati per la generazione del test parametrizzato
+ sul 
+\emph on
+ContactForm
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+@parameterized_class(
+\end_layout
+
+\begin_layout Plain Layout
+
+    ("name", "email", "subject", "message", "expected_result"),
+\end_layout
+
+\begin_layout Plain Layout
+
+    [
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("Test", "test@email.com", "Text", "Text", True),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("Test", "without.at", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("Test", "without@domain", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("Test", "", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+        ("", "test@email.com", "Text", "Text", False),
+\end_layout
+
+\begin_layout Plain Layout
+
+        (
+\end_layout
+
+\begin_layout Plain Layout
+
+            "LongNameLongNameLongNameLongNameLongNameLongNameLongNameLongName",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "test@email.com",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "Text",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "Text",
+\end_layout
+
+\begin_layout Plain Layout
+
+            False,
+\end_layout
+
+\begin_layout Plain Layout
+
+        ),
+\end_layout
+
+\begin_layout Plain Layout
+
+    ],
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+class ContactFormTestParametrized(TestCase):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def test_form(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        data = {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "name": self.name,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "email": self.email,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "subject": self.subject,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "message": self.message,
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        form = ContactForm(data=data)
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.assertEqual(form.is_valid(), self.expected_result)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Model Based Testing (ModelJUnit o Yakindu)
+Model Based Testing
 \end_layout
 
 \begin_layout Standard
-TODO
+Per quanto riguarda il Model Based Testing creaiamo un modello del 
+\emph on
+Cart 
+\emph default
+usando il tool 
+\emph on
+Yakindu
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
-TODO (Tools, Manuale)
+Il figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Yakindu Model"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è rappresentato il modello a macchine a stati finiti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Yakindu Model.png
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Yakindu Model"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Yakindu Model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sono stati usate le seguenti impostazioni e interfacce:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+//@EventDriven
+\end_layout
+
+\begin_layout Plain Layout
+
+@CycleBased(200)
+\end_layout
+
+\begin_layout Plain Layout
+
+// Use the event driven execution model.
+\end_layout
+
+\begin_layout Plain Layout
+
+// Runs a run-to-completion step
+\end_layout
+
+\begin_layout Plain Layout
+
+// each time an event is raised.
+\end_layout
+
+\begin_layout Plain Layout
+
+// Switch to cycle based behavior
+\end_layout
+
+\begin_layout Plain Layout
+
+// by specifying '@CycleBased(200)'
+\end_layout
+
+\begin_layout Plain Layout
+
+// instead.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@ChildFirstExecution
+\end_layout
+
+\begin_layout Plain Layout
+
+// In composite states, execute
+\end_layout
+
+\begin_layout Plain Layout
+
+// child states first.
+\end_layout
+
+\begin_layout Plain Layout
+
+// @ParentFirstExecution does the opposite.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+interface:
+\end_layout
+
+\begin_layout Plain Layout
+
+// Define events
+\end_layout
+
+\begin_layout Plain Layout
+
+// and variables here.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+// Use CTRL + Space for content assist.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+in event Reset
+\end_layout
+
+\begin_layout Plain Layout
+
+in event Exit
+\end_layout
+
+\begin_layout Plain Layout
+
+in event Order
+\end_layout
+
+\begin_layout Plain Layout
+
+in event SelectGeneric
+\end_layout
+
+\begin_layout Plain Layout
+
+in event SelectCommercial
+\end_layout
+
+\begin_layout Plain Layout
+
+in event Confirm
+\end_layout
+
+\begin_layout Plain Layout
+
+in event Back
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var numOfProductsInCart: integer = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+var totalProducts: integer = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+operation selectGen(): integer
+\end_layout
+
+\begin_layout Plain Layout
+
+operation selectCom(): integer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particolare vi sono due funzioni 
+\emph on
+selectGen() 
+\emph default
+e 
+\emph on
+selectCom()
+\emph default
+ che, oltre a definire i dettagli dei farmaci selezionati dall'utente restituisc
+ono un intero indicante la quantità scelta selezionata dall'utente.
+ Questo valore viene usato per incrementare la variabile 
+\emph on
+totalProducts
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Sono stati anche scritti dei test per verificare il funzionamento del modello.
+ Un esempio mostrante il caso in cui si termina a causa del riempimento
+ del carrello è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+testclass TestCases for statechart Cart {
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	@Test
+\end_layout
+
+\begin_layout Plain Layout
+
+	operation test_cart_full() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		enter
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.AddOrExit)
+\end_layout
+
+\begin_layout Plain Layout
+
+		raise Order
+\end_layout
+
+\begin_layout Plain Layout
+
+		proceed 1 cycle
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.ChooseGenCom)
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert numOfProductsInCart == 1
+\end_layout
+
+\begin_layout Plain Layout
+
+		raise SelectGeneric
+\end_layout
+
+\begin_layout Plain Layout
+
+		proceed 1 cycle
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.SelectedGeneric)
+\end_layout
+
+\begin_layout Plain Layout
+
+		raise Confirm
+\end_layout
+
+\begin_layout Plain Layout
+
+		proceed 1 cycle
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.AddOrExit)
+\end_layout
+
+\begin_layout Plain Layout
+
+		raise Order
+\end_layout
+
+\begin_layout Plain Layout
+
+		proceed 1 cycle
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.ChooseGenCom)
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert numOfProductsInCart == 2
+\end_layout
+
+\begin_layout Plain Layout
+
+		raise SelectCommercial
+\end_layout
+
+\begin_layout Plain Layout
+
+		proceed 1 cycle
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.SelectedCommercial)
+\end_layout
+
+\begin_layout Plain Layout
+
+		raise Confirm
+\end_layout
+
+\begin_layout Plain Layout
+
+		proceed 1 cycle
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.AddOrExit)
+\end_layout
+
+\begin_layout Plain Layout
+
+		raise Order
+\end_layout
+
+\begin_layout Plain Layout
+
+		proceed 1 cycle
+\end_layout
+
+\begin_layout Plain Layout
+
+		assert active(main_region.Closed)
+\end_layout
+
+\begin_layout Plain Layout
+
+		exit
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Nota: 
+\series default
+Non è stato possibile generare il codice in Python e nemmeno la copertura
+ dei test perchè serviva una versione professional di 
+\emph on
+Yakindu
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+TODO (Descrivere)
 \end_layout
 
 \begin_layout Standard
