@@ -1,0 +1,74 @@
+scenario CartSimple2
+
+load CartSimple.asm
+
+// Invariante di scenario che afferma che il numero di prodotti nel carrello è sempre minore di tre
+invariant inv_1: numOfProductsInCart <= 2;
+
+check numOfProductsInCart = 0 and cartState = WAITING;
+
+exec
+		action := ORDER
+;
+
+step
+
+check cartState = ADD_PRODUCT_OR_EXIT;
+
+exec
+		selectedAddProduct := YES
+;
+
+
+step
+
+check cartState = CHOOSE_GEN_COM;
+
+exec
+	selectedDrugType := GENERIC
+;
+
+step
+
+check cartState = SELECTED_GENERIC;
+
+exec
+	par
+		selectedDrug := LITIO
+		insertQuantity := 2
+	endpar
+;
+
+step
+
+check cartState = ADD_PRODUCT_OR_EXIT and total = 2 and currentDrug = LITIO and numOfProductsInCart = 1;
+
+exec
+	selectedAddProduct := YES
+;
+
+step
+
+check cartState = CHOOSE_GEN_COM;
+
+exec
+	selectedDrugType := GENERIC
+;
+
+step
+
+check cartState = SELECTED_GENERIC;
+
+exec
+	par
+		selectedDrug := MORFINA
+		insertQuantity := 3
+	endpar
+;
+
+// Necessari due step per cambiare lo stato dopo la verifica del limite del carrello (Nessun input)
+step
+step
+
+// Stato CLOSED perchè raggiunto il limite massimo di 2 prodotti nel carrello
+check cartState = CLOSED and total = 5 and currentDrug = MORFINA and numOfProductsInCart = 2;

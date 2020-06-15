@@ -1,0 +1,169 @@
+testclass TestCases for statechart Cart {
+	
+	@Test
+	operation test_cart_full() {
+		enter
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Order
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		assert numOfProductsInCart == 1
+		
+		raise SelectGeneric
+		
+		proceed 1 cycle
+		
+		assert active(main_region.SelectedGeneric)
+		
+		raise Confirm
+		
+		proceed 1 cycle
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Order
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		assert numOfProductsInCart == 2
+		
+		raise SelectCommercial
+		
+		proceed 1 cycle
+		
+		assert active(main_region.SelectedCommercial)
+		
+		raise Confirm
+		
+		proceed 1 cycle
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Order
+		
+		proceed 1 cycle
+		
+		assert active(main_region.Closed)
+		
+		exit
+	}
+	
+	@Test
+	operation test_exit() {
+		enter
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Exit
+		
+		proceed 1 cycle
+		
+		assert active(main_region.Closed)
+	}
+	
+	@Test
+	operation test_reset() {
+		enter
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Reset
+		
+		proceed 1 cycle
+		
+		assert active(main_region.AddOrExit)
+		assert numOfProductsInCart == 0
+	}
+	
+	@Test
+	operation test_back() {
+		enter
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Order
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		
+		raise Back
+		
+		proceed 1 cycle
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Order
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		
+		raise SelectGeneric
+		
+		proceed 1 cycle
+		
+		assert active(main_region.SelectedGeneric)
+		
+		raise Back
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		
+		raise SelectGeneric
+		
+		proceed 1 cycle
+		
+		assert active(main_region.SelectedGeneric)
+		
+		raise Confirm
+		
+		proceed 1 cycle
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Order
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		
+		raise SelectGeneric
+		
+		proceed 1 cycle
+		
+		assert active(main_region.SelectedGeneric)
+		
+		raise Back
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		
+		raise SelectCommercial
+		
+		proceed 1 cycle
+		
+		assert active(main_region.SelectedCommercial)
+		
+		raise Confirm
+		
+		proceed 1 cycle
+		
+		assert active(main_region.AddOrExit)
+		
+		raise Exit
+		
+		proceed 1 cycle
+		
+		assert active(main_region.Closed)
+		
+		exit
+	}
+}

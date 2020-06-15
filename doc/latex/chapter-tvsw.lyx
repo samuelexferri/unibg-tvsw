@@ -4553,7 +4553,7 @@ Model Verification
 \end_layout
 
 \begin_layout Standard
-Costruiamo un modello della componente 
+Costruiamo un modello astratto della componente 
 \emph on
 Cart
 \emph default
@@ -4561,7 +4561,7 @@ Cart
 \end_layout
 
 \begin_layout Section
-Modello ASM (ASMETAL)
+Modello ASM
 \end_layout
 
 \begin_layout Standard
@@ -4569,7 +4569,7 @@ Usando
 \emph on
 ASMETAL
 \emph default
-, plugin di 
+, versione plugin di 
 \emph on
 Eclipse,
 \emph default
@@ -5393,6 +5393,13 @@ default init s0:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Descrizione:
@@ -5729,12 +5736,23 @@ Semantic visualization
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Simulazione, Animazione e Scenario Validation (ASMETAV (Avalla))
+Simulazione, Animazione e Scenario Validation
 \end_layout
 
 \begin_layout Standard
-Sono stati creati alcuni scenari simulati e animati con ASMETAV (Avalla).
+Sono stati creati alcuni scenari simulati e animati con 
+\emph on
+ASMETAA (Avalla) e ASMETAV
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -6113,7 +6131,7 @@ Oltre gli scenari è posssibile animare manualmente o in maniera random ogni
 \end_layout
 
 \begin_layout Section
-Model Checking (ASMETASMV)
+Model Checking
 \end_layout
 
 \begin_layout Standard
@@ -6126,28 +6144,20 @@ Il model checking è un metodo per verificare algoritmicamente i sistemi
 \emph on
 ASMETASMV
 \emph default
- usando 
-\emph on
-Eclipse
-\emph default
 .
-\end_layout
-
-\begin_layout Standard
-Sono state usate anche le librerie 
+ Sono state usate anche le librerie 
 \emph on
 LTLlibrary.asm
 \emph default
  e 
 \emph on
-CTLlibrary.asm.
-
+CTLlibrary.asm
 \emph default
- È necessario aver installato anche 
+ ed è anche necessario aver installato 
 \emph on
 NuSMV
 \emph default
- e aggiunto alle environment variables.
+ aggiungendolo alle environment variables.
 \end_layout
 
 \begin_layout Standard
@@ -6158,7 +6168,19 @@ CartSimple.asm
 \emph default
 .
  Questo perchè non sono supportati domini astratti e non sono supportati
- nemmeno tipi Any, Integer o String; si necessitano quindi di domini ristretti.
+ nemmeno tipi 
+\emph on
+Any
+\emph default
+, 
+\emph on
+Integer
+\emph default
+ o 
+\emph on
+String
+\emph default
+; si necessitano quindi di domini ristretti.
 \end_layout
 
 \begin_layout Standard
@@ -6317,7 +6339,7 @@ noprefix "false"
 
 \end_inset
 
- è presente un output di NuSMV.
+ è presente l'output di NuSMV.
 \end_layout
 
 \begin_layout Standard
@@ -6365,8 +6387,8 @@ NuSMV Output
 
 \end_layout
 
-\begin_layout Section
-Model Review, Model Advisor (ASMETAMA)
+\begin_layout Chapter
+Model Review, Model Advisor
 \end_layout
 
 \begin_layout Standard
@@ -6374,13 +6396,9 @@ Il tool
 \emph on
 ASMETAMA
 \emph default
- usato in 
-\emph on
-Eclipse
-\emph default
  ha lo scopo di verificare la presenza di difetti comuni nei modelli 
 \emph on
-ASMETAL
+ASMETA
 \emph default
 .
 \end_layout
@@ -6390,7 +6408,7 @@ Basandoci su una prima versione di
 \emph on
 CartSimple.asm 
 \emph default
-si otteneva il seguente output (rimosso l'intestazione):
+si otteneva il seguente output:
 \end_layout
 
 \begin_layout Standard
@@ -6724,15 +6742,17 @@ Input Domain Modeling
 \end_layout
 
 \begin_layout Standard
-Modelliamo l'input domain della funzionalità 
+In questa fase ci concentramo sul modellizzare gli input del programma,
+ in particolare modelliamo l'input domain della funzionalità 
 \emph on
 ContactForm
 \emph default
  presente nell'applicazione.
- In particolare consideriamo due campi principali, il campo nome e il campo
- mail.
+ Usiamo l'approccio interface based e consideriamo i due parametri principali,
+ il campo nome e il campo mail.
  Le partizioni devono essere divise, ossia non devono avere nessun elemento
- in comune e non devono sovrapporsi.
+ in comune, non devono sovrapporsi e tutte insieme devono coprire l'intero
+ dominio.
 \end_layout
 
 \begin_layout Itemize
@@ -6885,10 +6905,17 @@ PartA@PartB.com or PartA@PartB.org
 
 \end_inset
 
-Gli unici domini accettati sono .com e .org per semplicità.
- Inoltre si assume per semplicità che l'ordine delle parti è sempre rispettato.
+Gli unici domini accettati sono 
+\emph on
+.com
+\emph default
+ e 
+\emph on
+.org 
+\emph default
+per semplicità.
  Analizzando le varie parti del campo mail si individuano le seguenti caratteris
-tiche:
+tiche (si assume per semplicità che l'ordine delle parti è sempre rispettato):
 \end_layout
 
 \begin_deeper
@@ -7223,7 +7250,7 @@ Dominio D2c Chiocciola
 \begin_layout Itemize
 
 \series bold
-D2d Dominio mail: 
+D2d Dominio Mail: 
 \series default
 rappresenta il dominio della mail (Enumerativo).
  Si divide in quattro partizioni: DOTCOM o DOTORG gli unici validi (assunzione),
@@ -7370,7 +7397,7 @@ DOTORG
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominio D2d Dominio mail
+Dominio D2d Dominio Mail
 \end_layout
 
 \end_inset
@@ -7386,7 +7413,7 @@ Dominio D2d Dominio mail
 \end_deeper
 \begin_layout Standard
 Dopo aver individuato i domini e le partizioni, eseguiamo prima di tutto
- il prodotto cartesiano riguardante al campo mail:
+ il prodotto cartesiano riguardante il dominio D2 del campo mail:
 \end_layout
 
 \begin_layout Standard
@@ -7430,7 +7457,6 @@ Sono quindi 96 le combinazioni totali possibili per il
 ContactForm
 \emph default
 .
- 
 \end_layout
 
 \begin_layout Section
@@ -7439,15 +7465,24 @@ Combinatorial Testing
 
 \begin_layout Standard
 Tuttavia 96 casi di test sono molti per essere implementati; si possono
- usare dei criteri per ridurre questi casi di test sfruttando il seguente
- concetto: la maggior parte delle failures sono scaturite da singoli valori
- o combinazioni di pochi valori; coprendo coppie o triple si riducono il
- numero di test necessari e si rivelano la maggior parte delle falle nel
- codice.
+ usare dei criteri per ridurre questi casi di test sfruttando il cominatorial
+ testing e il seguente concetto: la maggior parte delle failures sono scaturite
+ da singoli valori o combinazioni di pochi valori, coprendo coppie o triple
+ si riducono il numero di test necessari e si rivelano la maggior parte
+ delle falle nel codice.
 \end_layout
 
 \begin_layout Standard
-Introduciamo i seguenti approcci al Combinatorial Testing:
+
+\series bold
+Nota:
+\series default
+ Viene scelto un valore per ogni partizione, questo perchè ogni valore della
+ partizione è supposto essere equamente utile per il testing.
+\end_layout
+
+\begin_layout Standard
+Introduciamo i seguenti approcci al combinatorial testing:
 \end_layout
 
 \begin_layout Itemize
@@ -7455,8 +7490,9 @@ Introduciamo i seguenti approcci al Combinatorial Testing:
 \series bold
 All Combination (ACoC):
 \series default
- il numero di test è il prodotto del numero di blocchi per ogni caratteristica.
- Nel nostro caso 96.
+ tutte le combinazioni dei blocchi di tutte le caratteristiche sono usate.
+ Il numero di test è pari al prodotto del numero di blocchi per ogni caratterist
+ica; nel nostro caso 96.
 \end_layout
 
 \begin_layout Itemize
@@ -7464,17 +7500,21 @@ All Combination (ACoC):
 \series bold
 Each Choice (EC):
 \series default
- il numero di test è il numero di blocchi nella più caratteristica più grande.
- Nel nostro caso 4.
+ un valore preso da ogni blocco per ogni caratteristica deve essere usato
+ in almeno un test.
+ Il numero di test è pari al numero di blocchi nella più caratteristica
+ più grande; nel nostro caso 4.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-Pair Wise (PW):
+Pair Wise (PW): 
 \series default
- il numero di test è almeno il prodotto tra le due più grandi caratteristiche.
- Nel nostro caso 4*3 = 12.
+un valore preso da ciascun blocco per ogni caratteristica deve essere combinato
+ con un valore preso da ogni blocco per ogni altra caratteristica.
+ Il numero di test è almeno il prodotto tra le due più grandi caratteristiche;
+ nel nostro caso 4*3 = 12.
 \end_layout
 
 \begin_layout Itemize
@@ -7482,16 +7522,20 @@ Pair Wise (PW):
 \series bold
 t-Wise (TW):
 \series default
- il numero di test è almeno il prodotto delle 
+ un valore preso da ciascun blocco per ogni gruppo di 
 \emph on
 t
 \emph default
- più grandi caratteristiche.
- Nel nostro caso, per
+ caratteristiche deve essere combinato.
+ Il numero di test è almeno il prodotto delle 
+\emph on
+t
+\emph default
+ più grandi caratteristiche; nel nostro caso, per
 \emph on
  t=3
 \emph default
- ad esempio è 4*3*2 = 24.
+ ad esempio, è 4*3*2 = 24.
 \end_layout
 
 \begin_layout Standard
@@ -7504,7 +7548,7 @@ CTWEDGE
 \emph on
 ContactForm
 \emph default
- sfruttando l'analisi del dominio input precedente.
+ sfruttando l'analisi dell'input domain precedente.
 \end_layout
 
 \begin_layout Standard
@@ -7657,9 +7701,12 @@ formValid
 
 \begin_layout Standard
 È stato usato l'algoritmo ACTS e usando la copertura Pair Wise (N-Wise =
- 2) ottengo 14 casi di test (sarebbero 12 ma con l'aggiunta dell'oracolo
- sono considerati anche i due valori true) come si può vedere in figura
- 
+ 2) si ottengono 14 casi di test (sarebbero 12 ma con l'aggiunta dell'oracolo
+ sono considerati anche i due valori 
+\emph on
+true
+\emph default
+) come si può vedere in figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "CTWEDGE"
@@ -7704,7 +7751,7 @@ name "CTWEDGE"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CTWEDGE
+CTWEDGE (N-Wise = 2)
 \end_layout
 
 \end_inset
@@ -7719,7 +7766,7 @@ CTWEDGE
 
 \begin_layout Standard
 Questi test sono stati poi sfruttati per la generazione del test parametrizzato
- sul 
+ riguardante il 
 \emph on
 ContactForm
 \emph default
@@ -7871,6 +7918,13 @@ class ContactFormTestParametrized(TestCase):
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Model Based Testing
 \end_layout
@@ -7885,6 +7939,9 @@ usando il tool
 Yakindu
 \emph default
 .
+ Iniziamo creando un modello astratto del carrello, successivamente si scrivono
+ dei test astratti che verranno trasformati in test concreti in Python molto
+ più dettagliati.
 \end_layout
 
 \begin_layout Standard
@@ -7899,9 +7956,6 @@ noprefix "false"
 \end_inset
 
  è rappresentato il modello a macchine a stati finiti.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -8117,7 +8171,20 @@ operation selectCom(): integer
 \end_layout
 
 \begin_layout Standard
-In particolare vi sono due funzioni 
+Vi sono vari eventi di input e due variabili interne all'EFSM: 
+\emph on
+numOfProductsInCart
+\emph default
+ indica il numero di tipi di prodotti attualmente presente nel carrello,
+ 
+\emph on
+totalProducts
+\emph default
+ indica la quantità totale presente nel carrello.
+\end_layout
+
+\begin_layout Standard
+Vi sono due funzioni 
 \emph on
 selectGen() 
 \emph default
@@ -8126,8 +8193,8 @@ e
 selectCom()
 \emph default
  che, oltre a definire i dettagli dei farmaci selezionati dall'utente restituisc
-ono un intero indicante la quantità scelta selezionata dall'utente.
- Questo valore viene usato per incrementare la variabile 
+ono un intero indicante la quantità scelta selezionata dall'utente; questo
+ valore viene usato per incrementare la variabile 
 \emph on
 totalProducts
 \emph default
@@ -8135,7 +8202,9 @@ totalProducts
 \end_layout
 
 \begin_layout Standard
-Sono stati anche scritti dei test per verificare il funzionamento del modello.
+È stato creato un test set formato da vari casi di test per garantire la
+ copertura di tutti gli stati e di tutte le transizioni garantendo l'eventuale
+ scoperta di difetti.
  Un esempio mostrante il caso in cui si termina a causa del riempimento
  del carrello è il seguente:
 \end_layout
@@ -8306,12 +8375,17 @@ testclass TestCases for statechart Cart {
 \end_layout
 
 \begin_layout Standard
+È possibile raggiungere tutti gli stati impementati e tutte le transizioni
+ sono state coperte.
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Nota: 
 \series default
-Non è stato possibile generare il codice in Python e nemmeno la copertura
- dei test perchè serviva una versione professional di 
+Non è stato possibile generare i test concreti in Python e nemmeno la loro
+ copertura perchè serviva una versione professional di 
 \emph on
 Yakindu
 \emph default
@@ -8319,7 +8393,7 @@ Yakindu
 \end_layout
 
 \begin_layout Standard
-TODO (Descrivere)
+TODO (Professional)
 \end_layout
 
 \begin_layout Standard

@@ -1,0 +1,29 @@
+Model Form
+
+Parameters:
+// Form
+formValid: Boolean
+
+// Name
+nameValid: Boolean
+nameLength: {0, 25, 75}
+
+// Mail (Valid: PartA@PartB.com or PartA@PartB.org)
+mailValid: Boolean
+mailOrder: Boolean
+mailPartA: {0, 10}
+mailPartB: {0, 10}
+mailContainsChiocciola: Boolean
+mailDomain: {NULL, INVALID, DOTCOM, DOTORG}
+
+Constraints:
+# mailOrder = true # // Right order between characters (Simplicity)
+# nameValid => (nameLength>0 and nameLength<=50) #
+# mailValid => (mailPartA > 0 and mailPartB > 0 and mailContainsChiocciola==true and (mailDomain=DOTCOM or mailDomain=DOTORG)) # 
+# formValid => (nameValid and mailValid and mailOrder) #
+
+// One line
+// # formValid => (nameLength>0 and nameLength<=50)  and (mailPartA > 0 and mailPartB > 0 and mailContainsChiocciola==true and (mailDomain=DOTCOM or mailDomain=DOTORG)) # 
+
+// Fix to see only valid form
+// # formValid = true #

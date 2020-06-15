@@ -1,0 +1,27 @@
+scenario CartSimple3
+
+load CartSimple.asm
+
+// Invariante di scenario che afferma che il numero di prodotti nel carrello è sempre minore di tre
+invariant inv_1: numOfProductsInCart <= 2;
+
+check numOfProductsInCart = 0 and cartState = WAITING;
+
+exec
+		action := ORDER
+;
+
+step
+
+check cartState = ADD_PRODUCT_OR_EXIT;
+
+exec
+		selectedAddProduct := NO
+;
+
+// Necessari due step per cambiare lo stato dopo la verifica del limite del carrello (Nessun input)
+step
+step
+
+// Stato CLOSED
+check cartState = CLOSED;
