@@ -1,0 +1,11 @@
+GeneratorModel for yakindu::python {
+
+	statechart Cart {
+
+		feature Outlet {
+			targetProject = "Cart"
+			targetFolder = "src-gen"
+			libraryTargetFolder = "src"
+		}
+	}
+}

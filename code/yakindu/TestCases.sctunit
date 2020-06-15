@@ -152,6 +152,18 @@ testclass TestCases for statechart Cart {
 		
 		assert active(main_region.SelectedCommercial)
 		
+		raise Back
+		
+		proceed 1 cycle
+		
+		assert active(main_region.ChooseGenCom)
+		
+		raise SelectCommercial
+		
+		proceed 1 cycle
+		
+		assert active(main_region.SelectedCommercial)
+		
 		raise Confirm
 		
 		proceed 1 cycle

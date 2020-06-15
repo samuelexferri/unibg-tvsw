@@ -8376,24 +8376,330 @@ testclass TestCases for statechart Cart {
 
 \begin_layout Standard
 È possibile raggiungere tutti gli stati impementati e tutte le transizioni
- sono state coperte.
-\end_layout
+ sono state coperte come si può vedere in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Yakindu Coverage"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
+\end_inset
 
-\series bold
-Nota: 
-\series default
-Non è stato possibile generare i test concreti in Python e nemmeno la loro
- copertura perchè serviva una versione professional di 
-\emph on
-Yakindu
-\emph default
 .
 \end_layout
 
 \begin_layout Standard
-TODO (Professional)
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename screenshot/Yakindu Coverage.png
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset CommandInset label
+LatexCommand label
+name "Yakindu Coverage"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Yakindu Coverage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+È stato generato pure il codice Python a partire dal modello descritto.
+ Qui di seguito sono riportate le interfacce:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"""
+\end_layout
+
+\begin_layout Plain Layout
+
+Interfaces defined in the state chart model
+\end_layout
+
+\begin_layout Plain Layout
+
+The interfaces defined in the state chart model are represented
+\end_layout
+
+\begin_layout Plain Layout
+
+as separate classes
+\end_layout
+
+\begin_layout Plain Layout
+
+"""
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class SCI_Interface:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	"""Implementation of scope sci_interface"""
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	def __init__(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.reset = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.exit = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.order = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.selectgeneric = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.selectcommercial = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.confirm = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.back = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.numofproductsincart = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.totalproducts = None
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.operationCallback = None
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	def raise_reset(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.reset = True
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	def raise_exit(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.exit = True
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	def raise_order(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.order = True
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	def raise_selectgeneric(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.selectgeneric = True
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	def raise_selectcommercial(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.selectcommercial = True
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	def raise_confirm(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.confirm = True
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	def raise_back(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.back = True
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	def clear_events(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.reset = False
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.exit = False
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.order = False
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.selectgeneric = False
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.selectcommercial = False
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.confirm = False
+\end_layout
+
+\begin_layout Plain Layout
+
+		self.back = False
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
