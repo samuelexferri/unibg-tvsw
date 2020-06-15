@@ -303,7 +303,7 @@ Forms tests (Also parameterized)
             "test@email.com",
             "Text",
             "Text",
-            False
+            False,
         ),
     ],
 )
