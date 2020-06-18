@@ -1534,14 +1534,6 @@ MutPy finale
 
 \end_layout
 
-\begin_layout Subsection
-TODO
-\end_layout
-
-\begin_layout Standard
-TODO (MCDC)
-\end_layout
-
 \begin_layout Section
 Continuous Integration (CI)
 \end_layout
@@ -2710,27 +2702,6 @@ Contract error
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Program Verification
-\end_layout
-
-\begin_layout Standard
-La 
-\emph on
-program verification
-\emph default
- mira a utilizzare prove formali per dimostrare che i programmi si comportano
- secondo le specifiche.
-\end_layout
-
-\begin_layout Subsection
-TODO 
-\end_layout
-
-\begin_layout Standard
-TODO
 \end_layout
 
 \begin_layout Section
@@ -6702,11 +6673,7 @@ essendo mai usata e quindi mai aggiornata.
 \end_layout
 
 \begin_layout Section
-ATGT
-\end_layout
 
-\begin_layout Standard
-TODO
 \end_layout
 
 \begin_layout Chapter
