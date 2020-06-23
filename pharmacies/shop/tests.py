@@ -3,7 +3,7 @@ from unittest import mock
 
 from django.contrib.auth.models import User
 from django.core.files import File
-from django.test import TestCase
+from django.test import TestCase, LiveServerTestCase, tag
 from django.urls import reverse
 from django.utils.text import slugify
 from parameterized import parameterized_class
@@ -638,7 +638,7 @@ class ViewTest(TestCase):
 Selenium, two command prompt necessary
 """
 
-"""
+
 @tag("selenium")
 class ContactViewSeleniumTest(LiveServerTestCase):
     def setUp(self):
@@ -661,7 +661,7 @@ class ContactViewSeleniumTest(LiveServerTestCase):
     def tearDown(self):
         self.driver.close()
         self.driver.quit()
-"""
+
 
 """
 Mock tests
