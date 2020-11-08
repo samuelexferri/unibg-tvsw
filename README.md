@@ -1,12 +1,12 @@
 # Software Testing and Check
 
 <p align="center">
-<img src="https://github.com/samuelexferri/tvsw/blob/master/images/croce.png" width="200">
+<img src="https://github.com/samuelexferri/unibg-tvsw/blob/master/images/croce.png" width="200">
 </p>
 
 Software Testing and Check project
 
-Based on Pharmacies management site in Django (The two projects will be merged in the future)
+Based on Pharmacies management site in Django (Information Technology III B project)
 
 ![alt text](https://img.shields.io/badge/Language-Italian-infomrmational?style=for-the-badge)
 
