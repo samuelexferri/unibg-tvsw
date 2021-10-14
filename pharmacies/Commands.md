@@ -3,7 +3,7 @@
 Path:
 
 ```bash
-$ cd C:\GitHub\tvsw\pharmacies
+$ cd C:/GitHub/tvsw/pharmacies
 ```
 
 Virtual Environment:
@@ -174,7 +174,7 @@ CPD:
 Install PMD-CPD
 
 ```bash
-$ cpd --minimum-tokens 75 --files C:\GitHub\tvsw\pharmacies --language python
+$ cpd --minimum-tokens 75 --files C:/GitHub/tvsw/pharmacies --language python
 ```
 
 black:
