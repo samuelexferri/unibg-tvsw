@@ -59,7 +59,7 @@ packaging==20.3
 parameterized==0.7.4
 pathspec==0.8.0
 pbr==5.4.5
-Pillow==9.0.0
+Pillow==9.0.1
 pluggy==0.6.0
 py==1.10.0
 pyan3==1.0.4
