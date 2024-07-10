@@ -99,4 +99,4 @@ urllib3==1.26.19
 wcwidth==0.1.9
 wrapt==1.12.1
 z3-solver==4.8.8.0
-zipp==3.1.0
+zipp==3.19.1
